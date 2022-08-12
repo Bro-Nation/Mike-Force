@@ -5878,7 +5878,7 @@ class Land_vn_pierwooden_01_dock_f
 				};
 			};
 
-			spawnPositionModelSpace[] = {0.00293,10.26758,-1.91181};
+			spawnPositionModelSpace[] = {0,12,-2};
 			spawnDirectionModelSpace = 270;
 		};
 	};
