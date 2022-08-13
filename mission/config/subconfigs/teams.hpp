@@ -280,7 +280,8 @@ class Frogmen
         UAVHacker = false;
         vn_artillery = false;
         harassable = true;
-        scout = false;
+        scout = true;
+        scout_multiple = true;
     };
 
     //Function Calls on team Join

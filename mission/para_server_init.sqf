@@ -18,6 +18,7 @@
 */
 
 call vn_mf_fnc_server_init_backend;
+["restart_messages", vn_mf_fnc_server_process_restart, [], 60] call para_g_fnc_scheduler_add_job;
 
 call para_s_fnc_init_whitelist;
 ["update_whitelist", para_s_fnc_init_whitelist, [], 120] call para_g_fnc_scheduler_add_job;
