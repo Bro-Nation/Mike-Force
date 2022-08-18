@@ -609,7 +609,7 @@ class vn_whitelisted_arsenal_loadouts
 			{ "vn_mpu_mag", 						{-1, 0, 0,-1}}, 
 			{ "vn_mpu_t_mag", 						{-1, 0, 0,-1}}, 
 			{ "vn_mk1_udg_mag", 					{-1, 0, 0,-1}}, 
-			{ "vn_b_item_lighter_01", 				{ 0,-1, 0,-1}}, 
+			{ "vn_b_item_lighter_01", 				{ 0, 0, 0,-1}}, 
 			{ "vn_b_item_cigs_01", 					{ 0,-1, 0,-1}}, 
 			{ "Chemlight_blue", 					{-1, 0, 0,-1}}, 
 			{ "Chemlight_green", 					{-1,-1, 0,-1}}, 

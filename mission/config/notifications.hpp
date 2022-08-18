@@ -240,4 +240,13 @@ class CfgNotifications
 		color[] = {1,0.3,0.2,1};
 		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
 	};
+
+	class ServerRestart 
+	{
+		title = "Scheduled Restart";
+		description = "%1";
+		priority = 8;
+		color[] = {0.1,0.8,0.1,1};
+		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
+	};
 };
