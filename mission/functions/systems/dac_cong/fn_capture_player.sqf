@@ -24,7 +24,7 @@ if !(isPlayer _target) exitWith {};
 	removeGoggles player;
 	removeHeadgear player;
 	removeAllWeapons player;
-	if (side _player == east) then {
+	if (_player getVariable 'vn_mf_side' == east) then {
 		player forceAddUniform (selectRandom ["vn_o_uniform_nva_army_01_02","vn_o_uniform_nva_army_02_01","vn_o_uniform_nva_army_01_01","vn_o_uniform_nva_army_03_02","vn_o_uniform_nva_army_02_02","vn_o_uniform_nva_army_03_01"]);
 		player addItem "vn_o_item_firstaidkit";
 		player addItem "vn_o_item_firstaidkit";
