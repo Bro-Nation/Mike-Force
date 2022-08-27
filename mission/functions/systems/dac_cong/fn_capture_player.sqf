@@ -20,12 +20,12 @@ if !(isPlayer _target) exitWith {};
 {
 	removeAllAssignedItems player;
 	removeAllItems player;
-	removeAllContainers player;
 	removeGoggles player;
 	removeHeadgear player;
 	removeAllWeapons player;
-	//temporarily moved aside (selectRandom ["vn_b_uniform_macv_01_01","vn_b_uniform_macv_01_02","vn_b_uniform_macv_01_03","vn_b_uniform_macv_01_04","vn_b_uniform_macv_01_05","vn_b_uniform_macv_01_06"])
-	player forceAddUniform "vn_o_uniform_nva_army_01_01";
+	removeVest player;
+	removeBackpack player;
+	//temporarily moved aside player forceAddUniform "vn_o_uniform_nva_army_01_01" (selectRandom ["vn_b_uniform_macv_01_01","vn_b_uniform_macv_01_02","vn_b_uniform_macv_01_03","vn_b_uniform_macv_01_04","vn_b_uniform_macv_01_05","vn_b_uniform_macv_01_06"])
 	player addItem "vn_o_item_firstaidkit";
 	player addItem "vn_o_item_firstaidkit";
 	player addItem "vn_o_item_firstaidkit";
