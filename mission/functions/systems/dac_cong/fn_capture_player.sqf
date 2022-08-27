@@ -24,11 +24,11 @@ if !(isPlayer _target) exitWith {};
 	removeGoggles player;
 	removeHeadgear player;
 	removeAllWeapons player;
-	_target forceAddUniform "vn_o_uniform_nva_army_01_01";
-	_target addItem "vn_o_item_firstaidkit";
-	_target addItem "vn_o_item_firstaidkit";
-	_target addItem "vn_o_item_firstaidkit";
-	_target addItem "vn_o_item_firstaidkit";
+	player forceAddUniform "vn_o_uniform_nva_army_01_01";
+	player addItem "vn_o_item_firstaidkit";
+	player addItem "vn_o_item_firstaidkit";
+	player addItem "vn_o_item_firstaidkit";
+	player addItem "vn_o_item_firstaidkit";
 	
 } remoteExec ["call", _target];
 
