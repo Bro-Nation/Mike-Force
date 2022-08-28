@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=0.1;
 	autoGroupingDist=10;
-	toggles=706;
+	toggles=578;
 	class ItemIDProvider
 	{
 		nextID=14107;
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=4642;
+		nextID=4729;
 	};
 	class Camera
 	{
-		pos[]={254.88823,230.18658,18570.902};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={15913.211,12.23163,8017.7461};
+		dir[]={-0.29654917,-0.62616599,0.72109765};
+		up[]={-0.23815794,0.7796858,0.57911175};
+		aside[]={0.92484981,7.5029675e-008,0.38034168};
 	};
 };
 binarizationWanted=0;
@@ -106,7 +106,6 @@ addons[]=
 	"A3_Rocks_F_Blunt",
 	"A3_Rocks_F_Sharp",
 	"A3_Data_F_ParticleEffects",
-	"Blastcore_VEP",
 	"A3_Props_F_Exp_Industrial_HeavyEquipment",
 	"A3_Props_F_Exp_Civilian_Garbage",
 	"A3_Structures_F_Exp_Civilian_Sheds",
@@ -118,7 +117,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=57;
+		items=56;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -485,31 +484,26 @@ class AddonsMetaData
 		};
 		class Item52
 		{
-			className="Blastcore_VEP";
-			name="Blastcore_VEP";
-		};
-		class Item53
-		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item54
+		class Item53
 		{
 			className="weapons_f_vietnam_03_c";
 			name="weapons_f_vietnam_03_c";
 			author="Savage Game Design";
 			url="https://www.arma3.com";
 		};
-		class Item55
+		class Item54
 		{
 			className="boat_f_vietnam_02_c";
 			name="boat_f_vietnam_02_c";
 			author="Savage Game Design";
 			url="https://www.arma3.com";
 		};
-		class Item56
+		class Item55
 		{
 			className="static_f_vietnam_03_c";
 			name="static_f_vietnam_03_c";
@@ -577,8 +571,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -628,8 +622,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -646,19 +640,6 @@ class CustomAttributes
 		name="Scenario";
 		class Attribute0
 		{
-			property="cba_settings_hasSettingsFile";
-			expression="false";
-			class Value
-			{
-				class data
-				{
-					singleType="BOOL";
-					value=1;
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="EnableDebugConsole";
 			expression="true";
 			class Value
@@ -670,7 +651,7 @@ class CustomAttributes
 				};
 			};
 		};
-		nAttributes=2;
+		nAttributes=1;
 	};
 };
 class Mission
@@ -1925,7 +1906,7 @@ class Mission
 					text="Supply Drop Hue";
 					type="Empty";
 					id=679;
-					atlOffset=10.02999;
+					atlOffset=8.6642857;
 				};
 				class Item5
 				{
@@ -15503,7 +15484,7 @@ class Mission
 			name="mf_dc_respawn_tunnel_1_nw";
 			text="@STR_vn_mf_respawn_tunnel_1";
 			type="Empty";
-			angle=197.39899;
+			angle=197.39897;
 			id=4465;
 		};
 		class Item423
@@ -15534,7 +15515,7 @@ class Mission
 			name="OBS_mf_dc_respawn_tunnel_1_sw";
 			text="@STR_vn_mf_respawn_tunnel_1";
 			type="Empty";
-			angle=197.39899;
+			angle=197.39897;
 			id=4468;
 		};
 		class Item426
@@ -18022,7 +18003,7 @@ class Mission
 				class Attribute0
 				{
 					property="groupID";
-					expression=" if (isNil 'CBA_fnc_setCallsign') then { _this setGroupID [_value]; } else { [_this, _value] call CBA_fnc_setCallsign; }; ";
+					expression="_this setGroupID [_value];";
 					class Value
 					{
 						class data
@@ -91058,8 +91039,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15913.486,1.4922729,8025.3125};
-				angles[]={0.0077419402,3.0616522,6.2679539};
+				position[]={15917.96,2.1847816,8025.207};
+				angles[]={6.2679958,4.6271601,6.275362};
 			};
 			side="Empty";
 			flags=4;
@@ -91069,7 +91050,6 @@ class Mission
 			};
 			id=14102;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.32705319;
 			class CustomAttributes
 			{
 				class Attribute0
