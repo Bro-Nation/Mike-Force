@@ -11,7 +11,7 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **Frequency**
-How often does this bug happen?
+How often does this bug happen? (place an 'x' between the square brackets below)
 
 * [ ] At most once a week 
 * [ ] At most once per day
@@ -20,7 +20,7 @@ How often does this bug happen?
 * [ ] Constant and persistent
 
 **Impact**
-How much of an impact does this bug have on gameplay?
+How much of an impact does this bug have on gameplay? (place an 'x' between the square brackets below)
 
 * [ ] Almost none
 * [ ] Minor annoyances
@@ -28,40 +28,51 @@ How much of an impact does this bug have on gameplay?
 * [ ] Game is unplayable
 
 **Scope**
-How many players (estimated) does this bug affect?
+How many players (estimated) does this bug affect? (place an 'x' between the square brackets below)
 
 * [ ] Only me
-* [ ] A specific unit
-* [ ] A specific team (e.g. Spike teams or Air teams)
+* [ ] A handful of unrelated players
+* [ ] A specific unit (example: SASR)
+* [ ] A specific team (example: all Spike teams)
+* [ ] A specific side (example: all of BLUEFOR)
 * [ ] All players
+* [ ] Zeuses
 
-Please specify which units / teams are affected if indicated as such above:
+If applicable, please list the specific units / teams affected:
+
 
 **Temporary workarounds**
 Are there any known workarounds / temporary fixes for the problem?
 
 **Reproduction**
-Steps to reproduce the bug (If you can't reproduce it, just give details of what happened beforehand. Anything you think could be relevant).
+If applicable, can this bug be made to happen on-demand? Are there any specific steps/actions the development team need to perform to make the bug happen for them? Anything you think could be relevant. Please be detailed here!
 
 **Expected behaviour**
 A clear and concise description of what you expected should happen (instead of what actually happened).
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Screenshots / Videos**
+If applicable, attach suitable screenshots/videos of the bug to help explain your problem. 
+
+For SCREENSHOTS: Place the text cursor in the empty space below this line and follow the instructions at the bottom of the editor window.
+
+For VIDEOS: upload to a hosting service like YouTube first and paste the link here.
 
 **Discord posts**
 If applicable, add links to discord posts of players reporting the problem.
 
 **Your Bro Nation In-Game Name**
-What is you in-game name for Bro Nation servers (to help searching through the logs).
+If applicable, what is your in-game name for Bro Nation servers (to help searching through the Arma3 log files).
+
+**Your Bro Nation Discord Name**
+If applicable, what is your discord name for Bro Nation servers (to help in communicating with players about the bug).
 
 **Bro-Nation Server**
 Which server did the bug happen on:
-* [ ] BN MF #1
-* [ ] BN MF #2
-* [ ] BN MF #3
-* [ ] BN MF #5 (Unsung)
-* [ ] BN MF Training
+* [ ] BN MF 1 (https://www.battlemetrics.com/rcon/servers/14443958)
+* [ ] BN MF 2 (https://www.battlemetrics.com/rcon/servers/13401008)
+* [ ] BN MF 3 (No Whitelist) (https://www.battlemetrics.com/rcon/servers/4478492)
+* [ ] BN MF 5 (Unsung) (https://www.battlemetrics.com/rcon/servers/15066721)
+* [ ] BN MF Training 1 (https://www.battlemetrics.com/rcon/servers/14997108)
 * [ ] Local Development Environment
 
 **Bro-Nation Server**
