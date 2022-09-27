@@ -38,11 +38,18 @@ params ["_pos"];
 		missionNamespace setVariable ["factoryPosition", _pos];
 
 		_intel call vn_mf_fnc_action_gather_intel;
+		private _currentVehicles = vehicles;
 
 		{
 			if(_x isKindOf "Building" || _x isKindOf "House" || typeOf _x in ["Land_Map_unfolded_Malden_F", "Land_vn_wf_vehicle_service_point_east", "Land_vn_fuel_tank_stairs", "Land_Net_Fence_Gate_F"] || _x isKindOf "StaticWeapon" || _x isKindOf "LandVehicle" || _x isKindOf "Air") then {
 				[_x, true] call para_s_fnc_enable_dynamic_sim;
 			};
+
+			if (_x in _currentVehicles) then {
+				[_x, ["DacCong"]] call vn_mf_fnc_lock_vehicle_to_teams;
+				vn_mf_dc_assets pushBack _x;
+			};
+
 		} forEach _factoryObjects;
 
 		vn_site_objects append _factoryObjects;

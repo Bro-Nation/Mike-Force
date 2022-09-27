@@ -23,6 +23,11 @@ params ["_player", "_target"];
 private _playerSide = side _player;
 private _targetTeam = side _target;
 
+if (_targetSide == civilian) exitWith
+{
+	true
+};
+
 if (_playerSide == east && _targetTeam != east) exitWith
 {
 	false

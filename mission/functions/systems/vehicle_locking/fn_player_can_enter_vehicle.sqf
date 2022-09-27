@@ -27,6 +27,12 @@ private _playerGroup = _player getVariable ["vn_mf_db_player_group", "FAILED"];
 //TODO: FIX THIS (DOES NOT WORK AS INTENDED, DOES NOT EVEN LET WHITELISTED BLACKHAWKS USE 105s)
 private _type = typeOf _vehicle;
 
+if (_vehicle in vn_mf_dc_assets && side _player != east) exitWith
+{
+  ["VehicleLockedToTeamMessage", ["Your team cannot use this kind of vehicle."]] remoteExec ["para_c_fnc_show_notification", _player]; 
+  false 
+};
+
 if (_type == "vn_b_army_static_m101_02" && _playerGroup != "BlackHawk") exitWith { 
   ["VehicleLockedToTeamMessage", ["Black Hawk artillery squadron members only; apply on Discord."]] remoteExec ["para_c_fnc_show_notification", _player]; 
   false 

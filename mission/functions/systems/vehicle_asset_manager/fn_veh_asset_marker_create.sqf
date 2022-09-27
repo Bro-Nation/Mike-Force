@@ -38,10 +38,22 @@ private _textGenerator = [
 			_markerPrefix = localize "STR_vn_mf_disabled";
 		};
 
+		private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
+		if(_vehicleName == "MH-9 Hummingbird" || _vehicleName == "AH-9 Pawnee") then 
+		{
+			_vehicleName = "YOH-6A";
+
+			switch(vehicleVarName _vehicle) do
+			{
+				case "cmd1" : {_vehicleName = "CMD-1"; };
+				case "mp1"  : {_vehicleName = "MP-1"; };
+			};
+		};
+
 		format [
 			"%1: %2",
 			_markerPrefix,
-			getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName")
+			_vehicleName
 		]
 	}
 ];

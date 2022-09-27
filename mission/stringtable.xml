@@ -242,6 +242,9 @@
 	    <Key ID="STR_vn_mf_respawn_satansangels">
         <Original>SATANS ANGELS</Original>
       </Key>
+      <Key ID="STR_vn_mf_respawn_satansangels_landhangars">
+        <Original>SATANS ANGELS</Original>
+      </Key>
 	    <Key ID="STR_vn_mf_respawn_presscorp">
         <Original>PRESS CORP</Original>
       </Key>
