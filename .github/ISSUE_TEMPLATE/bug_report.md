@@ -25,6 +25,7 @@ How much of an impact does this bug have on gameplay? (place an 'x' between the 
 * [ ] Almost none
 * [ ] Minor annoyances
 * [ ] Interrupts gameplay
+* [ ] I've died to it a few times
 * [ ] Game is unplayable
 
 **Scope**
