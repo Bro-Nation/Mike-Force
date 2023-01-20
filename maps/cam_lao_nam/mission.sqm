@@ -8,7 +8,7 @@ class EditorData
 	toggles=585;
 	class ItemIDProvider
 	{
-		nextID=14901;
+		nextID=14902;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=7919;
+		nextID=8014;
 	};
 	class Camera
 	{
-		pos[]={16114.815,40.159,7103.0156};
-		dir[]={0.31518763,-0.59567964,0.73881316};
-		up[]={0.23374563,0.80321342,0.54791009};
-		aside[]={0.91980553,-2.3777829e-008,-0.39240018};
+		pos[]={15832.011,32.613102,7129.5352};
+		dir[]={0.4074308,-0.54471737,0.73313683};
+		up[]={0.26465183,0.83852416,0.47622019};
+		aside[]={0.87416953,-1.5953992e-006,-0.4858101};
 	};
 };
 binarizationWanted=0;
@@ -105,7 +105,8 @@ addons[]=
 	"vegetation_f_vietnam_c",
 	"A3_Structures_F_Civ_SportsGrounds",
 	"A3_Structures_F_Mark_Training",
-	"A3_Supplies_F_Exp_Ammoboxes"
+	"A3_Supplies_F_Exp_Ammoboxes",
+	"A3_Structures_F_Items_Vessels"
 };
 class AddonsMetaData
 {
@@ -544,8 +545,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -595,8 +596,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -651,7 +652,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=1584;
+		items=1585;
 		class Item0
 		{
 			dataType="Marker";
@@ -78093,6 +78094,7 @@ class Mission
 			};
 			id=14790;
 			type="vn_b_wheeled_m151_mg_04";
+			atlOffset=-9.5367432e-007;
 		};
 		class Item1506
 		{
@@ -78111,6 +78113,7 @@ class Mission
 			};
 			id=14791;
 			type="vn_b_wheeled_m151_mg_04";
+			atlOffset=-9.5367432e-007;
 		};
 		class Item1507
 		{
@@ -78167,6 +78170,7 @@ class Mission
 			};
 			id=14794;
 			type="vn_i_armor_m113_acav_06";
+			atlOffset=-9.5367432e-007;
 		};
 		class Item1510
 		{
@@ -78608,7 +78612,7 @@ class Mission
 			};
 			id=14843;
 			type="vn_i_air_ch34_01_02";
-			atlOffset=0.043000221;
+			atlOffset=0.042999268;
 		};
 		class Item1536
 		{
@@ -79738,6 +79742,21 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item1584
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15846.272,15.118367,7150.7788};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=14901;
+			type="Land_Bucket_clean_F";
 		};
 	};
 	class Connections
