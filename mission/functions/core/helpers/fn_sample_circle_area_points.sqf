@@ -1,11 +1,13 @@
 
 /*
-	File: fn_get_get_circle_area_points.sqf
-	Author: "DJ" dijksterhuis
+	File: fn_sample_circle_area_points.sqf
+	Author: @dijksterhuis
 	Public: No
 	
 	Description:
-		Generate a bunch of points around circle based on the provided position.
+
+		Generate a bunch of sampled points around circle area
+		based on the provided centrepoint position.
 	
 	Parameter(s): 
 		_pos: Centrepoint
@@ -13,11 +15,12 @@
 		_thetaStep: step by this angle amount through the circle
 
 	Return(s):
-		Aray of points.
+		Aray of positions within the circle's area.
 	
 	Example(s):
-		[[0,0,0], 1, 50, 5, ["TREE", "HIDE", "WATERTOWER", "BUSH"]] call vn_mf_fnc_sites_get_safe_location;
-		[[0,0,0], 1, 50, 5] call vn_mf_fnc_sites_get_safe_location;
+		[[0,0,0]] call vn_mf_fnc_sample_circle_area_points;
+		[[0,0,0], 100] call vn_mf_fnc_sample_circle_area_points;
+		[[0,0,0], 100, 15] call vn_mf_fnc_sample_circle_area_points;
 */
 
 
