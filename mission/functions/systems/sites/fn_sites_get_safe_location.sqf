@@ -65,7 +65,7 @@ private _blacklistedSiteAreas  = [];
 
 private _finalPosition = [_position, 0, _radius, 0, _waterMode, 0.5, 0, [_blacklistedSiteAreas], [_position, _position]] call BIS_fnc_findSafePos;
 private _radGrad = aCos ([0,0,1] vectorCos (surfaceNormal _finalPosition));
-private _areaRadGrad = [_finalPosition, _radius] call vn_mf_fnc_sites_find_maxabs_area_gradient;
+private _areaRadGrad = [_finalPosition, _gradientRadius] call vn_mf_fnc_sites_find_maxabs_area_gradient;
 private _negativeDegree = _gradientDegrees - (_gradientDegrees * 2); //i'm tired sorry I just want a negative number
 private _waterCheck = [_waterMode] call _fnc_checkWaterMode; //preemptively check watermode cause more performant
 private _noSitesCheck = [_finalPosition] call _fnc_noSitesZoneCheck;
@@ -81,7 +81,7 @@ while  {(_radGrad > _gradientDegrees)
 	_finalPosition = [_position, 30, _radius, 0, _waterMode, 0.3, 0, [_blacklistedSiteAreas], [_position, _position]] call BIS_fnc_findSafePos;
 	
 	_waterCheck = [_waterMode] call _fnc_checkWaterMode;
-	_areaRadGrad = [_finalPosition, _radius] call vn_mf_fnc_sites_find_maxabs_area_gradient;
+	_areaRadGrad = [_finalPosition, _gradientRadius] call vn_mf_fnc_sites_find_maxabs_area_gradient;
 	_noSitesCheck = [_finalPosition] call _fnc_noSitesZoneCheck;
 	_radGrad = aCos ([0,0,1] vectorCos (surfaceNormal _finalPosition));
 
