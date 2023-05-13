@@ -25,6 +25,7 @@ class CfgFunctions
 			file = "functions\core\helpers";
 			class check_enemy_units_alive {};
 			class player_within_radius {};
+			class get_circle_area_points {};
 			class check_side {};
 		};
 
