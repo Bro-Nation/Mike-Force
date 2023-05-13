@@ -275,7 +275,7 @@ class CfgFunctions
 
 			// Placement functions
 			class sites_get_safe_location {};
-			class sites_find_area_gradient {};
+			class sites_find_average_area_gradient {};
 			class sites_find_maxabs_area_gradient {};
 
 			class destroy_task {};
