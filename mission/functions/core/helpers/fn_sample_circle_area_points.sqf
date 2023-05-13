@@ -1,26 +1,29 @@
 
 /*
-	File: fn_sample_circle_area_points.sqf
-	Author: @dijksterhuis
-	Public: No
+    File: fn_sample_circle_area_points.sqf
+    Author: @dijksterhuis
+    Public: No
 	
-	Description:
+    Description:
 
-		Generate a bunch of sampled points around circle area
-		based on the provided centrepoint position.
+        Generate a bunch of sampled points around circle area
+        based on the provided centrepoint position.
 	
-	Parameter(s): 
-		_pos: Centrepoint
-		_radius: radius of the circle
-		_thetaStep: step by this angle amount through the circle
+    Parameter(s): 
 
-	Return(s):
-		Aray of positions within the circle's area.
+        _pos: Centrepoint
+        _radius: radius of the circle
+        _thetaStep: step by this angle amount through the circle
+
+    Return(s):
+
+        Aray of positions within the circle's area.
 	
-	Example(s):
-		[[0,0,0]] call vn_mf_fnc_sample_circle_area_points;
-		[[0,0,0], 100] call vn_mf_fnc_sample_circle_area_points;
-		[[0,0,0], 100, 15] call vn_mf_fnc_sample_circle_area_points;
+    Example(s):
+
+        [[0,0,0]] call vn_mf_fnc_sample_circle_area_points;
+        [[0,0,0], 100] call vn_mf_fnc_sample_circle_area_points;
+        [[0,0,0], 100, 15] call vn_mf_fnc_sample_circle_area_points;
 */
 
 

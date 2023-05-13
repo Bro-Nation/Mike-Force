@@ -6,28 +6,28 @@
     
     Description:
 
-    	Sample points within a circular area of a position and
-    	calculate the maximum absolute terrain gradients of all
-    	terrain gradients i.e. argmax_{G} | g |
+        Sample points within a circular area of a position and
+        calculate the maximum absolute terrain gradients of all
+        terrain gradients i.e. argmax_{G} | g |
 
-		This catches peaks and troughs around a position better
-		than the average terrain gradients.
+        This catches peaks and troughs around a position better
+        than the average terrain gradients.
 
-		Average:
+        Average:
 
-		___  ___/\___ ==> 0
-		   \/
+        ___  ___/\___ ==> 0
+           \/
 
-		Max Abs:
+        Max Abs:
 
-		___  ___/\___ ==> 1
-		   \/
+        ___  ___/\___ ==> 1
+           \/
 
     Parameter(s):
 
         _pos - Location to test
-		_radius - Radius to test
-		_thetaStep - Rotational steps to take when sampling circle area
+        _radius - Radius to test
+        _thetaStep - Rotational steps to take when sampling circle area
     
     Returns:
 
@@ -60,7 +60,7 @@ private _centreTerrainHeight = getTerrainHeightASL [
 	(_centrePosition select 1)
 ];
 
-private _searchPoints = [_centrePosition, _radius, _thetaStep] call vn_mf_fnc_get_circle_area_points;
+private _searchPoints = [_centrePosition, _radius, _thetaStep] call vn_mf_fnc_sample_circle_area_points;
 
 private _deltaGradients = _searchPoints apply {
 	private _deltaPos2D = [(_x select 0),(_x select 1)];
