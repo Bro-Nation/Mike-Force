@@ -39,7 +39,7 @@
         [[1200,30,25], 200, 15] call vn_mf_fnc_sites_find_maxabs_area_gradient;
 */
 
-params ["_pos", "_radius", ["_thetaStep", 5]];
+params ["_pos", "_points"];
 
 private _centrePosition = _pos;
 
@@ -60,9 +60,7 @@ private _centreTerrainHeight = getTerrainHeightASL [
 	(_centrePosition select 1)
 ];
 
-private _searchPoints = [_centrePosition, _radius, _thetaStep] call vn_mf_fnc_sample_circle_area_points;
-
-private _deltaGradients = _searchPoints apply {
+private _deltaGradients = _points apply {
 	private _deltaPos2D = [(_x select 0),(_x select 1)];
 	private _deltaTerrainHeight = getTerrainHeightASL _deltaPos2D;
 	atan((_deltaTerrainHeight - _centreTerrainHeight) / (_centrePosition distance2D _deltaPos2D))
