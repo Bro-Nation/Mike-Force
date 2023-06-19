@@ -26,6 +26,7 @@ class CfgFunctions
 			class check_enemy_units_alive {};
 			class player_within_radius {};
 			class sample_circle_area_points {};
+			class sample_positions_in_circle_area {};
 			class check_side {};
 		};
 
