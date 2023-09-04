@@ -8,7 +8,7 @@ class map_config {
 	max_water_supply_per_zone = 2;
 	max_vehicle_depots_per_zone = 3;
 	starting_zones[] = {"zone_khe_sanh", "zone_kok", "zone_french_fort"};
-	bn_zone_radius = 1000;
+	bn_zone_radius = 700;
 	class zones {
 		#include "zones.hpp"
 	};
