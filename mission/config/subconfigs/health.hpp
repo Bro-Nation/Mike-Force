@@ -6,5 +6,6 @@ gui_progress_bars[] =
 gui_state_indicators[] =
 {
 	{"poison","img\vn_ico_mf_att_poison.paa"},
-	{"diarrhea","img\vn_ico_mf_att_dysentery.paa"}
+	{"diarrhea","img\vn_ico_mf_att_dysentery.paa"},
+	{"alcohol","img\vn_ico_mf_drunk.paa"}
 };

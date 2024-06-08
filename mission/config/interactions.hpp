@@ -13,7 +13,8 @@ class CfgItemInteractions
 		{
 			{"poison", 1.0},
 			{"posion", 1.0},
-			{"diarrhea", 1.0}
+			{"diarrhea", 1.0},
+			{"alcohol", 1.0},
 		};
 	};
 
@@ -101,6 +102,12 @@ class CfgItemInteractions
 		consume = 12.5;
 	};
 
+	class vn_prop_drink_10 : vn_prop_drink_01 // Water pack 2L
+	{
+		consume = 12.5;
+		removeonempty = 1;
+	};
+
 	class vn_prop_drink_07_01 : vn_prop_drink_01 // Tilts Hot Sauce
 	{
 		consume = 1;
@@ -119,33 +126,73 @@ class CfgItemInteractions
 		drink = 0.01;
 		removeonempty = 1;
 	};
-	class vn_prop_drink_08_01 : vn_prop_drink_01 // Savage Bia (Beer)
+
+	/*
+	ALCOHOL EFFECTS
+
+	@dijksterhuis: do not inherit from water bottles for alcohol
+	water is a diuretic -- which 'cures' drunkeness
+	*/
+
+	class vn_prop_drink_08_01 // Savage Bia (Beer)
 	{
+		disallowRepack = 1;
+		water = 0.1;
+		interactActions[] =
+		{
+			{
+				"STR_vn_mf_drink",
+				"call vn_mf_fnc_consume;"
+			}
+		};
+
 		consume = 25;
 		drink = 0.5;
 		food = 0.05;
 		removeonempty = 1;
 		attributes[] =
 		{
-			{"alcohol", 1} // diuretic, diarrhea
-		};
-	};
-	class vn_prop_drink_09_01 : vn_prop_drink_01 // Whiskey
-	{
-		consume = 100;
-		drink = 0.1;
-		removeonempty = 1;
-		attributes[] =
-		{
-			{"alcohol", 1} // diuretic, diarrhea
+			{"alcohol", 1}  // drunk effects
 		};
 	};
 
-	class vn_prop_drink_10 : vn_prop_drink_01 // Water pack 2L
+	class vn_prop_drink_09_01 : vn_prop_drink_08_01 // Whiskey
 	{
-		consume = 12.5;
-		removeonempty = 1;
+		consume = 100;
+		drink = 0.1;
+		food = 0;
+		attributes[] =
+		{
+			{"alcohol", 1}  // drunk effects
+		};
 	};
+
+	class vn_prop_med_painkillers : vn_prop_drink_08_01
+	{
+		consume = 100;
+		drink = 0;
+		food = 0;
+
+		attributes[] =
+		{
+			{"alcohol", 1}  // drunk effects
+		};
+	};
+
+	class vn_b_item_bugjuice_01 : vn_prop_drink_08_01
+	{
+		consume = 100;
+		drink = 0;
+		food = 0;
+
+		attributes[] =
+		{
+			{"alcohol", 1}  // drunk effects
+		};
+	};
+
+	// FOOD ///////////////////////////////////////////////////////////////////////////////////////////
+
 	class vn_prop_food_meal_01  //  (Ration 0.75Kg) Etc
 	{
 		disallowRepack = 1;

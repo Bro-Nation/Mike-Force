@@ -14,6 +14,7 @@ class tracking
 	{
 		script = "vn_mf_fnc_ui_update";
 	};
+	class vn_mf_db_attributes : vn_mf_db_hunger {};
 	class vn_mf_db_thirst : vn_mf_db_hunger {};
 	class vn_mf_db_rank
 	{
