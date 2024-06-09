@@ -34,4 +34,4 @@ _unit setVariable ["vn_mf_side", side player, true];
 // update UI
 ["vn_mf_db_thirst",1] call vn_mf_fnc_ui_update;
 
-[_unit, WEST, [0, 0, 3], 0] remoteExec ["vn_ms_fnc_attachHiddenTarget", 2];
+[_unit, side player, [0, 0, 3], 0] remoteExec ["vn_ms_fnc_attachHiddenTarget", 2];

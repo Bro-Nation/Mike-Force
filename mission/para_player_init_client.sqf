@@ -332,4 +332,4 @@ if hasInterface then
 
 // attach an invisible blufor soldier to the player on initial load in.
 // subsequent resets of this are handled by the Respawned playerEventHandler
-[player, WEST, [0, 0, 3], 0] remoteExec ["vn_ms_fnc_attachHiddenTarget", 2];
+[player, side player, [0, 0, 3], 0] remoteExec ["vn_ms_fnc_attachHiddenTarget", 2];
