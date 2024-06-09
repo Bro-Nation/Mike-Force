@@ -29,3 +29,16 @@ params
 // disable build mode
 para_l_buildmode = nil;
 para_l_placing = false;
+
+private _type = "";
+switch ( true ) do { 
+	case (side _unit == west) : {  _type = "B_TargetSoldier"}; 
+	case (side _unit == east) : {  _type = "O_TargetSoldier"}; 
+	case (side _unit == independent) : {  _type = "I_TargetSoldier"}; 
+	default {  _type = "B_TargetSoldier" }; 
+};
+
+(attachedObjects _unit) select {typeOf _x isEqualTo _type} apply {
+    [_x] remoteExec ["detach", 2];
+    [_x] remoteExec ["deleteVehicle", 2];
+};

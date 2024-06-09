@@ -330,4 +330,6 @@ if hasInterface then
 
 ["InitializePlayer", [player]] call para_c_fnc_dynamicGroups;
 
-
+// attach an invisible blufor soldier to the player on initial load in.
+// subsequent resets of this are handled by the Respawned playerEventHandler
+[player, WEST, [0, 0, 3], 0] remoteExec ["vn_ms_fnc_attachHiddenTarget", 2];
