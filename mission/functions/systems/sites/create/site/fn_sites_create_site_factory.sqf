@@ -41,11 +41,32 @@ params ["_pos"];
 
 		vn_site_objects append _factoryObjects;
 
-		private _objectTypesToDestroy = ["Land_vn_wf_vehicle_service_point_east"];
+		private _objectTypesToDestroy = [
+			"Land_vn_wf_vehicle_service_point_east",
+			"Land_vn_pavn_launchers",
+			"vn_b_ammobox_01",
+			"Land_vn_pavn_weapons_wide",
+			"Land_vn_pavn_weapons_cache",
+			"Land_vn_pavn_ammo",
+			"Land_vn_pavn_weapons_stack1",
+			"Land_vn_pavn_weapons_stack2",
+			"Land_vn_pavn_weapons_stack3",
+			"vn_b_ammobox_full_02",
+			"vn_o_ammobox_wpn_04",
+			"vn_o_ammobox_full_03",
+			"vn_o_ammobox_full_07",
+			"vn_o_ammobox_full_06"
+		];
 		
 		private _objectTypesForDynamicSim = [
+			"vn_o_prop_t102e_01",
+			"vn_o_prop_radio_m252b_01",
+			"Land_WoodenTable_small_F",
+			"Land_WoodenTable_large_F",
+			"Land_vn_lobby_table",
 			"Land_Map_unfolded_Malden_F",
 			"vn_b_prop_cabinet_02",
+			"Land_vn_us_common_table_01",
 			"Land_vn_wf_vehicle_service_point_east",
 			"Land_vn_fuel_tank_stairs",
 			"Land_Net_Fence_Gate_F"

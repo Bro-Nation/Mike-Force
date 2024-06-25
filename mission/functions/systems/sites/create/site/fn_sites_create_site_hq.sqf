@@ -48,9 +48,11 @@ params ["_pos"];
 		];
 
 		private _objectTypesForDynamicSim = [
-			"vn_o_prop_t102e_01", 
-			"Land_WoodenTable_small_F", 
-			"Land_vn_lobby_table", 
+			"vn_o_prop_t102e_01",
+			"vn_o_prop_radio_m252b_01",
+			"Land_WoodenTable_small_F",
+			"Land_WoodenTable_large_F",
+			"Land_vn_lobby_table",
 			"Land_Map_unfolded_F"
 		];
 
