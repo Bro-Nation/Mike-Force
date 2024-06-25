@@ -62,6 +62,7 @@ if (isClass _item_config) then
 			_food = linearConversion [0, _consume, _mag_size, 0, _food, true];
 
 			if (_water == 0 && _food == 0 && _cures == 0) then {
+				// @dijksterhuis b... but .. this script is player local?!?
 				{["EmptyFoodItem"] call para_c_fnc_show_notification} remoteExecCall ["call",player];
 			};
 
@@ -98,6 +99,7 @@ if (isClass _item_config) then
 		};
 	};
 
+	// @dijksterhuis remoteExec here
 	// change stats related to ammount of item consumed
 	["eatdrink", [_water,_food,_item]] call para_c_fnc_call_on_server;
 

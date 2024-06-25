@@ -40,6 +40,7 @@ if (isNull _officer) then {
 
 _officer setVariable ["vn_mf_supply_drop_marker", _dropMarker, true];
 
+// @dijksterhuis remoteExec needing fiing
 //Stacked JIP call
 //This stops any other JIP calls on that object overwriting this one.
 [
