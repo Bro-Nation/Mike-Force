@@ -19,14 +19,17 @@ respawnButton = 1;
 respawnOnStart = -1;
 respawnTemplates[] = { "MenuPosition" };
 onPauseScript = "";
-onLoadMission = QUOT(Mike Force (VN_MF_VERSION) BRO-NATION Edition);
-OnLoadIntro = "Welcome to Mike Force";
+OnLoadIntro = "Welcome to Mike Force (Bro-Nation Events Edition)";
 loadScreen = "\vn\missions_f_vietnam\data\img\mikeforce\mission.jpg";
+overviewPicture = "\vn\missions_f_vietnam\data\img\mikeforce\mission.jpg";
 OnLoadIntroTime = 0;
 OnLoadMissionTime = 0;
-briefingName = QUOT(Mike Force (VN_MF_VERSION));
-onLoadName = QUOT(Mike Force (VN_MF_VERSION));
-overviewPicture = "\vn\missions_f_vietnam\data\img\mikeforce\mission.jpg";
+// MP mission selection menu name
+briefingName = QUOT(Mike Force (VN_MF_VERSION) - Bro-Nation Events Edition);
+// top text on server load
+onLoadName = QUOT(Mike Force (VN_MF_VERSION) BN Events);
+// bottom text on server load
+onLoadMission = QUOT(Mike Force (VN_MF_VERSION) - Bro-Nation Events Edition);
 
 disabledAI = 1;
 scriptedPlayer = 0;

@@ -35,7 +35,8 @@ call para_s_fnc_curator_init_eh;
 =========================================================================================
 init: `vn_mf_fnc_server_init_backend`
 =========================================================================================
-WARNING: YOU WILL NOT HAVE THIS DURING LOCAL DEVELOPMENT. This always generates an error
+WARNING: YOU WILL NOT HAVE THIS DURING LOCAL 
+. This always generates an error
 when running locally. It's a server-side only mod.
 
 I don't actually know what this does.
@@ -653,8 +654,11 @@ there, get in another fight' gameplay loop.
 =========================================================================================
 */
 
+/*
+@dijksterhuis -- disabling for curators
 diag_log "VN MikeForce: Initialising Harass";
 [] call para_s_fnc_harass_subsystem_init;
+*/
 
 /*
 =========================================================================================
@@ -720,8 +724,11 @@ Other things this system does:
 =========================================================================================
 */
 
+/*
+@dijksterhuis disabling for curators
 diag_log "VN MikeForce: Initialising AI Behaviour";
 [] call para_g_fnc_ai_behaviour_subsystem_init;
+*/
 
 /*
 =========================================================================================
@@ -733,6 +740,7 @@ I have no idea about sling loading. I'm a Spike Team main baby.
 =========================================================================================
 */
 
+//Set up slingloaded item locality on helicopters.
 ["vehicleCreated", [
     {
         params ["_args", "_vehicle"];
@@ -755,8 +763,11 @@ map thing, sorry I can't remember the name of it right now).
 =========================================================================================
 */
 
+/*
+@dijksterhuis disabling for curators
 diag_log "VN MikeForce: Initialising Zones";
 [] call vn_mf_fnc_zones_init;
+*/
 
 /*
 =========================================================================================
@@ -875,3 +886,14 @@ custom in-game groups.
 
 diag_log "VN MikeForce: Initialising Dynamic Groups";
 ["Initialize"] call para_c_fnc_dynamicGroups;
+
+/*
+=========================================================================================
+run: delete zones
+=========================================================================================
+Added for curation build -- delete all zone map markers.
+=========================================================================================
+*/
+vn_mf_markers_zones apply {deleteMarker _x};
+
+

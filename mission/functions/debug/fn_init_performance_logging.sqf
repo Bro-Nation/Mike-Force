@@ -19,4 +19,8 @@ para_g_log_identifier = "MIKEFORCE";
 private _performanceLoggingPeriod = localNamespace getVariable ["vn_mf_performance_logging_period", 30];
 
 ["performance_logging", vn_mf_fnc_log_performance_data, [], _performanceLoggingPeriod] call para_g_fnc_scheduler_add_job;
+
+/*
+@dijksterhuis: disabled for curators
 ["ai_objective_logging", vn_mf_fnc_log_ai_objective_data, [], _performanceLoggingPeriod] call para_g_fnc_scheduler_add_job;
+*/

@@ -31,7 +31,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="bn_mikeforce_indev";
+sourceName="bn_mikeforce_events";
 addons[]=
 {
 	"A3_Ui_F",
@@ -256,7 +256,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="Mike Force (v1.00.03 Indev) BN Edition";
+		briefingName="Mike Force (v1.00.03) - Bro-Nation Events Edition";
 		timeOfChanges=1800.0002;
 		startWeather=0.25;
 		startWind=0.1;

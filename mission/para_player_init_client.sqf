@@ -195,15 +195,21 @@ if (_useMarkers) then {
 };
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
+/*
+@dijksterhuis disabled for curator events
 // Initalize marker info UI
 [] call para_c_fnc_zone_marker_init;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+*/
 
+/*
+@dijksterhuis disabled for curator events
 // Start AI processing for local player, if we're not a LAN server (as then serverside processing will kick in)
 if (!isServer) then {
 	call para_g_fnc_ai_create_behaviour_execution_loop;
 };
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+*/
 
 // Set up automatic view distance scaling for performance
 [] call para_c_fnc_perf_enable_dynamic_view_distance;
@@ -322,13 +328,16 @@ else{
 	};
 };
 
+/*
+@dijksterhuis disabled for curator events
 // Marker Discovery
 // @dijksterhuis: Disabled in favour of radio wiretap feature.
 // [] call vn_mf_fnc_sites_subsystem_client_init;
+[] call vn_mf_fnc_sites_subsystem_client_init;
+*/
 
 // Tutorial System
 [] call vn_mf_fnc_tutorial_subsystem_client_init;
-
 
 //Add Master Arm addAction for Boats and Land Vehicles
 if hasInterface then

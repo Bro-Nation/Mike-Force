@@ -37,7 +37,7 @@ rm -rf \
 for MAP_BASE_PATH in ${BASE_REPO_PATH}/maps/*
 do
 	echo "PACKAGING MAP: ${MAP_BASE_PATH}"
-	MAP_DIR_NAME="bn_mikeforce_indev.$(basename ${MAP_BASE_PATH})"
+	MAP_DIR_NAME="bn_mikeforce_events.$(basename ${MAP_BASE_PATH})"
 	MAP_DIR_PATH="${MAPS_BUILD_DIR_PATH}/${MAP_DIR_NAME}"
 
 	mkdir -p "${MAP_DIR_PATH}"

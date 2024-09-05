@@ -24,7 +24,7 @@ if not is_admin():
     # Re-run the program with admin rights
     ret = ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
 else:
-    mission_stem = "bn_mikeforce_indev"
+    mission_stem = "bn_mikeforce_events"
 
     content_root = Path(__file__).parent
     mission_root = content_root / "mission"

@@ -117,8 +117,11 @@ if !(rank _player isEqualTo _rank) then
 	_player setUnitRank _rank;
 };
 
+/*
+@dijksterhuis disabled for curators
 // add event handlers from the harass subsystem.
 [_player] call para_s_fnc_harass_add_player_event_handlers;
+*/
 
 // add cleanup handlers for dropped gear to the player
 [_player] call para_s_fnc_cleanup_register_player;

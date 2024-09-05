@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=455;
+		nextID=506;
 	};
 	class Camera
 	{
@@ -27,12 +27,12 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="vn_mikeforce_indev";
+sourceName="bn_mikeforce_events";
 addons[]=
 {
 	"modules_f_vietnam",
-	"A3_Ui_F",
 	"objects_f_vietnam_c",
+	"A3_Ui_F",
 	"A3_Modules_F",
 	"A3_Characters_F",
 	"wheeled_f_vietnam_c",
@@ -79,16 +79,16 @@ class AddonsMetaData
 		};
 		class Item1
 		{
-			className="A3_Ui_F";
-			name="Arma 3 - User Interface";
-			author="Bohemia Interactive";
+			className="objects_f_vietnam_c";
+			name="objects_f_vietnam_c";
+			author="Savage Game Design";
 			url="https://www.arma3.com";
 		};
 		class Item2
 		{
-			className="objects_f_vietnam_c";
-			name="objects_f_vietnam_c";
-			author="Savage Game Design";
+			className="A3_Ui_F";
+			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
 		class Item3
@@ -256,6 +256,9 @@ class AddonsMetaData
 };
 dlcs[]=
 {
+	"VN",
+	"Argo",
+	"Enoch",
 	"Heli"
 };
 randomSeed=4910235;
@@ -326,7 +329,7 @@ class Mission
 	assetType="Free";
 	class Intel
 	{
-		briefingName="Mike Force (v1.00.03 Indev) BN Edition";
+		briefingName="Mike Force (v1.00.03) - Bro-Nation Events Edition";
 		timeOfChanges=1800.0002;
 		startWeather=0.30000001;
 		startWind=0.1;
@@ -345,7 +348,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=90;
+		items=89;
 		class Item0
 		{
 			dataType="Logic";
@@ -660,465 +663,8 @@ class Mission
 				{
 					dataType="Layer";
 					name="Markers";
-					class Entities
-					{
-						items=35;
-						class Item0
-						{
-							dataType="Marker";
-							position[]={25768.57,20.815935,21385.881};
-							name="zone_sofia";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-650;
-							b=-650;
-							angle=345.3811;
-							id=12;
-						};
-						class Item1
-						{
-							dataType="Marker";
-							position[]={20948.432,43.848999,16949.496};
-							name="zone_paros";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.43095;
-							id=14;
-							atlOffset=0.00020599365;
-						};
-						class Item2
-						{
-							dataType="Marker";
-							position[]={21475.775,18.271,16341.603};
-							name="zone_kalochori";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-350;
-							b=-350;
-							angle=345.38086;
-							id=17;
-							atlOffset=0.00057029724;
-						};
-						class Item3
-						{
-							dataType="Marker";
-							position[]={18839.883,30.118,16600.973};
-							name="zone_rodopoli";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=345.38086;
-							id=27;
-							atlOffset=-0.00017166138;
-						};
-						class Item4
-						{
-							dataType="Marker";
-							position[]={18183.252,26.191,15239.726};
-							name="zone_charkia";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=3.6249986;
-							id=30;
-							atlOffset=-0.0005607605;
-						};
-						class Item5
-						{
-							dataType="Marker";
-							position[]={16713.496,18.101,16131.284};
-							name="zone_anthrakia";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=305.17801;
-							id=32;
-							atlOffset=-5.531311e-005;
-						};
-						class Item6
-						{
-							dataType="Marker";
-							position[]={16378.23,25.451,17270.227};
-							name="zone_telos";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=17.545;
-							id=34;
-							atlOffset=0.15895653;
-						};
-						class Item7
-						{
-							dataType="Marker";
-							position[]={19439.396,42.132,13203.063};
-							name="zone_dorida";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=47.430981;
-							id=36;
-							atlOffset=-0.00024414063;
-						};
-						class Item8
-						{
-							dataType="Marker";
-							position[]={16801.379,23.686001,12689.271};
-							name="zone_pyrgos";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=3.6249986;
-							id=38;
-							atlOffset=-0.00031471252;
-						};
-						class Item9
-						{
-							dataType="Marker";
-							position[]={20256.24,55.852001,11641.415};
-							name="zone_chalkeia";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=3.6249986;
-							id=40;
-							atlOffset=0.15156174;
-						};
-						class Item10
-						{
-							dataType="Marker";
-							position[]={20483.553,35.735001,8865.7637};
-							name="zone_panagia";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=3.6249986;
-							id=42;
-							atlOffset=-0.00049209595;
-						};
-						class Item11
-						{
-							dataType="Marker";
-							position[]={14522.688,23.490999,17608.58};
-							name="zone_gravia";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=17.545;
-							id=44;
-							atlOffset=0.15965271;
-						};
-						class Item12
-						{
-							dataType="Marker";
-							position[]={14110.212,27.728001,18669.104};
-							name="zone_athira";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=17.545;
-							id=46;
-							atlOffset=0.15925598;
-						};
-						class Item13
-						{
-							dataType="Marker";
-							position[]={14782.987,52.112999,20798.154};
-							name="zone_frini";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=17.545;
-							id=48;
-							atlOffset=0.15879822;
-						};
-						class Item14
-						{
-							dataType="Marker";
-							position[]={12543.73,15.964,14383.217};
-							name="zone_neochori";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=17.545;
-							id=50;
-							atlOffset=0.15955257;
-						};
-						class Item15
-						{
-							dataType="Marker";
-							position[]={12472.46,19.464001,15797.54};
-							name="zone_lakka";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-500;
-							b=-500;
-							angle=17.545;
-							id=52;
-							atlOffset=0.15908051;
-						};
-						class Item16
-						{
-							dataType="Marker";
-							position[]={12999.063,26.049,15040.51};
-							name="zone_stavros";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=54;
-							atlOffset=4.3869019e-005;
-						};
-						class Item17
-						{
-							dataType="Marker";
-							position[]={11039.587,23.882999,13376.049};
-							name="zone_poliakko";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=56;
-							atlOffset=0.00032043457;
-						};
-						class Item18
-						{
-							dataType="Marker";
-							position[]={11168.106,46.035999,14674.367};
-							name="zone_alikampos";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=211.11179;
-							id=58;
-							atlOffset=0.00045394897;
-						};
-						class Item19
-						{
-							dataType="Marker";
-							position[]={9379.9971,116.475,15939.181};
-							name="zone_agios_dionysios";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=182.51788;
-							id=60;
-							atlOffset=-6.1035156e-005;
-						};
-						class Item20
-						{
-							dataType="Marker";
-							position[]={7072.2178,119.236,16483.637};
-							name="zone_kore";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=62;
-							atlOffset=0.0004196167;
-						};
-						class Item21
-						{
-							dataType="Marker";
-							position[]={8678.7227,176.194,18379.465};
-							name="zone_syrta";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=64;
-							atlOffset=-0.0001373291;
-						};
-						class Item22
-						{
-							dataType="Marker";
-							position[]={9473.375,128.66,20249.615};
-							name="zone_abdera";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=118.08148;
-							id=66;
-							atlOffset=-3.0517578e-005;
-						};
-						class Item23
-						{
-							dataType="Marker";
-							position[]={4642.98,281.233,21449.756};
-							name="zone_oreokastro";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=68;
-							atlOffset=9.1552734e-005;
-						};
-						class Item24
-						{
-							dataType="Marker";
-							position[]={4940.6021,78.143997,16137.738};
-							name="zone_negades";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=70;
-							atlOffset=-0.00015258789;
-						};
-						class Item25
-						{
-							dataType="Marker";
-							position[]={3610.479,14.054,12941.087};
-							name="zone_kavala";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=74;
-							atlOffset=-0.00010681152;
-						};
-						class Item26
-						{
-							dataType="Marker";
-							position[]={9286.7891,15.069,11954.112};
-							name="zone_zaros";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=76;
-							atlOffset=-0.00012016296;
-						};
-						class Item27
-						{
-							dataType="Marker";
-							position[]={3853.8665,18.975531,13723.15};
-							name="zone_aggelochori";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-350;
-							b=-350;
-							angle=70.315964;
-							id=78;
-						};
-						class Item28
-						{
-							dataType="Marker";
-							position[]={5154.8589,51.261002,11179.629};
-							name="zone_panochori";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=65.619606;
-							id=80;
-							atlOffset=-0.00012588501;
-						};
-						class Item29
-						{
-							dataType="Marker";
-							position[]={10695.21,17.868999,12237.828};
-							name="zone_therisa";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=203.77037;
-							id=82;
-							atlOffset=0.00049972534;
-						};
-						class Item30
-						{
-							dataType="Marker";
-							position[]={21706.986,14.928,7619.6152};
-							name="zone_feres";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=84;
-							atlOffset=0.00056648254;
-						};
-						class Item31
-						{
-							dataType="Marker";
-							position[]={20815.49,37.953999,6703.8608};
-							name="zone_selakano";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=86;
-							atlOffset=-0.00010681152;
-						};
-						class Item32
-						{
-							dataType="Marker";
-							position[]={10305.986,120.447,19025.811};
-							name="zone_galati";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=47.430981;
-							id=88;
-							atlOffset=0.00038146973;
-						};
-						class Item33
-						{
-							dataType="Marker";
-							position[]={4107.4922,50.657001,11752.883};
-							name="zone_neri";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-400;
-							b=-400;
-							angle=108.51772;
-							id=146;
-							atlOffset=0.00035095215;
-						};
-						class Item34
-						{
-							dataType="Marker";
-							position[]={7913.3628,274.629,14619.825};
-							name="zone_agia_stemma";
-							markerType="ELLIPSE";
-							type="ellipse";
-							a=-750;
-							b=-750;
-							angle=62.617424;
-							id=162;
-							atlOffset=-0.00054931641;
-						};
-					};
 					id=8;
-					atlOffset=85.407478;
+					atlOffset=185.97;
 				};
 				class Item1
 				{
@@ -1126,7 +672,7 @@ class Mission
 					name="Flags";
 					class Entities
 					{
-						items=37;
+						items=2;
 						class Item0
 						{
 							dataType="Marker";
@@ -1147,359 +693,9 @@ class Mission
 							id=11;
 							atlOffset=5.9127808e-005;
 						};
-						class Item2
-						{
-							dataType="Marker";
-							position[]={20945.719,44.050999,16948.207};
-							name="flag_paros";
-							text="PAROS";
-							type="vn_flag_vc";
-							id=15;
-							atlOffset=-0.00035476685;
-						};
-						class Item3
-						{
-							dataType="Marker";
-							position[]={21473.063,18.254,16340.313};
-							name="flag_kalochori";
-							text="KALOCHORI";
-							type="vn_flag_vc";
-							id=18;
-							atlOffset=-0.00051689148;
-						};
-						class Item4
-						{
-							dataType="Marker";
-							position[]={25765.857,20.836,21384.592};
-							name="flag_sofia";
-							text="SOFIA";
-							type="vn_flag_vc";
-							id=13;
-							atlOffset=7.4386597e-005;
-						};
-						class Item5
-						{
-							dataType="Marker";
-							position[]={18833.578,29.857,16594.703};
-							name="flag_rodopoli";
-							text="RODOPOLI";
-							type="vn_flag_vc";
-							id=28;
-							atlOffset=0.0003452301;
-						};
-						class Item6
-						{
-							dataType="Marker";
-							position[]={18176.947,25.965,15233.456};
-							name="flag_charkia";
-							text="CHARKIA";
-							type="vn_flag_vc";
-							id=31;
-							atlOffset=0.00014877319;
-						};
-						class Item7
-						{
-							dataType="Marker";
-							position[]={16710.783,18.150999,16129.995};
-							name="flag_anthrakia";
-							text="ANTHRAKIA";
-							type="vn_flag_vc";
-							id=33;
-							atlOffset=-0.00015258789;
-						};
-						class Item8
-						{
-							dataType="Marker";
-							position[]={16371.926,25.177999,17263.957};
-							name="flag_telos";
-							text="TELOS";
-							type="vn_flag_vc";
-							id=35;
-							atlOffset=-0.00012207031;
-						};
-						class Item9
-						{
-							dataType="Marker";
-							position[]={19436.684,42.049,13201.774};
-							name="flag_dorida";
-							text="DORIDA";
-							type="vn_flag_vc";
-							id=37;
-							atlOffset=-0.0006980896;
-						};
-						class Item10
-						{
-							dataType="Marker";
-							position[]={16795.074,23.517,12683.002};
-							name="flag_pyrgos";
-							text="PYRGOS";
-							type="vn_flag_vc";
-							id=39;
-							atlOffset=0.00059509277;
-						};
-						class Item11
-						{
-							dataType="Marker";
-							position[]={20249.936,56.054001,11635.146};
-							name="flag_chalkeia";
-							text="CHALKEIA";
-							type="vn_flag_vc";
-							id=41;
-							atlOffset=0.00051879883;
-						};
-						class Item12
-						{
-							dataType="Marker";
-							position[]={20477.248,35.391998,8859.4941};
-							name="flag_panagia";
-							text="PANAGIA";
-							type="vn_flag_vc";
-							id=43;
-							atlOffset=0.00075531006;
-						};
-						class Item13
-						{
-							dataType="Marker";
-							position[]={14516.383,23.315001,17602.311};
-							name="flag_gravia";
-							text="GRAVIA";
-							type="vn_flag_vc";
-							id=45;
-							atlOffset=0.00017738342;
-						};
-						class Item14
-						{
-							dataType="Marker";
-							position[]={14103.907,27.441999,18662.834};
-							name="flag_athira";
-							text="ATHIRA";
-							type="vn_flag_vc";
-							id=47;
-							atlOffset=0.00037956238;
-						};
-						class Item15
-						{
-							dataType="Marker";
-							position[]={14776.683,50.685001,20791.885};
-							name="flag_frini";
-							text="FRINI";
-							type="vn_flag_vc";
-							id=49;
-							atlOffset=0.00060272217;
-						};
-						class Item16
-						{
-							dataType="Marker";
-							position[]={12537.426,14.606,14376.947};
-							name="flag_neochori";
-							text="NEOCHORI";
-							type="vn_flag_vc";
-							id=51;
-							atlOffset=-2.1934509e-005;
-						};
-						class Item17
-						{
-							dataType="Marker";
-							position[]={12466.154,19.648001,15791.271};
-							name="flag_lakka";
-							text="LAKKA";
-							type="vn_flag_vc";
-							id=53;
-							atlOffset=0.00067138672;
-						};
-						class Item18
-						{
-							dataType="Marker";
-							position[]={12996.351,26.205999,15039.22};
-							name="flag_stavros";
-							text="STAVROS";
-							type="vn_flag_vc";
-							id=55;
-							atlOffset=-0.0005531311;
-						};
-						class Item19
-						{
-							dataType="Marker";
-							position[]={11036.874,23.948999,13374.76};
-							name="flag_poliakko";
-							text="POLIAKKO";
-							type="vn_flag_vc";
-							id=57;
-							atlOffset=-0.00028419495;
-						};
-						class Item20
-						{
-							dataType="Marker";
-							position[]={11165.394,46.202,14673.078};
-							name="flag_alikampos";
-							text="ALIKAMPOS";
-							type="vn_flag_vc";
-							id=59;
-							atlOffset=-0.00076293945;
-						};
-						class Item21
-						{
-							dataType="Marker";
-							position[]={9377.2842,116.469,15937.892};
-							name="flag_agios_dionysios";
-							text="AGIOS DIONYSIOS";
-							type="vn_flag_vc";
-							id=61;
-							atlOffset=6.8664551e-005;
-						};
-						class Item22
-						{
-							dataType="Marker";
-							position[]={7069.5049,118.629,16482.348};
-							name="flag_kore";
-							text="KORE";
-							type="vn_flag_vc";
-							id=63;
-							atlOffset=-0.00048828125;
-						};
-						class Item23
-						{
-							dataType="Marker";
-							position[]={8676.0098,176.179,18378.176};
-							name="flag_syrta";
-							text="SYRTA";
-							type="vn_flag_vc";
-							id=65;
-							atlOffset=-3.0517578e-005;
-						};
-						class Item24
-						{
-							dataType="Marker";
-							position[]={9470.6621,128.136,20248.326};
-							name="flag_abdera";
-							text="ABDERA";
-							type="vn_flag_vc";
-							id=67;
-							atlOffset=-0.00022888184;
-						};
-						class Item25
-						{
-							dataType="Marker";
-							position[]={4640.2681,282.20401,21448.467};
-							name="flag_oreokastro";
-							text="OREOKASTRO";
-							type="vn_flag_vc";
-							id=69;
-							atlOffset=-0.00054931641;
-						};
-						class Item26
-						{
-							dataType="Marker";
-							position[]={4937.8892,78.095001,16136.45};
-							name="flag_negades";
-							text="NEGADES";
-							type="vn_flag_vc";
-							id=71;
-							atlOffset=-0.00052642822;
-						};
-						class Item27
-						{
-							dataType="Marker";
-							position[]={3607.7661,13.958,12939.798};
-							name="flag_kavala";
-							text="KAVALA";
-							type="vn_flag_vc";
-							id=75;
-							atlOffset=-0.00079917908;
-						};
-						class Item28
-						{
-							dataType="Marker";
-							position[]={9284.0762,15.101,11952.823};
-							name="flag_zaros";
-							text="ZAROS";
-							type="vn_flag_vc";
-							id=77;
-							atlOffset=-0.00023174286;
-						};
-						class Item29
-						{
-							dataType="Marker";
-							position[]={3857.1108,19.388948,13724.508};
-							name="flag_aggelochori";
-							text="AGGELOCHORI";
-							type="vn_flag_vc";
-							id=79;
-							atlOffset=1.9073486e-006;
-						};
-						class Item30
-						{
-							dataType="Marker";
-							position[]={5152.146,51.066002,11178.34};
-							name="flag_panochori";
-							text="PANOCHORI";
-							type="vn_flag_vc";
-							id=81;
-							atlOffset=6.4849854e-005;
-						};
-						class Item31
-						{
-							dataType="Marker";
-							position[]={10692.497,18.021999,12236.539};
-							name="flag_therisa";
-							text="THERISA";
-							type="vn_flag_vc";
-							id=83;
-							atlOffset=0.38595581;
-						};
-						class Item32
-						{
-							dataType="Marker";
-							position[]={21704.273,14.922,7618.3262};
-							name="flag_feres";
-							text="FERES";
-							type="vn_flag_vc";
-							id=85;
-							atlOffset=-0.00052928925;
-						};
-						class Item33
-						{
-							dataType="Marker";
-							position[]={20791.895,37.531006,6707.792};
-							name="flag_selakano";
-							text="SELAKANO";
-							type="vn_flag_vc";
-							id=87;
-							atlOffset=-1.233902;
-						};
-						class Item34
-						{
-							dataType="Marker";
-							position[]={10303.273,120.163,19024.521};
-							name="flag_galati";
-							text="GALATI";
-							type="vn_flag_vc";
-							id=89;
-							atlOffset=-0.00043487549;
-						};
-						class Item35
-						{
-							dataType="Marker";
-							position[]={4104.7788,50.467999,11751.594};
-							name="flag_neri";
-							text="NERI";
-							type="vn_flag_vc";
-							id=147;
-							atlOffset=-2.6702881e-005;
-						};
-						class Item36
-						{
-							dataType="Marker";
-							position[]={7910.6499,275.79599,14618.536};
-							name="flag_agia_stemma";
-							text="AGIA STEMMA";
-							type="vn_flag_vc";
-							id=163;
-							atlOffset=-0.0007019043;
-						};
 					};
 					id=9;
-					atlOffset=85.922516;
+					atlOffset=9.6380005;
 				};
 				class Item2
 				{
@@ -1507,392 +703,8 @@ class Mission
 					name="Connectors";
 					class Entities
 					{
-						items=46;
+						items=1;
 						class Item0
-						{
-							dataType="Marker";
-							position[]={23062.67,12.983,19344.447};
-							name="connector_sofia_paros";
-							text="Connector Sofia to Paros";
-							type="mil_arrow";
-							angle=219.112;
-							id=16;
-							atlOffset=0.0002746582;
-						};
-						class Item1
-						{
-							dataType="Marker";
-							position[]={23405.916,3.1900001,19061.355};
-							name="connector_sofia_kalochori";
-							text="Connector Sofia to Kalochori";
-							type="mil_arrow";
-							angle=219.112;
-							id=23;
-						};
-						class Item2
-						{
-							dataType="Marker";
-							position[]={19894.854,26.120001,16715.336};
-							name="connector_paros_rodopoli";
-							text="Connector Paros Rodopoli";
-							type="mil_arrow";
-							angle=256.31192;
-							id=29;
-							atlOffset=0.00015640259;
-						};
-						class Item3
-						{
-							dataType="Marker";
-							position[]={18502.32,54.755829,15841.122};
-							name="connector_rodopoli_charkia";
-							text="Connector Rodopoli Charkia";
-							type="mil_arrow";
-							angle=209.05634;
-							id=90;
-							atlOffset=4.3239594;
-						};
-						class Item4
-						{
-							dataType="Marker";
-							position[]={17848.805,28.455,16291.896};
-							name="connector_rodopoli_anthrakia";
-							text="Connector Rodopoli Anthrakia";
-							type="mil_arrow";
-							angle=256.31192;
-							id=91;
-							atlOffset=0.00057601929;
-						};
-						class Item5
-						{
-							dataType="Marker";
-							position[]={17735.15,68.278999,17037.268};
-							name="connector_rodopoli_telos";
-							text="Connector Rodopoli Telos";
-							type="mil_arrow";
-							angle=279.60999;
-							id=92;
-							atlOffset=0.0001373291;
-						};
-						class Item6
-						{
-							dataType="Marker";
-							position[]={15355.496,17.016001,17402.854};
-							name="connector_telos_gravia";
-							text="Connector Telos Gravia";
-							type="mil_arrow";
-							angle=281.28699;
-							id=97;
-							atlOffset=-0.00019264221;
-						};
-						class Item7
-						{
-							dataType="Marker";
-							position[]={14304.944,17.132,18110.461};
-							name="connector_gravia_athira";
-							text="Connector Gravia Athira";
-							type="mil_arrow";
-							angle=339.04083;
-							id=98;
-							atlOffset=0.00036621094;
-						};
-						class Item8
-						{
-							dataType="Marker";
-							position[]={13798.52,11.666,16919.697};
-							name="connector_gravia_lakka";
-							text="Connector Gravia Lakka";
-							type="mil_arrow";
-							angle=229.60696;
-							id=99;
-							atlOffset=-3.163867;
-						};
-						class Item9
-						{
-							dataType="Marker";
-							position[]={12915.38,16.17,15484.357};
-							name="connector_lakka_stavros";
-							text="Connector Lakka Stavros";
-							type="mil_arrow";
-							angle=141.76593;
-							id=100;
-							atlOffset=-1.1826744;
-						};
-						class Item10
-						{
-							dataType="Marker";
-							position[]={11783.361,30.322001,15268.068};
-							name="connector_lakka_alikampos";
-							text="Connector Lakka Alikampos";
-							type="mil_arrow";
-							angle=239.71898;
-							id=101;
-							atlOffset=0.00016212463;
-						};
-						class Item11
-						{
-							dataType="Marker";
-							position[]={12982.935,8.2889996,14641.247};
-							name="connector_stavros_neochori";
-							text="Connector Stavros Neochori";
-							type="mil_arrow";
-							angle=235.73692;
-							id=102;
-							atlOffset=-10.397629;
-						};
-						class Item12
-						{
-							dataType="Marker";
-							position[]={11066.098,24.156,14037.656};
-							name="connector_alikampos_poliakko";
-							text="Connector Alikampos Poliakko";
-							type="mil_arrow";
-							angle=179.92999;
-							id=104;
-							atlOffset=-0.00026321411;
-						};
-						class Item13
-						{
-							dataType="Marker";
-							position[]={10969.602,64.459,15832.028};
-							name="connector_lakka_agios_dionysios";
-							text="Connector Lakka Agios Dionysios";
-							type="mil_arrow";
-							angle=272.54889;
-							id=105;
-							atlOffset=0.58807373;
-						};
-						class Item14
-						{
-							dataType="Marker";
-							position[]={10836.947,26.174999,12776.765};
-							name="connector_poliakko_therisa";
-							text="Connector Poliakko Therisa";
-							type="mil_arrow";
-							angle=200.49394;
-							id=106;
-							atlOffset=-1.8132095;
-						};
-						class Item15
-						{
-							dataType="Marker";
-							position[]={10002.296,12.448112,12091.665};
-							name="connector_therisa_zaros";
-							text="Connector Therisa Zaros";
-							type="mil_arrow";
-							angle=259.44424;
-							id=107;
-							atlOffset=-9.5367432e-007;
-						};
-						class Item16
-						{
-							dataType="Marker";
-							position[]={12141.336,-27.420166,18817.27};
-							name="connector_athira_galati";
-							text="Connector Athira Galati";
-							type="mil_arrow";
-							angle=276.92499;
-							id=108;
-							atlOffset=-71.609886;
-						};
-						class Item17
-						{
-							dataType="Marker";
-							position[]={14456.451,29.493999,19641.768};
-							name="connector_athira_frini";
-							text="Connector Athira Frini";
-							type="mil_arrow";
-							angle=18.536995;
-							id=109;
-							atlOffset=0.00041007996;
-						};
-						class Item18
-						{
-							dataType="Marker";
-							position[]={10011.512,179.96899,19631.314};
-							name="connector_galati_abdera";
-							text="Connector Galati Abdera";
-							type="mil_arrow";
-							angle=316.84094;
-							id=110;
-							atlOffset=-0.00028991699;
-						};
-						class Item19
-						{
-							dataType="Marker";
-							position[]={9478.1182,139.70799,18690.652};
-							name="connector_galati_syrta";
-							text="Connector Galati Syrta";
-							type="mil_arrow";
-							angle=242.14594;
-							id=111;
-							atlOffset=-0.00015258789;
-						};
-						class Item20
-						{
-							dataType="Marker";
-							position[]={18787.342,37.161999,14230.106};
-							name="connector_charkia_dorida";
-							text="Connector Charkia Dorida";
-							type="mil_arrow";
-							angle=151.10997;
-							id=112;
-							atlOffset=-7.6293945e-006;
-						};
-						class Item21
-						{
-							dataType="Marker";
-							position[]={17530.588,3.224,14095.025};
-							name="connector_charkia_pyrgos";
-							text="Connector Charkia Pyrgos";
-							type="mil_arrow";
-							angle=200.821;
-							id=113;
-							atlOffset=-4.7406254;
-						};
-						class Item22
-						{
-							dataType="Marker";
-							position[]={19853.133,76.602997,12430.027};
-							name="connector_dorida_chalkeia";
-							text="Connector Dorida Chalkeia";
-							type="mil_arrow";
-							angle=155.01599;
-							id=115;
-							atlOffset=0.00061798096;
-						};
-						class Item23
-						{
-							dataType="Marker";
-							position[]={20343.139,27.468,10355.164};
-							name="connector_chalkeia_panagia";
-							text="Connector Chalkeia Panagia";
-							type="mil_arrow";
-							angle=174.369;
-							id=116;
-							atlOffset=0.00049209595;
-						};
-						class Item24
-						{
-							dataType="Marker";
-							position[]={21170.928,16.532,8249.3096};
-							name="connector_panagia_feres";
-							text="Connector Panagia Feres";
-							type="mil_arrow";
-							angle=132.033;
-							id=117;
-							atlOffset=0.00064277649;
-						};
-						class Item25
-						{
-							dataType="Marker";
-							position[]={20501.572,31.5,7664.0078};
-							name="connector_panagia_selakano";
-							text="Connector Panagia Selakano";
-							type="mil_arrow";
-							angle=167.99493;
-							id=118;
-							atlOffset=5.531311e-005;
-						};
-						class Item26
-						{
-							dataType="Marker";
-							position[]={8250.7764,121.765,16278.128};
-							name="connector_agios_dionysios_kore";
-							text="Connector Agios Dionysios Kore";
-							type="mil_arrow";
-							angle=284.53494;
-							id=121;
-							atlOffset=-33.802078;
-						};
-						class Item27
-						{
-							dataType="Marker";
-							position[]={7047.103,89.392998,20735.623};
-							name="connector_abdera_oreokastro";
-							text="Connector Abdera Oreokastro";
-							type="mil_arrow";
-							angle=286.17883;
-							id=125;
-							atlOffset=0.00057220459;
-						};
-						class Item28
-						{
-							dataType="Marker";
-							position[]={6522.6821,155.646,19205.672};
-							name="connector_syrta_oreokastro";
-							text="Connector Syrta Oreokastro";
-							type="mil_arrow";
-							angle=301.81021;
-							id=127;
-							atlOffset=0.00048828125;
-						};
-						class Item29
-						{
-							dataType="Marker";
-							position[]={4596.1411,76.069824,11458.774};
-							name="connector_panochori_neri";
-							text="Connector Panochori Neri";
-							type="mil_arrow";
-							angle=307.14789;
-							id=132;
-							atlOffset=-45.795746;
-						};
-						class Item30
-						{
-							dataType="Marker";
-							position[]={7150.666,3.566,11075.378};
-							name="connector_zaros_panochori";
-							text="Connector Zaros Panochori";
-							type="mil_arrow";
-							angle=256.31192;
-							id=133;
-							atlOffset=0.0005800724;
-						};
-						class Item31
-						{
-							dataType="Marker";
-							position[]={11835.606,16.83,14554.713};
-							name="connector_neochori_alikampos";
-							text="Connector Neochori Alikampos";
-							type="mil_arrow";
-							angle=282.48001;
-							id=142;
-							atlOffset=0.00036811829;
-						};
-						class Item32
-						{
-							dataType="Marker";
-							position[]={10462.231,81.363998,15250.252};
-							name="connector_alikampos_agios_dionysios";
-							text="Connector Alikampos Agios Dionysios";
-							type="mil_arrow";
-							angle=310.3259;
-							id=144;
-							atlOffset=0.5880661;
-						};
-						class Item33
-						{
-							dataType="Marker";
-							position[]={11894.321,10.905,13832.856};
-							name="connector_neochori_poliakko";
-							text="Connector Neochori Poliakko";
-							type="mil_arrow";
-							angle=230.15494;
-							id=145;
-							atlOffset=0.00018215179;
-						};
-						class Item34
-						{
-							dataType="Marker";
-							position[]={3811.634,-12.612,12305.715};
-							name="connector_neri_kavala";
-							text="Connector Neri Kavala";
-							type="mil_arrow";
-							angle=338.46445;
-							id=148;
-							atlOffset=-45.795406;
-						};
-						class Item35
 						{
 							dataType="Marker";
 							position[]={-636.74219,0,13421.719};
@@ -1903,121 +715,13 @@ class Mission
 							id=149;
 							atlOffset=185.97;
 						};
-						class Item36
-						{
-							dataType="Marker";
-							position[]={4056.854,7.8540001,15029.377};
-							name="connector_negades_aggelochori";
-							text="Connector Negades Aggelochori";
-							type="mil_arrow";
-							angle=196.46599;
-							id=150;
-							atlOffset=-0.00025749207;
-						};
-						class Item37
-						{
-							dataType="Marker";
-							position[]={5985.98,54.594002,16461.836};
-							name="connector_kore_negades";
-							text="Connector Kore Negades";
-							type="mil_arrow";
-							angle=259.94995;
-							id=151;
-							atlOffset=-4.9817505;
-						};
-						class Item38
-						{
-							dataType="Marker";
-							position[]={12264.044,79.951851,20529.475};
-							name="connector_frini_galati";
-							text="Connector Frini Galati";
-							type="mil_arrow";
-							angle=261.89688;
-							id=158;
-						};
-						class Item39
-						{
-							dataType="Marker";
-							position[]={7972.8398,164.401,17499.461};
-							name="connector_kore_syrta";
-							text="Connector Kore Syrta";
-							type="mil_arrow";
-							angle=36.623997;
-							id=159;
-							atlOffset=-0.00067138672;
-						};
-						class Item40
-						{
-							dataType="Marker";
-							position[]={7649.6279,179.078,17609.49};
-							name="connector_syrta_kore";
-							text="Connector Syrta Kore";
-							type="mil_arrow";
-							angle=209.02191;
-							id=160;
-							atlOffset=0.00044250488;
-						};
-						class Item41
-						{
-							dataType="Marker";
-							position[]={8656.6084,126.733,15502.381};
-							name="connector_agios_dionysios_agia_stemma";
-							text="Connector Agios Dionysios Agia Stemma";
-							type="mil_arrow";
-							angle=237.84895;
-							id=165;
-							atlOffset=-2.1012421;
-						};
-						class Item42
-						{
-							dataType="Marker";
-							position[]={7443.2261,57.462002,15678.47};
-							name="connector_kore_agia_stemma";
-							text="Connector Kore Agia Stemma";
-							type="mil_arrow";
-							angle=158.069;
-							id=168;
-							atlOffset=-45.103725;
-						};
-						class Item43
-						{
-							dataType="Marker";
-							position[]={8952.9492,40.481998,12841.104};
-							name="connector_agia_stemma_zaros";
-							text="Connector Agia Stemma Zaros";
-							type="mil_arrow";
-							angle=157.69295;
-							id=169;
-							atlOffset=19.930712;
-						};
-						class Item44
-						{
-							dataType="Marker";
-							position[]={3812.5532,13.11885,13342.052};
-							name="connector_aggelochori_kavala";
-							text="Connector Aggelochori Kavala";
-							type="mil_arrow";
-							angle=198.28098;
-							id=171;
-						};
-						class Item45
-						{
-							dataType="Marker";
-							position[]={18271.002,86.93679,11929.522};
-							name="connector_dorida_chalkeia_1";
-							text="Connector Dorida Chalkeia";
-							type="mil_arrow";
-							angle=101.5726;
-							id=857;
-							atlOffset=0.00061798096;
-						};
 					};
 					id=19;
-					atlOffset=44.44754;
+					atlOffset=185.97;
 				};
 			};
 			id=7;
-			atlOffset=86.738556;
+			atlOffset=-106.65665;
 		};
 		class Item5
 		{
@@ -4788,7 +3492,7 @@ class Mission
 					};
 					id=279;
 					type="vn_magazine_mine_tripwire_arty";
-					atlOffset=1.0376701;
+					atlOffset=0.37643623;
 				};
 				class Item69
 				{
@@ -10074,6 +8778,7 @@ class Mission
 							};
 							id=786;
 							type="vn_b_armor_m41_01_01";
+							atlOffset=-0.37735176;
 						};
 						class Item9
 						{
@@ -10091,6 +8796,7 @@ class Mission
 							};
 							id=787;
 							type="vn_b_armor_m41_01_02";
+							atlOffset=-0.37735367;
 						};
 						class Item10
 						{
@@ -10108,7 +8814,7 @@ class Mission
 							};
 							id=788;
 							type="vn_b_armor_m41_01_02";
-							atlOffset=-0.0011405945;
+							atlOffset=-0.37848854;
 						};
 						class Item11
 						{
@@ -12172,7 +10878,7 @@ class Mission
 							text="Initial Supply Drop 1";
 							type="Empty";
 							colorName="ColorOrange";
-							angle=225.49709;
+							angle=225.49704;
 							id=1058;
 							atlOffset=0.50146294;
 						};
@@ -17989,20 +16695,6 @@ class Mission
 		};
 		class Item84
 		{
-			dataType="Marker";
-			position[]={26914.861,22.732,24581.002};
-			name="blocked_area1";
-			text="Molos Airfield";
-			markerType="RECTANGLE";
-			type="";
-			a=676.32397;
-			b=266.01199;
-			angle=310.25101;
-			id=1131;
-			atlOffset=-1.3747025;
-		};
-		class Item85
-		{
 			dataType="Logic";
 			class PositionInfo
 			{
@@ -18046,7 +16738,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item86
+		class Item85
 		{
 			dataType="Object";
 			class PositionInfo
@@ -18063,7 +16755,7 @@ class Mission
 			type="vn_b_armor_m113_acav_01";
 			atlOffset=4.5776367e-005;
 		};
-		class Item87
+		class Item86
 		{
 			dataType="Object";
 			class PositionInfo
@@ -18080,7 +16772,7 @@ class Mission
 			type="vn_b_air_uh1d_03_06";
 			atlOffset=-0.032684326;
 		};
-		class Item88
+		class Item87
 		{
 			dataType="Object";
 			class PositionInfo
@@ -18097,7 +16789,7 @@ class Mission
 			type="vn_b_air_uh1e_02_04";
 			atlOffset=0.005821228;
 		};
-		class Item89
+		class Item88
 		{
 			dataType="Object";
 			class PositionInfo
