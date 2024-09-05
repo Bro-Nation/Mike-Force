@@ -590,5 +590,39 @@ class CfgFunctions
 			class task_sup_resupply { file = "functions\tasks\support\fn_task_sup_resupply.sqf";};
 			class task_zone_connector { file = "functions\tasks\fn_zone_connector.sqf";};
 		};
+
+		// class tasks_helpers_prepare
+		// {
+		// 	file = "functions\tasks\helpers\counterattack";
+		// 	class tasks_helpers_counterattack_create_circle_area {};
+		// 	class tasks_helpers_counterattack_db_key {};
+		// 	class tasks_helpers_counterattack_db_time_get {};
+		// 	class tasks_helpers_counterattack_db_time_reset {};
+		// 	class tasks_helpers_counterattack_db_time_update {};
+		// 	class tasks_helpers_counterattack_defend_area_condition_check {};
+		// 	class tasks_helpers_counterattack_init {};
+		// 	class tasks_helpers_counterattack_maybe_load_task_time {};
+		// 	class tasks_helpers_counterattack_notify_attack_time {};
+		// 	class tasks_helpers_counterattack_prepare_zone {};
+		// 	class tasks_helpers_counterattack_reset_flag_vars {};
+		// };
+
+
+		class tasks_helpers_counterattack
+		{
+			file = "functions\tasks\tasks_helpers\counterattack";
+			class tasks_helpers_counterattack_area_marker_create {};
+			class tasks_helpers_counterattack_area_marker_delete {};
+			class tasks_helpers_counterattack_db_key {};
+			class tasks_helpers_counterattack_db_time_get {};
+			class tasks_helpers_counterattack_db_time_reset {};
+			class tasks_helpers_counterattack_db_time_update {};
+			class tasks_helpers_counterattack_defend_area_condition_check {};
+			class tasks_helpers_counterattack_init {};
+			class tasks_helpers_counterattack_maybe_load_task_time {};
+			class tasks_helpers_counterattack_notify_attack_time {};
+			class tasks_helpers_counterattack_prepare_zone {};
+			class tasks_helpers_counterattack_reset_flag_vars {};
+		};
 	};
 };
