@@ -75,4 +75,9 @@ if (isPlayer _entity) then
 
 	// wipe out unused data
 	_corpse setVariable ["vn_mf_dyn_weaponholders",nil,true];
+
+	// delete all light sources and attachments that might have been on the player
+	// also clear the JIP queue for other clients
+	[_corpse] call vn_mf_fnc_attachments_global_delete_objects;
+	[_entity] call vn_mf_fnc_attachments_global_reset_jip_id;
 };

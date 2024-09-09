@@ -566,18 +566,18 @@ class vn_mf_ribbon_base: vn_mf_RscButton_ImgSwitch
 	text = "";
 	tooltip = "";
 	
-	onMouseEnter = "[_this#0,true] call vn_mf_fnc_tr_characterInfo_ribbon_enter;";
-	onMouseExit = "call vn_mf_fnc_tr_characterInfo_ribbon_exit;";
-	onButtonClick = "[_this#0,true]call vn_mf_fnc_tr_characterInfo_ribbon_setIcon;";
+	onMouseEnter = "[_this#0,true] call vn_mf_fnc_tr_playerInfo_ribbon_enter;";
+	onMouseExit = "call vn_mf_fnc_tr_playerInfo_ribbon_exit;";
+	onButtonClick = "[_this#0,true]call vn_mf_fnc_tr_playerInfo_ribbon_setIcon;";
 };
 
 class vn_mf_RscMapControl
 {
 	moveOnEdges = 1;
 	x = "SafeZoneXAbs";
-	y = "SafeZoneY + 1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	y = "SafeZoneY + 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	w = "SafeZoneWAbs";
-	h = "SafeZoneH - 1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+	h = "SafeZoneH - 1.5 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 	
 	type = 101;
 	style = "0x10+ 0x20";

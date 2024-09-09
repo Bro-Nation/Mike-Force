@@ -1,5 +1,23 @@
+/*
+    File: fn_sysmsg_print_admin.sqf
+    Author: 'DJ' Dijksterhuis
+    Public: No
+
+    Description:
+        Send some random pre-defined message to all players over system chat.
+
+        These are all admin specific messages like server rules etc.
+
+    Parameter(s): None
+
+    Returns: nothing
+
+    Example(s):
+        call vn_mf_fnc_sysmsg_print_admin;
+*/
+
+
 private _admin_messages = [
-    "Events: We regularly host events and custom missions on multiple servers. See the events tab on discord: discord.gg/bro-nation",
     "Servers: We usually have a selection of custom Mike Force servers. Past missions: 1986 Cold War; WW2; Star Wars; Halo; Warhammer 40k. discord.gg/bro-nation",
     "Server Restarts: Every 6 hours: 00:00, 06:00, 12:00, 18:00 EST.",
     "Server Rule 1: Trolling will not be tolerated.",
@@ -11,7 +29,5 @@ private _admin_messages = [
 ];
 
 private _msg = format ["%1", selectRandom _admin_messages];
-
-{
-    [_msg] remoteExec ["systemChat", _x]
-} forEach allPlayers;
+// don't care about client order -- send and forget with rECall
+[_msg] remoteExecCall ["systemChat", -2];

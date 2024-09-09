@@ -31,7 +31,7 @@ if !([_task] call vn_mf_fnc_task_is_completed) then {
 	[_task, 'SUCCEEDED'] call vn_mf_fnc_task_complete;
 };
 
-call vn_mf_fnc_daccong_delete_respawns_all;
+call vn_mf_fnc_daccong_respawns_delete_all;
 
 // delete all site composition objects.
 vn_site_objects apply {deleteVehicle _x};

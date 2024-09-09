@@ -162,7 +162,7 @@ _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 private _lastTeamName = player getVariable ["vn_mf_db_player_group", "MikeForce"];
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
-private _respawnMarker = format ["mf_respawn_%1", _lastTeamName];
+private _respawnMarker = format ["mf_respawn_%1", _lastTeamName]; 
 if (side player == east) then 
 {
 	_respawnMarker = format ["mf_dc_respawn_%1", _lastTeamName]; 
@@ -246,6 +246,62 @@ cutText ["", "BLACK IN", 4];
 8 fadeMusic 0;
 // Restore the music volume in the near future.
 [] spawn {sleep 8; playMusic ""; 2 fadeMusic 1};
+
+"vn_holdActionAdd_layer" cutText ["","PLAIN"];
+
+[] spawn
+{
+	while {true} do
+	{
+		uiSleep 0.5;
+		[] call para_c_fnc_set_aperture_based_on_light_level;
+	};
+};
+
+[] spawn
+{
+	uiSleep 1;
+	private _version = getText(missionConfigFile >> "version");
+	private _lastVersion = (["GET", "last_version", ""] call para_s_fnc_profile_db) select 1;
+	//Open welcome screen for new players
+	private _welcomeScreenEnabled = ["para_enableWelcomeScreen"] call para_c_fnc_optionsMenu_getValue;
+	private _versionHasChanged = _lastVersion == "" || _lastVersion != _version;
+
+	if (_versionHasChanged) then {
+		// TODO: Add a button in the task roster?
+		// createDialog "para_ChangelogScreen";
+		["SET", "last_version", _version] call para_s_fnc_profile_db;
+	};
+
+	if (_welcomeScreenEnabled) exitWith {
+
+		// createDialog "para_WelcomeScreen";
+
+		// show task roster instead of the default Mike Force welcome screen
+		// initial page has more relevant information for Bro Nation.
+		createDialog "vn_tr_disp_taskRoster_Main";
+
+		// hint to players about disabling the task roster automatically showing on server join
+		hintSilent parseText
+		(
+			[
+				"<t align='left' size='1.3'>How To Disable Task Roster Menu on Server Join</t><br/><br/>",
+				"<t align='left'>1. Press ESCAPE to open the pause menu.</t><br/>",
+				"<t align='left'>2. Click on GAMEMODE OPTIONS (top left).</t><br/>",
+				"<t align='left'>3. Untick the 'Show Welcome screen' option.</t><br/>",
+				"<t align='left'>4. Click 'OK'.</t><br/>"
+			] joinString ""
+		);
+
+		// hints do not disappear when other UI elements are open.
+		// their default 30 second timer gets paused.
+		[] spawn {
+			sleep 10;
+			hintSilent "";
+		};
+	};
+};
+
 // Re-enable simulation
 if (typeOf player != "VirtualCurator_F") then {
 	player enableSimulation true;
@@ -263,40 +319,6 @@ else{
 		case 1: {setStaminaScheme "Default"};
 		case 2: {setStaminaScheme "FastDrain"};
 		case 3: {setStaminaScheme "Exhausted"};
-	};
-};
-
-"vn_holdActionAdd_layer" cutText ["","PLAIN"];
-
-// display location after a little delay
-sleep 4;
-call vn_mf_fnc_display_location_time;
-
-[] spawn
-{
-	while {true} do
-	{
-		uiSleep 0.5;
-		[] call para_c_fnc_set_aperture_based_on_light_level;
-	};
-};
-
-[] spawn
-{
-	uiSleep 2;
-	private _version = getText(missionConfigFile >> "version");
-	private _lastVersion = (["GET", "last_version", ""] call para_s_fnc_profile_db) select 1;
-	//Open welcome screen for new players
-	private _welcomeScreenEnabled = ["para_enableWelcomeScreen"] call para_c_fnc_optionsMenu_getValue;
-	private _versionHasChanged = _lastVersion == "" || _lastVersion != _version;
-
-	if (_versionHasChanged) exitWith {
-		createDialog "para_ChangelogScreen";
-		["SET", "last_version", _version] call para_s_fnc_profile_db;
-	};
-
-	if (_welcomeScreenEnabled) exitWith {
-		createDialog "para_WelcomeScreen";
 	};
 };
 
@@ -381,3 +403,12 @@ if hasInterface then
 
 ["InitializePlayer", [player]] call para_c_fnc_dynamicGroups;
 
+// display location + current game time
+call vn_mf_fnc_display_location_time;
+
+// monitor "life" of attached light source objects on a player
+// sends a warning when about to run out, and then removes them
+call vn_mf_fnc_attachments_client_battery_monitor_init;
+
+// initialise the emotes wheel menu
+[player] call vn_mf_fnc_emotes_init;

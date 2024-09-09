@@ -173,6 +173,9 @@
       <Key ID="STR_vn_mf_repack">
         <Original>Repack</Original>
       </Key>
+      <Key ID="STR_vn_mf_attach">
+        <Original>Attach</Original>
+      </Key>
       <Key ID="STR_vn_mf_drink">
         <Original>Drink</Original>
       </Key>
@@ -490,6 +493,9 @@
       </Key>
       <Key ID="STR_vn_mf_rvn_military_merit_first_republic_medal">
         <Original>RVN Military Merit First Republic Medal</Original>
+      </Key>
+      <Key ID="STR_vn_mf_rvn_civil_action_unit_citation">
+        <Original>RVN Civil Action Unit Citation Medal</Original>
       </Key>
       <Key ID="STR_vn_mf_hud_interact">
         <Original>Interact</Original>

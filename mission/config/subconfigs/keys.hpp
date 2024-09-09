@@ -239,3 +239,14 @@ class vn_mf_toggle_hud
 	access = 1;
 };
 
+class vn_mf_emotes_menu
+{
+	defaultKey = DIK_F8;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_emotes_menu_open";
+	down = 0;
+	displayName = "Open Emotes Menu";
+	access = 1;
+};
