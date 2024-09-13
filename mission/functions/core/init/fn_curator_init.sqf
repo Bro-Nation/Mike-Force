@@ -49,7 +49,13 @@ if (_hasZeusPack == false) exitWith {};
 private _playerUID = getPlayerUID _player;
 private _curator = missionNamespace getVariable [_playerUID + "_Cur", objNull];
 
-private _ehGroupPlacement = _curator addEventHandler ["CuratorGroupPlaced", {
-	params ["_curator", "_group"];
-	[_curator, _group] remoteExec ["vn_mf_fnc_curator_set_group_owner_headless", 2];
-}];
+// only add the event handler to the curator logic once
+if (isNil (_curator getVariable ["vn_mf_curator_eh_id", nil])) then {
+
+	private _ehGroupPlacement = _curator addEventHandler ["CuratorGroupPlaced", {
+		params ["_curator", "_group"];
+		[_curator, _group] remoteExec ["vn_mf_fnc_curator_set_group_owner_headless", 2];
+	}];
+
+	_curator setVariable ["vn_mf_curator_eh_id", _ehGroupPlacement];
+};
