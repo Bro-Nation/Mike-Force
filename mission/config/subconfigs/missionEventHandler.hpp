@@ -5,7 +5,7 @@ class Draw3D
 };
 class EachFrame
 {
-	targets[] = {HEADED_CLIENT_HOST,HEADED_CLIENT,DEDICATED_SERVER};
+	targets[] = {HEADED_CLIENT_HOST,HEADED_CLIENT};
 };
 class EntityKilled
 {
