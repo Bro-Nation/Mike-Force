@@ -412,3 +412,6 @@ call vn_mf_fnc_attachments_client_battery_monitor_init;
 
 // initialise the emotes wheel menu
 [player] call vn_mf_fnc_emotes_init;
+
+// double check the player is zeus once a minute to stop players losing the ability to curate
+["double_check_zues", [player] call vn_mf_fnc_curator_init, [], 60] call para_g_fnc_scheduler_add_job;
