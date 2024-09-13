@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=26838;
+		nextID=26942;
 	};
 	class Camera
 	{
-		pos[]={15685.981,36.641052,7392.2642};
-		dir[]={-0.32809895,-0.80971026,-0.48676226};
-		up[]={-0.45258078,0.58681303,-0.67144185};
-		aside[]={-0.8293035,3.3278484e-006,0.55899209};
+		pos[]={15686.969,104.72541,7450.8584};
+		dir[]={0.007276827,-0.73690271,-0.67612201};
+		up[]={0.0079308897,0.67596072,-0.73690516};
+		aside[]={-1.0000523,2.8211452e-006,-0.010758324};
 	};
 };
 binarizationWanted=0;
@@ -408,8 +408,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -459,8 +459,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -15285,20 +15285,20 @@ class Mission
 							name="duty_officer_mikeforce";
 							type="mil_dot";
 							colorName="ColorWhite";
-							angle=1.7836123;
+							angle=1.7836121;
 							id=7545;
 							atlOffset=0.49795628;
 						};
 						class Item12
 						{
 							dataType="Marker";
-							position[]={2704.6267,14.97998,3907.0842};
+							position[]={16291.949,4.0810547,2312.2139};
 							name="starting_point";
 							text="Starting Point";
 							type="Empty";
 							angle=70.846191;
 							id=14092;
-							atlOffset=-14.932863;
+							atlOffset=0.00012159348;
 						};
 						class Item13
 						{
@@ -15338,7 +15338,7 @@ class Mission
 						};
 					};
 					id=18319;
-					atlOffset=-37.893559;
+					atlOffset=-29.701263;
 				};
 				class Item3
 				{
@@ -32818,7 +32818,7 @@ class Mission
 				};
 			};
 			id=18339;
-			atlOffset=-1.6373501;
+			atlOffset=-1.6726847;
 		};
 		class Item232
 		{
@@ -47176,7 +47176,7 @@ class Mission
 					};
 					id=19080;
 					type="vn_b_men_sf_06";
-					atlOffset=0.051105499;
+					atlOffset=0.05109024;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -47213,7 +47213,7 @@ class Mission
 			{
 			};
 			id=19079;
-			atlOffset=0.051105499;
+			atlOffset=0.05109024;
 		};
 		class Item437
 		{
