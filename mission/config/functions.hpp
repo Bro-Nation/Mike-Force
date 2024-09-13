@@ -47,6 +47,7 @@ class CfgFunctions
 			class chat_init {};
 			class adv_revive_params {};
 			class init_mission_handlers {};
+			class curator_set_group_owner_headless {};
 		};
 
 		class core_input

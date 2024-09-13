@@ -46,3 +46,10 @@ if (_hasZeusPack == false) exitWith {};
 	}, _this] call CBA_fnc_globalExecute;
 };
 
+private _playerUID = getPlayerUID _player;
+private _curator = missionNamespace getVariable [_playerUID + "_Cur", objNull];
+
+private _ehGroupPlacement = _curator addEventHandler ["CuratorGroupPlaced", {
+	params ["_curator", "_group"];
+	[_curator, _group] remoteExec ["vn_mf_fnc_curator_set_group_owner_headless", 2];
+}];
