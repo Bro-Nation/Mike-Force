@@ -23,14 +23,20 @@ params
 	["_unit",objNull,[objNull]] // 0: OBJECT - player unit object
 ];
 
-private _data = [];
-{
-	//code
+private _rankConfig = getArray(missionConfigFile >> "gamemode" >> "rank" >> "ranks");
+
+// if maxrank UI will show an error if we try to do anything further
+private _maxRankPoints = selectMax (_rankConfig apply {(_x select 0) select 2});
+
+if (_unit getVariable ["vn_mf_db_rank",0] > _maxRankPoints) exitWith {
+	((_rankConfig select -1) select 0)
+};
+
+private _upcomingRanks = _rankConfig select {
 	_x params [["_rank_data",["","",0]]];
 	_rank_data params ["", "", "_pointsneeded"];
-	if (_unit getVariable ["vn_mf_db_rank",0] < _pointsneeded) exitWith
-	{
-		_data = _rank_data;
-	};
-} forEach getArray(missionConfigFile >> "gamemode" >> "rank" >> "ranks");
-_data
+
+	(_unit getVariable ["vn_mf_db_rank",0] < _pointsneeded)
+};
+
+_upcomingRanks select 0 select 0

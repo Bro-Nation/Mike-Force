@@ -1,0 +1,6 @@
+#include "playerInfo\idcs.hpp"
+#include "tasksInfo\idcs.hpp"
+#include "teamInfo\idcs.hpp"
+#include "requestSupport\idcs.hpp"
+#include "newPlayerGuide\idcs.hpp"
+#include "main\idcs.hpp"

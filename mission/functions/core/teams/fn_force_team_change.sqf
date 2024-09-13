@@ -18,23 +18,27 @@
 
 params ["_player", "_team"];
 
-private _playerGroup = _player getVariable ["vn_mf_db_player_group", "FAILED"];
-private _playerGroupArray = missionNamespace getVariable [_playerGroup,[]];
-private _playerUID = getPlayerUID _player;
+private _currentPlayerGroup = _player getVariable ["vn_mf_db_player_group", "FAILED"];
+private _currentPlayerGroupArray = missionNamespace getVariable [_currentPlayerGroup,[]];
 private _isWhitelisted = [_player, _team] call para_g_fnc_db_check_whitelist;
 
-if (_isWhitelisted) then {
-	_player setVariable ["vn_mf_db_player_group", _team, true]; 
-} else {
-	_player setVariable ["vn_mf_db_player_group", "MikeForce", true]; 	
-	_team = "MikeForce";
+if !(_isWhitelisted) then {
+
+	private _shortname = getText (missionConfigFile >> "gamemode" >> "teams" >> _team >> "shortname");
+	["ErrorNotWhitelistedForTeam", [_shortname]] remoteExec ["para_c_fnc_show_notification", _player];
+
+	if (_currentPlayerGroup isNotEqualTo "FAILED") then {
+		_team = _currentPlayerGroup;
+	} else {
+		_team = "MikeForce";
+	};
 };
 
 ["changedTeams", [_player, _team]] call para_g_fnc_event_dispatch;
 
 // Remove the player from their original team's group array
-_playerGroupArray deleteAt (_playerGroupArray find _player);
-publicVariable _playerGroup;
+_currentPlayerGroupArray deleteAt (_currentPlayerGroupArray find _player);
+publicVariable _currentPlayerGroup;
 
 // Add the player to the new team's player list.
 _player setVariable ["vn_mf_db_player_group", _team, true];
@@ -50,9 +54,12 @@ _nextPlayerTeamArray pushBackUnique _player;
 
 [[_team], {
 	[] call vn_mf_fnc_task_refresh_tasks_client;
-	[] call vn_mf_fnc_tr_overview_team_update;
 	[] call vn_mf_fnc_update_channels;
 	[] call vn_mf_fnc_apply_unit_traits;
 	[] call vn_mf_fnc_action_trait;
-	// reset the available actions on the client
+	// DO THIS LAST
+	// so the roles update properly in the teams info pages of the taskroster UI
+	// otherwise when a player changes teams their roles are not updated until
+	// they reopen the task roster
+	[] call vn_mf_fnc_tr_teamInfo_callback_update;
 }] remoteExec ["spawn", _player];

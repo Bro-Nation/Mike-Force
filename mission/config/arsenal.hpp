@@ -647,9 +647,9 @@ class vn_whitelisted_arsenal_loadouts
 			{ "vn_b_item_lighter_01", 				{ 0, 0, 0,-1}}, 
 			{ "vn_b_item_cigs_01", 					{ 0,-1, 0,-1}}, 
 			{ "Chemlight_blue", 					{-1, 0, 0,-1}}, 
-			{ "Chemlight_green", 					{-1,-1, 0,-1}}, 
+			{ "Chemlight_green", 					{-1, 0, 0,-1}}, 
 			{ "Chemlight_red", 						{ 0,-1,-1,-1}}, 
-			{ "Chemlight_yellow", 					{-1,-1,-1, 0}},
+			{ "Chemlight_yellow", 					{-1,0,0,0}},
 			//1.3 mags --
 			{"vn_mine_m18_range_mag",				{-1,0,1,-1}},
 			{"vn_mine_m18_fuze10_mag",				{-1,0,3,-1}},
