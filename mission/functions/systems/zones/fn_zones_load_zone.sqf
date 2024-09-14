@@ -30,7 +30,9 @@ if (_savedData isEqualTo []) then
 		//Zone
 		_zoneId,
 		//Captured
-		false
+		false,
+		// default initial task state
+		mf_s_zone_first_task
 	];
 };
 
@@ -42,10 +44,22 @@ private _version = _savedData select 0;
 _savedData params [
 	"_version",
 	"_zoneMarker",
-	"_captured"	
+	"_captured",
+	["_task", mf_s_zone_first_task]  // optional for back compat
 ];
+
+// MASSIVEHACK: this is the "capture_zone" task needing "prepare_zone"
+// for the site generation.
+
+// If I can get `capture_zone` sites data persisted (quite a big job)
+// then we can get rid of this line. Until then it needs to be here.
+
+if (_task isEqualTo "capture_zone") then {
+	_task = "prepare_zone";
+};
 
 _zoneData set [struct_zone_m_marker, _zoneMarker];
 _zoneData set [struct_zone_m_captured, _captured];
+_zoneData set [struct_zone_m_task, _task];
 
 _zoneData

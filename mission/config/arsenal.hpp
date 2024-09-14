@@ -647,9 +647,9 @@ class vn_whitelisted_arsenal_loadouts
 			{ "vn_b_item_lighter_01", 				{ 0, 0, 0,-1}}, 
 			{ "vn_b_item_cigs_01", 					{ 0,-1, 0,-1}}, 
 			{ "Chemlight_blue", 					{-1, 0, 0,-1}}, 
-			{ "Chemlight_green", 					{-1,-1, 0,-1}}, 
+			{ "Chemlight_green", 					{-1, 0, 0,-1}}, 
 			{ "Chemlight_red", 						{ 0,-1,-1,-1}}, 
-			{ "Chemlight_yellow", 					{-1,-1,-1, 0}},
+			{ "Chemlight_yellow", 					{-1,0,0,0}},
 			//1.3 mags --
 			{"vn_mine_m18_range_mag",				{-1,0,1,-1}},
 			{"vn_mine_m18_fuze10_mag",				{-1,0,3,-1}},
@@ -778,6 +778,7 @@ class vn_whitelisted_arsenal_loadouts
 			{ "vn_b_boonie_02_05", 					{-1, 0, 0,-1}}, 
 			{ "vn_b_boonie_02_06", 					{-1, 0, 0,-1}}, 
 			{ "vn_b_boonie_02_07", 					{-1, 0, 0,-1}}, 
+			{ "vn_b_boonie_02_08", 					{-1, 0, 0,-1}}, 
 			{ "vn_b_boonie_03_01", 					{-1, 0, 0,-1}}, 
 			{ "vn_b_boonie_03_02", 					{-1, 0, 0,-1}}, 
 			{ "vn_b_boonie_03_03", 					{-1, 0, 0,-1}}, 
@@ -1342,7 +1343,8 @@ class vn_whitelisted_arsenal_loadouts
 			{"vn_b_helmet_m1_19_02",				{-1,0,-1,-1}},
 			{"vn_b_helmet_m1_20_01",				{-1,0,-1,-1}},
 			{"vn_b_helmet_m1_20_02",				{-1,0,-1,-1}},
-			{"vn_b_boonie_09_01",					{-1,-1,-1,-1}},//confederate flag boonie hats
+			//confederate flag boonie hats
+			{"vn_b_boonie_09_01",					{-1,-1,-1,-1}},
 			{"vn_b_boonie_09_02",					{-1,-1,-1,-1}},
 			{"vn_b_boonie_09_03",					{-1,-1,-1,-1}},
 			{"vn_b_boonie_09_04",					{-1,-1,-1,-1}},
@@ -1351,11 +1353,12 @@ class vn_whitelisted_arsenal_loadouts
 			{"vn_b_boonie_09_07",					{-1,-1,-1,-1}},
 			{"vn_b_boonie_09_08",					{-1,-1,-1,-1}},
 			{"vn_b_boonie_09_09",					{-1,-1,-1,-1}},
-			{"vn_b_boonie_01_09",					{-1,-1,-1,-1}},
-			{"vn_b_boonie_02_09",					{-1,-1,-1,-1}},
-			{"vn_b_boonie_03_09",					{-1,-1,-1,-1}},
-			{"vn_b_boonie_04_09",					{-1,-1,-1,-1}},
-			{"vn_b_boonie_05_09",					{-1,-1,-1,-1}},//end of confederate flag boonie hats
+			//end of confederate flag boonie hats
+			{"vn_b_boonie_01_09",					{-1,0,-1,-1}},
+			{"vn_b_boonie_02_09",					{-1,0,-1,-1}},
+			{"vn_b_boonie_03_09",					{-1,0,-1,-1}},
+			{"vn_b_boonie_04_09",					{-1,0,-1,-1}},
+			{"vn_b_boonie_05_09",					{-1,0,-1,-1}},
 			{"vn_b_beret_01_09",					{-1,0,-1,-1}},
 			{"vn_b_beret_01_10",					{-1,0,-1,-1}},
 			{"vn_b_beret_01_11",					{-1,0,-1,-1}}

@@ -42,7 +42,7 @@ playMusic selectRandom [
 	"vn_drafted",
 	"vn_unsung_heroes",
 	"vn_blues_for_suzy",
-	"vn_voodo_girl",
+	"vn_voodoo_girl",
 	"vn_tequila_highway",
 	"vn_there_it_is",
 	"vn_kitty_bar_blues",
@@ -51,3 +51,29 @@ playMusic selectRandom [
 	"vn_dont_cry_baby"
 ];
 4 fadeMusic 1;
+
+/*
+force enable hud here, not in description.ext otherwise players cannot toggle HUD in game
+
+> Since Arma 3 v1.50 there is a Description.ext's showHUD[] array param that is identical
+> in format to the extended showHUD command.
+>
+> When present, it will disable showHUD command entirely, allowing mission makers to
+> permanently alter visibility of some HUD elements.
+>
+> https://community.bistudio.com/wiki/showHUD
+
+*/
+showHUD [
+	true,	// Scripted HUD (same as showHUD command)
+	true,	// Vehicle + soldier info
+	true,	// Vehicle radar
+	true,	// Vehicle compass
+	true,	// Tank direction indicator
+	true,	// Commanding menu
+	true,	// Group Bar
+	true,	// HUD Weapon Cursors
+	true,	// Vehicle display panels
+	true,	// System chat kill notifications
+	false	// Draw3D
+];

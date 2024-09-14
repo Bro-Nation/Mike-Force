@@ -21,6 +21,16 @@ params ["_intel", "_player"];
 private _intelType = typeOf _intel;
 private _sites = [];
 
+// if a player moves their cursor quickly after the completion, or theres some lag etc,
+// apparently they can pass the factory building as the intel object to be used in the reveal
+// which causes some problems.
+//
+// so double check that we're looking at the right object and warn the player if not.
+
+if !(typeOf _intel in ['Land_Map_unfolded_F','Land_Map_unfolded_Malden_F', 'vn_b_prop_cabinet_02']) exitWith {
+	["IntelError"] remoteExec ["para_c_fnc_show_notification", player];
+};
+
 switch (_intelType) do
 {
 	case 'Land_Map_unfolded_F': {_sites = missionNamespace getVariable ["side_sites_hq", []]};
@@ -51,3 +61,7 @@ _sites apply {
 };
 
 deleteVehicle _intel;
+
+[["IntelSuccess"], "para_c_fnc_show_notification"] call vn_mf_fnc_rExecServerToGlobal_playerHost_or_dedicated;
+
+nil;

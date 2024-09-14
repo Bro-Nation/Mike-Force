@@ -69,7 +69,7 @@ _nearbyTerrainObjs apply {
 	];
 
 	if (_sitePos inArea _areaArr) then {
-		diag_log format ["Hiding terrain object: obj=%1 pos=%2", _x, getPos _x];
+
 		_x hideObjectGlobal true;
 
 		/*
@@ -88,12 +88,15 @@ _nearbyTerrainObjs apply {
 		_additionalObjects apply {_x hideObjectGlobal true};
 
 		if (_debug) then {
+
+			diag_log format ["Hid terrain object: obj=%1 pos=%2", _x, getPos _x];
+
 			private _markerName = format ["marker-terrain-object-%1", _x];
-			private _marker = createMarker [_markerName, getPos _x];
-			_marker setMarkerAlpha 1;
-			_marker setMarkerShape "ELLIPSE";
-			_marker setMarkerSize [_maxDimensionRadius, _maxDimensionRadius];
-			_marker setMarkerBrush "Border";
+			private _marker = createMarkerLocal [_markerName, getPos _x];
+			_marker setMarkerAlphaLocal 1;
+			_marker setMarkerShapeLocal "ELLIPSE";
+			_marker setMarkerSizeLocal [_maxDimensionRadius, _maxDimensionRadius];
+			_marker setMarkerBrushLocal "Border";
 
 			_marker setMarkerColor "ColorRed";
 

@@ -27,6 +27,8 @@ class CfgFunctions
 			class player_within_radius {};
 			class check_side {};
 			class range {};
+			class color_confname_to_rgba {};
+			class rExecServerToGlobal_playerHost_or_dedicated {};
 		};
 
 		class core_init
@@ -101,31 +103,25 @@ class CfgFunctions
 			class ui_sub_menu {};
 			class ui_update {};
 			class update_loading_screen {};
+			class ui_hud_toggle {};
 		};
 
+		// these are functions that are used outside of the taskroster UI
+		// the other task roster blocks are dedicated to each display page
 		class ui_taskroster
 		{
 			file = "functions\core\ui\taskroster";
 
+			// open on key press (default: H key)
 			class enable_task_roster {};
 
-			/* TaskRoster: */
-			class tr_cleanRightSheet {};
+			// open display if not already open
 			class tr_init {};
-			class tr_overview_init {};
-			class tr_overview_team_update {};
+		};
 
-			/* Main Info: */
-			class tr_mainInfo_show {};
-
-			/* Mission List */
-			class tr_zone_change {};
-			class tr_missions_fill {};
-			class tr_missions_show {};
-			class tr_mission_setActive {};
-			class tr_listboxtask_select {};
-
-			/* Support Task Stuff */
+		class ui_taskroster_supportTasks
+		{
+			file = "functions\core\ui\taskroster\supportTasks";
 			class tr_supportTask_show {};
 			class tr_supportTask_selectTask {};
 			class tr_supportTask_selectTeam {};
@@ -134,17 +130,37 @@ class CfgFunctions
 			class tr_supportTask_create {};
 			class tr_supportTask_map_hide {};
 			class tr_getMapPosClick {};
+		};
 
-			/* Team selection */
-			class tr_selectTeam {};
-			class tr_selectTeam_init {};
-			class tr_selectTeam_set {};
+		class ui_taskroster_tasksInfo
+		{
+			file = "functions\core\ui\taskroster\tasksInfo";
+			class tr_tasksInfo_fill {};
+			class tr_tasksInfo_show {};
+			class tr_tasksInfo_setActive {};
+			class tr_tasksInfo_listbox_select {};
+		};
 
-			/* Character Info */
-			class tr_characterInfo_show {};
-			class tr_characterInfo_ribbon_enter {};
-			class tr_characterInfo_ribbon_exit {};
-			class tr_characterInfo_ribbon_setIcon {};
+		class ui_taskroster_teamInfo
+		{
+			file = "functions\core\ui\taskroster\teamInfo";
+			class tr_teamInfo_show {};
+			class tr_teamInfo_changeteam_select {};
+			class tr_teamInfo_changeteam_init {};
+
+			// server side callback to player to update the team
+			// while the task roster is still displayed (so teams
+			// data updates asap in the UI)
+			class tr_teamInfo_callback_update {};
+		};
+
+		class ui_taskroster_playerInfo
+		{
+			file = "functions\core\ui\taskroster\playerInfo";
+			class tr_playerInfo_show {};
+			class tr_playerInfo_ribbon_enter {};
+			class tr_playerInfo_ribbon_exit {};
+			class tr_playerInfo_ribbon_setIcon {};
 		};
 
 		class ui_timerOverlay
@@ -169,7 +185,6 @@ class CfgFunctions
 			file = "functions\systems\actions";
 			class action_init {};
 			class action_vehspawner_show_spawn_point {};
-			class action_destroy_respawn {};
 			class action_destroy_task {};
 			class action_gather_intel {};
 			class action_radiotap {};
@@ -184,6 +199,7 @@ class CfgFunctions
 			class action_curator_force_reset_idle_vehicle {};
 			class action_curator_lock_spawner {};
 			class action_curator_unlock_spawner {};
+			class action_press_toggle_spectator {};
 		};
 
 		class system_actives {
@@ -204,6 +220,25 @@ class CfgFunctions
 			class arsenal_trash_cleanup {};
 		};
 
+		class system_attachments {
+			file = "functions\systems\attachments";
+			class attachments_client_attach_flashlight {};
+			class attachments_client_attach_chemlight {};
+			class attachments_server_attach_flashlight {};
+			class attachments_server_attach_chemlight {};
+			class attachments_global_get_jip_id {};
+			class attachments_global_reset_jip_id {};
+			class attachments_global_delete_objects {};
+			class attachments_client_battery_monitor_init {};
+			class attachments_client_battery_monitor_job {};
+		};
+
+		class system_attachments_lightsources {
+			file = "functions\systems\attachments\lightsources";
+			class attachments_lightsources_flashlight {};
+			class attachments_lightsources_chemlight {};
+		};
+
 		class system_awards {
 			file = "functions\systems\awards";
 			class player_award {};
@@ -220,8 +255,10 @@ class CfgFunctions
 
 		class system_dac_cong {
 			file = "functions\systems\dac_cong";
-
+			class daccong_respawns_delete_all {};
 			class capture_player {};
+			class ctf_handle_flag_height_change {};
+			class ctf_broadcast_notify_immediate {};
 		}
 
 		//Gameplay director, responsible for main game progression and flow.
@@ -238,11 +275,20 @@ class CfgFunctions
 			class director_process_active_zone {};
 			class director_zones_in_range_of_bases {};
 			class director_play_music_completed_zone {};
+			class director_start_next_zone_task {};
 		};
 
 		class system_earplugs {
 			file = "functions\systems\earplugs";
 			class earplugs {};
+			class earplugs_toggle {};
+		};
+
+		class system_emotes {
+			file = "functions\systems\emotes";
+			class emotes_init {};
+			class emotes_emote_toggle {};
+			class emotes_menu_open {};
 		};
 
 		class system_player_markers
@@ -281,6 +327,7 @@ class CfgFunctions
 			class sites_hide_unsafe_terrain_objects {};
 			class sites_subsystem_client_init {};
 			class sites_discovery_job {};
+			class sites_create_initial_static_ai_crews {};
 		};
 
 		// remote actions that can be performed at sites
@@ -289,6 +336,10 @@ class CfgFunctions
 		{
 			file = "functions\systems\sites\remoteactions";
 			class sites_remoteactions_destroy_task {};
+			class sites_remoteactions_destroy_task_burn_object {};
+			class sites_remoteactions_destroy_task_dc_respawn {};
+			class sites_remoteactions_destroy_task_object {};
+			class sites_remoteactions_destroy_task_para_building {};
 			// class sites_remoteactions_burn_shelter {}; // @dijksterhuis: TODO
 			class sites_remoteactions_reveal_radiotap {};
 			class sites_remoteactions_reveal_intel {};
@@ -301,6 +352,7 @@ class CfgFunctions
 			file = "functions\systems\sites\create\compositions";
 			class sites_create_compositions_aa {};
 			class sites_create_compositions_camp {};
+			class sites_create_compositions_fuel {};
 			class sites_create_compositions_factory {};
 			class sites_create_compositions_hq {};
 			class sites_create_compositions_mortar {};
@@ -321,6 +373,7 @@ class CfgFunctions
 			class sites_create_site_aa {};
 			class sites_create_site_artillery {};
 			class sites_create_site_camp {};
+			class sites_create_site_fuel {};
 			class sites_create_site_water_supply {};
 			class sites_create_site_tunnel {};
 			class sites_create_site_hq {};
@@ -406,6 +459,7 @@ class CfgFunctions
 			class veh_asset_request_vehicle_change_client {};
 			class veh_asset_setup_package_wreck_action_local {};
 			class veh_asset_update_spawn_point_data {};
+			class veh_asset_client_locate_vehicle_spawn_point {};
 		};
 
 		class system_vehicle_asset_manager_global
@@ -447,6 +501,7 @@ class CfgFunctions
 			class veh_asset_set_global_variable {};
 			class veh_asset_set_global_variables {};
 			class veh_asset_set_idle {};
+			class veh_asset_set_queued {};
 			class veh_asset_set_repairing {};
 			class veh_asset_set_respawning {};
 			class veh_asset_set_wrecked {};
@@ -486,6 +541,8 @@ class CfgFunctions
 			class zones_load_zone {};
 			class zones_manager_job {};
 			class zones_save_zone {};
+			class zones_update_zone {};
+			class zones_get_struct_value {};
 		};
 
 		class system_sysmsgs
@@ -498,6 +555,7 @@ class CfgFunctions
 		class mod_support
 		{
 			class init_comms {};
+			class check_zeus_pack {};
 		};
 
 		class paradigm_interop

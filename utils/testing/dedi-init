@@ -1,0 +1,406 @@
+#!/usr/bin/env bash
+
+
+function main () {
+
+set -e
+
+# force these to be present
+export STEAM_LOGIN_USERNAME="${STEAM_LOGIN_USERNAME:-noop}"
+export STEAM_LOGIN_PASSWORD="${STEAM_LOGIN_PASSWORD:-noop}"
+export STEAMCMD_DIR_PATH="${STEAMCMD_DIR_PATH:-/x/windows/steamcmd}"
+export PARADIGM_REPO_DIR_PATH="${PARADIGM_REPO_DIR_PATH:-/c/Users/dijksterhuis/Documents/MIKE-FORCE/Paradigm}"
+
+set +e
+
+
+STEAMCMD_URL="https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
+
+STEAMCMD_EXE="${STEAMCMD_DIR_PATH}/steamcmd.exe"
+
+A3_MASTER_DIR_PATH="${STEAMCMD_DIR_PATH}/Arma3Master"
+A3_MASTER_CONFIG_NAME="CONFIG_server.cfg"
+A3_MASTER_CONFIG_PATH="${A3_MASTER_DIR_PATH}/${A3_MASTER_CONFIG_NAME}"
+
+A3_SERVER_DIR_PATH="${STEAMCMD_DIR_PATH}/steamapps/common/Arma 3 Server"
+A3_SERVER_EXE="${A3_SERVER_DIR_PATH}/arma3server.exe"
+A3_SERVER_MPMISSIONS_DIR_PATH="${A3_SERVER_DIR_PATH}/mpmissions"
+
+if [[ ! -d "${STEAMCMD_DIR_PATH}" ]]
+then 
+  echo "INFO: Installing new copy of SteamCMD."
+  echo "INFO: You have 10 seconds to exit before changes are made."
+  sleep 10
+  # TODO
+fi
+
+if [[ ! -d "${A3_MASTER_DIR_PATH}" ]]
+then
+
+  # install Arma dedi server running SOG:PF
+
+  echo "INFO: Installing new Arma3 profile."
+  echo "INFO: You have 10 seconds to exit before changes are made."
+  sleep 10
+
+  "${STEAMCMD_EXE}" \
+    +force_install_dir "${A3_MASTER_DIR_PATH}" \
+    +login "${STEAM_LOGIN_USERNAME}" "${STEAM_LOGIN_PASSWORD}" \
+    +"app_update 233780 -beta creatordlc" \
+    validate \
+    +quit
+fi
+
+# MODS
+
+# check if zeus enhanced install, if not assume nothing has been installed
+
+if [[ ! -d "${STEAMCMD_DIR_PATH}/steamapps/workshop/content/107410/1779063631/" ]]
+then
+
+  echo "INFO: Installing base client mods for the server."
+  echo "INFO: You have 10 seconds to exit before changes are made."
+  sleep 10
+
+  # CBA
+  # zeus enhanced
+  # zeus additions
+  # crows zeus additions
+  # enhanced movement
+  # VCOM 3.4
+
+  "${STEAMCMD_EXE}"\
+    +login "${STEAM_LOGIN_USERNAME}" "${STEAM_LOGIN_PASSWORD}" \
+    +workshop_download_item 107410 450814997 \
+    +workshop_download_item 107410 1779063631 \
+    +workshop_download_item 107410 2387297579 \
+    +workshop_download_item 107410 2447965207 \
+    +workshop_download_item 107410 333310405 \
+    +workshop_download_item 107410 721359761 \
+    +quit
+fi
+
+if [[ ! -f "${A3_MASTER_CONFIG_PATH}" ]]
+then
+
+  echo "INFO: Installing new server config file: ${A3_MASTER_CONFIG_PATH}"
+  echo "INFO: You have 10 seconds to exit before changes are made."
+  sleep 10
+
+  cat << EOF > "${A3_MASTER_CONFIG_PATH}"
+// server.cfg
+// this is a special dev config to make it possible to run multiple game clients
+// with a single dedicated server -- basically emulating MF#1 and MF#2 without
+// having to merge a pull request
+
+hostname = "DediTestMikeForce";
+passwordAdmin = "Not4D3f4ult4dm1nP455word9832";
+maxPlayers = 5;
+persistent = 1;
+skipLobby = 0;
+loopback = false; // see here: https://community.bistudio.com/wiki/Multiplayer_Scripting
+disableVoN = 0;
+vonCodecQuality	= 10;
+timeStampFormat	= "full";
+logFile	= "server_console.log";
+BattlEye = 0;  // disabled for multiple clients
+kickDuplicate = 0;  // disabled for multiple clients
+verifySignatures = 0;  // allow any mods, useful for dev mods
+allowedFilePatching = 2;  // allow any mods i'm pretty sure
+allowedLoadFileExtensions[] =		{ "hpp", "sqs", "sqf", "fsm", "cpp", "paa", "txt", "xml", "inc", "ext", "sqm", "ods", "fxy", "lip", "csv", "kb", "bik", "bikb", "html", "htm", "biedi" };
+allowedPreprocessFileExtensions[] =	{ "hpp", "sqs", "sqf", "fsm", "cpp", "paa", "txt", "xml", "inc", "ext", "sqm", "ods", "fxy", "lip", "csv", "kb", "bik", "bikb", "html", "htm", "biedi" };
+allowedHTMLLoadExtensions[] =		{ "htm", "html", "php", "xml", "txt" };
+localClient[] = { "127.0.0.1" };  // infinite bandwidth for testing clients
+
+// MISSIONS CYCLE
+class Missions
+{
+  class bn_camlaonam
+  {
+    template = "bn_mikeforce_indev.cam_lao_nam";
+    difficulty = "Custom";
+  };
+  class bn_khesanh
+  {
+    template = "bn_mikeforce_indev.vn_khe_sanh";
+    difficulty = "Custom";
+  };
+  class bn_bra
+  {
+    template = "bn_mikeforce_indev.vn_the_bra";
+    difficulty = "Custom";
+  };
+  class bn_altis
+  {
+    template = "bn_mikeforce_indev.altis";
+    difficulty = "Custom";
+  };
+};
+
+EOF
+
+fi
+
+
+
+if [[ ! -f "${A3_MASTER_DIR_PATH}/basic.cfg" ]]
+then
+  echo "INFO: Creating ${A3_MASTER_DIR_PATH}/basic.cfg config file."
+  echo "INFO: You have 10 seconds to exist until changes are made."
+  sleep 10
+
+  cat << EOF > "${A3_MASTER_DIR_PATH}/basic.cfg"
+// These options are created by default
+language="English";
+adapter=-1;
+3D_Performance=1.000000;
+Resolution_W=800;
+Resolution_H=600;
+Resolution_Bpp=32;
+terrainGrid=50;
+viewDistance = 5000;
+
+// These options are important for performance tuning
+
+MinBandwidth = 131072;			// Bandwidth the server is guaranteed to have (in bps). This value helps server to estimate bandwidth available. Increasing it to too optimistic values can increase lag and CPU load, as too many messages will be sent but discarded. Default: 131072
+MaxBandwidth = 134000000;		// Bandwidth the server is guaranteed to never have. This value helps the server to estimate bandwidth available.
+
+MaxMsgSend = 256;			// Maximum number of messages that can be sent in one simulation cycle. Increasing this value can decrease lag on high upload bandwidth servers. Default: 128
+MaxSizeGuaranteed = 512;		// Maximum size of guaranteed packet in bytes (without headers). Small messages are packed to larger frames. Guaranteed messages are used for non-repetitive events like shooting. Default: 512
+MaxSizeNonguaranteed = 256;		// Maximum size of non-guaranteed packet in bytes (without headers). Non-guaranteed messages are used for repetitive updates like soldier or vehicle position. Increasing this value may improve bandwidth requirement, but it may increase lag. Default: 256
+
+MinErrorToSend = 0.006;			// Minimal error to send updates across network. Using a smaller value can make units observed by binoculars or sniper rifle to move smoother. Default: 0.001
+MinErrorToSendNear = 0.06;		// Minimal error to send updates across network for near units. Using larger value can reduce traffic sent for near units. Used to control client to server traffic as well. Default: 0.01
+
+MaxCustomFileSize = 0;			// (bytes) Users with custom face or custom sound larger than this size are kicked when trying to connect.
+EOF
+
+fi
+
+mkdir "${A3_MASTER_DIR_PATH}/Users/DediTestMikeForce"
+
+if [[ ! -f "${A3_MASTER_DIR_PATH}/Users/DediTestMikeForce/DediTestMikeForce.Arma3Profile" ]]
+then
+  echo "INFO: Creating ${A3_MASTER_DIR_PATH}/Users/DediTestMikeForce/DediTestMikeForce.Arma3Profile config file."
+  echo "INFO: You have 10 seconds to exist until changes are made."
+  sleep 10
+
+  cat << EOF > "${A3_MASTER_DIR_PATH}/Users/DediTestMikeForce/DediTestMikeForce.Arma3Profile"
+difficulty="custom";
+class DifficultyPresets
+{
+	defaultPreset="custom";
+	class CustomDifficulty
+	{
+		class Options
+		{
+			reducedDamage=0;
+			groupIndicators=0;
+			friendlyTags=2;
+			enemyTags=0;
+			detectedMines=0;
+			commands=1;
+			waypoints=2;
+			tacticalPing=1;
+			weaponInfo=2;
+			stanceIndicator=2;
+			staminaBar=1;
+			weaponCrosshair=1;
+			visionAid=0;
+			thirdPersonView=1;
+			cameraShake=1;
+			scoreTable=1;
+			deathMessages=0;
+			vonID=1;
+			mapContentFriendly=0;
+			mapContentEnemy=0;
+			mapContentMines=0;
+			autoReport=0;
+			multipleSaves=0;
+		};
+		aiLevelPreset=3;
+	};
+	class CustomAILevel
+	{
+		skillFriendly=1;
+		skillEnemy=0.9500001;
+		precisionFriendly=0.80000001;
+		precisionEnemy=0.40000001;
+	};
+};
+singleVoice=0;
+maxSamplesPlayed=96;
+version=1;
+blood=1;
+gamma=1;
+brightness=1;
+soundEnableEAX=1;
+soundEnableHW=0;
+//activeKeys[]=
+//{
+//	"BIS_BroNationMikeForce.cam_lao_nam_done",
+//	"BIS_MikeForce.cam_lao_nam_done",
+//	"BIS_NewMikeForce.cam_lao_nam_done",
+//	"BIS_MikeForce.vn_khe_sanh_done",
+//	"BIS_MikeForce.vn_the_bra_done",
+//	"BIS_MikeForceCurrent.cam_lao_nam_done"
+//};
+sceneComplexity=500000;
+shadowZDistance=50;
+viewDistance=2400;
+preferredObjectViewDistance=1500;
+pipViewDistance=500;
+terrainGrid=25;
+volumeCD=10;
+volumeFX=10;
+volumeSpeech=10;
+volumeVoN=10;
+vonRecThreshold=0.029999999;
+volumeMapDucking=1;
+volumeUI=1;
+
+EOF
+fi
+
+
+if [[ -d "${A3_SERVER_MPMISSIONS_DIR_PATH}/bn_mikeforce_indev.cam_lao_nam" ]]
+then
+  echo "WARN: Existing dedicated server MPMission directories found:"
+  ls -al "${A3_SERVER_MPMISSIONS_DIR_PATH}"
+  echo "WARN: You have 10 seconds until anything starting with 'bn_mikeforce' gets wiped."
+  sleep 10
+  rm -rf "${A3_SERVER_MPMISSIONS_DIR_PATH}"/bn_mikeforce*
+fi
+
+BASE_REPO_PATH=$(pwd)
+RELEASE_DIR_PATH="${BASE_REPO_PATH}/release/dedi"
+SCRIPTS_BUILD_DIR_PATH="${RELEASE_DIR_PATH}/build/scripts"
+MAPS_BUILD_DIR_PATH="${RELEASE_DIR_PATH}/build/maps"
+
+mkdir -p \
+  "${RELEASE_DIR_PATH}/" \
+  "${SCRIPTS_BUILD_DIR_PATH}/" \
+  "${SCRIPTS_BUILD_DIR_PATH}/paradigm/" \
+  "${MAPS_BUILD_DIR_PATH}"
+
+cd "${RELEASE_DIR_PATH}/"
+
+echo "COPY: Local Paradigm contents: ${PARADIGM_REPO_DIR_PATH} --> ${SCRIPTS_BUILD_DIR_PATH}"
+cp -rf ${PARADIGM_REPO_DIR_PATH}/* "${SCRIPTS_BUILD_DIR_PATH}/paradigm/"
+
+echo "INFO: Copying: 'mission' files > ${SCRIPTS_BUILD_DIR_PATH}"
+for path in ${BASE_REPO_PATH}/mission/*
+do
+  cp -rf "${path}" "${SCRIPTS_BUILD_DIR_PATH}"
+done
+
+rm -rf \
+  "${SCRIPTS_BUILD_DIR_PATH}/.git*" \ \
+  "${SCRIPTS_BUILD_DIR_PATH}/paradigm/.git*"
+
+
+echo "INFO: Copying: 'map' files > ${MAPS_BUILD_DIR_PATH}"
+for MAP_BASE_PATH in ${BASE_REPO_PATH}/maps/*
+do
+  MAP_DIR_NAME="bn_mikeforce_indev.$(basename ${MAP_BASE_PATH})"
+  MAP_DIR_PATH="${MAPS_BUILD_DIR_PATH}/${MAP_DIR_NAME}"
+
+  mkdir -p "${MAP_DIR_PATH}"
+  cp -rf ${SCRIPTS_BUILD_DIR_PATH}/* "${MAP_DIR_PATH}/"
+  cp -rf ${MAP_BASE_PATH}/* "${MAP_DIR_PATH}/"
+
+done
+
+echo "INFO: Building final packages > ${A3_SERVER_MPMISSIONS_DIR_PATH}"
+for MAP_FINAL_BUILD_PATH in ${MAPS_BUILD_DIR_PATH}/*
+do
+  MAP_FINAL_BUILD_NAME=$(basename ${MAP_FINAL_BUILD_PATH})
+
+  echo "WRITE: ${MAP_FINAL_BUILD_NAME} > ${A3_SERVER_MPMISSIONS_DIR_PATH}"
+  cp -rf \
+     ${MAPS_BUILD_DIR_PATH}/${MAP_FINAL_BUILD_NAME} \
+     "${A3_SERVER_MPMISSIONS_DIR_PATH}/"
+done
+
+echo "Final dedi server build files in ${A3_SERVER_MPMISSIONS_DIR_PATH} ..."
+ls -al "${A3_SERVER_MPMISSIONS_DIR_PATH}/"
+
+echo "Cleaning up temporary release build files."
+rm -rf \
+  "${RELEASE_DIR_PATH}/" \
+  "${SCRIPTS_BUILD_DIR_PATH}/" \
+  "${MAPS_BUILD_DIR_PATH}"
+
+cd "${BASE_REPO_PATH}"
+
+#########################################
+
+if [[ ! -f "${A3_SERVER_EXE}" ]]
+then
+  echo "ERR! Could not find server executable file: ${A3_SERVER_EXE}"
+  echo "ERR! Script will exist now."
+  exit 1
+fi
+
+echo "INFO: Starting new dedicated server."
+echo "INFO: You have 10 seconds to exit before changes are made."
+echo "INFO: Admin password for dedicated server: $(grep passwordAdmin ${A3_MASTER_CONFIG_PATH})"
+sleep 10
+# start the server
+
+# Windows not being posix is super annoying
+
+WIN_A3_MASTER_DIR_PATH=$(echo "${A3_MASTER_DIR_PATH}" | sed 's#/#\\#g' | cut -d\\ -f 3-)
+WIN_A3_MASTER_DRIVE=$(echo "${A3_MASTER_DIR_PATH}" | sed 's#/#\\#g' | cut -d\\ -f 2 | tr '[:lower:]' '[:upper:]')
+
+set -x
+
+#  -cfg="${WIN_A3_MASTER_DRIVE}:\\${WIN_A3_MASTER_DIR_PATH}\basic.cfg" \
+#  -profiles="${WIN_A3_MASTER_DRIVE}:\\${WIN_A3_MASTER_DIR_PATH}\Users\DediTestMikeForce" \
+
+"${A3_SERVER_EXE}" \
+  -port=2302 \
+  -profiles="${WIN_A3_MASTER_DRIVE}:\\${WIN_A3_MASTER_DIR_PATH}" \
+  -config="${A3_MASTER_CONFIG_NAME}" \
+  -name="DediTestMikeForce" \
+  -world=empty \
+  -mod=vn \
+  -servermod="@CBA_A3;@Vcom_AI_V340;@Zeus_Additions;@Crows_Zeus_Additions;@Simple_MapTools;@Zeus_Enhanced" \
+  -autoInit
+
+set +x
+
+## find "${A3_MASTER_DIR_PATH}" -maxdepth 1 -type f -name "*arma3*.rpt" -printf '%T@ %P\n' | sort -n | awk '{print $2}' | head -n 1 | xargs tail -f
+
+};
+
+
+case "${1}" in
+
+  "run")
+    main
+    ;;
+
+  *)
+    echo """
+This script will setup and configure a local dedicated server on which you can test Multiplayer Arma3 missions.
+
+The only argument the script can take is 'run' ... which runs the script.
+Anything else will print this help message.
+
+To connect to a running instance of this dedicated server:
+
+1. DISABLE BATTLEYE IN THE LAUNCHER
+2. Connect to 127.0.0.1 and run the game.
+
+You can have the standard BN Zeus mods client side and they should work.
+
+There might be some trickery to actually get zeus running unfortunately.
+
+Fixing the Zeus issue is currently a TODO for DJ.
+"""
+  exit 0
+  ;;
+esac
+
+

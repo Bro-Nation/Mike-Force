@@ -22,7 +22,8 @@ private _dataToSave = [
 	//Version
 	2,
 	_zoneData select struct_zone_m_marker,
-	_zoneData select struct_zone_m_captured
+	_zoneData select struct_zone_m_captured,
+	_zoneData select struct_zone_m_task
 ];
 
 ["SET", "zone_data" + (_zoneData select struct_zone_m_marker), _dataToSave] call para_s_fnc_profile_db;

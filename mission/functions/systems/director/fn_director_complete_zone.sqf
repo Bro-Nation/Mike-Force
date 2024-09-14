@@ -31,6 +31,11 @@ if !([_task] call vn_mf_fnc_task_is_completed) then {
 	[_task, 'SUCCEEDED'] call vn_mf_fnc_task_complete;
 };
 
+call vn_mf_fnc_daccong_respawns_delete_all;
+
+// delete all site composition objects.
+vn_site_objects apply {deleteVehicle _x};
+
 [_zone] call vn_mf_fnc_zones_capture_zone;
 
 // upstream SGD allow any connected zone to be open, which is not what we want in BN

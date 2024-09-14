@@ -13,6 +13,12 @@ class CfgNotifications
 {
 	#include "..\paradigm\Client\configs\notifications.hpp"
 
+	class Error {
+		priority = 8;
+		color[] = NOTIFY_COLOR_RED_HEAVY;
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
+	};
+
 	class BaseAttackImminent
 	{
 		title = $STR_vn_mf_notification_title_base_attack;
@@ -379,7 +385,7 @@ class CfgNotifications
 
 	class DacCongCapturedFlag
 	{
-		title = "Protect The Flag!";
+		title = "Flag Captured!";
 		description = "You are failure! Dac Cong have captured the flag!";
 		priority = 6;
 		color[] = {1,0,0,1};
@@ -388,7 +394,7 @@ class CfgNotifications
 
 	class BlueforRaisingFlag
 	{
-		title = "Raise The Flag!";
+		title = "Raising Flag!";
 		description = "Bluefor are raising the flag.";
 		priority = 6;
 		color[] = {0.2,0.3,1,1};
@@ -397,10 +403,112 @@ class CfgNotifications
 
 	class BlueforRaisedFlag
 	{
-		title = "Raise The Flag!";
+		title = "Raised Flag!";
 		description = "Bluefor have raised the flag!";
 		priority = 6;
 		color[] = {0.2,0.3,1,1};
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
+	};
+
+	class NoDriverForSpawnerLocator: Error
+	{
+		title = "Locating Vehicle Spawner";
+		description = "Cannot locate vehicle's spawner -- you are not the driver / pilot / co-pilot.";
+		priority = 1;
+		sound = "";
+		soundClose = "";
+		duration = 3;
+	};
+
+	class NoVehicleForSpawnerLocator : NoDriverForSpawnerLocator
+	{
+		description = "Cannot locate vehicle's spawner -- you are not driving a spawned vehicle.";
+	};
+
+	class SiteDestroyTaskActionsError: Error
+	{
+		title = "Error";
+		description = "SiteDestroyTaskActionsError: please report this to Dev Team.";
+	};
+
+	class ErrorEmotesBase
+	{
+		title = "Emotes Menu";
+		description = "%1"
+		priority = 1;
+		sound = "";
+		soundClose = "";
+		duration = 3;
+		color[] = NOTIFY_COLOR_RED_HEAVY;
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
+	};
+
+	class ErrorEmotesPlayerIncap: ErrorEmotesBase
+	{
+		description = "Cannot use emotes while incapacitated.";
+	};
+
+	class ErrorEmotesPlayerDead: ErrorEmotesBase
+	{
+		description = "Cannot use emotes while dead.";
+	};
+
+	class ErrorEmotesInVehicle: ErrorEmotesBase
+	{
+		description = "Cannot use emotes while in a vehicle.";
+	};
+
+	class ErrorEmotesInWater: ErrorEmotesBase
+	{
+		description = "Cannot use emotes while swimming.";
+	};
+
+	class ErrorEmotesNotOnGround: ErrorEmotesBase
+	{
+		description = "Cannot use emotes when not on the ground.";
+	};
+
+	class ErrorNotWhitelistedForTeam: Error
+	{
+		title = "Team Whitelisting";
+		description = "Not whitelisted for %1 -- setting team to Mike Force.";
+	};
+
+	class ErrLightsourceAttachChemlightNotPermitted
+	{
+		title = "Light Source Attachment";
+		description = "Only Spike Team units can attach chemlights.";
+		priority = 3;
+		color[] = NOTIFY_COLOR_RED_HEAVY;
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
+	};
+
+	class LightsourceAttachLosingEnergy : ErrLightsourceAttachChemlightNotPermitted
+	{
+		title = "Light Source Attachment";
+		description = "Attached light source is running out of battery/energy.";
+		color[] = NOTIFY_COLOR_ORANGE;
+		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
+	};
+
+	class LightsourceAttachOutOfEnergy : ErrLightsourceAttachChemlightNotPermitted {
+		title = "Light Source Attachment";
+		description = "Attached light source ran out of battery/energy!";
+		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
+	};
+
+	class IntelError: Error {
+		title = "Intel Not Collected";
+		description = "Keep looking at the intel object until it disappears!";
+		priority = 8;
+	};
+
+	class IntelSuccess
+	{
+		title = "Intel Collected";
+		description = "One of the pieces of intelligence has been collected!";
+		priority = 3;
+		color[] = NOTIFY_COLOR_GREEN;
 		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
 	};
 

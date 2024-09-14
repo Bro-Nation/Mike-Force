@@ -1,10 +1,24 @@
 class CfgItemInteractions
 {
+	class AttachmentsChemlights // this is a fake class that holds the settings for the ammo repack feature.
+	{
+		interactActions[] =
+		{
+			{"STR_vn_mf_attach", "call vn_mf_fnc_attachments_client_attach_chemlight;" },
+		};
+	};
+	class AttachmentsFlashlights // this is a fake class that holds the settings for the ammo repack feature.
+	{
+		interactActions[] =
+		{
+			{"STR_vn_mf_attach", "call vn_mf_fnc_attachments_client_attach_flashlight;" },
+		};
+	};
 	class AllAmmoSettings // this is a fake class that holds the settings for the ammo repack feature.
 	{
 		interactActions[] =
 		{
-			{"STR_vn_mf_repack", "call vn_mf_fnc_ammo_repack;" } // To disable set this to an empty array here or in description.ext. interactActions[] = {};
+			{"STR_vn_mf_repack", "call vn_mf_fnc_ammo_repack;" }, // To disable set this to an empty array here or in description.ext. interactActions[] = {};
 		};
 	};
 	class remove_attributes // Hacky way of removeing player attributes on respawn.

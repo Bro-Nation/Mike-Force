@@ -155,7 +155,7 @@ class vn_mf_release_cargo
 	access = 1;
 };
 
-class vn_mf_channel_switcher_onoff_ground
+class vn_mf_channel_toggle_ground
 {
 	defaultKey = DIK_F1;
 	shift = "false";
@@ -167,7 +167,7 @@ class vn_mf_channel_switcher_onoff_ground
 	access = 1;
 };
 
-class vn_mf_channel_switcher_onoff_air
+class vn_mf_channel_toggle_air
 {
 	defaultKey = DIK_F2;
 	shift = "false";
@@ -179,7 +179,7 @@ class vn_mf_channel_switcher_onoff_air
 	access = 1;
 };
 
-class vn_mf_channel_switcher_onoff_cff
+class vn_mf_channel_toggle_cff
 {
 	defaultKey = DIK_F3;
 	shift = "false";
@@ -191,7 +191,7 @@ class vn_mf_channel_switcher_onoff_cff
 	access = 1;
 };
 
-class vn_mf_channel_switcher_off_all
+class vn_mf_channel_disable_all
 {
 	defaultKey = DIK_F4;
 	shift = "false";
@@ -200,5 +200,53 @@ class vn_mf_channel_switcher_off_all
 	function = "vn_mf_fnc_teams_comms_switchers_off_all";
 	down = 0;
 	displayName = "Mute All channels";
+	access = 1;
+};
+
+class vn_mf_veh_asset_locate_vehicle_spawn_point
+{
+	defaultKey = DIK_F5;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_veh_asset_client_locate_vehicle_spawn_point";
+	down = 0;
+	displayName = "Locate Vehicle's Spawner";
+	access = 1;
+};
+
+class vn_mf_toggle_earplugs
+{
+	defaultKey = DIK_F6;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_earplugs_toggle";
+	down = 0;
+	displayName = "Toggle Earplugs";
+	access = 1;
+};
+
+class vn_mf_toggle_hud
+{
+	defaultKey = DIK_F7;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_ui_hud_toggle";
+	down = 0;
+	displayName = "Toggle HUD (Strimmer mode)";
+	access = 1;
+};
+
+class vn_mf_emotes_menu
+{
+	defaultKey = DIK_F8;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_emotes_menu_open";
+	down = 0;
+	displayName = "Open Emotes Menu";
 	access = 1;
 };

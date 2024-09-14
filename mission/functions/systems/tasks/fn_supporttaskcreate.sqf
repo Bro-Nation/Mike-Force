@@ -18,8 +18,6 @@
     Example(s): none
 */
 
-[format ["Creating support task %1", [_this]]] remoteExec ["hint", _player];
-
 params ["_taskClass", "_coords", "_teamToTarget"];
 
 private _taskCreationFunction = getText (missionConfigFile >> "gamemode" >> "tasks" >> _taskClass >> "creationfunction");

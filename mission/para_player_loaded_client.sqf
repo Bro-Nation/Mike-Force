@@ -71,6 +71,8 @@ player addEventHandler ["Respawn", _fnc_respawnEventHandler];
 //This way they can still exit if they want.
 player enableSimulation false;
 
+[player] call vn_mf_fnc_curator_init;
+
 // Start loading screen, so we wait while server init completes.
 startLoadingScreen ["Welcome to Mike Force!", "MikeForce_loadingScreen"];
-[selectRandom (getArray(missionConfigFile >> "gamemode" >> "loadingScreens" >> "images")),5002] call vn_mf_fnc_update_loading_screen;
+[getText(missionConfigFile >> "gamemode" >> "loadingScreens" >>  "mainWelcome"),5002] call vn_mf_fnc_update_loading_screen;

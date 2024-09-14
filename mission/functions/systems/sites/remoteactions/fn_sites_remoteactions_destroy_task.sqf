@@ -1,12 +1,26 @@
 /*
 	File: sites_remoteactions_destroy_task.sqf
 	Author: Cerebral
+	Modified: @dijksterhuis
 	Public: No
 	
 	Description:
-		Pops a task
+		Destroys a site's asset based on the type of asset, via the `destroy_task` holdAction
+
+		This runs server side. It needs to do several client side remoteExecs to:
+		- remove the player's explosive mag from inventory
+		- set up the fire light/particle sources for burning a shelter
+		- Send various paradigm notifications to players
+
+		Currently implemented:
+		- Burning shelters at campsites
+		- Destroying dac cong respawns
+		- Blowing up a paradigm built building
+		- Blowing up a basic object, like an ammo crate or a mortar
 	
-	Parameter(s): none
+	Parameter(s):
+		- _task - the object that needs to be destroyed (player is looking at)
+		- _player - player doing the destroying
 	
 	Returns:
 	
@@ -16,125 +30,94 @@
 
 params ["_task", "_player"];
 
-private _fnc_useExplosives = {
-	private _neededExplosiveTypes = ["vn_mine_satchel_remote_02_mag", "vn_mine_m112_remote_mag", "vn_mine_limpet_02_mag", "vn_mine_bangalore_mag"]; 
-	private _mags = magazines _player; 
-	private _availableExplosives = _mags arrayIntersect _neededExplosiveTypes;
 
-	if (count _availableExplosives == 0) exitWith { false };
-	_player removeMagazine (_availableExplosives select 0);
+/*
+Magazines in arma are not the same as ammo which does the firing.
+Even a breaching charge etc has ammo, and the ammo is what explodes.
+the magazine is what is in the player's inventory. 
+the ammo is what detonates.
+*/
+private _neededExplosiveTypesHmap = createHashMapFromArray [
+	["vn_mine_satchel_remote_02_mag", "vn_mine_satchelcharge_02_ammo_scripted"],
+	["vn_mine_m112_remote_mag","vn_mine_m112_remote_ammo_scripted"], 
+	["vn_mine_limpet_01_mag", "vn_mine_limpet_01_ammo_scripted"],
+	["vn_mine_bangalore_mag", "vn_mine_bangalore_ammo_scripted"]
+]; 
 
-	true;
+private _fnc_take_explosive_ammo_from_inventory_mags = {
+	params ["_player", "_availableExplosives"];
+	[_player, (_availableExplosives select 0)] remoteExec ["removeMagazine", _player];
+	private _explosive = _neededExplosiveTypesHmap get (_availableExplosives select 0);
+
+	_explosive
 };
 
-private _fnc_hasLighter = {
-	private _mags = magazines _player;  
-	private _lighterExists = _mags arrayIntersect ["vn_b_item_lighter_01"]; 
-	if (count _lighterExists == 0) exitWith { false };
+private _mags = magazines _player; 
+private _playerExplosives = _mags select {_x in _neededExplosiveTypesHmap};
+private _playerLighters = _mags arrayIntersect ["vn_b_item_lighter_01"];
 
-	true;
-};
+private _nearPlayers = ((getPos _task) nearObjects ["Man", 50]) select {isPlayer _x};
 
-if(typeOf _task == "Land_vn_o_shelter_06" && call _fnc_hasLighter) exitWith {
-	[_task] spawn {
-		params ["_task"];
+switch (true) do { 
 
-		["CampBurnt", ["The camp has been set on fire!"]] call para_c_fnc_show_notification;
+	/*
+	has a light and task is a shelter
+	burn the shelter by spawning a bunch of particles client side
+	onces 10 seconds are up then destory the task from the server.
+	*/
+	case (((count _playerLighters) > 0) && (typeOf _task == "Land_vn_o_shelter_06")): {
 
-		// Light
-		private _light = "#lightpoint" createVehicle getpos _task; 
-		_light setLightDayLight true; 
-		_light setLightColor [5, 2.5, 0]; 
-		_light setLightBrightness 0.1; 
-		_light setLightAmbient [5, 2.5, 0]; 
-		_light lightAttachObject [_task, [0, 0, 0]]; 
-		_light setLightAttenuation [3, 0, 0, 0.6]; 
-
-		// Fire
-		private _ps0 = "#particlesource" createVehicle getpos _task;
-		_ps0 setParticleParams [
-			["\A3\Data_F\ParticleEffects\Universal\Universal", 16, 10, 32], "", "Billboard",
-			0, 1, [0, 0, 0.25], [0, 0, 0.5], 1, 1, 0.9, 0.3, [1.5],
-			[[1,1,1, 0.0], [1,1,1, 0.3], [1,1,1, 0.0]],
-			[0.75], 0, 0, "", "", _ps0, rad -45];
-		_ps0 setParticleRandom [0.2, [1, 1, 0], [0.5, 0.5, 0], 0, 0.5, [0, 0, 0, 0], 0, 0];
-		_ps0 setDropInterval 0.03;
-
-		// Smoke part 1
-		private _ps1 = "#particlesource" createVehicle getpos _task;
-		_ps1 setParticleParams [
-			["\A3\Data_F\ParticleEffects\Universal\Universal", 16, 7, 1], "", "Billboard",
-			1, 10, [0, 0, 0.5], [0, 0, 2.9], 1, 1.275, 1, 0.066, [4, 5, 10, 10],
-			[[0.3, 0.3, 0.3, 0.33], [0.4, 0.4, 0.4, 0.33], [0.2, 0.2, 0, 0]],
-			[0, 1], 1, 0, "", "", _ps1];
-		_ps1 setParticleRandom [0, [0, 0, 0], [0.33, 0.33, 0], 0, 0.25, [0.05, 0.05, 0.05, 0.05], 0, 0];
-		_ps1 setDropInterval 0.5;
-
-		// Smoke part 2
-		private _ps2 = "#particlesource" createVehicle getpos _task;
-		_ps2 setParticleParams [
-			["\A3\Data_F\ParticleEffects\Universal\Universal", 16, 9, 1], "", "Billboard",
-			1, 15, [0, 0, 0.5], [0, 0, 2.9], 1, 1.275, 1, 0.066, [4, 5, 10, 10],
-			[[0.1, 0.1, 0.1, 0.75], [0.4, 0.4, 0.4, 0.5], [1, 1, 1, 0.2]],
-			[0], 1, 0, "", "", _ps2];
-		_ps2 setParticleRandom [0, [0, 0, 0], [0.5, 0.5, 0], 0, 0.25, [0.05, 0.05, 0.05, 0.05], 0, 0];
-		_ps2 setDropInterval 0.25;
-
-		sleep 10;
-		lightDetachObject _light;
-		deleteVehicle _light;
-		deleteVehicle _ps0;
-		deleteVehicle _ps1;
-		deleteVehicle _ps2;
-
-		deleteVehicle _task;
+		// client side -- show fire effects for X seconds.
+		[_task, 10] remoteExec ["vn_mf_fnc_sites_remoteactions_destroy_task_burn_object", _nearPlayers];
+		// server side -- delete the shelter after X seconds.
+		[_task, 10] spawn {
+			params ["_task", "_delay"];
+			sleep _delay;
+			deleteVehicle _task;
+		};
+		["CampBurnt", ["The tent has been set on fire!"]] remoteExec ["para_c_fnc_show_notification", _player];
 	};
-};
 
-
-private _usedExplosives = call _fnc_useExplosives;
-if !(_usedExplosives) exitWith { ["NoExplosives"] call para_c_fnc_show_notification; };
-
-private _nearPlayers = (getPos _task) nearObjects ["Man", 50];
-{
-	if (isPlayer _x) then {
-		["FireInTheHole"] remoteExec ["para_c_fnc_show_notification", _x];
+	/* no explosives? no explosions. */
+	case ((count _playerExplosives) isEqualTo 0): {
+		["NoExplosives"] remoteExec ["para_c_fnc_show_notification", _player];
 	};
-} forEach _nearPlayers;
 
-if (typeOf _task == "Land_vn_o_platform_04") then 
-{
-	private _respawnInfo = _task getVariable ["vn_respawn", []];
+	/* has explosives and task is dc respawn. deref the respawn then destroy the object */
+	case (((count _playerExplosives) > 0) && (typeOf _task == "Land_vn_o_platform_04")): {
 
-	if !(_respawnInfo isEqualTo []) then
-	{
-		private _marker = _respawnInfo # 0;
-		private _respawnID = _respawnInfo # 1;
+		private _explosive = [_player, _playerExplosives] call _fnc_take_explosive_ammo_from_inventory_mags;
+		[_task] call vn_mf_fnc_sites_remoteactions_destroy_task_dc_respawn;
+		[_task, _explosive] spawn vn_mf_fnc_sites_remoteactions_destroy_task_object;
+		_nearPlayers apply {["FireInTheHole"] remoteExec ["para_c_fnc_show_notification", _x]};
+	}; 
 
-		_respawnID call BIS_fnc_removeRespawnPosition;
-		deleteMarker _marker;
+	/* has explosives and task is a paradigm built building. deref the paradigm building then destroy the object */
+	case (((count _playerExplosives) > 0) && !(isNull (_task getVariable ["para_g_building", objNull]))): {
 
-		// pop removed spawn from global list of DC spawns
-		vn_dc_adhoc_respawns = vn_dc_adhoc_respawns select { !(_x isEqualTo _respawnInfo) } ;
-		publicVariable "vn_dc_adhoc_respawns";
-	};
-};
+		private _explosive = [_player, _playerExplosives] call _fnc_take_explosive_ammo_from_inventory_mags;
+		[_task, _explosive] spawn vn_mf_fnc_sites_remoteactions_destroy_task_para_building;
+		_nearPlayers apply {["FireInTheHole"] remoteExec ["para_c_fnc_show_notification", _x]};
+	}; 
 
-private _building = _task getVariable ["para_g_building", objNull];
-if !(_building isEqualTo objNull) then
-{
-	[_building, _task] spawn {
-		params ["_building", "_task"];
-		sleep 15;
-		private _bomb = createVehicle ["Rocket_04_HE_F", getPos _task, [], 0, "CAN_COLLIDE"];
-		[_building, "onBuildingDeleted", [_building]] call para_g_fnc_building_fire_feature_event;
-		[_building] call para_s_fnc_building_delete;
-	};
-} else {
-	[_task] spawn {
-		params ["_task"];
-		sleep 30;
-		private _bomb = createVehicle ["Rocket_04_HE_F", getPos _task, [], 0, "CAN_COLLIDE"];
-		deleteVehicle _task;
-	};
+	/* has explosives and task is a basic arma object. just destroy the object */
+	case (((count _playerExplosives) > 0) && !(isNull _task)): {
+
+		private _explosive = [_player, _playerExplosives] call _fnc_take_explosive_ammo_from_inventory_mags;
+		[_task, _explosive] spawn vn_mf_fnc_sites_remoteactions_destroy_task_object;
+		_nearPlayers apply {["FireInTheHole"] remoteExec ["para_c_fnc_show_notification", _x]};
+	}; 
+
+	default {
+		/*
+		tl;dr -- please report to dev team.
+		players should not have been able to make this notification appear.
+		if they have, something is wrong in either
+		-- the switch logic above
+		-- the destroy_task holdAction (new classname added to the list and no new logic here?)
+		*/
+
+		// TODO: Need to make this notification!
+		["SiteDestroyTaskActionsError"] remoteExec ["para_c_fnc_show_notification", _player];
+	}; 
 };

@@ -39,7 +39,6 @@ params ["_pos"];
 			[_x] call vn_mf_fnc_sites_utils_normalise_object_placement;
 			[_x] call vn_mf_fnc_sites_object_zfixer_add_object;
 			[_x, true] call para_s_fnc_enable_dynamic_sim;
-			createVehicleCrew _x;
 		};
 
 		private _markerPos = _spawnPos getPos [10 + random 20, random 360];

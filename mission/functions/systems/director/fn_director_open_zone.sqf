@@ -28,12 +28,17 @@ if (_zone in mf_s_dir_activeZones) exitWith {
 
 ["INFO", format ["Make zone '%1' an active zone", _zone]] call para_g_fnc_log;
 
-private _taskStore = ["prepare_zone", _zone] call vn_mf_fnc_task_create select 1;
+private _zoneTaskState = [_zone, struct_zone_m_task] call vn_mf_fnc_zones_get_struct_value;
+
+private _taskStore = [_zoneTaskState, _zone] call vn_mf_fnc_task_create select 1;
 
 private _activeZoneInfo = createHashMapFromArray [
-    ["state", "prepare"],
+    ["state", _zoneTaskState],
     ["currentTask", _taskStore]
 ];
+
+// should have loaded with the existing state already.
+// [_zone, struct_zone_m_task, _zoneTaskState] call vn_mf_fnc_zones_update_zone;
 
 mf_s_dir_activeZones set [_zone, _activeZoneInfo];
 

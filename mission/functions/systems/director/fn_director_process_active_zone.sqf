@@ -18,21 +18,29 @@
     Example(s):
 		["zone_ba_ria"] call vn_mf_fnc_director_process_active_zone;
 */
-
 params ["_zone"];
-
 if !(_zone in mf_s_dir_activeZones) exitWith {
 	["WARNING", format ["Attempted to process inactive zone '%1'", _zone]] call para_g_fnc_log;
 };
-
 private _zoneInfo = mf_s_dir_activeZones get _zone;
-
 private _currentState = _zoneInfo get "state";
 private _task = _zoneInfo get "currentTask";
 private _taskIsCompleted = [_task] call vn_mf_fnc_task_is_completed;
 private _taskResult = _task getVariable ["taskResult", ""];
 
+[
+	"INFO",
+	format [
+		"Director: checking for task completion: zone=%1 state=%2 result=%3 completed=%4",
+		_zone,
+		_currentState,
+		_taskResult,
+		_taskIsCompleted
+	]
+] call para_g_fnc_log;
+
 if (_taskIsCompleted) then {
+	["INFO", format ["Zone '%1' task '%2' completed with status: %3.", _zone, _currentState, _taskResult]] call para_g_fnc_log;
 
 	/*
 	Preparation phase has ended.
@@ -41,15 +49,8 @@ if (_taskIsCompleted) then {
 	(a) all site compositions generated and players did not enter zone (move to capture)
 	(b) players entered the zone (move to go_away)
 	*/
-	if (_currentState isEqualTo "prepare") exitWith {
-
-		["INFO", format ["Zone '%1' preparation successful, moving to 'capture'", _zone]] call para_g_fnc_log;
-
-		// players didn't enter the AO, we're okay to move on to capture phase
-		private _captureTask = ((["capture_zone", _zone] call vn_mf_fnc_task_create) # 1);
-
-		_zoneInfo set ["state", "capture"];
-		_zoneInfo set ["currentTask", _captureTask];
+	if (_currentState isEqualTo "prepare_zone") exitWith {
+		[_zone, _zoneInfo, "capture_zone"] call vn_mf_fnc_director_start_next_zone_task;
 	};
 
 	/*
@@ -58,55 +59,34 @@ if (_taskIsCompleted) then {
 	Trigger the Zone's counterattack state.
 	*/
 
-	if (_currentState isEqualTo "capture") exitWith {
-
-		["INFO", format ["Zone '%1' captured, moving to 'counterattack'", _zone]] call para_g_fnc_log;
-
-		private _counterattackTask = ((["defend_counterattack", _zone, [["prepTime", 180]]] call vn_mf_fnc_task_create) # 1);
-		_zoneInfo set ["state", "counterattack"];
-		_zoneInfo set ["currentTask", _counterattackTask];
+	if (_currentState isEqualTo "capture_zone") exitWith {
+		// prep time needs to be 180 until other PR is merged as well.
+		[_zone, _zoneInfo, "defend_counterattack", [["prepTime", 180]]] call vn_mf_fnc_director_start_next_zone_task;
 	};
 
 	/*
 	Counterattack results are in!
-
 	Do some clean up (remove dc respawns/compositions) then either:
-
 	(a) counterattack phase failed -- reset back to prepare phase (players need to leave zone).
 	(b) counterattack phase successful -- close the zone (opening a new zone after).
 	*/
 
-	if (_currentState isEqualTo "counterattack") exitWith {
+	if (_currentState isEqualTo "defend_counterattack") exitWith {
 
 		if (_taskResult isEqualTo "FAILED") exitWith {
-
-			["INFO", format ["Zone '%1' defend against counterattack failed, restarting 'counterattack' phase", _zone]] call para_g_fnc_log;
-
-			private _counterattackReTask = ((["defend_counterattack", _zone, [["prepTime", 180]]] call vn_mf_fnc_task_create) # 1);
-			_zoneInfo set ["state", "counterattack"];
-			_zoneInfo set ["currentTask", _counterattackReTask];
+			// prep time needs to be 180 until other PR is merged as well.
+			[_zone, _zoneInfo, "defend_counterattack", [["prepTime", 180]]] call vn_mf_fnc_director_start_next_zone_task;
 		};
 
 		// the counterattacked was defended against successfully
-
-		// delete DC spawns etc.
-		{
-		    private _marker = _x # 0;
-		    private _respawnID = _x # 1;
-
-		    _respawnID call BIS_fnc_removeRespawnPosition;
-		    deleteMarker _marker;
-		} forEach vn_dc_adhoc_respawns;
-
-		// delete all site composition objects.
-		{
-		    deleteVehicle _x;
-		} forEach vn_site_objects;
-
-
 		["INFO", format ["Zone '%1' counterattack successfully defended against, completing zone", _zone]] call para_g_fnc_log;
 		// Task is finished, and hasn't failed
 		[_zone] call vn_mf_fnc_director_complete_zone;
 	};
-};
 
+	[
+		"ERROR",
+		format ["Director: Task completed, but could not move to new task! zone=%1 currentTask=%2", _zone, _currentState]
+	] call para_g_fnc_log;
+
+};

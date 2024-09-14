@@ -53,6 +53,7 @@ private _heightMultiplier = 0;
 	private _bgPosition = _ctrlBasePosition;
 	_bgControl ctrlSetPosition _bgPosition;
 	_bgControl ctrlCommit 0;
+	uiNamespace setVariable [format["vn_mf_db_%1_ctrl_bg",_name], _bgControl];
 
 	/* Icon */
 	private _iconControl = _display ctrlCreate ["vn_mf_RscPicture", -1];
@@ -62,6 +63,7 @@ private _heightMultiplier = 0;
 	_iconControl ctrlSetPosition _iconPosition;
 	_iconControl ctrlSetText _icon;
 	_iconControl ctrlCommit 0;
+	uiNamespace setVariable [format["vn_mf_db_%1_ctrl_icon",_name], _iconControl];
 
 	/* Progress Shared */
 	private _progressWidth = _staminaW - (_iconSize * (3 / 4)) - _gutterWidth * 5;
