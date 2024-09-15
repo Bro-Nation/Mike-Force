@@ -33,6 +33,7 @@
 #include "welcome_screen.hpp"
 // Changelog
 #include "changelog.hpp"
+#include "remoteexec.hpp"
 
 // Include map-specific config
 #include "..\map_config\init.hpp"
