@@ -97,6 +97,9 @@ class CfgRemoteExec {
 		FNC_CONSTRUCTOR(vn_mf_fnc_supporttaskcreate, ALLOW_SERVER, DISABLE_JIP)
 		FNC_CONSTRUCTOR(vn_mf_fnc_teleport, ALLOW_SERVER, DISABLE_JIP)
 
+		// repairing vehicles
+		FNC_CONSTRUCTOR(para_s_tools_wrench_hit_object, ALLOW_SERVER, DISABLE_JIP)
+
 		// change vehicles at a vehicle spawner
 		FNC_CONSTRUCTOR(vn_mf_fnc_veh_asset_handle_change_vehicle_request, ALLOW_SERVER, DISABLE_JIP)
 
@@ -133,7 +136,5 @@ class CfgRemoteExec {
 		// needed during player init process to silence radio messages from
 		// player's character
 		FNC_CONSTRUCTOR(setSpeaker, ALLOW_SERVER, DISABLE_JIP)
-		// fn_operate_wrench.sqf
-		FNC_CONSTRUCTOR(setDamage, ALLOW_SERVER, DISABLE_JIP)
 	};
 };
