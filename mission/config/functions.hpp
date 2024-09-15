@@ -28,6 +28,7 @@ class CfgFunctions
 			class check_side {};
 			class range {};
 			class color_confname_to_rgba {};
+			class sample_positions_circle {};
 			class rExecServerToGlobal_playerHost_or_dedicated {};
 		};
 
@@ -195,10 +196,12 @@ class CfgFunctions
 			class action_eat_food {};
 			class action_lower_flag {};
 			class action_reraise_flag {};
+			class action_recover_pilot {};
 			class action_curator_force_recover_wrecked_vehicle {};
 			class action_curator_force_reset_idle_vehicle {};
 			class action_curator_lock_spawner {};
 			class action_curator_unlock_spawner {};
+			class action_press_toggle_spectator {};
 		};
 
 		class system_actives {
@@ -326,6 +329,7 @@ class CfgFunctions
 			class sites_hide_unsafe_terrain_objects {};
 			class sites_subsystem_client_init {};
 			class sites_discovery_job {};
+			class sites_create_initial_static_ai_crews {};
 		};
 
 		// remote actions that can be performed at sites
@@ -338,7 +342,7 @@ class CfgFunctions
 			class sites_remoteactions_destroy_task_dc_respawn {};
 			class sites_remoteactions_destroy_task_object {};
 			class sites_remoteactions_destroy_task_para_building {};
-			// class sites_remoteactions_burn_shelter {}; // @dijksterhuis: TODO
+			class sites_remoteactions_bury_pilot {};
 			class sites_remoteactions_reveal_radiotap {};
 			class sites_remoteactions_reveal_intel {};
 			class sites_remoteactions_reveal_scout {};
@@ -350,6 +354,7 @@ class CfgFunctions
 			file = "functions\systems\sites\create\compositions";
 			class sites_create_compositions_aa {};
 			class sites_create_compositions_camp {};
+			class sites_create_compositions_fuel {};
 			class sites_create_compositions_factory {};
 			class sites_create_compositions_hq {};
 			class sites_create_compositions_mortar {};
@@ -370,6 +375,8 @@ class CfgFunctions
 			class sites_create_site_aa {};
 			class sites_create_site_artillery {};
 			class sites_create_site_camp {};
+			class sites_create_site_wreck {};
+			class sites_create_site_fuel {};
 			class sites_create_site_water_supply {};
 			class sites_create_site_tunnel {};
 			class sites_create_site_hq {};

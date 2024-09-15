@@ -497,4 +497,19 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 
+	class IntelError: Error {
+		title = "Intel Not Collected";
+		description = "Keep looking at the intel object until it disappears!";
+		priority = 8;
+	};
+
+	class IntelSuccess
+	{
+		title = "Intel Collected";
+		description = "One of the pieces of intelligence has been collected!";
+		priority = 3;
+		color[] = NOTIFY_COLOR_GREEN;
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
+	};
+
 };

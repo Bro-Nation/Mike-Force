@@ -5,7 +5,10 @@
 	
 	Description:
 		Creates buildings for a PAVN Factory.
-	
+
+		TODO: @dijksterhuis: All references to factory need cleaning up at a later date
+		https://github.com/Bro-Nation/Mike-Force/pull/400
+
 	Parameter(s):
 		_position - Position [Position]
 	
@@ -367,7 +370,6 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	];
 	vn_mf_factory_compositions = [
 		[
-	["babe_helper",[0,0,4.48227e-005],0.0425031,1,0,[11.9964,0.0683172],"","",false,false], 
 	["vn_sign_town_d_09",[-1.50879,1.94434,1.06389],0,1,0,[0,5.23175],"","",false,false], 
 	["vn_sign_town_d_04",[2.12207,1.96387,1.21384],0,1,0,[0,-8.06087],"","",false,false], 
 	["Land_vn_factory_02_f",[1.76611,4.43994,0.238417],269.721,1,0,[0,0],"","",false,false], 
@@ -447,7 +449,6 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	["Land_vn_t_cocosnucifera3s_bend_f",[-24.0713,-31.4229,0],25.4752,1,0,[0,0],"","",false,false]
 ],
 [
-	["babe_helper",[0,-0.000488281,0],0.157648,1,0,[0,-0],"","",false,false], 
 	["Land_vn_garagerow_01_large_f",[-1.47998,1.01514,0],91.232,1,0,[0,-0],"","",false,false], 
 	["Land_vn_pavn_weapons_stack1",[4.23486,1.90234,0.112762],0,1,0,[0,0],"","",false,false], 
 	["vn_b_prop_cabinet_02",[4.68994,-1.12891,1.06661],90,1,0,[0,0],"","",false,false], 
@@ -468,7 +469,6 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	["vn_o_wheeled_btr40_mg_03",[-15.5889,-7.85254,0.564268],270.354,1,0,[0,0],"vehicle_12","",false,false], 
 	["Land_vn_pine_tree_01",[15.604,-4.13623,0],0,1,0,[0,0],"","",false,false], 
 	["Land_vn_t_cocosnucifera2s_small_f",[-6.44238,15.8613,0],0,1,0,[0,0],"","",false,false], 
-	["Land_vn_b_prop_m149_01",[-15.1899,12.1621,0],89.7941,1,0,[0,0],"","",false,false], 
 	["Land_vn_t_cocosnucifera3s_tall_f",[-1.65674,17.146,0],0,1,0,[0,0],"","",false,false], 
 	["Land_vn_t_banana_wild_f",[3.60693,-21.105,0],89.581,1,0,[0,0],"","",false,false], 
 	["Land_vn_t_inocarpus_f",[7.39893,16.9517,0],25.8844,1,0,[0,0],"","",false,false], 
@@ -486,7 +486,6 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	["Land_vn_t_banana_wild_f",[-17.4985,27.564,0],89.581,1,0,[0,0],"","",false,false]
 ],
 [
-	["babe_helper",[0,0,0.231856],1.12481,1,0,[0,0],"","",false,false], 
 	["Land_vn_pavn_weapons_stack2",[1.26953,-0.127441,0.234715],0,1,0,[0,0],"","",false,false], 
 	["Land_vn_radar_01_kitchen_f",[0.334473,-6.85742,0],0,1,0,[0,0],"","",false,false], 
 	["vn_sign_town_d_06",[1.94434,-7.14795,0.987473],180,1,0,[0,0],"","",false,false], 
@@ -512,7 +511,6 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	["Land_vn_pine_tree_01",[13.9971,-10.0942,0],0,1,0,[0,0],"","",false,false], 
 	["vn_o_nva_static_sgm_low_01",[-9.9458,-16.249,-0.0751295],179.167,1,0,[0,-0],"","",false,false], 
 	["Land_vn_t_cocosnucifera3s_tall_f",[-1.94727,16.3345,0],0,1,0,[0,0],"","",false,false], 
-	["Land_vn_b_prop_m149_01",[-14.0811,-15.2212,0],89.7941,1,0,[0,0],"","",false,false], 
 	["vn_o_wheeled_z157_fuel_nvam",[20.9263,-2.9248,1.30714],40.9931,1,0,[0,0],"","",false,false], 
 	["vn_o_armor_type63_01_nva65",[-16.5029,13.6675,0.725582],335.003,1,0,[0,0],"","",false,false], 
 	["vn_o_wheeled_z157_ammo_pl",[-19.6548,-10.4722,1.03372],269.638,1,0,[0,0],"","",false,false], 
@@ -534,7 +532,6 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	["Land_vn_pavn_weapons_stack2",[-5.32129,2.56689,0.00285816],0,1,0,[0,0],"","",false,false], 
 	["Land_vn_controltower_01_f",[1.5166,-0.0322266,0],0,1,0,[0,0],"","",false,false], 
 	["vn_o_nva_static_pk_high",[8.19922,-1.14453,-0.0753069],60,1,0,[0,0],"","",false,false], 
-	["Land_vn_b_prop_m149_01",[-10.5742,-1.73779,0.276355],89.7941,1,0,[0,0],"","",false,false], 
 	["vn_o_prop_radio_m252b_01",[3.70752,-11.9893,0.932174],138.629,1,0,[0,-0],"","",false,false], 
 	["vn_o_prop_t102e_01",[3.46924,-12.4097,0.879302],273.705,1,0,[0,0],"","",false,false], 
 	["Land_vn_us_common_table_01",[3.54639,-12.5059,0.0654101],272.734,1,0,[0,0],"","",false,false], 

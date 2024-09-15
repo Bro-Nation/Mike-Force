@@ -38,9 +38,23 @@ private _hqPosition = [_center, vn_mf_bn_s_zone_radius, 0, 55, 5, _allTerrainObj
 // 	[_radar, _zone] call vn_mf_fnc_sites_create_radar;
 // };
 
+// minimum 1, maximum whatever the config for the map is (3 for cam lao nam)
+for "_i" from 1 to (1 + ceil random (vn_mf_s_max_fuel_per_zone - 1)) do
+{
+	private _fuelSite = [_center, vn_mf_bn_s_zone_radius, 0, 8, 10, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
+	[_fuelSite, _zone] call vn_mf_fnc_sites_create_site_fuel;
+};
+
+// chance to have 0 wrecks
+for "_i" from 0 to (ceil random (vn_mf_s_max_wrecks_per_zone - 1)) do
+{
+	private _wreckSite = [_center, vn_mf_bn_s_zone_radius, 0, 10, 15, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
+	[_wreckSite, _zone] call vn_mf_fnc_sites_create_site_wreck;
+};
+
+// minimum 3, maximum whatever the config for the map is (6 for cam lao nam)
 for "_i" from 1 to (3 + ceil random (vn_mf_s_max_camps_per_zone - 1)) do
 {
-	//[_zoneData] call vn_mf_fnc_sites_create_camp;
 	private _campSite = [_center, vn_mf_bn_s_zone_radius, 0, 8, 15, _unnaturalObjects] call vn_mf_fnc_sites_get_safe_location;
 	[_campSite, _zone] call vn_mf_fnc_sites_create_site_camp;
 };
@@ -48,15 +62,14 @@ for "_i" from 1 to (3 + ceil random (vn_mf_s_max_camps_per_zone - 1)) do
 //Create initial artillery emplacements
 for "_i" from 1 to (1 + ceil random (vn_mf_s_max_artillery_per_zone - 1)) do
 {
-	private _artySite = [_center, vn_mf_bn_s_zone_radius, 0, 15, 10, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
+	private _artySite = [_center, vn_mf_bn_s_zone_radius, 0, selectRandom [15, 10, 5], 10, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
 	[_artySite, _zone] call vn_mf_fnc_sites_create_site_artillery;
 };
 
-//Create AA emplacements (ZPUs)
-// create a minimum of 5 AAs
 for "_i" from 1 to (5 + ceil random (vn_mf_s_max_aa_per_zone - 5)) do
 {
-	private _aaSite = [_center, vn_mf_bn_s_zone_radius, 0, 20, 10, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
+	// randomly set a radius to make AA sites more varied.
+	private _aaSite = [_center, vn_mf_bn_s_zone_radius, 0, selectRandom [20, 15, 10, 5], 10, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
 	[_aaSite, _zone] call vn_mf_fnc_sites_create_site_aa;
 };
 
@@ -72,7 +85,11 @@ for "_i" from 1 to (1 + ceil random (vn_mf_s_max_water_supply_per_zone - 1)) do
 	[_tunnelWaterSupply, _zone] call vn_mf_fnc_sites_create_site_water_supply;
 };
 
-// add the "Tap Radio Comms" hold action to all generated radio sets
+/*
+RADIO TAP
+
+add the "Tap Radio Comms" hold action to all generated radio sets
+*/
 private _radios = vn_site_objects select {
 	typeOf _x in ["vn_o_prop_t102e_01", "vn_o_prop_t884_01"];
 };
@@ -80,3 +97,7 @@ private _radios = vn_site_objects select {
 _radios apply {_x call vn_mf_fnc_action_radiotap};
 
 missionNamespace setVariable ["siteRadios", _radios];
+
+[] call vn_mf_fnc_sites_create_initial_static_ai_crews;
+
+nil;
