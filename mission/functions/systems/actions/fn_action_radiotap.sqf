@@ -56,16 +56,16 @@ private _codeOnStart = {
 	// private _playerIsExplosiveSpecialist = player getUnitTrait 'explosiveSpecialist';
 	private _playerHasWiretapKit = 'vn_b_item_wiretap' in (backpackItems player);
 	if (not _playerHasWiretapKit) exitWith {
-	    ["RadioTapFailed", []] remoteExec ["para_c_fnc_show_notification", player];
+	    ["RadioTapFailed", []] call para_c_fnc_show_notification;
 	};
 	if (true) exitWith {
-	    ["RadioTapStart", []] remoteExec ["para_c_fnc_show_notification", player];
+	    ["RadioTapStart", []] call para_c_fnc_show_notification;
 	};
 };
 private _codeOnTick = {};
 private _codeOnComplete = {
 	[cursorObject] remoteExec ["vn_mf_fnc_sites_remoteactions_reveal_radiotap", 2];
-	["RadioTapSuccess", []] remoteExec ["para_c_fnc_show_notification", player];
+    ["RadioTapSuccess", []] call para_c_fnc_show_notification;
 };
 private _codeOnInterrupted = {};
 private _extraArgsArr = [];
