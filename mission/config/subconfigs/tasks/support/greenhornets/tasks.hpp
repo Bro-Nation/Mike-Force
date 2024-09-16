@@ -1,3 +1,4 @@
+/*
 class support_gh_cas : support_task
 {
 	taskcategory = "SUP";
@@ -7,7 +8,22 @@ class support_gh_cas : support_task
 	tasktype = "attack";
 	taskimage = "vn\missions_f_vietnam\data\img\mikeforce\s\vn_ui_mf_task_gh3.jpg";
 	taskgroups[] = {"GreenHornets", "Muskets", "SatansAngels"};
-	requestgroups[] = {"MACV", "ACAV", "MikeForce", "SpikeTeam", "MilitaryPolice", "3rdMEU", "SASR", "QuarterHorse", "Frogmen", "Montagnard", "7thCav", "TigerForce", "633rdCSG"};
+	requestgroups[] = {
+		"MACV",
+		"ACAV",
+		"ARVN",
+		"MikeForce",
+		"SpikeTeam",
+		"MilitaryPolice",
+		"3rdMEU",
+		"SASR",
+		"QuarterHorse",
+		"Frogmen",
+		"Montagnard",
+		"7thCAV",
+		"TigerForce",
+		"633rdCSG"
+	};
 	rankpoints = 10;
 	taskprogress = 0;
 
@@ -29,3 +45,4 @@ class support_gh_cas : support_task
 		taskdesc = "Destroy enemy units in this area.";
 	};
 };
+*/

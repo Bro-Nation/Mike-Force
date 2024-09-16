@@ -16,5 +16,6 @@
 	Example(s):
     call vn_mf_fnc_points_to_next_rank
 */
-
-(([player] call vn_mf_fnc_unit_next_rank) select 2) - (player getVariable ["vn_mf_db_rank",0])
+0 max (
+	(([player] call vn_mf_fnc_unit_next_rank) select 2) - (player getVariable ["vn_mf_db_rank",0])
+)

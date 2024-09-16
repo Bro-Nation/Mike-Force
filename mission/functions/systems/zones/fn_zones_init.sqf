@@ -74,6 +74,8 @@ mf_s_zone_first_task = "prepare_zone";
 
 vn_mf_completedZones = ["GET", "completed_zones", []] call para_s_fnc_profile_db select 1; publicVariable "vn_mf_completedZones";
 
-["zone_manager", vn_mf_fnc_zones_manager_job, [], 30] call para_g_fnc_scheduler_add_job;
+// @dijksterhuis: disabled this as we're now saving the zone state to
+// server's profile namespace whenever we update the zone.
+// ["zone_manager", vn_mf_fnc_zones_manager_job, [], 30] call para_g_fnc_scheduler_add_job;
 
 ["Zone initialisation complete"] call BIS_fnc_log;

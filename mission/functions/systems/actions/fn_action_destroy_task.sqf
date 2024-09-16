@@ -82,8 +82,19 @@ private _conditionToShowString = str {
 			'vn_o_static_rsna75',
 			// tunnel
 			'Land_vn_o_trapdoor_01',
+			// fuel depot
+			"Land_vn_tank_rust_f",
 			// dac cong resapwn
-			'Land_vn_o_platform_04'
+			'Land_vn_o_platform_04',
+			// wrecks
+			"vn_air_f4b_wreck",
+			"vn_air_f100d_01_wreck",
+			"vn_air_uh1c_01_wreck",
+			"vn_air_uh1d_01_wreck",
+			"vn_air_uh1d_med_wreck",
+			"vn_air_oh6a_01_wreck",
+			"vn_air_ch34_01_wreck",
+			"vn_air_ah1g_01_wreck"
 		];
 
 		private _res = (
@@ -95,11 +106,27 @@ private _conditionToShowString = str {
 				(player distance cursorObject < (1.75 + (sizeOf (typeOf cursorObject)) / 2))
 			&& {
 				/*
-				the vn_tunnel module sets the vn_tunnel_tunnel_object variable globally,
-				meaning we should be able to inspect it locally as a player
+				tunnels
+
+				the vn_tunnel module broadcasts the `vn_tunnel_tunnel_object` object variable
+				globally, meaning we should be able to inspect it locally as a player
 				(holdAction is player local)
 				*/
 				(isNull (cursorObject getVariable ['vn_tunnel_tunnel_object', objNull]))
+			|| {
+				/*
+				wrecks
+
+				vehicle spawner vehicles have the `veh_asset_spawnPointId` broadcast globally,
+				and this transfers to the vehicles when they become wrecks. so we can use that
+				to filter out any wrecks that are NOT from vehicles created by the vehicle
+				spawner system -- i.e. ones generated for sites.
+
+				this does make an assumption that there are no other vehicle wrecks on the map!
+				*/
+				(typeOf cursorObject find "wreck" > 0)
+				&& ((cursorObject getVariable ["veh_asset_spawnPointId", -1] isEqualTo -1))
+			}
 			}
 			}
 			}

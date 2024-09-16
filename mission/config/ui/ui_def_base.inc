@@ -211,5 +211,8 @@
 	onLoad = ["onLoad", _this, #CLASSNAME] call para_fnc_ui_initMissionDisplay;\
 	onUnload = ["onUnload", _this, #CLASSNAME] call para_fnc_ui_initMissionDisplay;\
 
+// TASKROSTER IDDs and IDCs
+#include "taskroster\ui_tr_idcs.inc"
+
 //Main File for IDDs and IDCs
 #include "ui_def_idc.hpp"

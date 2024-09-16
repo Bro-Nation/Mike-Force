@@ -6,8 +6,8 @@ class support_st_brightlight : support_task
 	taskdesc = "Rescue the crew of the downed helicopter, %1.";
 	tasktype = "box";
 	taskimage = "vn\missions_f_vietnam\data\img\mikeforce\su\vn_ui_mf_task_sts1.jpg";
-	taskgroups[] = {"SpikeTeam"};
-	requestgroups[] = {"GreenHornets"};
+	taskgroups[] = {"SpikeTeam", "SASR", "Frogmen", "TigerForce"};
+	requestgroups[] = {"GreenHornets", "Muskets", "SatansAngels"};
 	rankpoints = 10;
 	taskprogress = 0;
 
@@ -56,8 +56,22 @@ class support_st_searchAndDestroy : support_task
 	taskname = "Destroy Gun Emplacements";
 	taskdesc = "%1 has requested you destroy the gun emplacements at this position.";
 	tasktype = "box";
-	taskgroups[] = {"SpikeTeam", "SASR", "Montagnard", "TigerForce"};
-	requestgroups[] = {"MACV", "ACAV", "MikeForce", "MilitaryPolice", "3rdMEU",  "QuarterHorse", "Frogmen",  "7thCav", "633rdCSG", "GreenHornets", "Muskets", "SatansAngels"};
+	taskgroups[] = {"SpikeTeam", "SASR", "Frogmen", "TigerForce"};
+	requestgroups[] = {
+		"MACV",
+		"ARVN",
+		"ACAV",
+		"MikeForce",
+		"MilitaryPolice",
+		"3rdMEU",
+		"QuarterHorse",
+		"Frogmen",
+		"7thCAV",
+		"633rdCSG",
+		"GreenHornets",
+		"Muskets",
+		"SatansAngels"
+	};
 	rankpoints = 10;
 	taskprogress = 0;
 

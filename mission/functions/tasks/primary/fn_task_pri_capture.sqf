@@ -85,9 +85,13 @@ _taskDataStore setVariable ["destroy_hq_sites", {
 	};
 }];
 
+// TODO: @dijksterhuis: All references to factory need cleaning up at a later date
+// https://github.com/Bro-Nation/Mike-Force/pull/400
 _taskDataStore setVariable ["destroy_factory_sites", {
 	params ["_taskDataStore"];
 
+	// TODO: @dijksterhuis: All references to factory need cleaning up at a later date
+	// https://github.com/Bro-Nation/Mike-Force/pull/400
 	private _side_sites_factory = missionNamespace getVariable ["side_sites_factory", []];
 
 	//check each site to see if it's destroyed

@@ -1,9 +1,9 @@
 class capture_zone : task
 {
 	taskcategory = "PRI";
-	tasktitle = "Capture %1";
-	taskname = "Capture %1";
-	taskdesc = "Defeat hostile forces and sites in %1. Sites spawn inside the yellow circle.";
+	tasktitle = "Capture Zone";
+	taskname = "Capture Zone";
+	taskdesc = "Defeat hostile forces and sites the marked zone. Sites spawn inside the yellow circle.";
 	tasktype = "attack";
 	taskimage = "vn\missions_f_vietnam\data\img\mikeforce\p\vn_ui_mf_task_p1.jpg";
 	rankpoints = 30;
@@ -23,10 +23,12 @@ class capture_zone : task
 		taskdesc = "Destroy HQ supplies and the sites they're delivered to. You might find intel inside for the locations to the rest of the sites!";
 	};
 
+	// TODO: @dijksterhuis: All references to this need cleaning up at a later date to stop referring to the "Factory"
+	// https://github.com/Bro-Nation/Mike-Force/pull/400
 	class destroy_factory_sites
 	{
-		taskname = "Destroy Factory Supply Line";
-		taskdesc = "Destroy Factory supplies and the sites they're delivered to. You might find intel inside for the locations to the rest of the sites!";
+		taskname = "Destroy Depot Supply Line";
+		taskdesc = "Destroy Depot supplies and the sites they're delivered to. You might find intel inside for the locations to the rest of the sites!";
 	};
 
 	class build_fob
@@ -63,9 +65,9 @@ class capture_zone : task
 class prepare_zone : task
 {
 	taskcategory = "PRI";
-	tasktitle = "Prepare for %1";
-	taskname = "Prepare for %1";
-	taskdesc = "Get ready for %1!";
+	tasktitle = "Prepare for next zone";
+	taskname = "Prepare for next zone";
+	taskdesc = "Get ready for the next zone!";
 	tasktype = "repair";
 	taskimage = "vn\missions_f_vietnam\data\img\mikeforce\p\vn_ui_mf_task_p1.jpg";
 	rankpoints = 30;

@@ -37,8 +37,6 @@ publicVariable "para_g_totalgametime";
 
 // do ttl check on db
 ["TTLCHECK"] call para_s_fnc_profile_db;
-// force db save periodically
-["SAVE"] call para_s_fnc_profile_db;
 
 // update internal counter
 vn_mf_lastticktime = _ticktime;
