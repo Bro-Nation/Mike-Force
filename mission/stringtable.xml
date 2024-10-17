@@ -750,6 +750,10 @@
         <Original>You can't resupply an unbuilt building</Original>
         <English>You can't resupply an unbuilt building</English>
       </Key>
+      <Key ID="STR_para_build_maxtimereached">
+        <Original>Time limit for this building has been reached, item was still consumed.</Original>
+        <English>Time limit for this building has been reached, item was still consumed.</English>
+      </Key>
       <Key ID="STR_vn_mf_notification_title_empty_food_item">
         <Original>Empty Food Item</Original>
         <English>Empty Food Item</English>
