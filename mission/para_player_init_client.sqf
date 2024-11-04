@@ -160,6 +160,11 @@ _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
 private _lastTeamName = player getVariable ["vn_mf_db_player_group", "MikeForce"];
+if (_lastTeamName == "FAILED") then {
+	_lastTeamName = "MikeForce";
+	[player, "MikeForce"] call vn_mf_fnc_force_team_change;
+};
+
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
 private _respawnMarker = format ["mf_respawn_%1", _lastTeamName]; 

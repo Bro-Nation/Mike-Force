@@ -1,5 +1,7 @@
 params ["_player"];
 
+BIS_fnc_endMission = {};
+
 private _curators = missionNamespace getVariable ["curatorUIDs", []];
 private _playerIsCurator = _curators findIf { _x == getPlayerUID _player} > -1;
 

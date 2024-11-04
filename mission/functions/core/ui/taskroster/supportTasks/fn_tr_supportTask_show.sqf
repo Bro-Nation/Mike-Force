@@ -30,7 +30,7 @@ vn_tr_supportMissionInfo = ["",[],[]];
 _ctrl_taskSelection = VN_TR_SUPREQ_TASK_CTRL;
 lnbClear _ctrl_taskSelection;
 
-_groupID = player getVariable ["vn_mf_db_player_group", "FAILED"];
+_groupID = player getVariable ["vn_mf_db_player_group", "MikeForce"];
 ("true" configClasses (missionConfigFile >> "gamemode" >> "tasks")) select {
 	(getText(_x >> "taskcategory") isEqualTo "SUP") && (_groupID in getArray(_x >> "requestgroups"))
 } apply {

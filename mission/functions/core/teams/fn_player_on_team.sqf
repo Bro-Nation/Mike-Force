@@ -19,4 +19,4 @@
 
 params ["_player", "_team"];
 
-(_player getVariable ["vn_mf_db_player_group", "FAILED"] == _team);
+(_player getVariable ["vn_mf_db_player_group", "MikeForce"] == _team);
