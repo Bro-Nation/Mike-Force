@@ -21343,7 +21343,7 @@ class Mission
 								position[]={15840.426,14.98,6858.332};
 								angles[]={0,2.5931754,0};
 							};
-							init="['muskets_air_firesupport_all_custom', 0] call vn_mf_fnc_veh_asset_3DEN_spawn_point";
+							init="['muskets_air_transport_all', 0] call vn_mf_fnc_veh_asset_3DEN_spawn_point";
 							id=16451;
 							type="Logic";
 						};
