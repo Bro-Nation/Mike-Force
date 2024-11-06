@@ -103,7 +103,7 @@ private _fnc_init_listbox = {
 
 	};
 
-	private _playerTeam = player getVariable ["vn_mf_db_player_group", "FAILED"];
+	private _playerTeam = player getVariable ["vn_mf_db_player_group", "MikeForce"];
 	private _idxRowSelect = _teamsData findIf {(_x get "confname") isEqualTo _playerTeam};
 
 	_ctrl lnbSetCurSelRow _idxRowSelect;

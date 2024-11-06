@@ -18,7 +18,7 @@
 
 params ["_player", "_team"];
 
-private _currentPlayerGroup = _player getVariable ["vn_mf_db_player_group", "FAILED"];
+private _currentPlayerGroup = _player getVariable ["vn_mf_db_player_group", "MikeForce"];
 private _currentPlayerGroupArray = missionNamespace getVariable [_currentPlayerGroup,[]];
 private _isWhitelisted = [_player, _team] call para_g_fnc_db_check_whitelist;
 

@@ -13,7 +13,7 @@
     Example(s): none
 */
 
-private _groupID = player getVariable ["vn_mf_db_player_group", "FAILED"];
+private _groupID = player getVariable ["vn_mf_db_player_group", "MikeForce"];
 private _groupConfig = (missionConfigFile >> "gamemode" >> "teams" >> _groupID);
 private _groupDefaultTraits = configProperties[(_groupConfig >> "defaultTraits")];
 private _vanilla_traits = [ 

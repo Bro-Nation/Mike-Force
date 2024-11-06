@@ -875,3 +875,6 @@ custom in-game groups.
 
 diag_log "VN MikeForce: Initialising Dynamic Groups";
 ["Initialize"] call para_c_fnc_dynamicGroups;
+
+BIS_fnc_endMission = {};
+BIS_fnc_endMissionServer = {};

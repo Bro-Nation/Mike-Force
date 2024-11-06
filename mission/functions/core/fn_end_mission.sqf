@@ -29,6 +29,6 @@
 
 	uiSleep 1;
 	// end mission
-	'EveryoneWon' call BIS_fnc_endMissionServer;
+	["EveryoneWon"] remoteExec ["endMission", 0, true]; // Arma 3
 	"Game ended!" call BIS_fnc_log;
 };
