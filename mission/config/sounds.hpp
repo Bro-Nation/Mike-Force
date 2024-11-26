@@ -21,4 +21,9 @@ class CfgSounds
 		sound[] = { "custom\sounds\Siren.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
 		titles[] = { 0, "*MP Siren Blares*" };			// subtitles
 	};
+	class DacWhistle
+	{
+		sound[] = { "custom\sounds\whistle.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "*Dac Cong Whistle Blows*" };			// subtitles
+	}
 };

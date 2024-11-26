@@ -31,7 +31,7 @@ class vn_tr_missionInfoPolaroid_base : vn_mf_RscControlsGroupNoScrollbarHV
 			// x = UIW(18);
 			// y = UIH(17.65);
 			x = UIX_CR(1.5);
-			y = UIY_CU(-5.25)
+			y = UIY_CU(-5.25);
 			w = UIW(9.9);
 			h = UIH(6.9);
 

@@ -19,20 +19,6 @@
 
 /*
 =========================================================================================
-init: `para_s_fnc_curator_init_eh`
-=========================================================================================
-Creates the event handlers to monitor what Zeuses are doing. Whether they've connected,
-disconnected, entered the zeus interface, exited the zeus interface, etc.
-
-If any of those event handlers are triggered, a line gets written to the log file with
-the player's name and UID etc.
-=========================================================================================
-*/
-
-call para_s_fnc_curator_init_eh;
-
-/*
-=========================================================================================
 init: `vn_mf_fnc_server_init_backend`
 =========================================================================================
 WARNING: YOU WILL NOT HAVE THIS DURING LOCAL DEVELOPMENT. This always generates an error
@@ -100,18 +86,6 @@ whenever the mission has created something new.
 */
 
 [10] call para_s_fnc_curator_update_objects;
-
-/*
-=========================================================================================
-job: `dopamine_hit`
-=========================================================================================
-Sets up the paradigm dynamic groups system, which allows palyers to create and join
-custom in-game groups.
-=========================================================================================
-*/
-
-call para_s_fnc_init_dopamine;
-["dopamine_hit", para_s_fnc_init_dopemine, [], 300] call para_g_fnc_scheduler_add_job;
 
 /*
 =========================================================================================

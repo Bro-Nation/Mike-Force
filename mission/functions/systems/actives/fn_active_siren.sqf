@@ -14,7 +14,7 @@
 		call vn_mf_fnc_active_siren;
 */
 
-if (([player, 'MilitaryPolice'] call vn_mf_fnc_player_on_team) || ([player, 'MACV'] call vn_mf_fnc_player_on_team)) then
+if (([player, 'MilitaryPolice'] call vn_mf_fnc_player_on_team)) then
 {
 	if (vn_mf_siren_toggle) exitWith
 	{ 

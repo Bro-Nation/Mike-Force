@@ -66,6 +66,18 @@ class wheel_menu_actions
 		spawn = 0;
 	};
 
+	class whistle : base_action
+	{
+		visible = "ALWAYS";
+		condition = "([_target, 'DacCong'] call vn_mf_fnc_player_on_team)";
+		text = "Whistle";
+		icon = "custom\wheelmenu\whistle.paa";
+		icon_highlighted = "";
+		arguments = "true";
+		function = "vn_mf_fnc_active_whistle";
+		spawn = 0;
+	};
+
 	//Add a sandbag to a building.
 	class add_sandbag : base_action
 	{

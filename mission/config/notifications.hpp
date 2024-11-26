@@ -434,7 +434,7 @@ class CfgNotifications
 	class ErrorEmotesBase
 	{
 		title = "Emotes Menu";
-		description = "%1"
+		description = "%1";
 		priority = 1;
 		sound = "";
 		soundClose = "";
