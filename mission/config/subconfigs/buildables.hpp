@@ -3025,6 +3025,102 @@ class Land_vn_o_platform_04
 	};
 };
 
+class Land_vn_lampshabby_f_dir_normal
+{
+	name = "";
+	type = "lighting";
+	categories[] = {"lighting", "decorative"};
+	rank = 0;
+	SUPPLY_CAPACITY(200, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_lampshabby_f_part0";
+		};
+		class middle_state
+		{
+			object_class = "Land_vn_lampshabby_f_dir_normal";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_lampshabby_f_dir_normal";
+		};
+	};
+};
+
+class Land_vn_lampshabby_f_dir_close
+{
+	name = "";
+	type = "lighting";
+	categories[] = {"lighting", "decorative"};
+	rank = 0;
+	SUPPLY_CAPACITY(200, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_lampshabby_f_part0";
+		};
+		class middle_state
+		{
+			object_class = "Land_vn_lampshabby_f_dir_close";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_lampshabby_f_dir_close";
+		};
+	};
+};
+
+class Land_vn_lampshabby_f_dir_far
+{
+	name = "";
+	type = "lighting";
+	categories[] = {"lighting", "decorative"};
+	rank = 0;
+	SUPPLY_CAPACITY(200, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_lampshabby_f_part0";
+		};
+		class middle_state
+		{
+			object_class = "Land_vn_lampshabby_f_dir_far";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_lampshabby_f_dir_far";
+		};
+	};
+};
+
 class Land_vn_o_platform_05
 {
 	name = "";
