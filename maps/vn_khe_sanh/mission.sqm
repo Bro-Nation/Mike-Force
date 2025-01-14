@@ -8,7 +8,7 @@ class EditorData
 	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=3923;
+		nextID=3924;
 	};
 	class MarkerIDProvider
 	{
@@ -41851,6 +41851,18 @@ class Mission
 			id=3920;
 			type="Land_Ammobox_rounds_F";
 			atlOffset=0.4402771;
+		};
+
+		class Item644
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={9873,383,6068};
+			};
+			id=3923;
+			type="vn_module_photo_camera_enable_screenshots";
+			atlOffset=191.50801;
 		};
 	};
 	class Connections
