@@ -462,7 +462,7 @@ class Muskets
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
         loadCoef = 1;
-        engineer = false;
+        engineer = true;
         explosiveSpecialist = false;
         medic = false;
         UAVHacker = false;
