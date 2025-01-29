@@ -199,11 +199,11 @@ class vn_logistics
 	class vn_b_air_uh1c_05_07 : vn_defaults_tiny {};
 
 	//UH1C - ARA
-	class vn_b_air_uh1c_06_01 : vn_defaults_tiny {};
-	class vn_b_air_uh1c_06_02 : vn_defaults_tiny {};
+	class vn_b_air_uh1c_06_01 : vn_defaults_small {};
+	class vn_b_air_uh1c_06_02 : vn_defaults_small {};
 
 	//UH1B - Slick
-	class vn_b_air_uh1c_07_01 : vn_defaults_tiny {};
+	class vn_b_air_uh1c_07_01 : vn_defaults_small {};
 
 	//Choctaw - Transport
 	class vn_b_air_ch34_01_01 : vn_defaults_small {};
@@ -247,7 +247,7 @@ class vn_logistics
 	class vn_o_air_mi2_05_06 : vn_defaults_large {};
 
 	//PF 1.3 Vehicles
-	class vn_b_air_ach47_04_01 : vn_defaults_tiny {};
+	class vn_b_air_ach47_04_01 : vn_defaults_large {};
 
 	class vn_b_wheeled_m274_02_03 : vn_defaults_tiny {};
 	class vn_b_wheeled_m274_01_01 : vn_defaults_tiny {};
@@ -278,12 +278,12 @@ class vn_logistics
 	class vn_b_armor_m577_02 : vn_defaults_small {};
 	class vn_b_armor_m577_01 : vn_defaults_small {};
 
-	class vn_b_air_ch47_04_01 : vn_defaults_small {};
+	class vn_b_air_ch47_04_01 : vn_defaults_large {};
 	class vn_b_air_ch47_03_01 : vn_defaults_large {};
-	class vn_b_air_ch47_04_02 : vn_defaults_small {};
+	class vn_b_air_ch47_04_02 : vn_defaults_large {};
 	class vn_b_air_ch47_03_02 : vn_defaults_large {};
-	class vn_b_air_ch47_02_01 : vn_defaults_small {};
-	class vn_i_air_ch47_02_01 : vn_defaults_small {};
+	class vn_b_air_ch47_02_01 : vn_defaults_large {};
+	class vn_i_air_ch47_02_01 : vn_defaults_large {};
 
 	//////////////////
 	////  UNSUNG  ////
@@ -361,15 +361,32 @@ class vn_logistics
 		};
 
 		//SOG ammo
-		class vn_b_ammobox_sog // ammo
+		class vn_b_ammobox_sog
         {
             item_weight = 100;
             item_size = 2.5;
-            spawn_distance = 3;
+            spawn_distance = 1.5;
             rotation_offset = 0;
         };
 		//US Ammo
-		class vn_b_ammobox_supply_01 : vn_b_ammobox_sog {};
+		class Box_NATO_AmmoOrd_F {
+			item_weight = 33;
+            item_size = 1.75;
+            spawn_distance = 1.5;
+            rotation_offset = 0;
+		};
+		class Box_NATO_Support_F {
+            item_weight = 33;
+            item_size = 1.75;
+            spawn_distance = 1.5;
+            rotation_offset = 0;			
+		};
+		class Box_NATO_Ammo_F {
+            item_weight = 33;
+            item_size = 1.75;
+            spawn_distance = 1.5;
+            rotation_offset = 0;			
+		};
 		//Medical supplies
 		class vn_b_ammobox_supply_03 : vn_b_ammobox_sog {};
 		//Food supplies

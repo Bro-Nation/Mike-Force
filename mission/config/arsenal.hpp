@@ -35,28 +35,50 @@ class vn_whitelisted_arsenal_loadouts
 				Entry:	
 					{ "vn_dp28", 							{ 3,-1,-1, 6}}
 		*/
-		weapons[] =
+		weapons[] =								
 { 														
 //Rifles														
 //BluFor														
 	{	"vn_m40a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	M40 Sniper Rifle firing 7.62x51mm match-grade ammunition
+	{	"vn_m40a1_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	M40 Sniper Rifle firing 7.62x51mm match-grade ammunition
+	{	"vn_m40a1_sniper_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M40 Sniper Rifle firing 7.62x51mm match-grade ammunition
+	{	"vn_m40a1_nvg"	,{	-1	,	0	,	0	,	-1	}}	,	//	M40 Sniper Rifle firing 7.62x51mm match-grade ammunition
+	{	"vn_m40a1_nvg_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M40 Sniper Rifle firing 7.62x51mm match-grade ammunition
 	{	"vn_m40a1_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M40 Sniper Rifle, camo polymer body, firing 7.62x51mm match-grade ammunition
 	{	"vn_m14"	,{	-1	,	0	,	0	,	-1	}}	,	//	M14 selective-fire rifle firing 7.62mm ammunition in 20-round mags
+	{	"vn_m14_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M14 selective-fire rifle firing 7.62mm ammunition in 20-round mags
+	{	"vn_m14_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M14 selective-fire rifle firing 7.62mm ammunition in 20-round mags
 	{	"vn_m14_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M14 selective-fire rifle firing 7.62mm ammunition in 20-round mags, with camo tape
 	{	"vn_m21"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM21 sniper rifle firing 7.62mm ammunition in 20-round mags. Fitted with a 3x to 9x Adjustable Ranging Telescope
+	{	"vn_m21_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM21 sniper rifle firing 7.62mm ammunition in 20-round mags. Fitted with a 3x to 9x Adjustable Ranging Telescope
+	{	"vn_m21_nvg"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM21 sniper rifle firing 7.62mm ammunition in 20-round mags. Fitted with a 3x to 9x Adjustable Ranging Telescope
+	{	"vn_m21_nvg_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM21 sniper rifle firing 7.62mm ammunition in 20-round mags. Fitted with a 3x to 9x Adjustable Ranging Telescope
 	{	"vn_m1_garand"	,{	-1	,	0	,	0	,	-1	}}	,	//	M1 Garand 7.62x63mm Rifle
+	{	"vn_m1_garand_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	M1 Garand 7.62x63mm Rifle
+	{	"vn_m1_garand_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M1 Garand 7.62x63mm Rifle
 	{	"vn_m1_garand_gl"	,{	-1	,	0	,	1	,	-1	}}	,	//	M1 Garand 7.62x63mm Rifle, fitted with an M8 22mm rifle grenade
 	{	"vn_m14a1"	,{	-1	,	0	,	-1	,	-1	}}	,	//	M14A1 7.62mm automatic rifle
+	{	"vn_m14a1_bipod"	,{	-1	,	0	,	-1	,	-1	}}	,	//	M14A1 7.62mm automatic rifle
+	{	"vn_m14a1_sniper"	,{	-1	,	0	,	-1	,	-1	}}	,	//	M14A1 7.62mm automatic rifle
+	{	"vn_m14a1_nvg"	,{	-1	,	0	,	-1	,	-1	}}	,	//	M14A1 7.62mm automatic rifle
 	{	"vn_m14a1_camo"	,{	-1	,	0	,	-1	,	-1	}}	,	//	M14A1 7.62mm automatic rifle, fitted with a bipod and camo paint
 	{	"vn_m14a1_shorty"	,{	-1	,	0	,	4	,	-1	}}	,	//	M14A1 cut short for use by SOG recon
 	{	"vn_m14a1_shorty_fs"	,{	-1	,	0	,	5	,	-1	}}	,	//	M14A1 cut short for use by SOG recon, with added front sight
 	{	"vn_m1903"	,{	0	,	0	,	0	,	0	}}	,	//	M1903 5-shot, clip-fed, 7.62x65 rifle
+	{	"vn_m1903_sniper"	,{	0	,	0	,	0	,	0	}}	,	//	M1903 5-shot, clip-fed, 7.62x65 rifle
+	{	"vn_m1903_bayo"	,{	0	,	0	,	0	,	0	}}	,	//	M1903 5-shot, clip-fed, 7.62x65 rifle
 	{	"vn_m1903_gl"	,{	0	,	0	,	2	,	2	}}	,	//	M1903 5-shot, clip-fed, 7.62x65 rifle fitted with an M8 22mm rifle grenade
 	{	"vn_m36"	,{	0	,	0	,	0	,	0	}}	,	//	M36 5-shot, clip-fed, 7.5x54mm rifle
+	{	"vn_m36_bayo"	,{	0	,	0	,	0	,	0	}}	,	//	M36 5-shot, clip-fed, 7.5x54mm rifle
+	{	"vn_m36_camo"	,{	0	,	0	,	0	,	0	}}	,	//	M36 5-shot, clip-fed, 7.5x54mm rifle
 	{	"vn_l1a1_01"	,{	-1	,	0	,	1	,	-1	}}	,	//	Australian L1A1 7.62mm Rifle
+	{	"vn_l1a1_01_mrk"	,{	-1	,	0	,	1	,	-1	}}	,	//	Australian L1A1 7.62mm Rifle
+	{	"vn_l1a1_01_bayo"	,{	-1	,	0	,	1	,	-1	}}	,	//	Australian L1A1 7.62mm Rifle
 	{	"vn_l1a1_01_camo"	,{	-1	,	0	,	1	,	-1	}}	,	//	Australian L1A1 7.62mm Rifle, fitted with camo tape
 	{	"vn_l1a1_01_gl"	,{	-1	,	0	,	2	,	-1	}}	,	//	Australian L1A1 7.62mm Rifle, fitted with a 22mm rifle grenade adapter
 	{	"vn_l1a1_02"	,{	-1	,	0	,	1	,	-1	}}	,	//	New Zealand L1A1 7.62mm Rifle
+	{	"vn_l1a1_02_mrk"	,{	-1	,	0	,	1	,	-1	}}	,	//	New Zealand L1A1 7.62mm Rifle
+	{	"vn_l1a1_02_bayo"	,{	-1	,	0	,	1	,	-1	}}	,	//	New Zealand L1A1 7.62mm Rifle
 	{	"vn_l1a1_02_camo"	,{	-1	,	0	,	2	,	-1	}}	,	//	New Zealand L1A1 7.62mm Rifle, fitted with camo tape
 	{	"vn_l1a1_02_gl"	,{	-1	,	0	,	3	,	-1	}}	,	//	New Zealand L1A1 7.62mm Rifle, fitted with a 22mm rifle grenade adapter
 	{	"vn_l1a1_03"	,{	-1	,	0	,	4	,	-1	}}	,	//	SAS L1A1 7.62mm Rifle, fitted with foregrip
@@ -65,34 +87,72 @@ class vn_whitelisted_arsenal_loadouts
 	{	"vn_l1a1_xm148_camo"	,{	-1	,	0	,	5	,	-1	}}	,	//	L1A1 7.62mm Rifle, fitted with an XM148 40mm grenade launcher and camo paint
 //OpFor														
 	{	"vn_sks"	,{	0	,	-1	,	0	,	-1	}}	,	//	SKS semi-automatic rifle with folding bayonet. Chambered in 10-round clips of 7.62x39mm
+	{	"vn_sks_sniper"	,{	0	,	-1	,	0	,	-1	}}	,	//	SKS semi-automatic rifle with folding bayonet. Chambered in 10-round clips of 7.62x39mm
+	{	"vn_sks_bayo"	,{	0	,	-1	,	0	,	-1	}}	,	//	SKS semi-automatic rifle with folding bayonet. Chambered in 10-round clips of 7.62x39mm
 	{	"vn_sks_gl"	,{	0	,	-1	,	0	,	-1	}}	,	//	SKS semi-automatic rifle with folding bayonet. Chambered in 10-round clips of 7.62x39mm. Fitted with 22mm rifle grenade
 	{	"vn_m1891"	,{	0	,	-1	,	0	,	-1	}}	,	//	M1891 5-shot, clip-fed, 7.62x54mmR rifle
+	{	"vn_m1891_bayo"	,{	0	,	-1	,	0	,	-1	}}	,	//	M1891 5-shot, clip-fed, 7.62x54mmR rifle
 	{	"vn_m38"	,{	0	,	-1	,	0	,	-1	}}	,	//	M38 5-shot, clip-fed, 7.62x54mmR rifle
+	{	"vn_m38_bayo"	,{	0	,	-1	,	0	,	-1	}}	,	//	M38 5-shot, clip-fed, 7.62x54mmR rifle
 	{	"vn_m9130"	,{	0	,	-1	,	0	,	-1	}}	,	//	M91/30 5-shot, clip-fed, 7.62x54mmR rifle
+	{	"vn_m9130_sniper"	,{	0	,	-1	,	0	,	-1	}}	,	//	M91/30 5-shot, clip-fed, 7.62x54mmR rifle
+	{	"vn_m9130_bayo"	,{	0	,	-1	,	0	,	-1	}}	,	//	M91/30 5-shot, clip-fed, 7.62x54mmR rifle
 	{	"vn_vz54"	,{	0	,	-1	,	-1	,	-1	}}	,	//	VZ54 7.62mm Rifle
+	{	"vn_vz54_sniper"	,{	0	,	-1	,	-1	,	-1	}}	,	//	VZ54 7.62mm Rifle
+	{	"vn_vz54_sniper_camo"	,{	0	,	-1	,	-1	,	-1	}}	,	//	VZ54 7.62mm Rifle
 	{	"vn_svd"	,{	0	,	-1	,	-1	,	-1	}}	,	//	SVD 7.62x54mm semi-automatic marksman rifle
+	{	"vn_svd_sniper"	,{	0	,	-1	,	-1	,	-1	}}	,	//	SVD 7.62x54mm semi-automatic marksman rifle
+	{	"vn_svd_sniper_camo"	,{	0	,	-1	,	-1	,	-1	}}	,	//	SVD 7.62x54mm semi-automatic marksman rifle
 	{	"vn_k98k"	,{	0	,	-1	,	0	,	0	}}	,	//	K98K 5-shot, clip-fed, 7.92x57mm rifle
+	{	"vn_k98k_bayo"	,{	0	,	-1	,	0	,	0	}}	,	//	K98K 5-shot, clip-fed, 7.92x57mm rifle
+	{	"vn_k98k_mrk"	,{	0	,	-1	,	0	,	0	}}	,	//	K98K 5-shot, clip-fed, 7.92x57mm rifle
+	{	"vn_k98k_mrk_camo"	,{	0	,	-1	,	0	,	0	}}	,	//	K98K 5-shot, clip-fed, 7.92x57mm rifle
 //Assault Rifles														
 //BluFor														
 	{	"vn_m16"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle. 20-round mag
+	{	"vn_m16_muzzle"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle. 20-round mag
 	{	"vn_m16_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_mrk"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_mrk_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_sniper_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_nvg"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
+	{	"vn_m16_nvg_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG camo version
 	{	"vn_m16_xm148"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle with XM148 single-shot 40mm grenade-launcher attached under the barrel, and camo tape
 	{	"vn_m16_m203"	,{	-1	,	0	,	4	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG version fitted with M203 40mm Grenade Launcher
 	{	"vn_m16_m203_camo"	,{	-1	,	0	,	6	,	-1	}}	,	//	M16A1 5.56mm Assault Rifle, SF/SOG version fitted with M203 40mm Grenade Launcher and camo
 	{	"vn_m16_usaf"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16 5.56mm Assault Rifle. USAF version. 20-round mag
+	{	"vn_m16_usaf_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16 5.56mm Assault Rifle. USAF version. 20-round mag
+	{	"vn_m16_usaf_mrk"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16 5.56mm Assault Rifle. USAF version. 20-round mag
+	{	"vn_m16_usaf_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16 5.56mm Assault Rifle. USAF version. 20-round mag
+	{	"vn_m16_usaf_nvg"	,{	-1	,	0	,	0	,	-1	}}	,	//	M16 5.56mm Assault Rifle. USAF version. 20-round mag
 	{	"vn_gau5a"	,{	-1	,	0	,	2	,	-1	}}	,	//	GAU-5A/A 5.56mm USAF carbine
+	{	"vn_gau5a_mrk"	,{	-1	,	0	,	2	,	-1	}}	,	//	GAU-5A/A 5.56mm USAF carbine
 	{	"vn_m63a"	,{	-1	,	0	,	0	,	-1	}}	,	//	M63A 5.56mm Automatic Rifle. 30-round mag
 	{	"vn_xm16e1"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM16E1 5.56mm Assault Rifle. Early version. 20-round mag
+	{	"vn_xm16e1_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM16E1 5.56mm Assault Rifle. Early version. 20-round mag
+	{	"vn_xm16e1_mrk"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM16E1 5.56mm Assault Rifle. Early version. 20-round mag
+	{	"vn_xm16e1_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM16E1 5.56mm Assault Rifle. Early version. 20-round mag
 	{	"vn_xm16e1_xm148"	,{	-1	,	0	,	5	,	-1	}}	,	//	XM16E1 5.56mm Assault Rifle, fitted with XM148 40mm grenade launcher
+	{	"vn_xm16e1_nvg"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM16E1 5.56mm Assault Rifle. Early version. 20-round mag
 	{	"vn_xm177_stock"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG version fitted with an M16 stock
 	{	"vn_xm177_stock_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG version fitted with an M16 stock and camo paint
 	{	"vn_xm177_short"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, short SF/SOG version with 10 inch barrel
 	{	"vn_xm177"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG light version
+	{	"vn_xm177_muzzle"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG light version
+	{	"vn_xm177_mrk"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG light version
+	{	"vn_xm177_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG light version
+	{	"vn_xm177_nvg"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG light version
 	{	"vn_xm177_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG version with camo tape
 	{	"vn_xm177_fg"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG version fitted with a fore-grip
 	{	"vn_xm177_xm148"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG version fitted with XM148 40mm grenade launcher
 	{	"vn_xm177_xm148_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	XM177E2 5.56mm carbine, SF/SOG version fitted with XM148 40mm grenade launcher and camo paint
 	{	"vn_xm177e1"	,{	-1	,	0	,	1	,	-1	}}	,	//	XM177E1 5.56mm carbine, early SF/SOG light version
+	{	"vn_xm177e1_mrk"	,{	-1	,	0	,	1	,	-1	}}	,	//	XM177E1 5.56mm carbine, early SF/SOG light version
+	{	"vn_xm177e1_sniper"	,{	-1	,	0	,	1	,	-1	}}	,	//	XM177E1 5.56mm carbine, early SF/SOG light version
+	{	"vn_xm177e1_nvg"	,{	-1	,	0	,	1	,	-1	}}	,	//	XM177E1 5.56mm carbine, early SF/SOG light version
 	{	"vn_xm177e1_camo"	,{	-1	,	0	,	2	,	-1	}}	,	//	XM177E1 5.56mm carbine, early SF/SOG light version with camo tape
 	{	"vn_xm177_m203"	,{	-1	,	0	,	5	,	-1	}}	,	//	XM177E2 5.56mm Assault Rifle, SF/SOG version fitted with M203 40mm Grenade Launcher
 	{	"vn_xm177_m203_camo"	,{	-1	,	0	,	6	,	-1	}}	,	//	XM177E2 5.56mm Assault Rifle, SF/SOG camo version fitted with M203 40mm Grenade Launcher
@@ -104,12 +164,18 @@ class vn_whitelisted_arsenal_loadouts
 //Carbine														
 //BluFor														
 	{	"vn_m2carbine"	,{	-1	,	0	,	0	,	-1	}}	,	//	M2 Carbine, 7.62x33mm, lightweight, easy-to-use selective-fire rifle
+	{	"vn_m2carbine_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M2 Carbine, 7.62x33mm, lightweight, easy-to-use selective-fire rifle
+	{	"vn_m2carbine_sniper"	,{	-1	,	0	,	0	,	-1	}}	,	//	M2 Carbine, 7.62x33mm, lightweight, easy-to-use selective-fire rifle
 	{	"vn_m2carbine_gl"	,{	-1	,	0	,	0	,	-1	}}	,	//	M2 Carbine, 7.62x33mm, lightweight, easy-to-use selective-fire rifle, fitted with an M8 22mm rifle grenade
 	{	"vn_m3carbine"	,{	-1	,	0	,	0	,	-1	}}	,	//	M3 carbine 7.62x33mm rifle, fitted with a heavy infra-red night-vision scope
 	{	"vn_m1carbine_shorty"	,{	-1	,	0	,	6	,	-1	}}	,	//	M1 Carbine cut short with added scope and rechambered in 9x19mm to take HP magazines, for use by SOG recon
 	{	"vn_m1carbine"	,{	0	,	0	,	0	,	-1	}}	,	//	M1 Carbine, 7.62x33mm, lightweight, easy-to-use semi-automatic rifle
+	{	"vn_m1carbine_bayo"	,{	0	,	0	,	0	,	-1	}}	,	//	M1 Carbine, 7.62x33mm, lightweight, easy-to-use semi-automatic rifle
+	{	"vn_m1carbine_sniper"	,{	0	,	0	,	0	,	-1	}}	,	//	M1 Carbine, 7.62x33mm, lightweight, easy-to-use semi-automatic rifle
 	{	"vn_m1carbine_gl"	,{	0	,	0	,	0	,	-1	}}	,	//	M1 Carbine, 7.62x33mm, lightweight, easy-to-use semi-automatic rifle, fitted with an M8 22mm rifle grenade
 	{	"vn_m4956"	,{	0	,	0	,	0	,	-1	}}	,	//	M49/56 French semi-automatic 7.5x54mm rifle
+	{	"vn_m4956_sniper"	,{	0	,	0	,	0	,	-1	}}	,	//	M49/56 French semi-automatic 7.5x54mm rifle
+	{	"vn_m4956_bayo"	,{	0	,	0	,	0	,	-1	}}	,	//	M49/56 French semi-automatic 7.5x54mm rifle
 	{	"vn_m4956_gl"	,{	0	,	0	,	0	,	-1	}}	,	//	M49/56 French semi-automatic 7.5x54mm rifle fitted with a 22mm rifle grenade
 //Machine Guns														
 //BluFor														
@@ -117,8 +183,11 @@ class vn_whitelisted_arsenal_loadouts
 	{	"vn_m60_shorty_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M60 7.62mm Light Machine Gun with 100-round box, short barrel and camo spray
 	{	"vn_m60"	,{	-1	,	0	,	0	,	-1	}}	,	//	M60 7.62mm Light Machine Gun with 100-round box and bipod
 	{	"vn_m63a_cdo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M63A 5.56mm Commando. 150-round drum
+	{	"vn_m63a_cdo_bipod"	,{	-1	,	0	,	0	,	-1	}}	,	//	M63A 5.56mm Commando. 150-round drum
 	{	"vn_m63a_lmg"	,{	-1	,	0	,	0	,	-1	}}	,	//	M63A 5.56mm LMG. 100-round box
+	{	"vn_m63a_lmg_bipod"	,{	-1	,	0	,	0	,	-1	}}	,	//	M63A 5.56mm LMG. 100-round box
 	{	"vn_m1918"	,{	-1	,	0	,	2	,	-1	}}	,	//	M1918A2 7.62x63mm Light Machine Gun fed by 20 round magazines
+	{	"vn_m1918_bipod"	,{	-1	,	0	,	2	,	-1	}}	,	//	M1918A2 7.62x63mm Light Machine Gun fed by 20 round magazines
 	{	"vn_l2a1_01"	,{	-1	,	0	,	3	,	-1	}}	,	//	L2A1 7.62mm LMG, fitted with a bipod
 	{	"vn_l4"	,{	-1	,	0	,	-1	,	-1	}}	,	//	L4 7.62x51mm selective-fire LMG
 //OpFor														
@@ -131,18 +200,25 @@ class vn_whitelisted_arsenal_loadouts
 //Submachine Guns														
 //BluFor														
 	{	"vn_m3a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	M3A1 Grease Gun
+	{	"vn_m3sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M3A1 Grease Gun
 	{	"vn_m45"	,{	-1	,	0	,	0	,	-1	}}	,	//	M/45 9mm Submachinegun. Swedish SMG with folding stock
+	{	"vn_m45_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	M/45 9mm Submachinegun. Swedish SMG with folding stock
 	{	"vn_m45_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	M/45 9mm Submachinegun. Swedish SMG with camo paint and folding stock
 	{	"vn_m45_fold"	,{	-1	,	0	,	0	,	-1	}}	,	//	M/45 9mm Submachinegun. Swedish SMG with folded stock
 	{	"vn_mat49"	,{	-1	,	0	,	0	,	-1	}}	,	//	MAT-49
+	{	"vn_mat49_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	MAT-49
 	{	"vn_mc10"	,{	-1	,	0	,	0	,	-1	}}	,	//	The MC-10 is a compact, blowback operated machine pistol developed in 1964 chambered in 9mm (or .45ACP)
+	{	"vn_mc10_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	The MC-10 is a compact, blowback operated machine pistol developed in 1964 chambered in 9mm (or .45ACP)
 	{	"vn_sten"	,{	-1	,	0	,	0	,	0	}}	,	//	Sten Mk.II
+	{	"vn_sten_sd"	,{	-1	,	0	,	0	,	0	}}	,	//	Sten Mk.II
 	{	"vn_m1928_tommy"	,{	-1	,	0	,	0	,	-1	}}	,	//	The M1928 Tommy Gun is a blowback operated, selective fire U.S. submachinegun chambered in .45 ACP, capable of using a 50 round drum
 	{	"vn_m1928a1_tommy"	,{	-1	,	0	,	0	,	-1	}}	,	//	The M1928A1 Tommy Gun is a blowback operated, selective fire U.S. submachinegun chambered in .45 ACP, capable of using a 50 round drum
 	{	"vn_m1a1_tommy"	,{	-1	,	0	,	0	,	-1	}}	,	//	The M1A1 Tommy Gun is a blowback operated, selective fire U.S. submachinegun chambered in .45 ACP
 	{	"vn_m1a1_tommy_so"	,{	-1	,	0	,	0	,	-1	}}	,	//	The M1A1 Tommy Gun (shorty) is a blowback operated, selective fire U.S. submachinegun chambered in .45 ACP with the butt removed
 	{	"vn_mpu"	,{	-1	,	0	,	0	,	-1	}}	,	//	The MPU is a compact, open bolt, blowback operated submachinegun developed in 1954 chambered in 9mm
+	{	"vn_mpu_sd"	,{	-1	,	0	,	0	,	-1	}}	,	//	The MPU is a compact, open bolt, blowback operated submachinegun developed in 1954 chambered in 9mm
 	{	"vn_f1_smg"	,{	-1	,	0	,	2	,	-1	}}	,	//	F1 9mm SMG
+	{	"vn_f1_smg_bayo"	,{	-1	,	0	,	2	,	-1	}}	,	//	F1 9mm SMG
 	{	"vn_l2a3"	,{	-1	,	0	,	2	,	-1	}}	,	//	L2A3 9mm Submachinegun.
 	{	"vn_l2a3_f"	,{	-1	,	0	,	3	,	-1	}}	,	//	L2A3 9mm Submachinegun. SMG with folded stock
 	{	"vn_l34a1"	,{	-1	,	0	,	4	,	-1	}}	,	//	L34A1 9mm Submachinegun with folding stock and integral suppressor.
@@ -162,6 +238,7 @@ class vn_whitelisted_arsenal_loadouts
 //Shotguns														
 //BluFor														
 	{	"vn_m1897"	,{	-1	,	0	,	0	,	-1	}}	,	//	Model 1897 12 gauge Trench gun, 6-round mag, capable of slam-firing
+	{	"vn_m1897_bayo"	,{	-1	,	0	,	0	,	-1	}}	,	//	Model 1897 12 gauge Trench gun, 6-round mag, capable of slam-firing
 //OpFor														
 	{	"vn_izh54"	,{	0	,	-1	,	0	,	-1	}}	,	//	ISh-54 double-barrelled Shotgun
 	{	"vn_izh54_shorty"	,{	0	,	-1	,	0	,	-1	}}	,	//	ISh-54 double-barrelled Shotgun (Sawn-off)
@@ -170,18 +247,28 @@ class vn_whitelisted_arsenal_loadouts
 	{	"vn_welrod"	,{	-1	,	0	,	0	,	-1	}}	,	//	Welrod single-shot, suppressed pistol, caliber 7.65x17mm, 8-round mag
 	{	"vn_vz61_p"	,{	-1	,	0	,	0	,	-1	}}	,	//	The VZ.61 Skorpion is a select-fire blowback operated Czech machine pistol chambered in .32 ACP, and worn as a sidearm
 	{	"vn_fkb1_pm"	,{	0	,	0	,	0	,	-1	}}	,	//	PM semi-automatic pistol, 9mm caliber, 8-round mag with FKB-1 Flashlight
+	{	"vn_fkb1_pm_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	PM semi-automatic pistol, 9mm caliber, 8-round mag with FKB-1 Flashlight
 	{	"vn_mx991_m1911"	,{	0	,	0	,	0	,	-1	}}	,	//	M1911 .45 caliber semi-automatic pistol, 7-round magazine, with angle-head MX-991 Flashlight
+	{	"vn_mx991_m1911_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	M1911 .45 caliber semi-automatic pistol, 7-round magazine, with angle-head MX-991 Flashlight
 	{	"vn_pm"	,{	0	,	0	,	0	,	-1	}}	,	//	PM semi-automatic pistol, 9mm caliber, 8-round mag
+	{	"vn_pm_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	PM semi-automatic pistol, 9mm caliber, 8-round mag
 	{	"vn_tt33"	,{	0	,	0	,	0	,	-1	}}	,	//	TT-33 semi-automatic pistol, chambered in 7.62x25mm. 8-round magazine
 	{	"vn_hd"	,{	0	,	0	,	0	,	-1	}}	,	//	HD suppressed pistol, .22LR caliber, 10-round mag
 	{	"vn_hp"	,{	0	,	0	,	0	,	-1	}}	,	//	HP 9mm semi-automatic pistol, 13 round mag
+	{	"vn_hp_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	HP 9mm semi-automatic pistol, 13 round mag
 	{	"vn_m1911"	,{	0	,	0	,	0	,	-1	}}	,	//	M1911 .45 caliber semi-automatic pistol, 7-round magazine
+	{	"vn_m1911_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	M1911 .45 caliber semi-automatic pistol, 7-round magazine
 	{	"vn_mk22"	,{	0	,	0	,	0	,	-1	}}	,	//	Mk22 Mod 0
+	{	"vn_mk22_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	Mk22 Mod 0
 	{	"vn_m10"	,{	0	,	0	,	0	,	-1	}}	,	//	Model 10 .38 revolver, 6-round reload
+	{	"vn_m10_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	Model 10 .38 revolver, 6-round reload
 	{	"vn_m1895"	,{	0	,	0	,	0	,	-1	}}	,	//	M1895 seven-shot, gas-seal revolver chambered for 7.62x38mmR. The unique gas seal enables use with a suppressor
+	{	"vn_m1895_sd"	,{	0	,	0	,	0	,	-1	}}	,	//	M1895 seven-shot, gas-seal revolver chambered for 7.62x38mmR. The unique gas seal enables use with a suppressor
 	{	"vn_p38s"	,{	0	,	0	,	0	,	-1	}}	,	//	.38 Revolver revolver, 6-round reload
 	{	"vn_ppk"	,{	0	,	0	,	2	,	0	}}	,	//	PPK 9mm semi-automatic pistol
+	{	"vn_ppk_sd"	,{	0	,	0	,	2	,	0	}}	,	//	PPK 9mm semi-automatic pistol
 	{	"vn_p38"	,{	0	,	0	,	1	,	1	}}	,	//	P38 9mm semi-automatic pistol
+	{	"vn_p38_sd"	,{	0	,	0	,	1	,	1	}}	,	//	P38 9mm semi-automatic pistol
 	{	"vn_mk1_udg"	,{	-1	,	0	,	0	,	-1	}}	,	//	The Mk1 Underwater Defence Gun (UDG) is a compact, double action only pepper-box weapon developed in the 1960s with a removable cylinder of six 4.25in darts
 //OpFor														
 	{	"vn_m712"	,{	0	,	-1	,	0	,	-1	}}	,	//	M712 selective-fire pistol, chambered in 7.62x25mm. 20-round magazine
@@ -505,7 +592,6 @@ magazines[] =
 	{	"vn_izh54_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	2Rnd. ISh-54 Reload. Caliber: 12 gauge buckshot. Used in ISh-54 shotgun
 	{	"vn_izh54_so_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	2Rnd. ISh-54 Sawn-off. Caliber: 12 gauge buckshot. Used in ISh-54 shotgun
 //Grenades														
-	{	"vn_t67_grenade_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Grenade Type67 (Frag)
 	{	"vn_v40_grenade_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Grenade V40 (Frag)
 	{	"vn_m61_grenade_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Grenade M61 (Frag)
 	{	"vn_m67_grenade_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Grenade M67 (Frag)
@@ -522,6 +608,7 @@ magazines[] =
 	{	"Chemlight_green"	,{	-1	,	0	,	0	,	-1	}}	,	//	
 	{	"Chemlight_yellow"	,{	-1	,	0	,	0	,	-1	}}	,	//	
 //OpFor														
+	{	"vn_t67_grenade_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Grenade Type67 (Frag)
 	{	"vn_chicom_grenade_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Grenade Chicom (Frag)
 	{	"vn_rg42_grenade_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Grenade RG-42 (Frag)
 	{	"vn_rgd33_grenade_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Grenade RGD-33 (Frag)
@@ -557,8 +644,6 @@ magazines[] =
 	{	"vn_mine_tripwire_m49_04_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Mine M49A1 4m tripwire (Flare)
 	{	"vn_mine_bangalore_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Mine Bangalore (Remote)
 	{	"vn_mine_limpet_01_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Mine Limpet US (Remote)
-	{	"vn_mine_tripwire_m16_02_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	
-	{	"vn_mine_tripwire_m16_04_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	
 	{	"vn_mine_m18_fuze10_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Mine M18 Claymore (10s Fuze)
 	{	"vn_mine_m18_wp_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Mine M18/WP Claymore (Remote)
 	{	"vn_mine_m18_wp_range_mag"	,{	-1	,	0	,	0	,	-1	}}	,	//	Mine M18/WP Claymore (Proximity)
@@ -570,8 +655,8 @@ magazines[] =
 	{	"vn_mine_punji_03_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Trap punji (Whip)
 	{	"vn_mine_tm57_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Mine TM-57 Anti-Tank
 	{	"vn_mine_tripwire_arty_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Trap IED 4m tripwire
-	{	"vn_mine_tripwire_f1_02_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Trap F-1 2m tripwire
-	{	"vn_mine_tripwire_f1_04_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Trap F-1 4m tripwire
+	{	"vn_mine_tripwire_f1_02_mag"	,{	0	,	0	,	0	,	-1	}}	,	//	Trap F-1 2m tripwire
+	{	"vn_mine_tripwire_f1_04_mag"	,{	0	,	0	,	0	,	-1	}}	,	//	Trap F-1 4m tripwire
 	{	"vn_mine_bike_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Mine Bicycle (Remote)
 	{	"vn_mine_bike_range_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Mine Bicycle (Proximity)
 	{	"vn_mine_cartridge_mag"	,{	0	,	-1	,	0	,	-1	}}	,	//	Mine Cartridge (Proximity)
@@ -717,6 +802,74 @@ magazines[] =
 };														
 items[] =														
 { 														
+//Blufor														
+//Bayonet/Camo														
+	{	"vn_b_camo_m14"	,{	-1	,	0	,	0	,	-1	}}	,	//	Camo wrap [M14]
+	{	"vn_b_camo_m14a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	Camo wrap [M14A1]
+	{	"vn_b_camo_m40a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	Camo wrap [M40]
+	{	"vn_b_carbine"	,{	0	,	0	,	0	,	-1	}}	,	//	Bayonet M4 [M1/ M2]
+	{	"vn_b_m14"	,{	-1	,	0	,	0	,	-1	}}	,	//	Bayonet M6 [M14]
+	{	"vn_b_m16"	,{	-1	,	0	,	0	,	-1	}}	,	//	Bayonet M7 [M16]
+	{	"vn_b_m1897"	,{	-1	,	0	,	0	,	-1	}}	,	//	Bayonet M1917 [M1897]
+	{	"vn_b_m1_garand"	,{	-1	,	0	,	1	,	-1	}}	,	//	Bayonet M5 [M1 Garand]
+	{	"vn_b_camo_m1_garand"	,{	-1	,	0	,	2	,	-1	}}	,	//	Camo wrap [M1 Garand]
+	{	"vn_bipod_m1918"	,{	-1	,	0	,	4	,	-1	}}	,	//	Bipod [M1918]
+	{	"vn_bipod_m16"	,{	-1	,	0	,	1	,	-1	}}	,	//	Bipod [M16]
+	{	"vn_bipod_m14"	,{	-1	,	0	,	1	,	-1	}}	,	//	Bipod [M14]
+	{	"vn_b_l1a1"	,{	-1	,	0	,	1	,	-1	}}	,	//	Bayonet L1A1 [L1A1/ F1]
+	{	"vn_b_m1903"	,{	0	,	0	,	1	,	1	}}	,	//	Bayonet [M1903]
+	{	"vn_b_m36"	,{	0	,	0	,	1	,	1	}}	,	//	Bayonet Spike [M36]
+	{	"vn_b_camo_m1903"	,{	0	,	0	,	2	,	2	}}	,	//	Camo wrap [M1903]
+	{	"vn_b_camo_m36"	,{	0	,	0	,	2	,	2	}}	,	//	Camo wrap [M36]
+	{	"vn_bipod_m63a"	,{	-1	,	0	,	3	,	-1	}}	,	//	Bipod [M63A]
+ 	{	"vn_b_m4956"	,{	0	,	0	,	0	,	-1	}}	,	//	Bayonet Model 58 [M49/56]
+//Suppressor														
+	{	"vn_s_m14"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [M14/M40]
+	{	"vn_s_m16"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [M16]
+	{	"vn_s_m1895"	,{	0	,	0	,	0	,	-1	}}	,	//	Suppressor [M1895]
+	{	"vn_s_m1911"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [M1911]
+	{	"vn_s_m3a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [M3]
+	{	"vn_s_m45"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [M/45]
+	{	"vn_s_m45_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [M/45 Camo]
+	{	"vn_s_mat49"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [MAT-49]
+	{	"vn_s_mc10"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [MC-10]
+	{	"vn_s_mk22"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [Mk22]
+	{	"vn_s_pm"	,{	0	,	0	,	0	,	-1	}}	,	//	Suppressor [PM]
+	{	"vn_s_sten"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [Sten Mk.II]
+	{	"vn_s_ppk"	,{	0	,	0	,	2	,	2	}}	,	//	Suppressor 9mm [PPK/ P38]
+	{	"vn_s_hp"	,{	-1	,	0	,	3	,	-1	}}	,	//	Suppressor 9mm [HP]
+	{	"vn_s_mpu"	,{	-1	,	0	,	0	,	-1	}}	,	//	Suppressor [MPU]
+//Optics														
+	{	"vn_o_4x_m16"	,{	-1	,	0	,	0	,	-1	}}	,	//	Optic (M16 4x)
+	{	"vn_o_9x_m14"	,{	-1	,	0	,	0	,	-1	}}	,	//	Optic (M14 3-9x)
+	{	"vn_o_9x_m16"	,{	-1	,	0	,	0	,	-1	}}	,	//	Optic (M16 3-9x)
+	{	"vn_o_9x_m40a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	Optic (M40 3-9x)
+	{	"vn_o_9x_m40a1_camo"	,{	-1	,	0	,	0	,	-1	}}	,	//	Optic (M40 3-9x camo)
+	{	"vn_o_anpvs2_m14"	,{	-1	,	0	,	0	,	-1	}}	,	//	Scope (AN-PVS2 Starlight) [M14]
+	{	"vn_o_anpvs2_m16"	,{	-1	,	0	,	0	,	-1	}}	,	//	Scope (AN-PVS2 Starlight) [XM177/M16]
+	{	"vn_o_anpvs2_m40a1"	,{	-1	,	0	,	0	,	-1	}}	,	//	Scope (AN-PVS2 Starlight) [M40]
+	{	"vn_o_3x_m84"	,{	0	,	0	,	0	,	-1	}}	,	//	Scope (M1/2 Carbine 2.2x)
+	{	"vn_o_1x_sp_m16"	,{	-1	,	0	,	6	,	-1	}}	,	//	Optic (M16 SP)
+	{	"vn_o_3x_l1a1"	,{	-1	,	0	,	2	,	-1	}}	,	//	Optic (L1A1 3x)
+	{	"vn_o_8x_m1903"	,{	0	,	0	,	1	,	1	}}	,	//	Optic [M1903 8x]
+	{	"vn_o_m14_front"	,{	-1	,	0	,	4	,	-1	}}	,	//	Optic (M14 Front Sight)
+	{	"vn_o_4x_m4956"	,{	0	,	0	,	0	,	-1	}}	,	//	Scope (M49/56 3.5x)
+//OpFor														
+//Bayonet/Camo														
+	{	"vn_b_sks"	,{	0	,	-1	,	0	,	-1	}}	,	//	Bayonet Spike [M38]
+	{	"vn_b_type56"	,{	0	,	-1	,	0	,	-1	}}	,	//	Bayonet Spike [Type56]
+ 	{	"vn_b_camo_vz54"	,{	0	,	-1	,	-1	,	-1	}}	,	//	Camo wrap [VZ54]
+	{	"vn_b_camo_svd"	,{	0	,	-1	,	-1	,	-1	}}	,	//	Camo wrap [SVD]
+	{	"vn_b_camo_k98k"	,{	0	,	-1	,	2	,	2	}}	,	//	Camo wrap [K98K]
+	{	"vn_b_k98k"	,{	0	,	-1	,	1	,	1	}}	,	//	Bayonet [K98K]
+	{	"vn_b_m38"	,{	0	,	-1	,	0	,	-1	}}	,	//	Bayonet Spike [M38/ M91/30/ M1892]
+	{	"vn_b_camo_m9130"	,{	0	,	-1	,	0	,	-1	}}	,	//	Camo wrap [M9130]
+//Optic														
+	{	"vn_o_3x_m9130"	,{	0	,	-1	,	0	,	-1	}}	,	//	Optic (M91/30 3.5x)
+	{	"vn_o_3x_sks"	,{	0	,	-1	,	0	,	-1	}}	,	//	Optic (SKS 3.5x)
+	{	"vn_o_3x_vz54"	,{	0	,	-1	,	-1	,	-1	}}	,	//	Optic (VZ54 2.5x)
+	{	"vn_o_4x_svd"	,{	0	,	-1	,	-1	,	-1	}}	,	//	Optic [SVD 4x]
+	{	"vn_o_1_5x_k98k"	,{	0	,	-1	,	1	,	1	}}	,	//	Optic [K98K 1.5x]
 //Basics														
 	{	"vn_b_item_lighter_01"	,{	-1	,	-1	,	-1	,	-1	}}	,	//	
 	{	"FirstAidKit"	,{	-1	,	-1	,	-1	,	-1	}}	,	//	
@@ -1433,7 +1586,6 @@ backpacks[] =
 	{	"vn_o_pack_static_m1910_high_01"	,{	0	,	-1	,	0	,	-1	}}	,	//	NVA (M1910 high)
 	{	"vn_o_pack_static_type56rr_01"	,{	0	,	-1	,	0	,	-1	}}	,	//	NVA (Type 56 Recoilless)
 };														
-
 
 		vehicles[] =
 		{
