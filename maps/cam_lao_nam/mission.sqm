@@ -8775,7 +8775,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="['vn_b_item_firstaidkit','vn_o_item_firstaidkit', 'FirstAidKit', 'MediKit']";
+							value="['vn_b_item_firstaidkit','vn_o_item_firstaidkit','vn_b_item_medikit_01', 'FirstAidKit', 'Medikit']";
 						};
 					};
 				};
@@ -8827,7 +8827,7 @@ class Mission
 						class data
 						{
 							singleType="STRING";
-							value="['vn_b_item_firstaidkit','vn_o_item_firstaidkit', 'FirstAidKit', 'MediKit']";
+							value="['vn_b_item_firstaidkit','vn_o_item_firstaidkit','vn_b_item_medikit_01', 'FirstAidKit', 'Medikit']";
 						};
 					};
 				};
