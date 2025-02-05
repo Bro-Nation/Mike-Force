@@ -52,7 +52,5 @@ vn_mf_aa_compositions = [
 ];
 
 private _randomAngle = [0,360] call BIS_fnc_randomInt;
-
-private _aaObjects = [_position, _randomAngle, selectRandom vn_mf_aa_compositions] call BIS_fnc_objectsMapper;
-
+private _aaObjects = [_position, _randomAngle, selectRandom vn_mf_aa_compositions] call vn_mf_fnc_sites_create_objects_with_tree_removal;
 _aaObjects

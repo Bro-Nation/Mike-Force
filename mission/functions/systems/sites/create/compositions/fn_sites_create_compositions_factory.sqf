@@ -527,7 +527,7 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 	["Land_vn_t_ficusb1s_f",[20.4448,-24.2627,0],11.6895,1,0,[0,0],"","",false,false]
 ],
 [
-	["vn_sign_town_d_09",[-1.49121,1.40283,0.904072],90.0001,1,0,[0,-0],"","",false,false], 
+	["Land_vn_sign_town_d_09",[-1.49121,1.40283,0.904072],90.0001,1,0,[0,-0],"","",false,false], 
 	["vn_o_nva_static_dshkm_low_01",[3.15723,2.77979,-0.0596199],270,1,0,[0,0],"","",false,false], 
 	["Land_vn_pavn_weapons_stack2",[-5.32129,2.56689,0.00285816],0,1,0,[0,0],"","",false,false], 
 	["Land_vn_controltower_01_f",[1.5166,-0.0322266,0],0,1,0,[0,0],"","",false,false], 
@@ -569,7 +569,7 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 //};
 
 private _randomAngle = [0,360] call BIS_fnc_randomInt;
-private _factoryObjects = [_position, _randomAngle, selectRandom vn_mf_factory_compositions, 0] call BIS_fnc_objectsMapper;
+private _factoryObjects = [_position, _randomAngle, selectRandom vn_mf_factory_compositions, 0] call vn_mf_fnc_sites_create_objects_with_tree_removal;
 {
     if (_x isKindOf "GRAD_envelope_giant") then {
         _x setVectorUp (surfaceNormal getPos _x);
