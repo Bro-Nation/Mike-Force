@@ -29,7 +29,7 @@ private _factoryPosition = [_center, vn_mf_bn_s_zone_radius, 0, 55, 5, _allTerra
 [_factoryPosition, _zone] call vn_mf_fnc_sites_create_site_factory;
 
 //Create zone HQ
-private _hqPosition = [_center, vn_mf_bn_s_zone_radius, 0, 55, 5, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
+private _hqPosition = [_center, vn_mf_bn_s_zone_radius, 0, 30, 5, _allTerrainObjects] call vn_mf_fnc_sites_get_safe_location;
 [_hqPosition, _zone] call vn_mf_fnc_sites_create_site_hq;
 
 // for "_i" from 1 to (1 + ceil random (vn_mf_s_max_radars_per_zone - 1)) do
