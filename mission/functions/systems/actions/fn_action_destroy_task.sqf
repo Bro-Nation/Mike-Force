@@ -84,6 +84,7 @@ private _conditionToShowString = str {
 			'Land_vn_o_trapdoor_01',
 			// fuel depot
 			"Land_vn_tank_rust_f",
+			"Land_vn_ruvehicleammo",
 			// dac cong resapwn
 			'Land_vn_o_platform_04',
 			// wrecks
