@@ -44,7 +44,9 @@ enableDebugConsole[] = {
 	//Cerebral
 	"76561199195828749",
 	//Cypher
-	"76561199175533497"
+	"76561199175533497",
+	//Legend
+	"76561198976258425"
 };
 
 allowFunctionsLog = 1;

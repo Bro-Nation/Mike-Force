@@ -1037,7 +1037,7 @@ if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
 //};
 
 private _randomAngle = [0,360] call BIS_fnc_randomInt;
-private _hqObjects = [_position, _randomAngle, selectRandom vn_mf_hq_compositions, 0] call BIS_fnc_objectsMapper;
+private _hqObjects = [_position, _randomAngle, selectRandom vn_mf_hq_compositions, 0] call vn_mf_fnc_sites_create_objects_with_tree_removal;
 {
     if (_x isKindOf "GRAD_envelope_giant") then {
         _x setVectorUp (surfaceNormal getPos _x);

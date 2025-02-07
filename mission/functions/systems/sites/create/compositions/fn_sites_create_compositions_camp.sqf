@@ -863,6 +863,6 @@ vn_mf_camp_site_compositions_v3 = [
 
 
 private _randAngle = [1, 360] call BIS_fnc_randomInt;
-private _site_objs = [_position, _randAngle, selectRandom vn_mf_camp_site_compositions_v3, 0] call BIS_fnc_objectsMapper;
+private _site_objs = [_position, _randAngle, selectRandom vn_mf_camp_site_compositions_v3, 0] call vn_mf_fnc_sites_create_objects_with_tree_removal;
 
 _site_objs

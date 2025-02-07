@@ -133,6 +133,6 @@ vn_mf_sites_compositions_fuel = [
 private _selectedHMap = selectRandom vn_mf_sites_compositions_fuel;
 
 private _randAngle = [1, 360] call BIS_fnc_randomInt;
-private _site_objs = [_position, _randAngle, _selectedHMap get "Composition", 0] call BIS_fnc_objectsMapper;
+private _site_objs = [_position, _randAngle, _selectedHMap get "Composition", 0] call vn_mf_fnc_sites_create_objects_with_tree_removal;
 
 _site_objs;
