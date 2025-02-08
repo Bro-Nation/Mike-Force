@@ -58,7 +58,9 @@ params ["_pos"];
 			"vn_o_ammobox_wpn_04",
 			"vn_o_ammobox_full_03",
 			"vn_o_ammobox_full_07",
-			"vn_o_ammobox_full_06"
+			"vn_o_ammobox_full_06",
+			"Land_vn_tank_rust_f",
+			"Land_vn_ruvehicleammo"
 		];
 		
 		private _objectTypesForDynamicSim = [
