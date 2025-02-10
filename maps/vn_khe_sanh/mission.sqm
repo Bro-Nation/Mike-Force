@@ -8,7 +8,7 @@ class EditorData
 	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=3924;
+		nextID=3925;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2268;
+		nextID=2306;
 	};
 	class Camera
 	{
@@ -253,7 +253,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=644;
+		items=645;
 		class Item0
 		{
 			dataType="Layer";
@@ -41852,17 +41852,16 @@ class Mission
 			type="Land_Ammobox_rounds_F";
 			atlOffset=0.4402771;
 		};
-
 		class Item644
 		{
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={9873,383,6068};
+				position[]={9873.3926,193.2002,6065.5205};
 			};
-			id=3923;
+			id=3924;
 			type="vn_module_photo_camera_enable_screenshots";
-			atlOffset=191.50801;
+			atlOffset=2.3199921;
 		};
 	};
 	class Connections
