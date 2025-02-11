@@ -28,8 +28,10 @@ if ((getPos _player distance [0,0,0]) >= 100) exitWith {
         ["TaskFailed", ["", "STR_vn_mf_needdutyofficer"]] remoteExecCall ["para_c_fnc_show_notification", _player];
         false
     } else {
-   
+
     [_player, _team] call vn_mf_fnc_force_team_change;
     true
     };
 };
+
+flase;
