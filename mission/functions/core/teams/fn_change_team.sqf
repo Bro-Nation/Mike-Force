@@ -23,12 +23,13 @@ private _currentTeam = _player getVariable ["vn_mf_db_player_group", "MikeForce"
 if (_currentTeam isEqualTo _team) exitWith { false };
 
 private _inMACV = [_player, "MACV"] call para_g_fnc_db_check_whitelist;
-if ((getPos _player distance [0,0,0]) >= 100) then {
-    if (!_inMACV && vn_mf_duty_officers inAreaArray [getPos _player, 20, 20, 0, false, 100] isEqualTo []) exitWith {
+if ((getPos _player distance [0,0,0]) >= 100) exitWith {
+    if (!_inMACV && vn_mf_duty_officers inAreaArray [getPos _player, 20, 20, 0, false, 100] isEqualTo []) then {
         ["TaskFailed", ["", "STR_vn_mf_needdutyofficer"]] remoteExecCall ["para_c_fnc_show_notification", _player];
-        false;
+        false
+    } else {
+   
+    [_player, _team] call vn_mf_fnc_force_team_change;
+    true
     };
 };
-
-[_player, _team] call vn_mf_fnc_force_team_change;
-true
