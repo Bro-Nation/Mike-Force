@@ -34,4 +34,4 @@ if ((getPos _player distance [0,0,0]) >= 100) exitWith {
     };
 };
 
-flase;
+false;
