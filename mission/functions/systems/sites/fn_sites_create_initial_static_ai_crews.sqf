@@ -31,7 +31,10 @@ private _initialMountedAiGroups = vn_site_objects
 		(typeOf _x) in [
 			'vn_o_nva_navy_static_zpu4',
 			'vn_o_nva_65_static_zpu4',
-			"vn_o_nva_static_zpu4"
+			"vn_o_nva_static_zpu4",
+			"vn_o_vc_static_dshkm_low_01",
+			"vn_o_vc_static_pk_high",
+			"vn_o_vc_static_rpd_high"
 		];
 	}
 	apply {
