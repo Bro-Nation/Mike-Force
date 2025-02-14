@@ -1,14 +1,14 @@
 version=54;
 class EditorData
 {
-	moveGridStep=1;
+	moveGridStep=0.25;
 	angleGridStep=1.5707964;
 	scaleGridStep=1;
 	autoGroupingDist=10;
 	toggles=586;
 	class ItemIDProvider
 	{
-		nextID=19329;
+		nextID=19344;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=29227;
+		nextID=29455;
 	};
 	class Camera
 	{
-		pos[]={16133.917,64.290642,6921.0264};
-		dir[]={-0.094318271,-0.35312259,0.93081182};
-		up[]={-0.035599373,0.93557566,0.35132441};
-		aside[]={0.99490625,1.0963413e-07,0.100813};
+		pos[]={15942.443,19.025236,7961.6563};
+		dir[]={0.002603522,-0.99994999,0.0096549103};
+		up[]={0.26034489,0.00999978,0.965464};
+		aside[]={0.96551228,0,-0.26035792};
 	};
 };
 binarizationWanted=0;
@@ -517,7 +517,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=556;
+		items=569;
 		class Item0
 		{
 			dataType="Marker";
@@ -4763,7 +4763,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16228.361,16.038088,7049.0024};
+								position[]={16228.784,16.038088,7049.9087};
 								angles[]={0,3.5777693,0};
 							};
 							side="Empty";
@@ -4826,7 +4826,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16210.086,16.038088,7058.6768};
+								position[]={16210.509,16.038088,7059.583};
 								angles[]={0,3.5777693,0};
 							};
 							side="Empty";
@@ -4835,7 +4835,7 @@ class Mission
 							};
 							id=16674;
 							type="Sign_Arrow_Direction_Green_F";
-							atlOffset=0.96166515;
+							atlOffset=0.96089077;
 						};
 						class Item128
 						{
@@ -13989,7 +13989,7 @@ class Mission
 					name="633rd CSG";
 					class Entities
 					{
-						items=37;
+						items=35;
 						class Item0
 						{
 							dataType="Object";
@@ -14439,72 +14439,6 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15731.784,18.752029,7231.8955};
-								angles[]={0,2.4333858,0};
-							};
-							side="Empty";
-							flags=5;
-							class Attributes
-							{
-							};
-							id=18163;
-							type="Land_vn_lampshabby_f_4xdir_normal";
-							class CustomAttributes
-							{
-								class Attribute0
-								{
-									property="allowDamage";
-									expression="_this allowdamage _value;";
-									class Value
-									{
-										class data
-										{
-											singleType="BOOL";
-											value=0;
-										};
-									};
-								};
-								nAttributes=1;
-							};
-						};
-						class Item17
-						{
-							dataType="Object";
-							class PositionInfo
-							{
-								position[]={15697.704,18.752029,7231.8877};
-								angles[]={0,2.4333858,0};
-							};
-							side="Empty";
-							flags=5;
-							class Attributes
-							{
-							};
-							id=18153;
-							type="Land_vn_lampshabby_f_4xdir_normal";
-							class CustomAttributes
-							{
-								class Attribute0
-								{
-									property="allowDamage";
-									expression="_this allowdamage _value;";
-									class Value
-									{
-										class data
-										{
-											singleType="BOOL";
-											value=0;
-										};
-									};
-								};
-								nAttributes=1;
-							};
-						};
-						class Item18
-						{
-							dataType="Object";
-							class PositionInfo
-							{
 								position[]={15749.24,16.723063,7283.6758};
 								angles[]={4.7020044,4.5695162,6.2820163};
 							};
@@ -14534,7 +14468,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item19
+						class Item17
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14570,7 +14504,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item20
+						class Item18
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14605,7 +14539,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item21
+						class Item19
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14640,7 +14574,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item22
+						class Item20
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14675,7 +14609,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item23
+						class Item21
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14694,7 +14628,7 @@ class Mission
 							id=15188;
 							type="Land_vn_object_trashcan_01";
 						};
-						class Item24
+						class Item22
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14728,7 +14662,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item25
+						class Item23
 						{
 							dataType="Logic";
 							class PositionInfo
@@ -14740,7 +14674,7 @@ class Mission
 							id=16882;
 							type="Logic";
 						};
-						class Item26
+						class Item24
 						{
 							dataType="Logic";
 							class PositionInfo
@@ -14752,7 +14686,7 @@ class Mission
 							id=16887;
 							type="Logic";
 						};
-						class Item27
+						class Item25
 						{
 							dataType="Logic";
 							class PositionInfo
@@ -14764,7 +14698,7 @@ class Mission
 							id=16893;
 							type="Logic";
 						};
-						class Item28
+						class Item26
 						{
 							dataType="Marker";
 							position[]={15727.518,14.98,7256.5571};
@@ -14775,7 +14709,7 @@ class Mission
 							angle=0.0086901356;
 							id=7239;
 						};
-						class Item29
+						class Item27
 						{
 							dataType="Marker";
 							position[]={15738.226,14.97998,7273.1304};
@@ -14786,7 +14720,7 @@ class Mission
 							id=7240;
 							atlOffset=-1.9073486e-05;
 						};
-						class Item30
+						class Item28
 						{
 							dataType="Marker";
 							position[]={15751.761,14.97998,7271.5981};
@@ -14797,7 +14731,7 @@ class Mission
 							id=7242;
 							atlOffset=-1.9073486e-05;
 						};
-						class Item31
+						class Item29
 						{
 							dataType="Marker";
 							position[]={15677.741,14.355957,7280.2026};
@@ -14807,7 +14741,7 @@ class Mission
 							id=854;
 							atlOffset=-0.62404251;
 						};
-						class Item32
+						class Item30
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14842,7 +14776,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item33
+						class Item31
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14858,7 +14792,7 @@ class Mission
 							type="Sign_Arrow_Direction_Green_F";
 							atlOffset=0.49086952;
 						};
-						class Item34
+						class Item32
 						{
 							dataType="Object";
 							class PositionInfo
@@ -14893,7 +14827,7 @@ class Mission
 								nAttributes=1;
 							};
 						};
-						class Item35
+						class Item33
 						{
 							dataType="Logic";
 							class PositionInfo
@@ -14905,7 +14839,7 @@ class Mission
 							id=16898;
 							type="Logic";
 						};
-						class Item36
+						class Item34
 						{
 							dataType="Object";
 							class PositionInfo
@@ -15343,16 +15277,16 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15830.587,15.078076,7502.5781};
+								position[]={15829.596,15.578076,7502.7075};
 								angles[]={0,1.7007279,0};
 							};
 							side="Empty";
-							flags=4;
 							class Attributes
 							{
 							};
 							id=18585;
 							type="Sign_Arrow_Direction_Green_F";
+							atlOffset=0.5;
 						};
 						class Item5
 						{
@@ -15877,16 +15811,16 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15828.535,15.077489,7483.0571};
+								position[]={15827.542,15.577489,7483.1743};
 								angles[]={0,1.6881888,0};
 							};
 							side="Empty";
-							flags=4;
 							class Attributes
 							{
 							};
 							id=18607;
 							type="Sign_Arrow_Direction_Green_F";
+							atlOffset=0.5;
 						};
 						class Item27
 						{
@@ -16227,7 +16161,7 @@ class Mission
 						};
 					};
 					id=18320;
-					atlOffset=0.060628891;
+					atlOffset=0.060750961;
 				};
 				class Item4
 				{
@@ -16293,7 +16227,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15948.161,13.209162,7944.5288};
+								position[]={15947.839,13.201805,7943.3213};
 								angles[]={6.2771978,0.26090452,0.00039004767};
 							};
 							side="Empty";
@@ -16302,7 +16236,7 @@ class Mission
 							};
 							id=16935;
 							type="Sign_Arrow_Direction_Green_F";
-							atlOffset=0.40245438;
+							atlOffset=0.39509773;
 						};
 						class Item3
 						{
@@ -17718,7 +17652,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15929.186,13.220271,7949.9771};
+								position[]={15928.863,13.212914,7948.7695};
 								angles[]={6.2771978,0.26090452,0.00039004767};
 							};
 							side="Empty";
@@ -17727,7 +17661,7 @@ class Mission
 							};
 							id=18705;
 							type="Sign_Arrow_Direction_Green_F";
-							atlOffset=0.40245438;
+							atlOffset=0.39509773;
 						};
 						class Item62
 						{
@@ -17769,7 +17703,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15941.829,12.426195,7961.8623};
+								position[]={15941.846,12.426195,7961.9287};
 								angles[]={0,3.3867497,0};
 							};
 							side="Empty";
@@ -17780,7 +17714,7 @@ class Mission
 							};
 							id=18707;
 							type="vn_signad_sponsors_f";
-							atlOffset=-1.2445498;
+							atlOffset=-1.2448044;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -17924,7 +17858,7 @@ class Mission
 						};
 					};
 					id=18321;
-					atlOffset=0.32703948;
+					atlOffset=0.32702494;
 				};
 				class Item5
 				{
@@ -29656,7 +29590,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16214.759,15.783617,6798.4746};
+								position[]={16215.556,15.783617,6797.2041};
 								angles[]={0,5.7229452,0};
 							};
 							side="Empty";
@@ -29665,7 +29599,7 @@ class Mission
 							};
 							id=17029;
 							type="Sign_Arrow_Direction_Green_F";
-							atlOffset=0.70577049;
+							atlOffset=0.70789814;
 						};
 						class Item15
 						{
@@ -32394,8 +32328,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15910.277,14.982244,7675.4023};
-								angles[]={0,4.7052174,0};
+								position[]={15910.277,14.982285,7675.4023};
+								angles[]={0,4.7052155,0};
 							};
 							side="Empty";
 							flags=4;
@@ -32406,7 +32340,6 @@ class Mission
 							};
 							id=18001;
 							type="vn_bar_01_barstool_01";
-							atlOffset=-4.1007996e-05;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -32430,8 +32363,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15911.36,14.982241,7675.415};
-								angles[]={0,4.7052174,0};
+								position[]={15911.36,14.982365,7675.4155};
+								angles[]={0,4.7052155,0};
 							};
 							side="Empty";
 							flags=4;
@@ -32442,7 +32375,6 @@ class Mission
 							};
 							id=18002;
 							type="vn_bar_01_barstool_01";
-							atlOffset=-0.00012016296;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -52690,6 +52622,483 @@ class Mission
 			id=19310;
 			type="Land_vn_sign_warningmilitaryarea_f";
 			atlOffset=0.14048195;
+		};
+		class Item556
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15921,15.756486,6827.75};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19329;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057954788;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item557
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15921,15.756486,6826.5};
+				angles[]={0,6.1467876,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19330;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057956696;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item558
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15920.25,15.698485,6826.5};
+				angles[]={0,0.040997785,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19331;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.21199989;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item559
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15920.25,15.756486,6827.75};
+				angles[]={0,0.21475275,-0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19332;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057954788;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item560
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15921,15.756486,6829};
+				angles[]={0,6.2463231,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19333;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057951927;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item561
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15920.25,15.756486,6829};
+				angles[]={0,0.13184647,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19334;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057951927;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item562
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15917.75,15.756486,6827.75};
+				angles[]={0,6.1454086,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19335;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057954788;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item563
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15918.5,15.756486,6829};
+				angles[]={0,6.1949415,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19336;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057951927;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item564
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15917.759,15.439621,6828.9834};
+				angles[]={1.6678064,0.0078485571,5.7506008};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=19337;
+			type="Land_CampingChair_V2_F";
+			atlOffset=-0.04686451;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item565
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15918.5,15.756486,6827.75};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19338;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057954788;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item566
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15918.5,15.756486,6826.5};
+				angles[]={0,0.11149164,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19339;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.057956696;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item567
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15917.75,15.698485,6826.5};
+				angles[]={0,0.040997785,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this addAction [""Sit Down"", {   " \n "    params [""_target"", ""_caller""];   " \n "   " \n "    if (_caller getVariable [""isSitting"", false]) exitWith {};   " \n "   " \n "    _caller switchMove ""Crew"";   " \n "    _caller setPosATL (getPosATL _target vectorAdd [0, 0, 0]);     " \n "    _caller setVariable [""isSitting"", true, true];   " \n "   " \n "    _caller addAction [""Stand Up"", {   " \n "        params [""_target"", ""_caller"", ""_actionId""];   " \n "   " \n "        _caller switchMove """";   " \n "        _caller setVariable [""isSitting"", false, true];   " \n "   " \n "        _caller removeAction _actionId;   " \n "    }];   " \n "}, nil, 1.5, true, true, """", ""_this distance _target < 2""];";
+				disableSimulation=1;
+			};
+			id=19340;
+			type="Land_CampingChair_V2_F";
+			atlOffset=0.21199989;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item568
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15920.257,15.321783,6823.2661};
+				angles[]={0,2.8712237,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				disableSimulation=1;
+			};
+			id=19341;
+			type="Land_vn_b_prop_mapstand_01";
+			atlOffset=0.057963371;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
