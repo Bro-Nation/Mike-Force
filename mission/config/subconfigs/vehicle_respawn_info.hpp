@@ -1393,6 +1393,13 @@ class spawn_point_types {
 					 "vn_b_air_ch34_03_01",
 				};
 			};
+			class cayuse {
+				name = "OH-6A";
+				icon = VEHICLE_ICON_HELO;
+				vehicles[] = {
+					"vn_b_air_oh6a_01",
+				};
+			};
 		};
 	};
 
