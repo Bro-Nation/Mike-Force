@@ -15968,7 +15968,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\billboards\31st_MEU_bb.paa""];";
+								init="this setObjectTexture [0,""custom\billboards\3RD_BAT_Base_sign_3.paa""];";
 								name="billboard_airfield_right_5";
 							};
 							id=18613;
@@ -52247,7 +52247,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\taskroster\31st_logo_meu_HL.paa""];";
+								init="this setObjectTexture [0,""custom\taskroster\3_1_patch1.paa""];";
 							};
 							id=19274;
 							type="UserTexture10m_F";

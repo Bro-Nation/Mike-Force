@@ -271,7 +271,7 @@ class destinations
 	
 	class 3rdMEU_base
 	{
-		image = "custom\taskroster\31st_logo_meu_HL.paa"; 
+		image = "custom\taskroster\3_1_patch1.paa"; 
 		position_marker = "mf_respawn_3rdMEU";
 	};
 	

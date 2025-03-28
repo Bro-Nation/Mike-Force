@@ -37275,7 +37275,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\31st_meu_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\3RD_BAT_Base_sign_3.paa""];";
 				disableSimulation=1;
 			};
 			id=3692;
