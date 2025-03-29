@@ -937,8 +937,14 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_ARMOUR;
 				vehicles[] = {
 					"vn_b_armor_m132_01",
+					"vn_b_armor_m113_acav_05",
 					"vn_b_armor_m113_acav_06",
 					"vn_b_armor_m125_01",
+					"vn_b_armor_m113_01",
+					"vn_b_armor_m113_acav_01",
+					"vn_b_armor_m113_acav_02",
+					"vn_b_armor_m113_acav_03",
+					"vn_b_armor_m113_acav_04",
 				};
 			};
 
@@ -948,7 +954,24 @@ class spawn_point_types {
 				vehicles[] = {
 					"vn_b_wheeled_m54_mg_03",
 					"vn_b_wheeled_m54_mg_01",
-					"vn_b_wheeled_m54_mg_02"
+					"vn_b_wheeled_m54_mg_02",
+				};
+			};
+
+			class trucks_us {
+				name = "M54 Transport Trucks";
+				icon = VEHICLE_ICON_TRUCK;
+				vehicles[] = {
+					"vn_b_wheeled_m54_02_sog",
+					"vn_b_wheeled_m54_03",
+				};
+			};
+
+			class ammo {
+				name = "M54 Ammo Trucks";
+				icon = VEHICLE_ICON_TRUCK;
+				vehicles[] = {
+					"vn_b_wheeled_m54_ammo",
 				};
 			};
 		};
