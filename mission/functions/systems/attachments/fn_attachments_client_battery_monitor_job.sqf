@@ -27,6 +27,11 @@ if((_startTime > 0) && {serverTime > (_startTime + _ttl)}) exitWith {
     [player] call vn_mf_fnc_attachments_global_delete_objects;
     ["LightsourceAttachOutOfEnergy",[]] call para_c_fnc_show_notification;
     player setVariable ["vn_mf_bn_attch_battery_starttime", -1];
+
+        if (!isNil "vn_mf_chemlight_remove_action") then {
+        player removeAction vn_mf_chemlight_remove_action;
+        vn_mf_chemlight_remove_action = nil;
+    };
 };
 
 // one tick a minute before the player is going to lose the light source.

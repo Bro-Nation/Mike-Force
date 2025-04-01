@@ -36,3 +36,6 @@ player removeItem _interactedItem;
 player setVariable ["vn_mf_bn_attch_battery_starttime", serverTime];
 
 [player, _interactedItem] remoteExec ["vn_mf_fnc_attachments_server_attach_chemlight", 2];
+
+call vn_mf_fnc_action_remove_chemlight;
+
