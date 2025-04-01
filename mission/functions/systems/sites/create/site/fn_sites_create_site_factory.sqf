@@ -96,13 +96,13 @@ params ["_pos"];
 		_factoryObjects select {typeOf _x in _objectTypesToDestroy + _objectTypesForDynamicSim || [_x] call _fnc_dynSimKindOfChecker} apply {
 			[_x, true] call para_s_fnc_enable_dynamic_sim;
 		};
-
-		_factoryObjects apply {
-			if (_x in _currentVehicles) then {
-				[_x, ["DacCong"]] call vn_mf_fnc_lock_vehicle_to_teams;
-				vn_mf_dc_assets pushBack _x;
-			};
-		};
+		///// Commented out to allow players access can be reverted if needed /////
+		//_factoryObjects apply {
+		//	if (_x in _currentVehicles) then {
+		//		[_x, ["DacCong"]] call vn_mf_fnc_lock_vehicle_to_teams;
+		//		vn_mf_dc_assets pushBack _x;
+		//	};
+		//};
 
 		//Create a factory marker.
 		private _markerPos = _spawnPos getPos [20 + random 30, random 360];
