@@ -236,6 +236,7 @@ class CfgFunctions
 			class attachments_global_delete_objects {};
 			class attachments_client_battery_monitor_init {};
 			class attachments_client_battery_monitor_job {};
+			class attachments_server_spawn_dropped_chemlight {};
 		};
 
 		class system_attachments_lightsources {
