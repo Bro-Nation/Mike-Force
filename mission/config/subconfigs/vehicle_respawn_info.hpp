@@ -792,6 +792,8 @@ class spawn_point_types {
 					"vn_i_armor_m125_01",
 					"vn_i_armor_m132_01",
 					"vn_i_armor_m113_acav_06",
+					"vn_i_armor_m113_acav_05",
+					"vn_i_armor_m113_acav_04",
 				};
 			};
 		};

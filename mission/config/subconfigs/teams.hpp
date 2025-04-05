@@ -709,7 +709,7 @@ class ARVN
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0.5;
         engineer = true;
         explosiveSpecialist = true;
         medic = false;
