@@ -275,12 +275,12 @@ class GreenHornets
 class 3rdMEU
 {
     name = "31st MEU [31st MEU]";
-    icon = "custom\taskroster\31st_logo_meu_HL.paa";
-    shortname = "31st MEU";
+    icon = "custom\taskroster\3_1_patch1.paa";
+    shortname = "3/1 Marines";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
     colorRGBA[] = {0, 0.3, 0.6, 1};
-    description = "Forged in the crucible of history and honed through decades of service, the 31st MEU stands as a symbol of unwavering dedication and prowess in the world of military operations.";
+    description = "Forged in the crucible of history and honed through decades of service, the 3rd Battalion, 1st Marines stands as a symbol of unwavering dedication and prowess in the world of military operations.";
     side = SIDE_WEST;
     wlu = IS_WLU;
 
@@ -709,7 +709,7 @@ class ARVN
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0.5;
         engineer = true;
         explosiveSpecialist = true;
         medic = false;

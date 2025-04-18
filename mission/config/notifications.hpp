@@ -497,6 +497,12 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 
+	class LightsourceAttachRemoved : ErrLightsourceAttachChemlightNotPermitted {
+    title = "Light Source Attachment";
+    description = "You removed the attached chemlight.";
+    iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
+	};
+
 	class IntelError: Error {
 		title = "Intel Not Collected";
 		description = "Keep looking at the intel object until it disappears!";

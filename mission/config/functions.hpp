@@ -202,6 +202,8 @@ class CfgFunctions
 			class action_curator_lock_spawner {};
 			class action_curator_unlock_spawner {};
 			class action_press_toggle_spectator {};
+			class action_remove_chemlight {};
+
 		};
 
 		class system_actives {
@@ -234,6 +236,7 @@ class CfgFunctions
 			class attachments_global_delete_objects {};
 			class attachments_client_battery_monitor_init {};
 			class attachments_client_battery_monitor_job {};
+			class attachments_server_spawn_dropped_chemlight {};
 		};
 
 		class system_attachments_lightsources {

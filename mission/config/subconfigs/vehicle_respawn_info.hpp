@@ -29,6 +29,7 @@
 #define LOCKED_UDT {"MACV", "DacCong", "Frogmen"}
 #define LOCKED_633RD {"MACV", "DacCong", "633rdCSG"}
 #define LOCKED_USMC {"MACV", "DacCong", "3rdMEU"}
+#define LOCKED_PRESS {"MACV", "DacCong", "PressCorp"}
 
 // #define LOCKED_SCOUT_MG {"MACV", "DacCong", "7thCAV", "Muskets"}
 // #define LOCKED_ONLY_WLUS {"MACV", "DacCong", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdCSG", "7thCAV", "TigerForce", "SASR", "ARVN"}
@@ -791,6 +792,8 @@ class spawn_point_types {
 					"vn_i_armor_m125_01",
 					"vn_i_armor_m132_01",
 					"vn_i_armor_m113_acav_06",
+					"vn_i_armor_m113_acav_05",
+					"vn_i_armor_m113_acav_04",
 				};
 			};
 		};
@@ -937,8 +940,14 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_ARMOUR;
 				vehicles[] = {
 					"vn_b_armor_m132_01",
+					"vn_b_armor_m113_acav_05",
 					"vn_b_armor_m113_acav_06",
 					"vn_b_armor_m125_01",
+					"vn_b_armor_m113_01",
+					"vn_b_armor_m113_acav_01",
+					"vn_b_armor_m113_acav_02",
+					"vn_b_armor_m113_acav_03",
+					"vn_b_armor_m113_acav_04",
 				};
 			};
 
@@ -948,7 +957,24 @@ class spawn_point_types {
 				vehicles[] = {
 					"vn_b_wheeled_m54_mg_03",
 					"vn_b_wheeled_m54_mg_01",
-					"vn_b_wheeled_m54_mg_02"
+					"vn_b_wheeled_m54_mg_02",
+				};
+			};
+
+			class trucks_us {
+				name = "M54 Transport Trucks";
+				icon = VEHICLE_ICON_TRUCK;
+				vehicles[] = {
+					"vn_b_wheeled_m54_02_sog",
+					"vn_b_wheeled_m54_03",
+				};
+			};
+
+			class ammo {
+				name = "M54 Ammo Trucks";
+				icon = VEHICLE_ICON_TRUCK;
+				vehicles[] = {
+					"vn_b_wheeled_m54_ammo",
 				};
 			};
 		};
@@ -1391,6 +1417,35 @@ class spawn_point_types {
 					 "vn_b_air_uh1d_02_04",
 					 "vn_b_air_uh1e_03_04",
 					 "vn_b_air_ch34_03_01",
+				};
+			};
+			class cayuse {
+				name = "OH-6A";
+				icon = VEHICLE_ICON_HELO;
+				vehicles[] = {
+					"vn_b_air_oh6a_01",
+				};
+			};
+		};
+	};
+
+	// PRESS /////////////////////////////////////////////////////////////////////////
+
+		class press_civilian {
+
+		name = "Transport (Light) [PRESS]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_SHORT;
+		lockTeams[] = LOCKED_PRESS;
+
+		class categories {
+			class civilian {
+				name = "Cars";
+				icon = VEHICLE_ICON_CAR;
+				vehicles[] = {
+					"vn_c_car_01_01",
+					"vn_c_car_02_01",
+					"vn_c_car_03_01",
 				};
 			};
 		};
