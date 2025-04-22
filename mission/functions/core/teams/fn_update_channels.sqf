@@ -206,4 +206,7 @@ switch(_team) do
 	};
 };
 
-
+// enable global chanel for curators
+if ((missionNamespace getVariable ['curatorUIDs', []]) findIf { _x == getPlayerUID player } > -1) then {
+    0 enableChannel [true, true];
+};
