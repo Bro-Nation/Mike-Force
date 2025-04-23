@@ -49,7 +49,6 @@ addons[]=
 	"A3_Air_F_Heli_Light_01",
 	"A3_Structures_F_Civ_Accessories",
 	"A3_Structures_F_EPA_Civ_Camping",
-	"A3_Structures_F_EPB_Items_Military"
 	"A3_Structures_F_EPB_Items_Military",
 	"A3_Structures_F_Argo_Commercial_Billboards"
 };
