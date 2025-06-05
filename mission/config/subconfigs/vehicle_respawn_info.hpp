@@ -864,6 +864,15 @@ class spawn_point_types {
 					"vn_b_wheeled_lr2a_mg_03_aus_army"
 				};
 			};
+						class apc_aus {
+				name = "APC";
+				icon = VEHICLE_ICON_ARMOUR;
+				vehicles[] = {
+					"vn_b_armor_m113_01_aus_army",
+					"vn_b_armor_m125_01_aus_army",
+					"vn_b_armor_m577_01_aus_army"
+				};
+			};
 		};
 	};
 

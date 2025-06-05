@@ -4469,6 +4469,14 @@ class vn_sign_town_d_11_01
 						icon = VEHICLE_ICON_STATIC;
 						//side = "WEST";
 					};
+
+					class vn_o_wheeled_z157_03
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_STATIC;
+						//side = "WEST";
+					};
 				};
 			};
 			spawnPositionModelSpace[] = {0,10,0.5};
