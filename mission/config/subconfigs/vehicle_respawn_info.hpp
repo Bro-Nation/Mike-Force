@@ -15,7 +15,7 @@
 
 #define UNLOCKED {}
 #define LOCKED_PUBLIC_HELOS {"MACV", "DacCong", "GreenHornets", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdCSG", "7thCAV", "TigerForce", "SASR", "ARVN"}
-#define LOCKED_LIMITED_ARMOR {"MACV", "DacCong", "3rdMEU", "QuarterHorse", "ACAV", "TigerForce", "ARVN"}
+#define LOCKED_LIMITED_ARMOR {"MACV", "DacCong", "3rdMEU", "QuarterHorse", "ACAV", "TigerForce", "MilitaryPolice", "ARVN"}
 
 #define LOCKED_MACV_DACCONG {"MACV", "DacCong"}
 #define LOCKED_ANZAC {"MACV", "DacCong", "SASR"}
