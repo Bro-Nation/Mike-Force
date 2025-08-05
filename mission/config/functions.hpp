@@ -203,7 +203,7 @@ class CfgFunctions
 			class action_curator_unlock_spawner {};
 			class action_press_toggle_spectator {};
 			class action_remove_chemlight {};
-
+			class action_remove_flashlight {};
 		};
 
 		class system_actives {
