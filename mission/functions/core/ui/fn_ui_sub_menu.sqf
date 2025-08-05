@@ -103,13 +103,10 @@ if !(_interactedItem isEqualTo []) then
         {_interactActions pushBack _x} forEach _chemlightsAttach;
     };
 
-    /*
-    // @dijksterhuis: disabling this for the moment until we've seen chemlights
-    // working and not causing performance issues
+
     if (_thisItem in ["vn_mx991", "vn_mx991_red"]) then {
         {_interactActions pushBack _x} forEach _flashlightsAttach;
     };
-    */
 
     // build menu
     if !(_interactActions isEqualTo []) then

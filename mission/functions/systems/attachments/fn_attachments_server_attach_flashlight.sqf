@@ -37,7 +37,7 @@ _flashlight attachTo [_player,  [0.05, 0.1, -0.1], "LeftShoulder", true];
 _flashlight setVectorDirAndUp [_vectorDir, [0, -0.1, 0.8]];
 
 private _lightsource = "#lightreflector" createVehicle (_player modelToWorld [0, 0, 0]); 
-_lightsource attachTo [_player,  [-0.015, 0.125, 0.09], "LeftShoulder", true];
+_lightsource attachTo [_player,  [-0.05, 0.1, -.125], "LeftShoulder", true];
 _lightsource setPosWorld getPosWorld _lightsource;
 
 // execute globally so all players and AI etc can see the light sources
@@ -47,3 +47,8 @@ private _jipId = [_player] call vn_mf_fnc_attachments_global_get_jip_id;
 [_lightsource, _classname, _vectorDir] remoteExec [
     "vn_mf_fnc_attachments_lightsources_flashlight", -2, _jipId
 ];
+[
+    [_lightsource, _classname, _vectorDir],
+    "vn_mf_fnc_attachments_lightsources_flashlight",
+    _jipId
+] call vn_mf_fnc_rExecServerToGlobal_playerHost_or_dedicated;

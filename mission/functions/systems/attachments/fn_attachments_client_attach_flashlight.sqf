@@ -29,5 +29,8 @@ if !(_interactedItem isEqualTo []) then {
 
 player removeItem _interactedItem;
 player setVariable ["vn_mf_bn_attch_battery_starttime", serverTime];
+player setVariable ["vn_mf_attached_flashlight_class", _interactedItem];
 
 [player, _interactedItem] remoteExec ["vn_mf_fnc_attachments_server_attach_flashlight", 2];
+
+call vn_mf_fnc_action_remove_flashlight;
