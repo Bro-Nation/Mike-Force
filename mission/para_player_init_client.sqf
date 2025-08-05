@@ -151,6 +151,10 @@ _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 call vn_mf_fnc_arsenal_trash_cleanup_init;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
+// Set up supply cleanup trash cans.
+call vn_mf_fnc_supply_cleanup_init;
+_loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+
 // create UI
 0 spawn vn_mf_fnc_ui_create;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;

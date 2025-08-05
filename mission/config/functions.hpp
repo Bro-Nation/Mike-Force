@@ -225,6 +225,12 @@ class CfgFunctions
 			class arsenal_trash_cleanup {};
 		};
 
+		class system_supply_cleanup {
+			file = "functions\systems\supply_cleanup";
+			class supply_cleanup_init {};
+			class supply_cleanup {};
+		};
+
 		class system_attachments {
 			file = "functions\systems\attachments";
 			class attachments_client_attach_flashlight {};
