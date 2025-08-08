@@ -499,7 +499,7 @@ class CfgNotifications
 
 	class LightsourceAttachRemoved : ErrLightsourceAttachChemlightNotPermitted {
     title = "Light Source Attachment";
-    description = "You removed the attached chemlight.";
+    description = "You removed the attached light.";
     iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 

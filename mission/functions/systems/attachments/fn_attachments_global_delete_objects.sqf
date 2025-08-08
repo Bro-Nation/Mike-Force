@@ -17,6 +17,10 @@
 */
 params ["_player"];
 
+private _flashlightSource = attachedObjects _player select {
+	toLower (typeOf _x) in ["vn_b_item_mx991_01"] 
+} apply {deleteVehicle (attachedObjects _x select 0)};
+
 private _obs = attachedObjects _player select {
 	toLower (typeOf _x) in [
 		"#lightreflector",

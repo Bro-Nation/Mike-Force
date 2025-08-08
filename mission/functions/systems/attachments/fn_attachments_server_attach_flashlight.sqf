@@ -37,7 +37,7 @@ _flashlight attachTo [_player,  [0.05, 0.1, -0.1], "LeftShoulder", true];
 _flashlight setVectorDirAndUp [_vectorDir, [0, -0.1, 0.8]];
 
 private _lightsource = "#lightreflector" createVehicle (_player modelToWorld [0, 0, 0]); 
-_lightsource attachTo [_player,  [-0.05, 0.1, -.125], "LeftShoulder", true];
+_lightsource attachTo [_flashlight,  [-0.1, 0.1, 0.05]];
 _lightsource setPosWorld getPosWorld _lightsource;
 
 // execute globally so all players and AI etc can see the light sources
