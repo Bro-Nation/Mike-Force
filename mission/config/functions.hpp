@@ -271,6 +271,7 @@ class CfgFunctions
 			file = "functions\systems\dac_cong";
 			class daccong_respawns_delete_all {};
 			class capture_player {};
+			class capture_travel {};
 			class ctf_handle_flag_height_change {};
 			class ctf_broadcast_notify_immediate {};
 		}
