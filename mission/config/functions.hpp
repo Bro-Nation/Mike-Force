@@ -18,6 +18,7 @@ class CfgFunctions
 			class arsenal_safe_zones_init {};
 			class save_time_elapsed {};
 			class stats_init {};
+			class addHangarLights {};
 		};
 
 		class core_helpers
@@ -190,6 +191,7 @@ class CfgFunctions
 			class action_gather_intel {};
 			class action_radiotap {};
 			class action_capture_player {};
+			class action_capture_travel {};
 			class action_arrest_player {};
 			class action_release_from_arrest_player {};
 			class action_drink_water {};

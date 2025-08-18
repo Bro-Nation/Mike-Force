@@ -143,6 +143,9 @@
       <Key ID="STR_vn_mf_capture_player">
         <Original>Capture</Original>
       </Key>
+      <Key ID="STR_vn_mf_capture_travel">
+        <Original>Capture Travel</Original>
+      </Key>
       <Key ID="STR_vn_mf_arrest_player">
         <Original>Arrest</Original>
       </Key>
