@@ -4137,7 +4137,7 @@ class Land_vn_pierwooden_01_dock_f
 						cooldown = 300;
 					};
 
-					class vn_b_boat_9_01
+					class vn_b_boat_09_01
 					{
 						// STAB M60
 						cost[] = {{"BuildingSupplies", 400}};
