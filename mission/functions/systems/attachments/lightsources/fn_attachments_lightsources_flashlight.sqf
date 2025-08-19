@@ -27,4 +27,4 @@ _lightsource setLightUseFlare true;
 _lightsource setLightFlareSize 0.8;
 _lightsource setLightFlareMaxDistance 150;
 _lightsource setLightAttenuation [1, 0, 0, 5, 1, 50];
-_lightsource setVectorDirAndUp [_vectorDir, [0, 0, 1]];
+_lightsource setVectorDirAndUp [_vectorDir apply {_x * -1}, [0, 0, 1]];
