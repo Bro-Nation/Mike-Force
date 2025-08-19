@@ -44,9 +44,6 @@ _lightsource setPosWorld getPosWorld _lightsource;
 // jip executed to ensure joining players also get the attached light source
 private _jipId = [_player] call vn_mf_fnc_attachments_global_get_jip_id;
 
-[_lightsource, _classname, _vectorDir] remoteExec [
-    "vn_mf_fnc_attachments_lightsources_flashlight", -2, _jipId
-];
 [
     [_lightsource, _classname, _vectorDir],
     "vn_mf_fnc_attachments_lightsources_flashlight",
