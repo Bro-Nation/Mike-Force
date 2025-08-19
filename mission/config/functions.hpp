@@ -18,6 +18,7 @@ class CfgFunctions
 			class arsenal_safe_zones_init {};
 			class save_time_elapsed {};
 			class stats_init {};
+			class addHangarLights {};
 		};
 
 		class core_helpers
@@ -190,6 +191,7 @@ class CfgFunctions
 			class action_gather_intel {};
 			class action_radiotap {};
 			class action_capture_player {};
+			class action_capture_travel {};
 			class action_arrest_player {};
 			class action_release_from_arrest_player {};
 			class action_drink_water {};
@@ -269,6 +271,7 @@ class CfgFunctions
 			file = "functions\systems\dac_cong";
 			class daccong_respawns_delete_all {};
 			class capture_player {};
+			class capture_travel {};
 			class ctf_handle_flag_height_change {};
 			class ctf_broadcast_notify_immediate {};
 		}
