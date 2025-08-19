@@ -39,7 +39,7 @@ if (count _nearbyCages != 0) exitWith {
 	["CagesTooClose", ["Prisoner is already captured!"]] remoteExec ["para_c_fnc_show_notification", _player];
 };
 
-	private _cage = selectRandom vn_dc_cages;
+	private _cage = selectRandom vn_mf_cages;
 	["POWCapturedByOpfor", [_message]] remoteExec ["para_c_fnc_show_notification", allPlayers];
 
 	_target setPosASL _cage;
