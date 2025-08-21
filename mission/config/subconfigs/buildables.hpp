@@ -4137,7 +4137,7 @@ class Land_vn_pierwooden_01_dock_f
 						cooldown = 300;
 					};
 
-					class vn_b_boat_9_01
+					class vn_b_boat_09_01
 					{
 						// STAB M60
 						cost[] = {{"BuildingSupplies", 400}};
@@ -4385,7 +4385,7 @@ class vn_sign_town_d_11_01
 						//side = "WEST";
 					};
 
-					class vn_o_pl_static_mortar_type53
+					class vn_i_rla_static_mortar_m29
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
@@ -4463,6 +4463,14 @@ class vn_sign_town_d_11_01
 					};
 
 					class vn_o_armor_btr50pk_02
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_STATIC;
+						//side = "WEST";
+					};
+
+					class vn_o_wheeled_btr40_mg_03
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
@@ -4582,6 +4590,38 @@ class Land_vn_hut_river_03
 			};
 			spawnPositionModelSpace[] = {2,15,-2};
 			spawnDirectionModelSpace = 270;
+		};
+	};
+};
+
+class Land_vn_ttowersmall_2_f
+{
+	name = "";
+	type = "Transmitter Pole";
+	categories[] = {"buildings", "functional", "nv"};
+	rank = 0;
+	SUPPLY_CAPACITY(2000, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_DAC_CONG
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_ttowersmall_2_f_part0";
+		};
+		class middle_state
+		{
+			object_class = "vn_ttowersmall_2_f_part1";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_ttowersmall_2_f";
 		};
 	};
 };

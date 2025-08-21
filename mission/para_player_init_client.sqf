@@ -425,3 +425,6 @@ call vn_mf_fnc_attachments_client_battery_monitor_init;
 
 // initialise the emotes wheel menu
 [player] call vn_mf_fnc_emotes_init;
+
+// Add decorative hangar lights
+call vn_mf_fnc_addHangarLights;
