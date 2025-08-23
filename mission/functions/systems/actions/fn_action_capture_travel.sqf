@@ -16,7 +16,7 @@
 
 [
 	player,											// Object the action is attached to
-	format ["<t color='#6c0ee7ff'>%1</t>", localize 'STR_vn_mf_capture_travel'],							// Title of the action
+	format ["<t color='#ffee00ff'>%1</t>", localize 'STR_vn_mf_capture_travel'],							// Title of the action
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa",	// Idle icon shown on screen
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa",	// Progress icon shown on screen
 	"player getVariable ['vn_mf_side', EAST] == EAST && cursorTarget getVariable ['vn_mf_side', WEST] == WEST && player distance cursorTarget <= 3 && { vehicle player isEqualTo player && {cursorTarget isKindOf 'Man' && {alive cursorTarget && { [cursorTarget] call vn_fnc_revive_moving && {[player] call vn_fnc_revive_moving && { [cursorTarget] call vn_fnc_revive_incap && { !([player] call vn_fnc_revive_incap) }}}}}}}", // Condition for the action to be shown
