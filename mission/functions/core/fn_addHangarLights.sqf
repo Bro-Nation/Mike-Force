@@ -1,4 +1,4 @@
-*/*
+/*
     File: fn_addHangarLights.sqf
     Author: Legend
     Public: No
@@ -14,6 +14,9 @@
     Example(s):
         call fn_addHangarLights;
 */
+
+if (!hasInterface) exitWith {};
+if (toLower worldName != "cam_lao_nam") exitWith {};
 
 {
     private _pos = _x;
