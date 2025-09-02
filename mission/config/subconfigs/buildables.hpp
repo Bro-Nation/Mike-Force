@@ -820,7 +820,7 @@ class Land_vn_b_trench_tee_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_tee_01";
+			object_class = "vn_b_trench_tee_01_part1";
 		};
 		class final_state
 		{
@@ -882,7 +882,7 @@ class Land_vn_b_trench_stair_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_stair_02";
+			object_class = "vn_b_trench_stair_02_part1";
 		};
 		class final_state
 		{
@@ -1038,7 +1038,7 @@ class Land_vn_b_trench_firing_05
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_firing_05";
+			object_class = "vn_b_trench_firing_05_part1";
 		};
 		class final_state
 		{
@@ -1070,7 +1070,7 @@ class Land_vn_b_trench_firing_04
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_firing_04";
+			object_class = "vn_b_trench_firing_03_part1";
 		};
 		class final_state
 		{
@@ -1134,7 +1134,7 @@ class Land_vn_b_trench_firing_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_firing_02";
+			object_class = "vn_b_trench_firing_02_part1";
 		};
 		class final_state
 		{
@@ -1165,7 +1165,7 @@ class Land_vn_b_trench_firing_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_firing_01";
+			object_class = "vn_b_trench_firing_01_part1";
 		};
 		class final_state
 		{
@@ -1229,7 +1229,7 @@ class Land_vn_b_trench_end_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_end_01";
+			object_class = "vn_b_trench_end_01_part1";
 		};
 		class final_state
 		{
@@ -1261,7 +1261,7 @@ class Land_vn_b_trench_cross_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_cross_02";
+			object_class = "vn_b_trench_cross_02_part1";
 		};
 		class final_state
 		{
@@ -1293,7 +1293,7 @@ class Land_vn_b_trench_cross_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_cross_01";
+			object_class = "vn_b_trench_cross_01_part1";
 		};
 		class final_state
 		{
@@ -1485,7 +1485,7 @@ class Land_vn_b_trench_bunker_04_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_04_01";
+			object_class = "vn_b_trench_bunker_04_01_part1";
 		};
 		class final_state
 		{
@@ -1553,7 +1553,7 @@ class Land_vn_b_trench_bunker_03_03
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_03_03";
+			object_class = "vn_b_trench_bunker_03_03_part1";
 		};
 		class final_state
 		{
@@ -1624,7 +1624,7 @@ class Land_vn_b_trench_bunker_03_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_03_01";
+			object_class = "vn_b_trench_bunker_03_01_part1";
 		};
 		class final_state
 		{
@@ -1663,7 +1663,7 @@ class Land_vn_b_trench_bunker_02_04
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_02_04";
+			object_class = "vn_b_trench_bunker_02_04_part1";
 		};
 		class final_state
 		{
@@ -1702,7 +1702,7 @@ class Land_vn_b_trench_bunker_02_03
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_02_03";
+			object_class = "vn_b_trench_bunker_02_03_part1";
 		};
 		class final_state
 		{
@@ -1741,7 +1741,7 @@ class Land_vn_b_trench_bunker_02_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_02_02";
+			object_class = "vn_b_trench_bunker_02_02_part1";
 		};
 		class final_state
 		{
@@ -1780,7 +1780,7 @@ class Land_vn_b_trench_bunker_02_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_02_01";
+			object_class = "vn_b_trench_bunker_02_01_part1";
 		};
 		class final_state
 		{
@@ -1819,7 +1819,7 @@ class Land_vn_b_trench_bunker_01_03
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_01_03";
+			object_class = "vn_b_trench_bunker_01_03_part1";
 		};
 		class final_state
 		{
@@ -1917,7 +1917,7 @@ class Land_vn_b_trench_bunker_01_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_01_02";
+			object_class = "vn_b_trench_bunker_01_02_part1";
 		};
 		class final_state
 		{
@@ -1949,7 +1949,7 @@ class Land_vn_b_trench_bunker_01_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_bunker_01_01";
+			object_class = "vn_b_trench_bunker_01_01_part1";
 		};
 		class final_state
 		{
@@ -1985,7 +1985,7 @@ class Land_vn_b_trench_90_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_90_02";
+			object_class = "vn_b_trench_90_02_part1";
 		};
 		class final_state
 		{
@@ -2017,7 +2017,7 @@ class Land_vn_b_trench_90_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_90_01";
+			object_class = "vn_b_trench_90_01_part1";
 		};
 		class final_state
 		{
@@ -2049,7 +2049,7 @@ class Land_vn_b_trench_45_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_45_02";
+			object_class = "vn_b_trench_45_02_part1";
 		};
 		class final_state
 		{
@@ -2081,7 +2081,7 @@ class Land_vn_b_trench_45_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_45_01";
+			object_class = "vn_b_trench_45_01_part1";
 		};
 		class final_state
 		{
@@ -2113,7 +2113,7 @@ class Land_vn_b_trench_20_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_20_02";
+			object_class = "vn_b_trench_20_02_part1";
 		};
 		class final_state
 		{
@@ -2145,7 +2145,7 @@ class Land_vn_b_trench_20_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_20_01";
+			object_class = "vn_b_trench_20_01_part1";
 		};
 		class final_state
 		{
@@ -2176,7 +2176,7 @@ class Land_vn_b_trench_05_03
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_05_03";
+			object_class = "Land_vn_b_trench_05_03"; //dont put part1 here
 		};
 		class final_state
 		{
@@ -2207,7 +2207,7 @@ class Land_vn_b_trench_05_02
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_05_02";
+			object_class = "vn_b_trench_05_02_part1";
 		};
 		class final_state
 		{
@@ -2238,7 +2238,7 @@ class Land_vn_b_trench_05_01
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_trench_05_01";
+			object_class = "vn_b_trench_05_01_part1";
 		};
 		class final_state
 		{
@@ -2816,11 +2816,11 @@ class Land_vn_b_tower_01
 	{
 		class initial_state
 		{
-			object_class = "Land_vn_b_tower_01";
+			object_class = "vn_b_tower_01_part0";
 		};
 		class middle_state
 		{
-			object_class = "Land_vn_b_tower_01";
+			object_class = "vn_b_tower_01_part1";
 		};
 		class final_state
 		{
