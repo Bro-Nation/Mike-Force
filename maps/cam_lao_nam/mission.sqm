@@ -7204,6 +7204,7 @@ class Mission
 							markerType="ELLIPSE";
 							type="ellipse";
 							colorName="ColorBlack";
+							alpha=0;
 							fillName="Horizontal";
 							a=10;
 							b=10;
