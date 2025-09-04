@@ -53,17 +53,25 @@ params ["_pos"];
 			private _waterSurfaceZ = 0;
 
 			for "_i" from 1 to 5 do {
-				private _angle = random 360;
-				private _distance = 10 + random 15;
-				private _xyOffset = _spawnPos getPos [_distance, _angle];
+				private _mine = objNull;
 
-				private _minZ = _waterSurfaceZ - 5;
-				private _maxZ = _aslZ + 1;
-				private _mineZ = _minZ + random (_maxZ - _minZ);
+				while {isNull _mine} do {
+					private _angle = random 360;
+					private _distance = 10 + random 15;
+					private _xyOffset = _spawnPos getPos [_distance, _angle];
 
-				private _mineASL = [_xyOffset # 0, _xyOffset # 1, _mineZ];
-				private _mine = createMine ["UnderwaterMine", _mineASL, [], 0];
-				_seaMines pushBack _mine;
+					private _minZ = _waterSurfaceZ - 5;
+					private _maxZ = _aslZ + 1;
+					private _mineZ = _minZ + random (_maxZ - _minZ);
+
+					private _mineASL = [_xyOffset # 0, _xyOffset # 1, _mineZ];
+					private _terrainZ = getTerrainHeightASL _mineASL;
+
+					if ((_mineZ - _terrainZ) >= 0.5) then {
+						_mine = createMine ["UnderwaterMine", _mineASL, [], 0];
+						_seaMines pushBack _mine;
+					};
+				};
 			};
 		};
 
