@@ -51,6 +51,7 @@ class AmmoCrateLight
 		{"vn_l1a1_20_mag", 30},
 		{"vn_l1a1_30_02_mag",30},
 		{"vn_f1_smg_mag", 30},
+		{"vn_l34a1_smg_mag", 30},
 		{"vn_m1_garand_mag", 30},
 		{"vn_mpu_mag", 30},
 		{"vn_m1928_mag", 30},
