@@ -564,6 +564,8 @@ class vn_whitelisted_arsenal_loadouts
 			{"vn_sten_t_mag",						{-1, 0, 0,-1}},	//	32Rnd. Sten Mk.II Tracer Magazine. Caliber: 9x19mm Used in Sten Mk.II Submachinegun
 			{"vn_f1_smg_mag",						{-1, 0, 0,-1}},	//	34Rnd. F1/L2A3/L34A1 Mag. Calibre: 9x19mm. Used in F1, L2A3, L34A1 SMG
 			{"vn_f1_smg_t_mag",						{-1, 0, 0,-1}},	//	34Rnd. F1/L2A3/L34A1 Tracer Mag. Calibre: 9x19mm. Used in F1, L2A3, L34A1 SMG
+			{"vn_l34a1_smg_mag",					{-1, 0, 0,-1}},	//	34Rnd. L34A1 Mag. Calibre: 9x19mm Subsonic. Used in F1, L2A3, L34A1 SMG
+			{"vn_l34a1_smg_t_mag",					{-1, 0, 0,-1}},	//	34Rnd. L34A1 Tracer Mag. Calibre: 9x19mm Subsonic. Used in F1, L2A3, L34A1 SMG
 			{"vn_m1928_mag",						{-1, 0, 0,-1}},	//	50Rnd. M1928 magazine. Caliber: 11.43x23mm. Used in M1928 Tommy gun
 			{"vn_m1928_t_mag",						{-1, 0, 0,-1}},	//	50Rnd. M1928 magazine. Caliber: 11.43x23mm. Used in M1928 Tommy gun (Tracer)
 			{"vn_mpu_mag",							{-1, 0, 0,-1}},	//	32Rnd. MPU SMG magazine. Caliber: 9x19mm. Used in MPU SMG
