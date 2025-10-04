@@ -37,6 +37,43 @@ class vn_whitelisted_arsenal_loadouts
 		*/
 		weapons[] =
 		{
+    /*
+    // Nickel Steel
+    // Weapons
+    {"vnx_m77e", {-1, 0, 0, 0}}, // Model 77E 12 gauge Shotgun, 5-round mag
+    {"vnx_m77e_shorty", {-1, 0, 0, 0}}, // Model 77E Sawn-off 12 gauge Shotgun, 5-round mag
+    {"vnx_fm2429", {0, 0, 0, 0}}, // FM24/29 7.5x54mm selective-fire LMG
+    {"vnx_fm2429_aa", {0, 0, 0, 0}}, // FM24/29 7.5x54mm selective-fire LMG, AA sight
+    {"vnx_gjet", {-1, 0, 0, 0}}, // G-Jet rocket pistol, 6-round mag
+    {"vnx_hd_02", {0, 0, 0, 0}}, // HD pistol, .22LR caliber, 10-round mag
+    {"vnx_l1a1_04", {-1, 0, 0, 0}}, // L1A1 (shorty) 7.62mm Rifle
+    {"vnx_l1a1_04_camo", {-1, 0, 0, 0}}, // L1A1 shorty 7.62mm Rifle, with camo paint
+    {"vnx_l1a1_05", {-1, 0, 0, 0}}, // SAS L1A1 (shorty) 7.62mm Rifle, fitted with foregrip
+    {"vnx_l1a1_05_camo", {-1, 0, 0, 0}}, // SAS L1A1 shorty 7.62mm Rifle, fitted with foregrip and camo paint
+    {"vnx_m12_smg", {-1, 0, 0, 0}}, // M12 9mm Submachinegun. Italian SMG with folding stock
+    {"vnx_m12_smg_fold", {-1, 0, 0, 0}}, // M12 9mm Submachinegun. Italian SMG with folded stock
+    {"vnx_m45_sf", {-1, 0, 0, 0}}, // M/45 9mm Submachinegun. Swedish SMG with folding stock, fitted with a fore-grip
+    {"vnx_m45_sf_sd", {-1, 0, 0, 0}}, // M/45 9mm Submachinegun. Swedish SMG with suppressed barrel and folding stock
+    {"vnx_m50_smg", {-1, 0, 0, 0}}, // M50 9mm Submachinegun. Danish SMG with folding stock
+    {"vnx_m50_smg_fold", {-1, 0, 0, 0}}, // M50 9mm Submachinegun. Danish SMG with folded stock
+    {"vnx_type56_xm148", {0, -1, 0, 0}}, // Type 56 7.62mm Assault Rifle with XM148 single-shot 40mm grenade-launcher attached under the barrel
+    {"vnx_c96", {0, 0, 0, 0}}, // C96 is a German semi-automatic pistol chambered in 7.62x25
+    {"vnx_no4", {-1, 0, 0, 0}}, // The No.4 Mark I Rifle is a United Kingdom service rifle
+    {"vnx_no4_bayo", {-1, 0, 0, 0}}, // No.4 Mk I Rifle + No.4 Bayonet
+    {"vnx_no4_sniper", {-1, 0, 0, 0}}, // No.4 Mk I Rifle + 3.5x No.32 Telescope
+    {"vnx_m201z", {-1, 0, 0, 0}}, // M201-Z Gas Gun made in the US fires a variety of 37mm rounds
+    {"vnx_stg44", {0, -1, 0, 0}}, // Sturmgewehr 44 is a German automatic rifle
+    // Nickel Steel
+    // Melee Weapons
+    {"vnx_m_ladle", {0, 0, 0, 0}}, // Ladle
+    {"vnx_m_spoon_01", {0, 0, 0, 0}}, // Spoon 01
+    {"vnx_m_spoon_02", {0, 0, 0, 0}}, // Spoon 02
+    // Nickel Steel
+    // Bayonet/Camo
+    {"vnx_b_no4", {-1, 0, 0, 0}}, // Bayonet Spike [No.4]
+    {"vnx_o_aa_fm2429", {0, 0, 0, 0}}, // Optic (FM24/29 AA)
+    {"vnx_xm148_muzzle", {0, 0, 0, 0}}, // XM148 40mm Under-barrel Grenade Launcher. Fires 40mm HE grenades, smoke and flares
+    */
 			//Rifles
 			//BluFor
 			{"vn_m40a1", 							{-1, 0, 0,-1}},	//	M40 Sniper Rifle firing 7.62x51mm match-grade ammunition
@@ -319,41 +356,6 @@ class vn_whitelisted_arsenal_loadouts
 			//OpFor
 			{"vn_b_melee_k98k",						{ 0,-1,-1, 0}},	//
 			{"vn_m_vc_knife_01",					{ 0,-1, 0,-1}},	//
-			//Nickel Steel
-		  /*{"vnx_m77e",							{ 0, 0, 0, 0}},	//
-			{"vnx_m77e_shorty",						{ 0, 0, 0, 0}},	//
-			{"vnx_fm2429",							{ 0, 0, 0, 0}},	//
-			{"vnx_fm2429_aa",						{ 0, 0, 0, 0}},	//
-			{"vnx_gjet",							{ 0, 0, 0, 0}},	//
-			{"vnx_hd_02",							{ 0, 0, 0, 0}},	//
-			{"vnx_l1a1_04",							{ 0, 0, 0, 0}},	//
-			{"vnx_l1a1_04_camo",					{ 0, 0, 0, 0}},	//
-			{"vnx_l1a1_05",							{ 0, 0, 0, 0}},	//
-			{"vnx_l1a1_05_camo",					{ 0, 0, 0, 0}},	//
-			{"vnx_m12_smg",							{ 0, 0, 0, 0}},	//
-			{"vnx_m12_smg_fold",					{ 0, 0, 0, 0}},	//
-			{"vnx_m45_sf",							{ 0, 0, 0, 0}},	//
-			{"vnx_m45_sf_sd",						{ 0, 0, 0, 0}},	//
-			{"vnx_m50_smg",							{ 0, 0, 0, 0}},	//
-			{"vnx_m50_smg_fold",					{ 0, 0, 0, 0}},	//
-			{"vnx_type56_xm148",					{ 0, 0, 0, 0}},	//
-			{"vnx_m_ladle",							{ 0, 0, 0, 0}},	//
-			{"vnx_m_spoon_01",						{ 0, 0, 0, 0}},	//
-			{"vnx_m_spoon_02",						{ 0, 0, 0, 0}},	//
-			{"vnx_m77e_fl_mag",						{ 0, 0, 0, 0}},	//
-			{"vnx_m77e_buck_mag",					{ 0, 0, 0, 0}},	//
-			{"vnx_m77e_so_mag",						{ 0, 0, 0, 0}},	//
-			{"vnx_fm2429_mag",						{ 0, 0, 0, 0}},	//
-			{"vnx_fm2429_t_mag",					{ 0, 0, 0, 0}},	//
-			{"vnx_gjet_mag",						{ 0, 0, 0, 0}},	//
-			{"vnx_hd_02_mag",						{ 0, 0, 0, 0}},	//
-			{"vnx_m12_smg_32_mag",					{ 0, 0, 0, 0}},	//
-			{"vnx_m12_smg_32_t_mag",				{ 0, 0, 0, 0}},	//
-			{"vnx_m12_smg_20_mag",					{ 0, 0, 0, 0}},	//
-			{"vnx_m12_smg_20_t_mag",				{ 0, 0, 0, 0}},	//
-			{"vnx_m50_smg_mag",						{ 0, 0, 0, 0}},	//
-			{"vnx_m50_smg_t_mag",					{ 0, 0, 0, 0}},	//
-			*/
 			//Binoculars
 			//BluFor
 			{"vn_m19_binocs_grey",					{ 0, 0, 0, 0}},	//	Binocular M19 Grey (7x50)
@@ -431,6 +433,36 @@ class vn_whitelisted_arsenal_loadouts
 		};
 		magazines[] =
 		{
+	/*
+    // Nickel Steel
+    // Mags
+    {"vnx_m77e_fl_mag", {-1, 0, 0, 0}}, // 5Rnd. M77E Reload. Caliber: 12 gauge flechette. Used in Model 77E shotgun
+    {"vnx_m77e_buck_mag", {-1, 0, 0, 0}}, // 5Rnd. M77E Reload. Caliber: 12 gauge buckshot. Used in Model 77E shotgun
+    {"vnx_m77e_so_mag", {-1, 0, 0, 0}}, // 5Rnd. M77E Sawn-off. Caliber: 12 gauge buckshot. Used in M77E Sawn-off shotgun
+    {"vnx_fm2429_mag", {0, 0, 0, 0}}, // 25Rnd. FM24/29 Mag. Calibre: 7.5x54mm. Used in FM24/29
+    {"vnx_fm2429_t_mag", {0, 0, 0, 0}}, // 25Rnd. FM24/29 Tracer Mag. Calibre: 7.5x54mm. Used in FM24/29
+    {"vnx_gjet_mag", {-1, 0, 0, 0}}, // 6Rnd. G-jet magazine. Caliber: .51in. Used in G-jet pistol
+    {"vnx_hd_02_mag", {0, 0, 0, 0}}, // 10Rnd. HD magazine. Caliber .22 LR. Used in HD pistol
+    {"vnx_m12_smg_32_mag", {-1, 0, 0, 0}}, // 20Rnd. M12 Magazine. Caliber: 9x19mm. Used in M12 Submachinegun
+    {"vnx_m12_smg_32_t_mag", {-1, 0, 0, 0}}, // 20Rnd. M12 Tracer Magazine. Caliber: 9x19mm. Used in M12 Submachinegun
+    {"vnx_m12_smg_20_mag", {-1, 0, 0, 0}}, // 32Rnd. M12 Magazine. Caliber: 9x19mm. Used in M12 Submachinegun
+    {"vnx_m12_smg_20_t_mag", {-1, 0, 0, 0}}, // 32Rnd. M12 Tracer Magazine. Caliber: 9x19mm. Used in M12 Submachinegun
+    {"vnx_m50_smg_mag", {-1, 0, 0, 0}}, // 32Rnd. M50 Magazine. Caliber: 9x19mm. Used in M50 Submachinegun
+    {"vnx_m50_smg_t_mag", {-1, 0, 0, 0}}, // 32Rnd. M50 Tracer Magazine. Caliber: 9x19mm. Used in M50 Submachinegun
+    {"vnx_c96_mag", {0, 0, 0, 0}}, // C96 Magazine Caliber 7.63x25mm used in C96
+    {"vnx_c96_t_mag", {0, 0, 0, 0}}, // C96 Magazine with tracers Caliber 7.63x25mm used in C96
+    {"vnx_37mm_baton_mag", {-1, 0, 0, 0}}, // No.264 Multiple Baton round used for riot control
+    {"vnx_37mm_cs_fin_mag", {-1, 0, 0, 0}}, // No.230 high velocity projectile designed to breech doors, windows and partions
+    {"vnx_37mm_cs_mag", {-1, 0, 0, 0}}, // No.203 low velocity riot control CS Gas canister
+    {"vnx_37mm_cs_skat_mag", {-1, 0, 0, 0}}, // No.265 Multiple CS canister rounds used for riot control
+    {"vnx_37mm_cs_spray_mag", {-1, 0, 0, 0}}, // No.208 short range spray, will spray CS gas to 40ft in 1 second
+    {"vnx_37mm_flare_mag", {-1, 0, 0, 0}}, // No.213 37mm Flare
+    {"vnx_no4_mag", {-1, 0, 0, 0}}, // No.4 Magazine Caliber .303
+    {"vnx_no4_t_mag", {-1, 0, 0, 0}}, // No.4 Magzine with tracer, Caliber .303
+    {"vnx_mk3a2_grenade_mag", {-1, 0, 0, 0}}, // US MK3A2 grenade - 227g TNT, concussion, 5s fuze, effective radius 5m
+    {"vnx_stg44_mag", {0, -1, 0, 0}}, // 30Rnds StG44 Magazine Caliber 7.92x33mm used in StG44
+    {"vnx_stg44_t_mag", {0, -1, 0, 0}}, // 30Rnds StG44 Tracer Magazine Caliber 7.92x33mm used in StG44
+    */
 			//Rifle Grenades
 			{"vn_22mm_cs_mag",						{ 0, 0, 0,-1}},	//	22mm CS Riot gas rifle grenade used in SKS, M1 Carbine and M49/56
 			{"vn_22mm_he_mag",						{ 0, 0, 0,-1}},	//	22mm FRAG rifle grenade used in M49/56 rifle
@@ -802,74 +834,41 @@ class vn_whitelisted_arsenal_loadouts
 		};
 		items[] =
 		{
-			//Blufor
-			//Bayonet/Camo
-			{"vn_b_camo_m14",						{-1, 0, 0,-1}},	//	Camo wrap [M14]
-			{"vn_b_camo_m14a1",						{-1, 0, 0,-1}},	//	Camo wrap [M14A1]
-			{"vn_b_camo_m40a1",						{-1, 0, 0,-1}},	//	Camo wrap [M40]
-			{"vn_b_carbine",						{ 0, 0, 0,-1}},	//	Bayonet M4 [M1/ M2]
-			{"vn_b_m14",							{-1, 0, 0,-1}},	//	Bayonet M6 [M14]
-			{"vn_b_m16",							{-1, 0, 0,-1}},	//	Bayonet M7 [M16]
-			{"vn_b_m1897",							{-1, 0, 0,-1}},	//	Bayonet M1917 [M1897]
-			{"vn_b_m1_garand",						{-1, 0, 1,-1}},	//	Bayonet M5 [M1 Garand]
-			{"vn_b_camo_m1_garand",					{-1, 0, 2,-1}},	//	Camo wrap [M1 Garand]
-			{"vn_bipod_m1918",						{-1, 0, 4,-1}},	//	Bipod [M1918]
-			{"vn_bipod_m16",						{-1, 0, 1,-1}},	//	Bipod [M16]
-			{"vn_bipod_m14",						{-1, 0, 1,-1}},	//	Bipod [M14]
-			{"vn_b_l1a1",							{-1, 0, 1,-1}},	//	Bayonet L1A1 [L1A1/ F1]
-			{"vn_b_m1903",							{ 0, 0, 1, 1}},	//	Bayonet [M1903]
-			{"vn_b_m36",							{ 0, 0, 1, 1}},	//	Bayonet Spike [M36]
-			{"vn_b_camo_m1903",						{ 0, 0, 2, 2}},	//	Camo wrap [M1903]
-			{"vn_b_camo_m36",						{ 0, 0, 2, 2}},	//	Camo wrap [M36]
-			{"vn_bipod_m63a",						{-1, 0, 3,-1}},	//	Bipod [M63A]
- 			{"vn_b_m4956",							{ 0, 0, 0,-1}},	//	Bayonet Model 58 [M49/56]
-			//Suppressor
-			{"vn_s_m14",							{-1, 0, 0,-1}},	//	Suppressor [M14/M40]
-			{"vn_s_m16",							{-1, 0, 0,-1}},	//	Suppressor [M16]
-			{"vn_s_m1895",							{ 0, 0, 0,-1}},	//	Suppressor [M1895]
-			{"vn_s_m1911",							{-1, 0, 0,-1}},	//	Suppressor [M1911]
-			{"vn_s_m3a1",							{-1, 0, 0,-1}},	//	Suppressor [M3]
-			{"vn_s_m45",							{-1, 0, 0,-1}},	//	Suppressor [M/45]
-			{"vn_s_m45_camo",						{-1, 0, 0,-1}},	//	Suppressor [M/45 Camo]
-			{"vn_s_mat49",							{-1, 0, 0,-1}},	//	Suppressor [MAT-49]
-			{"vn_s_mc10",							{-1, 0, 0,-1}},	//	Suppressor [MC-10]
-			{"vn_s_mk22",							{-1, 0, 0,-1}},	//	Suppressor [Mk22]
-			{"vn_s_pm",								{ 0, 0, 0,-1}},	//	Suppressor [PM]
-			{"vn_s_sten",							{-1, 0, 0,-1}},	//	Suppressor [Sten Mk.II]
-			{"vn_s_ppk",							{ 0, 0, 2, 2}},	//	Suppressor 9mm [PPK/ P38]
-			{"vn_s_hp",								{-1, 0, 3,-1}},	//	Suppressor 9mm [HP]
-			{"vn_s_mpu",							{-1, 0, 0,-1}},	//	Suppressor [MPU]
-			//Optics
-			{"vn_o_4x_m16",							{-1, 0, 0,-1}},	//	Optic (M16 4x)
-			{"vn_o_9x_m14",							{-1, 0, 0,-1}},	//	Optic (M14 3-9x)
-			{"vn_o_9x_m16",							{-1, 0, 0,-1}},	//	Optic (M16 3-9x)
-			{"vn_o_9x_m40a1",						{-1, 0, 0,-1}},	//	Optic (M40 3-9x)
-			{"vn_o_9x_m40a1_camo",					{-1, 0, 0,-1}},	//	Optic (M40 3-9x camo)
-			{"vn_o_anpvs2_m14",						{-1, 0, 0,-1}},	//	Scope (AN-PVS2 Starlight) [M14]
-			{"vn_o_anpvs2_m16",						{-1, 0, 0,-1}},	//	Scope (AN-PVS2 Starlight) [XM177/M16]
-			{"vn_o_anpvs2_m40a1",					{-1, 0, 0,-1}},	//	Scope (AN-PVS2 Starlight) [M40]
-			{"vn_o_3x_m84",							{ 0, 0, 0,-1}},	//	Scope (M1/2 Carbine 2.2x)
-			{"vn_o_1x_sp_m16",						{-1, 0, 6,-1}},	//	Optic (M16 SP)
-			{"vn_o_3x_l1a1",						{-1, 0, 2,-1}},	//	Optic (L1A1 3x)
-			{"vn_o_8x_m1903",						{ 0, 0, 1, 1}},	//	Optic [M1903 8x]
-			{"vn_o_m14_front",						{-1, 0, 4,-1}},	//	Optic (M14 Front Sight)
-			{"vn_o_4x_m4956",						{ 0, 0, 0,-1}},	//	Scope (M49/56 3.5x)
-			//OpFor
-			//Bayonet/Camo
-			{"vn_b_sks",							{ 0,-1, 0,-1}},	//	Bayonet Spike [M38]
-			{"vn_b_type56",							{ 0,-1, 0,-1}},	//	Bayonet Spike [Type56]
- 			{"vn_b_camo_vz54",						{ 0,-1,-1,-1}},	//	Camo wrap [VZ54]
-			{"vn_b_camo_svd",						{ 0,-1,-1,-1}},	//	Camo wrap [SVD]
-			{"vn_b_camo_k98k",						{ 0,-1, 2, 2}},	//	Camo wrap [K98K]
-			{"vn_b_k98k",							{ 0,-1, 1, 1}},	//	Bayonet [K98K]
-			{"vn_b_m38",							{ 0,-1, 0,-1}},	//	Bayonet Spike [M38/ M91/30/ M1892]
-			{"vn_b_camo_m9130",						{ 0,-1, 0,-1}},	//	Camo wrap [M9130]
-			//Optic
-			{"vn_o_3x_m9130",						{ 0,-1, 0,-1}},	//	Optic (M91/30 3.5x)
-			{"vn_o_3x_sks",							{ 0,-1, 0,-1}},	//	Optic (SKS 3.5x)
-			{"vn_o_3x_vz54",						{ 0,-1,-1,-1}},	//	Optic (VZ54 2.5x)
-			{"vn_o_4x_svd",							{ 0,-1,-1,-1}},	//	Optic [SVD 4x]
-			{"vn_o_1_5x_k98k",						{ 0,-1, 1, 1}},	//	Optic [K98K 1.5x]
+	/*
+    // Nickel Steel
+    // Uniforms
+    {"vnx_b_helmet_aph6_01_06", {-1, 0, 0, 0}}, // Helmet APH-6 Olive Green
+    {"vnx_b_helmet_aph6_02_06", {-1, 0, 0, 0}}, // Helmet APH-6 Olive Green (visor down)
+    {"vnx_b_helmet_hgu7_01_01", {-1, 0, 0, 0}}, // Helmet HGU-7-P (White)
+    {"vnx_b_helmet_hgu7_01_02", {-1, 0, 0, 0}}, // Helmet HGU-7-P (Tape)
+    {"vnx_b_helmet_hgu7_01_03", {-1, 0, 0, 0}}, // Helmet HGU-7-P (Camo)
+    {"vnx_b_helmet_hgu7_01_04", {-1, 0, 0, 0}}, // Helmet HGU-7-P (Black)
+    {"vnx_b_helmet_hgu7_02_01", {-1, 0, 0, 0}}, // Helmet HGU-7-P (Visor/White)
+    {"vnx_b_helmet_hgu7_02_02", {-1, 0, 0, 0}}, // Helmet HGU-7-P (Visor/Tape)
+    {"vnx_b_helmet_hgu7_02_03", {-1, 0, 0, 0}}, // Helmet HGU-7-P (Visor/Camo)
+    {"vnx_b_uniform_cwu_01", {-1, 0, 0, 0}}, // CWU-28/P Jet Summer suit
+    {"vnx_b_uniform_cwu_02", {-1, 0, 0, 0}}, // CWU-28/P Summer suit
+    {"vnx_b_uniform_cwu_03", {-1, 0, 0, 0}}, // CWU-28/P Jet Summer MA-1 Jacket
+    {"vnx_b_uniform_cwu_04", {-1, 0, 0, 0}}, // CWU-28/P Summer MA-1 Jacket
+    {"vnx_b_uniform_heli_01_19", {-1, 0, 0, 0}}, // BDU US Army Aircrew (Thai Tiger)
+    {"vnx_b_uniform_k2b_01_19", {-1, 0, 0, 0}}, // K2B USAF Jet Crew (Thai Tiger)
+    {"vnx_b_uniform_k2b_02_19", {-1, 0, 0, 0}}, // K2B USAF Heli Crew (Thai Tiger)
+    {"vnx_b_uniform_macv_01_19", {-1, 0, 0, 0}}, // BDU MACV 1 (Thai Tiger)
+    {"vnx_b_uniform_macv_02_19", {-1, 0, 0, 0}}, // BDU MACV 2 (Thai Tiger)
+    {"vnx_b_uniform_macv_03_19", {-1, 0, 0, 0}}, // BDU MACV 3 (Thai Tiger)
+    {"vnx_b_uniform_macv_04_19", {-1, 0, 0, 0}}, // BDU MACV 4 (Thai Tiger)
+    {"vnx_b_uniform_macv_05_19", {-1, 0, 0, 0}}, // BDU MACV 5 (Thai Tiger)
+    {"vnx_b_uniform_macv_06_19", {-1, 0, 0, 0}}, // BDU MACV 6 (Thai Tiger)
+    {"vnx_b_uniform_sog_01_19", {-1, 0, 0, 0}}, // BDU SOG 1 (Thai Tiger)
+    {"vnx_b_uniform_sog_02_19", {-1, 0, 0, 0}}, // BDU SOG 2 (Thai Tiger)
+    {"vnx_b_vest_usaf_01", {-1, 0, 0, 0}}, // Vest - USAF (Aircrew 1), C-1 Survival vest
+    {"vnx_b_vest_usaf_02", {-1, 0, 0, 0}}, // Vest - USAF (Aircrew 2), C-1 Survival vest
+    {"vnx_b_vest_usaf_03", {-1, 0, 0, 0}}, // Vest - USAF (Aircrew 3), C-1 Survival vest
+    {"vnx_b_vest_usaf_04", {-1, 0, 0, 0}}, // Vest - USAF (Security 1), CSPS Patrol
+    {"vnx_b_vest_usaf_05", {-1, 0, 0, 0}}, // Vest - USAF (Security 2), CSPS Patrol
+    {"vnx_b_vest_usaf_06", {-1, 0, 0, 0}}, // Vest - USAF (Security 3), CSPS Lead patrol
+    {"vnx_b_vest_usaf_07", {-1, 0, 0, 0}}, // Vest - USAF (Security 4), CSPS lead patrol
+    */
 			//Basics
 			{"vn_b_item_lighter_01",				{-1,-1,-1,-1}},	//
 			{"FirstAidKit",							{-1,-1,-1,-1}},	//
@@ -1589,6 +1588,46 @@ class vn_whitelisted_arsenal_loadouts
 		};
 		vehicles[] =
 		{
+    /*
+    //Nickel Steel
+	{"vnx_b_armor_m163_01",				{-1, 0, 0, 0}},	// M113 Vulcan Cannon
+	{"vnx_b_armor_lvtp5_01",			{-1, 0, 0, 0}},	// Marine Landing Vehicle
+	{"vnx_b_air_hh1h_04_01",			{-1, 0, 0, 0}},	// Rescue Unarmed
+	{"vnx_b_air_hh1h_01_01",			{-1, 0, 0, 0}},	// Rescue Dustoff
+	{"vnx_b_air_hh1h_02_01",			{-1, 0, 0, 0}},	// Rescue Slick
+	{"vnx_b_air_hh34_03_01",			{-1, 0, 0, 0}},	// Rescue Seahorse 2xM60
+	{"vnx_b_air_hh34_01_01",			{-1, 0, 0, 0}},	// Rescue Seahorse 1xM60
+	{"vnx_b_air_ov10a_navy_bmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_cap",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_cas",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_ehcas",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_hbmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_mr",			{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_mbmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_hcas",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_navy_lbmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_covey",			{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_cryer",			{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ac119_01_01",			{-1, 0, 0, 0}},	// AC119 Gunship CAS
+	{"vnx_b_air_ac119_04_01",			{-1, 0, 0, 0}},	// C119 Bomber Daisy Cutter
+	{"vnx_b_air_ac119_03_01",			{-1, 0, 0, 0}},	// C119 Cargo
+	{"vnx_b_air_ac119_03_02",			{-1, 0, 0, 0}},	// C119 Cargo
+	{"vnx_b_air_ac119_02_01",			{-1, 0, 0, 0}},	// C119 Transport
+	{"vnx_b_air_ac119_02_02",			{-1, 0, 0, 0}},	// C119 Transport
+	{"vnx_b_air_ov10a_usmc_bmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_cap",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_cas",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_ehcas",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_hbmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_hcas",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_lbmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_mbmb",		{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_usmc_mr",			{-1, 0, 0, 0}},	//
+	{"vnx_b_air_ov10a_aus_covey",		{-1, 0, 0, 0}},	//
+	{"vnx_o_wheeled_tuktuk_mg_02_vc",	{0, -1, 0, 0}},	// MG Rear
+	{"vnx_o_wheeled_tuktuk_mg_01_vc",	{0, -1, 0, 0}},	// MG Top Front
+	{"vnx_o_wheeled_tuktuk_01_vc",		{0, -1, 0, 0}},	// Unarmed
+    */
 			{ "NonSteerable_Parachute_F", 			{ 0, 0, 0, 0}},
 			{ "Steerable_Parachute_F", 				{ 0, 0, 0, 0}},
 			{ "vn_b_air_ah1g_01", 					{ 0, 0, 0, 0}},
