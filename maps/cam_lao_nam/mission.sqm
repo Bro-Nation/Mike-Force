@@ -5,7 +5,7 @@ class EditorData
 	angleGridStep=0.08726646;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=586;
+	toggles=714;
 	class ItemIDProvider
 	{
 		nextID=19561;
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=31754;
+		nextID=31869;
 	};
 	class Camera
 	{
@@ -4832,7 +4832,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\billboards\Bro_Nation_Airshow_3_sign_color.paa""];";
+								init="this setObjectTexture [0,""custom\billboards\supporter_sign.paa""];";
 								disableSimulation=1;
 							};
 							id=16872;
@@ -15282,7 +15282,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\billboards\Bro_Nation_Airshow_3_sign_color.paa""];";
+								init="this setObjectTexture [0,""custom\billboards\BN_Welcome_20240621.paa""];";
 								name="billboard_airfield_right_4";
 							};
 							id=16864;
@@ -55193,11 +55193,11 @@ class Mission
 	{
 		class LinkIDProvider
 		{
-			nextID=399;
+			nextID=400;
 		};
 		class Links
 		{
-			items=399;
+			items=400;
 			class Item0
 			{
 				linkID=0;
@@ -59183,6 +59183,16 @@ class Mission
 				linkID=398;
 				item0=19559;
 				item1=823;
+				class CustomData
+				{
+					type="Sync";
+				};
+			};
+			class Item399
+			{
+				linkID=399;
+				item0=264;
+				item1=3784;
 				class CustomData
 				{
 					type="Sync";

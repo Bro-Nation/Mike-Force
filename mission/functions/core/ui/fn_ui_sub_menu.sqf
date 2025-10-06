@@ -102,12 +102,13 @@ if !(_interactedItem isEqualTo []) then
     if ((toLower _thisItem) find "chemlight" > -1) then {
         {_interactActions pushBack _x} forEach _chemlightsAttach;
     };
-/*
- // Disabled until we can get it working more reliably
+
+
+	// Flashlights!
     if (_thisItem in ["vn_mx991", "vn_mx991_red"]) then {
         {_interactActions pushBack _x} forEach _flashlightsAttach;
     };
-*/
+
     // build menu
     if !(_interactActions isEqualTo []) then
     {

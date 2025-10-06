@@ -28,85 +28,60 @@ class AmmoCrateLight
 	{"vn_l1a1_01",  2}
 		};
 	magazines[] = {
-	/*					
-	//Nickel Steel					
-	{"vnx_hd_02_mag",		20},
-	{"vnx_gjet_mag",		20},
-	{"vnx_c96_mag",			20},
-	{"vnx_m12_smg_32_mag",	30},
-	{"vnx_m12_smg_20_mag",	30},
-	{"vnx_m50_smg_mag",		30},
-	*/
-//Pistol					
-	{"vn_welrod_mag",		20},
-	{"vn_hp_mag",			20},
-	{"vn_pm_mag",			20},
-	{"vn_tt33_mag",			20},
-	{"vn_hd_mag",			20},
-	{"vn_hp_mag",			20},
-	{"vn_m1911_mag",		20},
-	{"vn_mk22_mag",			20},
-	{"vn_m10_mag",			20},
-	{"vn_m1895_mag",		20},
-	{"vn_ppk_mag",			20},
-	{"vn_p38_mag",			20},
-	{"vn_vz61_mag",			20},
-//SMG					
-	{"vn_m3a1_mag",			30},
-	{"vn_m45_mag",			30},
-	{"vn_mat49_mag",		30},
-	{"vn_mc10_mag",			30},
-	{"vn_sten_mag",			30},
-	{"vn_m1a1_30_mag",		30},
-	{"vn_m1928_mag",		30},
-	{"vn_mpu_mag",			30},
-	{"vn_f1_smg_mag",		30},
-//Carbine					
-	{"vn_carbine_15_mag",	30},
-	{"vn_carbine_30_mag",	30},
-	{"vn_hp_sd_mag",		30},
-	{"vn_m4956_10_mag",		30},
-//Assault Rifle					
-	{"vn_m16_20_mag",		30},
-	{"vn_m16_30_mag",		60},
-	{"vn_m16_40_mag",		30},
-	{"vn_m63a_30_mag",		30},
-//Rifle					
-	{"vn_m14_10_mag",		30},
-	{"vn_m14_mag",			30},
-	{"vn_m1_garand_mag",	30},
-	{"vn_l1a1_20_mag",		30},
-	{"vn_l1a1_30_mag",		60},
-//Other					
-	{"vn_m61_grenade_mag",	10},
-	{"vn_m67_grenade_mag",	10},
-	{"vn_v40_grenade_mag",	10},
-	{"vn_m18_green_mag",	10},
-	{"vn_m18_purple_mag",	10},
-	{"vn_m18_red_mag",		10},
-	{"vn_m18_white_mag",	25},
-	{"vn_m18_yellow_mag",	10},
-	{"vn_m14_grenade_mag",	5},
-	{"vn_m34_grenade_mag",	5},
-	{"vn_40mm_m406_he_mag",	10},
-	{"vn_40mm_m433_hedp_mag",10},
-	{"vn_m127_mag",			30},
-	{"Chemlight_Blue",		5},
-	{"Chemlight_Green",		5},
-	{"Chemlight_Yellow",	5},
-	{"vn_b_item_lighter_01",2},
-	{"vn_m72_mag",			2}
-		};
-	items[] = {
-	{"vn_b_item_trapkit",	5}
-		};
-	backpacks[] = {
-	{"vn_b_pack_static_base_01",		8},
-	{"vn_b_pack_static_m60_high_01",	2},
-	{"vn_b_pack_static_m60_low_01",		2},
-	{"vn_b_pack_static_m1919a4_high_01",	2},
-	{"vn_b_pack_static_m1919a4_low_01",	2}
-		}; 
+		{"vn_m1911_mag",20},
+		{"vn_mk22_mag",20},
+		{"vn_m16_40_mag",15},
+		{"vn_welrod_mag",20},
+		{"vn_m61_grenade_mag",10},
+		{"vn_m67_grenade_mag",10},
+		{"vn_v40_grenade_mag",10},
+		{"vn_m18_green_mag",10},
+		{"vn_m18_purple_mag",10},
+		{"vn_m18_red_mag",10},
+		{"vn_m18_white_mag",25},
+		{"vn_m18_yellow_mag",10},
+		{"vn_m14_grenade_mag",5},
+		{"vn_m34_grenade_mag",5},
+		{"vn_m127_mag",15},
+		{"vn_hd_mag",20},
+		{"vn_hp_mag",20},
+		{"vn_m10_mag",20},
+		{"vn_m16_30_mag",60},
+		{"vn_m63a_30_mag",30},
+		{"vn_m16_20_mag",60},
+		{"vn_carbine_15_mag",30},
+		{"vn_carbine_30_mag",30},
+		{"vn_m4956_10_mag",30},
+		{"vn_m14_mag",30},
+		{"vn_m1895_mag",20},
+		{"vn_mc10_mag",30},
+		{"vn_sten_mag",30},
+		{"vn_m3a1_mag",30},
+		{"vn_m45_mag",30},
+		{"vn_l1a1_20_mag", 30},
+		{"vn_l1a1_30_02_mag",30},
+		{"vn_f1_smg_mag", 30},
+		{"vn_l34a1_smg_mag", 30},
+		{"vn_m1_garand_mag", 30},
+		{"vn_mpu_mag", 30},
+		{"vn_m1928_mag", 30},
+		{"vn_m72_mag", 30},
+		{"vn_m20a1b1_01", 5},
+		{"vn_m20a1b1_heat_mag",	20},
+		{"vn_m20a1b1_wp_mag", 3},
+		{"vn_pm_mag",20},
+        {"vn_tt33_mag",20},
+        {"vn_ppk_mag",20},
+        {"vn_p38_mag",20},
+        {"vn_vz61_mag",20},
+        {"vn_mat49_mag",30},
+        {"vn_m1a1_30_mag",30},
+        {"vn_hp_mag",30},
+        {"vn_m14_10_mag",30},
+        {"vn_l1a1_30_mag",60}
+	};
+	items[] = {};
+	backpacks[] = {{"vn_b_pack_static_base_01", 5},{"vn_b_pack_static_tow",5},{"vn_b_pack_static_ammo_01",2}};
 };
 
 class AmmoCrateSupport
