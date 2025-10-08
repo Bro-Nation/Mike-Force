@@ -22,6 +22,47 @@ class vn_logistics
 		inventory_max_weight = 50;
 		inventory_max_size = 1;
 	};
+	//Nickel Steel
+	class vnx_b_armor_m163_01 : vn_defaults_small {};
+	class vnx_b_armor_lvtp5_01 : vn_defaults_medium {};
+	//Helo's
+	class vnx_b_air_hh1h_04_01 : vn_defaults_small {};
+	class vnx_b_air_hh1h_01_01 : vn_defaults_small {};
+	class vnx_b_air_hh1h_02_01 : vn_defaults_small {};
+	class vnx_b_air_hh34_03_01 : vn_defaults_small {};
+	class vnx_b_air_hh34_01_01 : vn_defaults_small {};
+	//Bronco USAF
+	class vnx_b_air_ov10a_navy_bmb : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_cap : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_cas : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_ehcas : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_hbmb : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_mr : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_mbmb : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_hcas : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_navy_lbmb : vn_defaults_tiny {};
+	//Bronco USMC
+	class vnx_b_air_ov10a_usmc_bmb : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_cap : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_cas : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_ehcas : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_hbmb : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_mr : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_mbmb : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_hcas : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_usmc_lbmb : vn_defaults_tiny {};
+	//Bronco Covey
+	class vnx_b_air_ov10a_covey : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_cryer : vn_defaults_tiny {};
+	class vnx_b_air_ov10a_aus_covey : vn_defaults_tiny {};	
+	//C119
+	class vnx_b_air_ac119_01_01 : vn_defaults_tiny {};
+	class vnx_b_air_ac119_04_01 : vn_defaults_small {};
+	class vnx_b_air_ac119_03_01 : vn_defaults_large {};
+	class vnx_b_air_ac119_03_02 : vn_defaults_large {};
+	class vnx_b_air_ac119_02_01 : vn_defaults_small {};
+	class vnx_b_air_ac119_02_02 : vn_defaults_small {};
+	//End Nickel Steel
 	//Jeeps + Small Cars
 	class vn_b_wheeled_m151_01 : vn_defaults_small {};
 	class vn_b_wheeled_m151_01_mp : vn_defaults_small {};

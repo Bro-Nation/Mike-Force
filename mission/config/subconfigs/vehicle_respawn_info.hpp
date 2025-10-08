@@ -61,7 +61,7 @@ please try to stick to that order in future so it's easy to find things!
 
 class spawn_point_types {
 
-	class unlocked_air_transport_light {
+		class unlocked_air_transport_light {
 
 		name = "Helicopters (Scout) [Public]";
 		respawnType = SPAWN_TYPE_RESPAWN;
@@ -78,7 +78,92 @@ class spawn_point_types {
 			};
 		};
 	};
+//Nickel Steel
+	class unlocked_air_cas_light {
 
+		name = "Bronco (CAS) [Public]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_SHORT;
+		lockTeams[] = UNLOCKED;
+
+		class categories {
+			class broncousaf {
+				name = "OV-10 Bronco USAF";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_navy_bmb",
+					"vnx_b_air_ov10a_navy_cap",
+					"vnx_b_air_ov10a_navy_cas",
+					"vnx_b_air_ov10a_navy_ehcas",
+					"vnx_b_air_ov10a_navy_hbmb",
+					"vnx_b_air_ov10a_navy_mr",
+					"vnx_b_air_ov10a_navy_mbmb",
+					"vnx_b_air_ov10a_navy_hcas",
+					"vnx_b_air_ov10a_navy_lbmb",
+				};
+			};
+			class broncousmc {
+				name = "OV-10 Bronco USMC";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_usmc_bmb",
+					"vnx_b_air_ov10a_usmc_cap",
+					"vnx_b_air_ov10a_usmc_cas",
+					"vnx_b_air_ov10a_usmc_ehcas",
+					"vnx_b_air_ov10a_usmc_hbmb",
+					"vnx_b_air_ov10a_usmc_hcas",
+					"vnx_b_air_ov10a_usmc_lbmb",
+					"vnx_b_air_ov10a_usmc_mbmb",
+					"vnx_b_air_ov10a_usmc_mr",
+				};
+			};
+			class broncocovey {
+				name = "OV-10 Bronco Covey";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ov10a_covey",
+					"vnx_b_air_ov10a_cryer",
+					"vnx_b_air_ov10a_aus_covey",
+				};
+			};
+		};
+	};
+
+	class unlocked_air_cas_heavy {
+
+		name = "AC119 Gunship (CAS) [Public]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_MEDIUM;
+		lockTeams[] = UNLOCKED;
+
+		class categories {
+			class ac119 {
+				name = "AC119";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_01_01",
+					"vnx_b_air_ac119_04_01",
+				};
+			};
+			class c119t {
+				name = "C119 Transport";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_02_01",
+					"vnx_b_air_ac119_02_02",
+				};
+			};
+			class c119c {
+				name = "C119 Cargo";
+				icon = VEHICLE_ICON_PLANE;
+				vehicles[] = {
+					"vnx_b_air_ac119_03_01",
+					"vnx_b_air_ac119_03_02",
+				};
+			};
+		};
+	};
+//End Nickel Steel
 	class unlocked_air_transport_all {
 
 		name = "Helicopters (Transport) [Public]";
@@ -135,6 +220,9 @@ class spawn_point_types {
 					"vn_b_air_uh1f_01_03",
 					"vn_b_air_uh1c_07_03",
 					"vn_b_air_uh1c_07_04",
+					"vnx_b_air_hh1h_04_01",
+					"vnx_b_air_hh1h_01_01",
+					"vnx_b_air_hh1h_02_01",
 				};
 			};
 			class ch47 {
@@ -157,6 +245,8 @@ class spawn_point_types {
 					"vn_i_air_ch34_02_02",
 					"vn_b_air_ch34_01_01",
 					"vn_b_air_ch34_03_01",
+					"vnx_b_air_hh34_03_01",
+					"vnx_b_air_hh34_01_01",
 				};
 			};
 		};
@@ -271,6 +361,7 @@ class spawn_point_types {
 					"vn_b_armor_m113_acav_05",
 					"vn_b_armor_m577_01",
 					"vn_b_armor_m577_02",
+					"vnx_b_armor_m163_01",
 				};
 			};
 			class trucks {
@@ -285,6 +376,7 @@ class spawn_point_types {
 					"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
+					"vnx_b_armor_lvtp5_01",
 				};
 			};
 		};
