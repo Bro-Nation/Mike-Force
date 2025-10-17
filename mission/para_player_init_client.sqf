@@ -27,6 +27,7 @@
 		//description.ext
 		use_paradigm_init = 1;
 */
+#define PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR "para_c_dg_ins"
 
 private _transitionsTotal = count (
 	((preprocessFile "para_player_init_client.sqf") splitString ";") select {"call _fnc_tick_loading_screen" in _x}
@@ -428,3 +429,39 @@ call vn_mf_fnc_attachments_client_battery_monitor_init;
 
 // Add decorative hangar lights
 call vn_mf_fnc_addHangarLights;
+
+[missionNamespace, "arsenalClosed", {
+    private _group = group player;
+    private _insignia = _group getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, ""];
+    if (_insignia != "") then {
+        [player, _insignia] call BIS_fnc_setUnitInsignia;
+    } else {};
+}] call BIS_fnc_addScriptedEventHandler;
+
+//Add Insignia on Respawn
+player addEventHandler ["Respawn", {
+    params ["_unit", "_corpse"];
+
+    private _group = group _unit;
+    if (isNull _group) exitWith { systemChat "DEBUG: No group found on respawn."; };
+
+    private _insignia = _group getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, ""];
+    if (_insignia isEqualTo "") exitWith { systemChat "DEBUG: No insignia stored for this group."; };
+
+    // Wait until the player has a uniform
+    [_unit, _insignia] spawn {
+        params ["_unit", "_insignia"];
+
+        // Wait until the unit is local, alive, and wearing a uniform
+        waitUntil {
+            sleep 1;
+            local _unit &&
+            alive _unit &&
+            {uniform _unit != ""}
+        };
+
+        // Apply insignia safely
+        [player, _insignia] call BIS_fnc_setUnitInsignia;
+        //systemChat format ["DEBUG: Applied insignia '%1' to player %2 after respawn.", _insignia, name _unit];
+    };
+}];
