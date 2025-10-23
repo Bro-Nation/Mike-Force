@@ -443,10 +443,10 @@ player addEventHandler ["Respawn", {
     params ["_unit", "_corpse"];
 
     private _group = group _unit;
-    if (isNull _group) exitWith {};
+    if (isNull _group) exitWith { systemChat "DEBUG: No group found on respawn."; };
 
     private _insignia = _group getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, ""];
-    if (_insignia isEqualTo "") exitWith {};
+    if (_insignia isEqualTo "") exitWith { systemChat "DEBUG: No insignia stored for this group."; };
 
     // Wait until the player has a uniform
     [_unit, _insignia] spawn {
