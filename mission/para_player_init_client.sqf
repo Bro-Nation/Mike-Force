@@ -430,7 +430,6 @@ call vn_mf_fnc_attachments_client_battery_monitor_init;
 // Add decorative hangar lights
 call vn_mf_fnc_addHangarLights;
 
-
 [missionNamespace, "arsenalClosed", {
     private _group = group player;
     private _insignia = _group getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, ""];
@@ -466,5 +465,3 @@ player addEventHandler ["Respawn", {
         //systemChat format ["DEBUG: Applied insignia '%1' to player %2 after respawn.", _insignia, name _unit];
     };
 }];
-
-
