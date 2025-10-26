@@ -430,6 +430,8 @@ call vn_mf_fnc_attachments_client_battery_monitor_init;
 // Add decorative hangar lights
 call vn_mf_fnc_addHangarLights;
 
+[] call vn_mf_fnc_spawnHelpMarkers_enable;
+
 [missionNamespace, "arsenalClosed", {
     private _group = group player;
     private _insignia = _group getVariable [PARA_C_DYNAMICGROUPS_GROUP_INSIGNIA_VAR, ""];

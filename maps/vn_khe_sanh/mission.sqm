@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2911;
+		nextID=2938;
 	};
 	class Camera
 	{
-		pos[]={9682.2568,239.50739,6545.042};
-		dir[]={-0.26367161,-0.44820133,0.85421199};
-		up[]={-0.13220035,0.89391464,0.42828873};
-		aside[]={0.95555335,-8.7518856e-08,0.29495397};
+		pos[]={9873.6035,234.85316,6567.4473};
+		dir[]={0.32898435,-0.4908849,0.80674213};
+		up[]={0.18536273,0.87121707,0.45455152};
+		aside[]={0.92597938,-3.8201688e-07,-0.37760907};
 	};
 };
 binarizationWanted=0;
@@ -1770,7 +1770,7 @@ class Mission
 					a=-800;
 					b=-800;
 					id=106;
-					atlOffset=20.650581;
+					atlOffset=21.434433;
 				};
 				class Item17
 				{
@@ -1784,7 +1784,7 @@ class Mission
 					a=-500;
 					b=-500;
 					id=85;
-					atlOffset=201.06764;
+					atlOffset=202.3407;
 				};
 				class Item18
 				{
@@ -2330,7 +2330,7 @@ class Mission
 					flags=1;
 					id=3077;
 					type="ModuleHideTerrainObjects_F";
-					atlOffset=0.70225525;
+					atlOffset=0.70936584;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2400,11 +2400,11 @@ class Mission
 					};
 					id=1060;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.46914673;
+					atlOffset=0.46202087;
 				};
 			};
 			id=331;
-			atlOffset=-2.2298431;
+			atlOffset=-2.2334137;
 		};
 		class Item30
 		{
@@ -9435,18 +9435,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9753.6475,231.58727,6683.6284};
-				angles[]={0,1.7189393,6.2805109};
+				position[]={9753.6475,231.58681,6683.6279};
+				angles[]={0,1.7189399,6.2805147};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_green_hornets";
 				disableSimulation=1;
 			};
 			id=984;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.03755188;
+			atlOffset=-0.037994385;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -9831,18 +9832,18 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9683.7881,228.53755,6520.3398};
-				angles[]={0,0.1488049,0};
+				position[]={9683.7881,228.53789,6520.3398};
+				angles[]={0,0.14880677,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="arsenal_mikeforce";
 				disableSimulation=1;
 			};
 			id=1137;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.00033569336;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11343,18 +11344,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9705.0195,231.63167,6768.6157};
-				angles[]={0,2.0198376,0};
+				position[]={9705.0195,231.6321,6768.6157};
+				angles[]={0,2.0198345,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_spike_team";
 				disableSimulation=1;
 			};
 			id=1326;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.012435913;
+			atlOffset=-0.012008667;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11414,18 +11416,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9878.1201,231.55211,6572.3306};
-				angles[]={0.00012255753,3.3467634,6.272522};
+				position[]={9878.1201,231.55257,6572.3311};
+				angles[]={0.00012217305,3.3467562,6.2725215};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_macv";
 				disableSimulation=1;
 			};
 			id=1328;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.053451538;
+			atlOffset=-0.052993774;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -12012,18 +12015,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9482.498,231.66731,6506.311};
-				angles[]={0,1.1629968,0};
+				position[]={9482.498,231.6673,6506.311};
+				angles[]={0,1.1630002,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_acav";
 				disableSimulation=1;
 			};
 			id=1358;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=0.0050201416;
+			atlOffset=0.0050048828;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22045,7 +22049,7 @@ class Mission
 			name="mf_respawn_macv";
 			text="@STR_vn_mf_respawn_macv";
 			type="Empty";
-			angle=195.46649;
+			angle=195.46648;
 			id=2421;
 			atlOffset=-0.020980835;
 		};
@@ -22208,7 +22212,7 @@ class Mission
 			text="@STR_vn_mf_duty_officer";
 			type="mil_dot";
 			colorName="ColorWhite";
-			angle=170.22086;
+			angle=170.22084;
 			id=2596;
 			atlOffset=-0.0018615723;
 		};
@@ -23332,7 +23336,7 @@ class Mission
 									};
 									id=3242;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.49772644;
+									atlOffset=0.50485229;
 								};
 								class Item39
 								{
@@ -25369,7 +25373,7 @@ class Mission
 									};
 									id=2920;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.64256287;
+									atlOffset=0.6496582;
 								};
 								class Item3
 								{
@@ -25689,7 +25693,7 @@ class Mission
 									};
 									id=3340;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.32969666;
+									atlOffset=0.33680725;
 								};
 								class Item18
 								{
@@ -25817,7 +25821,7 @@ class Mission
 									};
 									id=3389;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.55210876;
+									atlOffset=0.55923462;
 								};
 								class Item24
 								{
@@ -25881,7 +25885,7 @@ class Mission
 									};
 									id=3413;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.63928223;
+									atlOffset=0.64640808;
 								};
 								class Item27
 								{
@@ -25945,7 +25949,7 @@ class Mission
 									};
 									id=3515;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.33088684;
+									atlOffset=0.33799744;
 								};
 								class Item30
 								{
@@ -26009,7 +26013,7 @@ class Mission
 									};
 									id=3600;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.73826599;
+									atlOffset=0.74537659;
 								};
 								class Item33
 								{
@@ -26025,7 +26029,7 @@ class Mission
 									};
 									id=3602;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.33071899;
+									atlOffset=0.33784485;
 								};
 								class Item34
 								{
@@ -26542,7 +26546,7 @@ class Mission
 									};
 									id=2928;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.46224976;
+									atlOffset=0.46937561;
 								};
 								class Item3
 								{
@@ -31260,7 +31264,6 @@ class Mission
 			};
 			id=2695;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.0071258545;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -31626,7 +31629,7 @@ class Mission
 			};
 			id=3167;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.24858093;
+			atlOffset=0.24145508;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -32254,7 +32257,6 @@ class Mission
 			};
 			id=3239;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.0071258545;
 		};
 		class Item353
 		{
@@ -32577,7 +32579,7 @@ class Mission
 			};
 			id=3324;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.030639648;
+			atlOffset=0.023513794;
 		};
 		class Item364
 		{
@@ -32815,7 +32817,7 @@ class Mission
 			};
 			id=3390;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.24816895;
+			atlOffset=0.24104309;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -32962,6 +32964,7 @@ class Mission
 			};
 			id=3414;
 			type="Land_vn_b_helipad_01";
+			atlOffset=-0.0071258545;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -33598,7 +33601,7 @@ class Mission
 			};
 			id=3516;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.13813782;
+			atlOffset=0.13101196;
 		};
 		class Item401
 		{
@@ -33612,7 +33615,7 @@ class Mission
 			flags=1;
 			id=3517;
 			type="ModuleHideTerrainObjects_F";
-			atlOffset=0.55508423;
+			atlOffset=0.59162903;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -34361,7 +34364,7 @@ class Mission
 			};
 			id=3601;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.27101135;
+			atlOffset=0.2638855;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -34395,7 +34398,7 @@ class Mission
 			};
 			id=3603;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.035552979;
+			atlOffset=0.028427124;
 		};
 		class Item429
 		{
