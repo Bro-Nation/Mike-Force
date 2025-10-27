@@ -108,6 +108,14 @@ class CfgFunctions
 			class ui_hud_toggle {};
 		};
 
+		class spawnHelpMarkers
+		{
+			file = "functions\core\ui\spawnHelpMarkers";
+			class spawnHelpMarkers_enable {};
+			class spawnHelpMarkers_buildRegistry {};
+			class spawnHelpMarkers_drawPlaque3D {};
+		};
+
 		// these are functions that are used outside of the taskroster UI
 		// the other task roster blocks are dedicated to each display page
 		class ui_taskroster
