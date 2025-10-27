@@ -8,7 +8,7 @@ class EditorData
 	toggles=586;
 	class ItemIDProvider
 	{
-		nextID=19686;
+		nextID=19687;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=32799;
+		nextID=32915;
 	};
 	class Camera
 	{
@@ -86,7 +86,8 @@ addons[]=
 	"A3_Structures_F_Naval_Piers",
 	"A3_Air_F_Heli_Light_01",
 	"A3_Structures_F_Exp_Civilian_House_Small_01",
-	"A3_Structures_F_EPB_Civ_Garbage"
+	"A3_Structures_F_EPB_Civ_Garbage",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
@@ -525,7 +526,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=476;
+		items=477;
 		class Item0
 		{
 			dataType="Marker";
@@ -55272,16 +55273,64 @@ class Mission
 			id=19562;
 			atlOffset=-152.66122;
 		};
+		class Item476
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16024.195,15.168724,7117.9072};
+				angles[]={0,1.5707964,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=19686;
+			type="Box_NATO_Wps_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""vn_m14a1_camo""],[20]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=399;
+			nextID=400;
 		};
 		class Links
 		{
-			items=399;
+			items=400;
 			class Item0
 			{
 				linkID=0;
@@ -59275,8 +59324,8 @@ class Mission
 			class Item399
 			{
 				linkID=399;
-				item0=264;
-				item1=3784;
+				item0=3784;
+				item1=264;
 				class CustomData
 				{
 					type="Sync";
