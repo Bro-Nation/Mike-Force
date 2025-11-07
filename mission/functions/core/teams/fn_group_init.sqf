@@ -29,7 +29,7 @@ private _groups = "true" configClasses (_gamemode_config >> "teams" );
 	if !(_location isEqualTo [0,0,0]) then
 	{
 		// duty officer agent
-		private _agent = createAgent [_class, _location, [], 0, "NONE"];
+		private _agent = createAgent [_class, _location, [], 0, "CAN_COLLIDE"];
 		_agent allowDamage false;
 		_agent setDir _direction;
 

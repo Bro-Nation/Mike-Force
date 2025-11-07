@@ -19,6 +19,8 @@ class CfgFunctions
 			class save_time_elapsed {};
 			class stats_init {};
 			class addHangarLights {};
+			class bulldozer_trees {};
+			class spawn_tank_dozer {};
 		};
 
 		class core_helpers
