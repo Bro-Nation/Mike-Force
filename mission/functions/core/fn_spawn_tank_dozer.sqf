@@ -46,7 +46,7 @@ _tank addEventHandler ["Killed", {
     // Capture context and perform cleanup + respawn
     [_dozer, _veh, _spawnObj] spawn {
         params ["_dozerLocal", "_vehLocal", "_spawnObjOuter"];
-        sleep 60;
+        sleep 20;
         private _posDel = getPosATL _vehLocal;
         detach _dozerLocal;
         deleteVehicle _dozerLocal;
