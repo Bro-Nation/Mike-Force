@@ -1,5 +1,7 @@
 /*
-    vn_mf_bulldozer_trees
+    File: vn_mf_bulldozer_trees.sqf
+    Author: Tylervip
+	Public: yes
     Adds a toggle blade action to a vehicle, slows it when the blade is down, clears trees/bushes ahead, and auto-raises the blade after a set time.
 */
 
@@ -88,7 +90,7 @@ _veh addAction [
             if (_time >= _bladeTime) then {
                 if (_veh getVariable ["bladeDown", false]) then {
                     _veh setVariable ["bladeDown", false, true];
-                    hint "Blade automatically raised to stop lag";
+                    hint "Blade automatically raised";
                     _veh setVariable ["bladeTimer", 0, true];
                 };
             };

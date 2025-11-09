@@ -32,7 +32,7 @@ params ["_position"];
 vn_mf_hq_compositions_default = [];
 vn_mf_hq_compositions = [];
 
-if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
+if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh", "vn_the_bra"])then {
 	vn_mf_hq_compositions_default = [
 		//v1
 		[

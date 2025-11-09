@@ -30,7 +30,7 @@ params ["_position"];
 vn_mf_radar_compositions = [];
 vn_mf_radar_compositions_default = [];
 
-if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
+if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh", "vn_the_bra"])then {
     vn_mf_radar_compositions_default = [
         [
             ["vn_o_static_rsna75",[0.995117,2.03516,1],0,1,0,[0,0],"","",true,false],
