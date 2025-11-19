@@ -352,6 +352,7 @@ class CfgFunctions
 			class sites_discovery_job {};
 			class sites_create_initial_static_ai_crews {};
 			class sites_create_objects_with_tree_removal {};
+			class sites_seed_zone_road_mines {};
 		};
 
 		// remote actions that can be performed at sites
