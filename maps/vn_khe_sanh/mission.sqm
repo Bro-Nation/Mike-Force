@@ -8,7 +8,7 @@ class EditorData
 	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=4070;
+		nextID=4071;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2965;
+		nextID=2992;
 	};
 	class Camera
 	{
-		pos[]={9873.6035,234.85316,6567.4473};
-		dir[]={0.32898435,-0.4908849,0.80674213};
-		up[]={0.18536273,0.87121707,0.45455152};
-		aside[]={0.92597938,-3.8201688e-07,-0.37760907};
+		pos[]={472.9238,468.93839,11112.534};
+		dir[]={0.77436697,-0.12172239,-0.62104475};
+		up[]={0.095097758,0.99252802,-0.076265469};
+		aside[]={-0.62569159,8.2585757e-07,-0.78016263};
 	};
 };
 binarizationWanted=0;
@@ -288,7 +288,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=708;
+		items=709;
 		class Item0
 		{
 			dataType="Layer";
@@ -1778,7 +1778,7 @@ class Mission
 					a=-800;
 					b=-800;
 					id=106;
-					atlOffset=21.434433;
+					atlOffset=20.650581;
 				};
 				class Item17
 				{
@@ -1792,7 +1792,7 @@ class Mission
 					a=-500;
 					b=-500;
 					id=85;
-					atlOffset=202.3407;
+					atlOffset=201.06764;
 				};
 				class Item18
 				{
@@ -21677,13 +21677,13 @@ class Mission
 		class Item229
 		{
 			dataType="Marker";
-			position[]={474.64404,464.51401,11110.933};
+			position[]={474.64404,468.40253,11110.933};
 			name="mf_dc_respawn_daccong_tunnel";
 			text="@STR_vn_mf_respawn_tunnel_1";
 			type="Empty";
 			angle=180;
 			id=2371;
-			atlOffset=-0.00030517578;
+			atlOffset=0.081451416;
 		};
 		class Item230
 		{
@@ -22057,7 +22057,7 @@ class Mission
 			name="mf_respawn_macv";
 			text="@STR_vn_mf_respawn_macv";
 			type="Empty";
-			angle=195.46648;
+			angle=195.46646;
 			id=2421;
 			atlOffset=-0.020980835;
 		};
@@ -22220,7 +22220,7 @@ class Mission
 			text="@STR_vn_mf_duty_officer";
 			type="mil_dot";
 			colorName="ColorWhite";
-			angle=170.22084;
+			angle=170.22083;
 			id=2596;
 			atlOffset=-0.0018615723;
 		};
@@ -32893,17 +32893,35 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9871.5967,231.61189,6574.2036};
-				angles[]={0.0083526876,3.3236747,0.0011814222};
+				position[]={9871.5967,231.6118,6574.2041};
+				angles[]={0.008360127,3.3236828,0.0011868239};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=3405;
 			type="Land_vn_us_common_table_01";
-			atlOffset=-0.01991272;
+			atlOffset=-0.020004272;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item377
 		{
@@ -32917,27 +32935,63 @@ class Mission
 			class Attributes
 			{
 				name="vn_mf_macv_WL1_teleporter";
+				disableSimulation=1;
 			};
 			id=3406;
 			type="vn_b_prop_vrc12";
 			atlOffset=0.77400208;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item378
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9873.8682,231.61328,6573.8604};
-				angles[]={0.0083526876,3.3236747,0.0011814222};
+				position[]={9873.8682,231.61346,6573.8599};
+				angles[]={0.008360127,3.3236828,0.0011868239};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=3409;
 			type="Land_vn_us_common_table_01";
-			atlOffset=-0.0081939697;
+			atlOffset=-0.0079956055;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item379
 		{
@@ -32951,10 +33005,28 @@ class Mission
 			class Attributes
 			{
 				name="vn_mf_macv_WL2_teleporter";
+				disableSimulation=1;
 			};
 			id=3410;
 			type="vn_b_prop_vrc12";
 			atlOffset=0.78500366;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item380
 		{
@@ -37969,7 +38041,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9863.7832,233.81461,6547.709};
+				position[]={9863.7832,234.44469,6547.709};
 				angles[]={0,0.19430751,0};
 			};
 			side="Empty";
@@ -37979,7 +38051,7 @@ class Mission
 			};
 			id=3717;
 			type="B_Heli_Light_01_F";
-			atlOffset=0.62867737;
+			atlOffset=1.2587585;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -45102,6 +45174,17 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item708
+		{
+			dataType="Marker";
+			position[]={474.84457,468.32101,11112.136};
+			name="mf_dc_respawn_tunnel_1_nw";
+			text="@mf_dc_respawn_tunnel_1_nw";
+			type="Empty";
+			angle=180;
+			id=4070;
+			atlOffset=3.4985962;
 		};
 	};
 	class Connections
