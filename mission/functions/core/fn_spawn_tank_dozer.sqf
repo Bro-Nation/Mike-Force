@@ -7,6 +7,7 @@
     [this] spawn vn_mf_fnc_spawn_tank_dozer;
     adds dozer tree-clearing functionality to the tank.
     [_tank] remoteExecCall ["vn_mf_fnc_bulldozer_trees", 0, _tank];
+    [this] spawn vn_mf_fnc_spawn_tank_dozer;
     
 */
 if (!isServer) exitWith {};  // only the server creates tanks
@@ -24,10 +25,11 @@ _tank enableSimulationGlobal true;
 _tank setVariable ["spawnObj", _spawnObj, true];
 
 // --- Spawn indestructible dozer ---
-private _dozer = createVehicle ["Land_vn_bulldozer_01_wreck_f", _pos, [], 0, "CAN_COLLIDE"];
+private _dozer = createSimpleObject ["Land_vn_bulldozer_01_wreck_f", _pos];
 _dozer allowDamage false;
 _dozer attachTo [_tank, [0, 1, -0.8]];
 _dozer setDir 180;
+_dozer enableSimulationGlobal false;
 
 // --- Initialize tree-clearing for all clients ---
 [_tank] remoteExecCall ["vn_mf_fnc_bulldozer_trees", 0, _tank];

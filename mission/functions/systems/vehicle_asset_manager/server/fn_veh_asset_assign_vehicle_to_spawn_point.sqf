@@ -22,6 +22,7 @@ _spawnPoint set ["lastClassSpawned", typeOf _vehicle];
 [_spawnPoint, "currentVehicle", _vehicle] call vn_mf_fnc_veh_asset_set_global_variable;
 
 [_vehicle] call vn_mf_fnc_veh_asset_add_unlock_action;
+[_vehicle] remoteExecCall ["vn_mf_fnc_eject_and_parachute", 0, _vehicle];
 [_spawnPoint] call vn_mf_fnc_veh_asset_set_idle;
 
 _vehicle addEventHandler ["RopeAttach", {[_this # 2] call vn_mf_fnc_veh_asset_unlock_vehicle}];

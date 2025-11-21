@@ -26,22 +26,22 @@ _veh addAction [
     "<t color='#FFA500'>Toggle Blade</t>",  // orange text
     {
         params ["_target", "_caller", "_id"];
-
         // Only the driver can toggle
-        if (_caller == driver _target) then {
+        private _driver = driver _target;
+        if (_caller == _driver) then {
             private _down = !(_target getVariable ["bladeDown", false]);
             _target setVariable ["bladeDown", _down, true];
+            _target setVariable ["bladeTimer", 0, true];
             if (_down) then {
-                hint "Blade lowered";
-                _target setVariable ["bladeTimer", 0, true]; // reset timer
+                hintSilent "Blade lowered";
             } else {
-                hint "Blade raised";
+                hintSilent "Blade raised";
             };
         } else {
-            hint "Only driver can toggle the blade!";
+            hintSilent "Only driver can toggle the blade!";
         };
     },
-    nil, 10, true, true, "", "_this distance _target < 3"
+    nil, 10, true, true, "", "driver _target == _this"
 ];
 
 // --- MAIN LOOP ---
@@ -90,7 +90,7 @@ _veh addAction [
             if (_time >= _bladeTime) then {
                 if (_veh getVariable ["bladeDown", false]) then {
                     _veh setVariable ["bladeDown", false, true];
-                    hint "Blade automatically raised";
+                    driver hintSilent "Blade automatically raised";
                     _veh setVariable ["bladeTimer", 0, true];
                 };
             };

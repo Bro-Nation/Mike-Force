@@ -130,7 +130,11 @@ params ["_pos"];
 						} forEach _holders;
 
 						if (!_wasDisarmed) then {
-							[_posStored, 1, 1] call para_s_fnc_ai_obj_request_defend;
+							private _player = nearestObject [_posStored, "CAManBase"];
+
+							if (isPlayer _player) then {
+								[[_player], 1, 1, east] call para_s_fnc_ai_obj_request_pursuit;
+							};
 						};
 					};
 				}];

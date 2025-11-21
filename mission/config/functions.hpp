@@ -21,6 +21,7 @@ class CfgFunctions
 			class addHangarLights {};
 			class bulldozer_trees {};
 			class spawn_tank_dozer {};
+			class eject_and_parachute {};
 		};
 
 		class core_helpers
