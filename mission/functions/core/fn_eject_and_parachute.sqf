@@ -22,9 +22,6 @@ _vehicle addAction [
 
         if (isNull _player || isNull _vehicle) exitWith {};
 
-        if ((getPosASL _player select 2) - (getTerrainHeightASL getPosASL _player) < 100) exitWith { hintSilent "You need to be above 100m"; };
-
-
         private _oldBackpackClass = backpack _player;
         private _oldBackpackItems = backpackItems _player;
 
@@ -118,5 +115,5 @@ _vehicle addAction [
     true,
     true,
     "",
-    "_this in crew _target"
+    "_this in crew _target && ((getPosASL player select 2) - (getTerrainHeightASL (getPosASL player))) > 100"
 ];
