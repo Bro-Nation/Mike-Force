@@ -31,6 +31,10 @@ params ["_pos"];
 
 		private _objs = [_spawnPos] call vn_mf_fnc_sites_create_compositions_fuel;
 
+		{
+			_x setVariable ["vn_log_enablePickup", false, true];
+		} forEach _objs;
+
 		_objs apply {
 			[_x] call vn_mf_fnc_sites_utils_normalise_object_placement;
 			[_x] call vn_mf_fnc_sites_object_zfixer_add_object;

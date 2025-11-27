@@ -30,8 +30,9 @@ params ["_pos"];
 		private _spawnPos = _sitePos;
 
 		private _radarObjs = [_spawnPos] call vn_mf_fnc_sites_create_compositions_radar;
-		
 		{
+		_x setVariable ["vn_log_enablePickup", false, true];
+
 			if(_x isKindOf "StaticWeapon" || _x isKindOf "LandVehicle" || _x isKindOf "Air" || typeOf _x in ['Land_Net_Fence_Gate_F'] || _x isKindOf "Building") then {
 				[_x, true] call para_s_fnc_enable_dynamic_sim;
 			};
