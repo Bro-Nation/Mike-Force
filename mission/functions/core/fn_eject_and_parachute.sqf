@@ -112,7 +112,7 @@ _vehicle addAction [
     },
     nil,
     1.5,
-    true,
+    false,
     true,
     "",
     "_this in crew _target && ((getPosASL player select 2) - (getTerrainHeightASL (getPosASL player))) > 100"
