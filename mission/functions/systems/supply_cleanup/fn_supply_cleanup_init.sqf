@@ -10,27 +10,28 @@
         call fn_supply_cleanup_init;
 */
 
-private _dumpsters = allMapMarkers select {_x find "supply" isEqualTo 0};
+// Get all missionNamespace variable names starting with "supply_cleanup"
+private _dumpsters = allVariables missionNamespace select {_x find "supply_cleanup" isEqualTo 0} apply {missionNamespace getVariable [_x,objNull]};
 
+// Add Clean Up action to each supply box
 {
-    private _dumpster = missionNamespace getVariable [format["supply_cleanup_%1", _forEachIndex], objNull];
-    if (isNull _dumpster) exitWith {};
-
-    _dumpster addAction [
-        "Clean Up Supply Boxes",
-        {
-            params ["_target", "_caller", "_actionId", "_arguments"];
-            ["supplyCleanup", [_target]] call para_c_fnc_call_on_server;
-        },
-        nil,
-        1.5,
-        true,
-        true,
-        "",
-        "true",
-        5,
-        false,
-        "",
-        ""
-    ];
+    if (!isNull _x) then {
+        _x addAction [
+            "Clean Up Supply Boxes",
+            {
+                params ["_target","_caller","_actionId","_arguments"];
+                ["supplyCleanup",[_target]] call para_c_fnc_call_on_server;
+            },
+            nil,
+            1.5,
+            true,
+            true,
+            "",
+            "true",
+            5,
+            false,
+            "",
+            ""
+        ];
+    };
 } forEach _dumpsters;

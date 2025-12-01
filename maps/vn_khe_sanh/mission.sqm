@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2992;
+		nextID=3019;
 	};
 	class Camera
 	{
@@ -12330,7 +12330,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_5";
 				disableSimulation=1;
 			};
@@ -12366,7 +12365,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_6";
 				disableSimulation=1;
 			};
@@ -12402,7 +12400,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_7";
 				disableSimulation=1;
 			};
@@ -12439,7 +12436,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_8";
 				disableSimulation=1;
 			};
@@ -12476,7 +12472,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_9";
 				disableSimulation=1;
 			};
@@ -12512,7 +12507,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_10";
 				disableSimulation=1;
 			};
@@ -12549,7 +12543,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_11";
 				disableSimulation=1;
 			};
@@ -12586,7 +12579,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_12";
 				disableSimulation=1;
 			};
@@ -12622,7 +12614,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_13";
 				disableSimulation=1;
 			};
@@ -12659,7 +12650,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_14";
 				disableSimulation=1;
 			};
@@ -12696,7 +12686,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_15";
 				disableSimulation=1;
 			};
@@ -12732,7 +12721,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_16";
 				disableSimulation=1;
 			};
@@ -12860,7 +12848,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_17";
 				disableSimulation=1;
 			};
@@ -12978,7 +12965,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_18";
 				disableSimulation=1;
 			};
@@ -22057,7 +22043,7 @@ class Mission
 			name="mf_respawn_macv";
 			text="@STR_vn_mf_respawn_macv";
 			type="Empty";
-			angle=195.46646;
+			angle=195.46645;
 			id=2421;
 			atlOffset=-0.020980835;
 		};
@@ -22406,7 +22392,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_57";
 				disableSimulation=1;
 			};
@@ -30758,7 +30743,6 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_19";
 				disableSimulation=1;
 			};
@@ -31196,7 +31180,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_20";
 				disableSimulation=1;
 			};
@@ -40239,7 +40222,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_21";
 				disableSimulation=1;
 			};

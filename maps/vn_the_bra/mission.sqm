@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2201;
+		nextID=2235;
 	};
 	class Camera
 	{
-		pos[]={3234.7,73.949646,4682.043};
-		dir[]={0.95489466,-0.22707304,-0.19134806};
-		up[]={0.22264688,0.97387767,-0.044615444};
-		aside[]={-0.19648057,0,-0.98050767};
+		pos[]={3350.2207,61.803062,4353.4199};
+		dir[]={0.32926986,-0.64404154,0.69050121};
+		up[]={0.27721056,0.76499051,0.58132935};
+		aside[]={0.90262711,0,-0.43042344};
 	};
 };
 binarizationWanted=0;
@@ -6104,7 +6104,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={3301.4888,40.443352,4318.6577};
-								angles[]={0,3.4291193,-0};
+								angles[]={0,3.4291193,0};
 							};
 							side="Empty";
 							flags=5;
@@ -6140,7 +6140,7 @@ class Mission
 							class PositionInfo
 							{
 								position[]={3303.6772,40.398502,4318.96};
-								angles[]={0,2.5969737,-0};
+								angles[]={0,2.5969737,0};
 							};
 							side="Empty";
 							flags=5;
@@ -7132,7 +7132,6 @@ class Mission
 					side="Empty";
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_23";
 						disableSimulation=1;
 					};
@@ -9075,7 +9074,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_19";
 						disableSimulation=1;
 					};
@@ -13830,6 +13828,7 @@ class Mission
 		{
 			dataType="Layer";
 			name="HTO";
+			state=1;
 			class Entities
 			{
 				items=2;
@@ -21303,7 +21302,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_15";
 						disableSimulation=1;
 					};
@@ -22110,7 +22108,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_17";
 						disableSimulation=1;
 					};
@@ -23250,7 +23247,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3388.697,39.794388,4331.52};
+						position[]={3388.7397,39.801247,4331.5181};
 						angles[]={0,0.90210831,0};
 					};
 					side="Empty";
@@ -23262,7 +23259,7 @@ class Mission
 					};
 					id=2231;
 					type="Land_vn_object_trashcan_01";
-					atlOffset=0.13000107;
+					atlOffset=0.0063018799;
 				};
 				class Item14
 				{
@@ -25189,7 +25186,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_22";
 						disableSimulation=1;
 					};
@@ -26234,7 +26230,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_18";
 						disableSimulation=1;
 					};
@@ -27807,7 +27802,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_20";
 						disableSimulation=1;
 					};
@@ -28620,7 +28614,6 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 						name="arsenal_cleanup_21";
 						disableSimulation=1;
 					};
