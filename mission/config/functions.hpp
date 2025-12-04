@@ -81,6 +81,15 @@ class CfgFunctions
 			class teams_comms_switchers_off_all {};
 		};
 
+		class core_teams_comms_change_channels
+		{
+			file = "functions\core\teams\comms_channel_changer";
+			class teams_comms_change_channel {};
+			class teams_comms_change_channel_to_ground {};
+			class teams_comms_change_channel_to_air {};
+			class teams_comms_change_channel_to_cff {};
+		};
+
 		class core_workarounds
 		{
 			file = "functions\core\workarounds";
