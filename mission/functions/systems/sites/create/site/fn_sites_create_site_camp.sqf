@@ -99,15 +99,49 @@ params ["_pos"];
 					10
 				]
 			};
+
 			private _mines = ([1, ceil random 2] call vn_mf_fnc_range) apply {
-				createMine [
+				private _mine = createMine [
 					selectRandom ["vn_mine_pot_range", "vn_mine_jerrycan_range"],
 					_pos,
 					[],
 					4
-				]
+				];
+
+				// store mine position for the handler
+				_mine setVariable ["minePos", getPos _mine, true];
+
+				// add Deleted event handler for AI dispatch
+				_mine addEventHandler ["Deleted", {
+					params ["_mine"];
+					private _minePosStored = _mine getVariable ["minePos", [0,0,0]];
+
+					[_minePosStored] spawn {
+						params ["_posStored"];
+						sleep 0.35;
+
+						private _holders = nearestObjects [_posStored, ["GroundWeaponHolder"], 10];
+						private _wasDisarmed = false;
+
+						{
+							if ((magazineCargo _x) find "vn_mine_pot_range_mag" != -1 ||
+								(magazineCargo _x) find "vn_mine_jerrycan_range_mag" != -1) exitWith { _wasDisarmed = true };
+								
+						} forEach _holders;
+
+						if (!_wasDisarmed) then {
+							private _player = nearestObject [_posStored, "CAManBase"];
+
+							if (isPlayer _player) then {
+								[[_player], 1, 1, east] call para_s_fnc_ai_obj_request_pursuit;
+							};
+						};
+					};
+				}];
+
+				_mine
 			};
-			
+
 			// deletes the mines once the zone is completed
 			vn_site_objects append (_traps + _mines);
 		};

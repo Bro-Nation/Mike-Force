@@ -19,6 +19,9 @@ class CfgFunctions
 			class save_time_elapsed {};
 			class stats_init {};
 			class addHangarLights {};
+			class bulldozer_trees {};
+			class spawn_tank_dozer {};
+			class eject_and_parachute {};
 		};
 
 		class core_helpers
@@ -106,6 +109,14 @@ class CfgFunctions
 			class ui_update {};
 			class update_loading_screen {};
 			class ui_hud_toggle {};
+		};
+
+		class spawnHelpMarkers
+		{
+			file = "functions\core\ui\spawnHelpMarkers";
+			class spawnHelpMarkers_enable {};
+			class spawnHelpMarkers_buildRegistry {};
+			class spawnHelpMarkers_drawPlaque3D {};
 		};
 
 		// these are functions that are used outside of the taskroster UI
@@ -344,6 +355,7 @@ class CfgFunctions
 			class sites_discovery_job {};
 			class sites_create_initial_static_ai_crews {};
 			class sites_create_objects_with_tree_removal {};
+			class sites_seed_zone_road_mines {};
 		};
 
 		// remote actions that can be performed at sites

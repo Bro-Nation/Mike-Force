@@ -8,7 +8,7 @@ class EditorData
 	toggles=522;
 	class ItemIDProvider
 	{
-		nextID=4069;
+		nextID=4071;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2911;
+		nextID=3019;
 	};
 	class Camera
 	{
-		pos[]={9682.2568,239.50739,6545.042};
-		dir[]={-0.26367161,-0.44820133,0.85421199};
-		up[]={-0.13220035,0.89391464,0.42828873};
-		aside[]={0.95555335,-8.7518856e-08,0.29495397};
+		pos[]={472.9238,468.93839,11112.534};
+		dir[]={0.77436697,-0.12172239,-0.62104475};
+		up[]={0.095097758,0.99252802,-0.076265469};
+		aside[]={-0.62569159,8.2585757e-07,-0.78016263};
 	};
 };
 binarizationWanted=0;
@@ -54,13 +54,14 @@ addons[]=
 	"A3_Structures_F_EPB_Civ_Garbage",
 	"A3_Supplies_F_Exp_Ammoboxes",
 	"A3_Structures_F_Furniture",
-	"A3_Signs_F_Signs_Ad"
+	"A3_Signs_F_Signs_Ad",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -194,6 +195,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item19
+		{
+			className="A3_Weapons_F";
+			name="Arma 3 Alpha - Weapons and Accessories";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 class DynamicSimulation
@@ -280,7 +288,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=707;
+		items=709;
 		class Item0
 		{
 			dataType="Layer";
@@ -2330,7 +2338,7 @@ class Mission
 					flags=1;
 					id=3077;
 					type="ModuleHideTerrainObjects_F";
-					atlOffset=0.70225525;
+					atlOffset=0.70936584;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -2400,11 +2408,11 @@ class Mission
 					};
 					id=1060;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.46914673;
+					atlOffset=0.46202087;
 				};
 			};
 			id=331;
-			atlOffset=-2.2298431;
+			atlOffset=-2.2334137;
 		};
 		class Item30
 		{
@@ -9435,18 +9443,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9753.6475,231.58727,6683.6284};
-				angles[]={0,1.7189393,6.2805109};
+				position[]={9753.6475,231.58681,6683.6279};
+				angles[]={0,1.7189399,6.2805147};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_green_hornets";
 				disableSimulation=1;
 			};
 			id=984;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.03755188;
+			atlOffset=-0.037994385;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -9831,18 +9840,18 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9683.7881,228.53755,6520.3398};
-				angles[]={0,0.1488049,0};
+				position[]={9683.7881,228.53789,6520.3398};
+				angles[]={0,0.14880677,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="arsenal_mikeforce";
 				disableSimulation=1;
 			};
 			id=1137;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.00033569336;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11343,18 +11352,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9705.0195,231.63167,6768.6157};
-				angles[]={0,2.0198376,0};
+				position[]={9705.0195,231.6321,6768.6157};
+				angles[]={0,2.0198345,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_spike_team";
 				disableSimulation=1;
 			};
 			id=1326;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.012435913;
+			atlOffset=-0.012008667;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11414,18 +11424,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9878.1201,231.55211,6572.3306};
-				angles[]={0.00012255753,3.3467634,6.272522};
+				position[]={9878.1201,231.55257,6572.3311};
+				angles[]={0.00012217305,3.3467562,6.2725215};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_macv";
 				disableSimulation=1;
 			};
 			id=1328;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=-0.053451538;
+			atlOffset=-0.052993774;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -12012,18 +12023,19 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9482.498,231.66731,6506.311};
-				angles[]={0,1.1629968,0};
+				position[]={9482.498,231.6673,6506.311};
+				angles[]={0,1.1630002,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				name="vn_mf_arsenal_acav";
 				disableSimulation=1;
 			};
 			id=1358;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=0.0050201416;
+			atlOffset=0.0050048828;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -12318,7 +12330,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_5";
 				disableSimulation=1;
 			};
@@ -12354,7 +12365,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_6";
 				disableSimulation=1;
 			};
@@ -12390,7 +12400,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_7";
 				disableSimulation=1;
 			};
@@ -12427,7 +12436,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_8";
 				disableSimulation=1;
 			};
@@ -12464,7 +12472,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_9";
 				disableSimulation=1;
 			};
@@ -12500,7 +12507,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_10";
 				disableSimulation=1;
 			};
@@ -12537,7 +12543,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_11";
 				disableSimulation=1;
 			};
@@ -12574,7 +12579,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_12";
 				disableSimulation=1;
 			};
@@ -12610,7 +12614,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_13";
 				disableSimulation=1;
 			};
@@ -12647,7 +12650,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_14";
 				disableSimulation=1;
 			};
@@ -12684,7 +12686,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_15";
 				disableSimulation=1;
 			};
@@ -12720,7 +12721,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_16";
 				disableSimulation=1;
 			};
@@ -12848,7 +12848,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_17";
 				disableSimulation=1;
 			};
@@ -12966,7 +12965,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_18";
 				disableSimulation=1;
 			};
@@ -21665,13 +21663,13 @@ class Mission
 		class Item229
 		{
 			dataType="Marker";
-			position[]={474.64404,464.51401,11110.933};
+			position[]={474.64404,468.40253,11110.933};
 			name="mf_dc_respawn_daccong_tunnel";
 			text="@STR_vn_mf_respawn_tunnel_1";
 			type="Empty";
 			angle=180;
 			id=2371;
-			atlOffset=-0.00030517578;
+			atlOffset=0.081451416;
 		};
 		class Item230
 		{
@@ -22045,7 +22043,7 @@ class Mission
 			name="mf_respawn_macv";
 			text="@STR_vn_mf_respawn_macv";
 			type="Empty";
-			angle=195.46649;
+			angle=195.46645;
 			id=2421;
 			atlOffset=-0.020980835;
 		};
@@ -22208,7 +22206,7 @@ class Mission
 			text="@STR_vn_mf_duty_officer";
 			type="mil_dot";
 			colorName="ColorWhite";
-			angle=170.22086;
+			angle=170.22083;
 			id=2596;
 			atlOffset=-0.0018615723;
 		};
@@ -22394,7 +22392,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_57";
 				disableSimulation=1;
 			};
@@ -23332,7 +23329,7 @@ class Mission
 									};
 									id=3242;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.49772644;
+									atlOffset=0.50485229;
 								};
 								class Item39
 								{
@@ -25369,7 +25366,7 @@ class Mission
 									};
 									id=2920;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.64256287;
+									atlOffset=0.6496582;
 								};
 								class Item3
 								{
@@ -25689,7 +25686,7 @@ class Mission
 									};
 									id=3340;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.32969666;
+									atlOffset=0.33680725;
 								};
 								class Item18
 								{
@@ -25817,7 +25814,7 @@ class Mission
 									};
 									id=3389;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.55210876;
+									atlOffset=0.55923462;
 								};
 								class Item24
 								{
@@ -25881,7 +25878,7 @@ class Mission
 									};
 									id=3413;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.63928223;
+									atlOffset=0.64640808;
 								};
 								class Item27
 								{
@@ -25945,7 +25942,7 @@ class Mission
 									};
 									id=3515;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.33088684;
+									atlOffset=0.33799744;
 								};
 								class Item30
 								{
@@ -26009,7 +26006,7 @@ class Mission
 									};
 									id=3600;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.73826599;
+									atlOffset=0.74537659;
 								};
 								class Item33
 								{
@@ -26025,7 +26022,7 @@ class Mission
 									};
 									id=3602;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.33071899;
+									atlOffset=0.33784485;
 								};
 								class Item34
 								{
@@ -26542,7 +26539,7 @@ class Mission
 									};
 									id=2928;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=0.46224976;
+									atlOffset=0.46937561;
 								};
 								class Item3
 								{
@@ -30746,7 +30743,6 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_19";
 				disableSimulation=1;
 			};
@@ -31184,7 +31180,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_20";
 				disableSimulation=1;
 			};
@@ -31260,7 +31255,6 @@ class Mission
 			};
 			id=2695;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.0071258545;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -31626,7 +31620,7 @@ class Mission
 			};
 			id=3167;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.24858093;
+			atlOffset=0.24145508;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -32254,7 +32248,6 @@ class Mission
 			};
 			id=3239;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.0071258545;
 		};
 		class Item353
 		{
@@ -32577,7 +32570,7 @@ class Mission
 			};
 			id=3324;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.030639648;
+			atlOffset=0.023513794;
 		};
 		class Item364
 		{
@@ -32815,7 +32808,7 @@ class Mission
 			};
 			id=3390;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.24816895;
+			atlOffset=0.24104309;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -32883,17 +32876,35 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9871.5967,231.61189,6574.2036};
-				angles[]={0.0083526876,3.3236747,0.0011814222};
+				position[]={9871.5967,231.6118,6574.2041};
+				angles[]={0.008360127,3.3236828,0.0011868239};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=3405;
 			type="Land_vn_us_common_table_01";
-			atlOffset=-0.01991272;
+			atlOffset=-0.020004272;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item377
 		{
@@ -32907,27 +32918,63 @@ class Mission
 			class Attributes
 			{
 				name="vn_mf_macv_WL1_teleporter";
+				disableSimulation=1;
 			};
 			id=3406;
 			type="vn_b_prop_vrc12";
 			atlOffset=0.77400208;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item378
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9873.8682,231.61328,6573.8604};
-				angles[]={0.0083526876,3.3236747,0.0011814222};
+				position[]={9873.8682,231.61346,6573.8599};
+				angles[]={0.008360127,3.3236828,0.0011868239};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				disableSimulation=1;
 			};
 			id=3409;
 			type="Land_vn_us_common_table_01";
-			atlOffset=-0.0081939697;
+			atlOffset=-0.0079956055;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item379
 		{
@@ -32941,10 +32988,28 @@ class Mission
 			class Attributes
 			{
 				name="vn_mf_macv_WL2_teleporter";
+				disableSimulation=1;
 			};
 			id=3410;
 			type="vn_b_prop_vrc12";
 			atlOffset=0.78500366;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item380
 		{
@@ -32962,6 +33027,7 @@ class Mission
 			};
 			id=3414;
 			type="Land_vn_b_helipad_01";
+			atlOffset=-0.0071258545;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -33598,7 +33664,7 @@ class Mission
 			};
 			id=3516;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.13813782;
+			atlOffset=0.13101196;
 		};
 		class Item401
 		{
@@ -33612,7 +33678,7 @@ class Mission
 			flags=1;
 			id=3517;
 			type="ModuleHideTerrainObjects_F";
-			atlOffset=0.55508423;
+			atlOffset=0.59162903;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -34361,7 +34427,7 @@ class Mission
 			};
 			id=3601;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.27101135;
+			atlOffset=0.2638855;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -34395,7 +34461,7 @@ class Mission
 			};
 			id=3603;
 			type="Land_vn_b_helipad_01";
-			atlOffset=0.035552979;
+			atlOffset=0.028427124;
 		};
 		class Item429
 		{
@@ -37958,7 +38024,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9863.7832,233.81461,6547.709};
+				position[]={9863.7832,234.44469,6547.709};
 				angles[]={0,0.19430751,0};
 			};
 			side="Empty";
@@ -37968,7 +38034,7 @@ class Mission
 			};
 			id=3717;
 			type="B_Heli_Light_01_F";
-			atlOffset=0.62867737;
+			atlOffset=1.2587585;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -40156,7 +40222,6 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Clean Up"", { " \n "  {deleteVehicle _x;} forEach nearestObjects [player, [""WeaponHolder"", ""GroundWeaponHolder""], 20]; " \n "}]; " \n "this attachTo [TrashPadOne];";
 				name="arsenal_cleanup_21";
 				disableSimulation=1;
 			};
@@ -45042,6 +45107,66 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item707
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9709.0752,231.98198,6754.124};
+				angles[]={0,0.51570988,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=4069;
+			type="Box_NATO_Wps_F";
+			atlOffset=-0.0010070801;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""vn_m14a1_camo""],[20]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item708
+		{
+			dataType="Marker";
+			position[]={474.84457,468.32101,11112.136};
+			name="mf_dc_respawn_tunnel_1_nw";
+			text="@mf_dc_respawn_tunnel_1_nw";
+			type="Empty";
+			angle=180;
+			id=4070;
+			atlOffset=3.4985962;
 		};
 	};
 	class Connections

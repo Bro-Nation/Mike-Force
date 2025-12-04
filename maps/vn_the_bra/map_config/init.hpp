@@ -5,11 +5,11 @@ class map_config {
 	max_artillery_per_zone = 4;
 	max_fortifications_per_zone = 0;
 	max_tunnels_per_zone = 3;
-	max_radars_per_zone = 2;
+	max_radars_per_zone = 1;
 	max_water_supply_per_zone = 2;
 	max_vehicle_depots_per_zone = 3;
 	max_fuel_per_zone = 2;
-	starting_zones[] = {"zone_nam_phat", "zone_ban_pakha", "zone_ban_dac_maruk"};
+	starting_zones[] = {"zone_ban_pakha"};
 	bn_zone_radius = 1000;
 	class zones {
 		#include "zones.hpp"

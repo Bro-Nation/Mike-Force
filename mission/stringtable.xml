@@ -515,6 +515,42 @@
       <Key ID="STR_vn_mf_keybindings_interactionOverlay_toggle">
         <Original>Toggle Interaction Overlay</Original>
       </Key>
+      <Key ID="STR_MF_HELP_ARSENAL">
+        <Original>Arsenal</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_ARSENAL_SUB">
+        <Original>Get your kit</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_DUTY">
+        <Original>Duty Officer</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_DUTY_SUB">
+        <Original>Teams &amp; Training</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_TP">
+        <Original>Teleporter</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_TP_SUB">
+        <Original>Fast travel around base</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_TRASH">
+        <Original>Trashcan</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_TRASH_SUB">
+        <Original>Clean up area</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_SUPPLIES">
+        <Original>Supply Officer</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_SUPPLIES_SUB">
+        <Original>Order ammo crates &amp; more</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_MACV">
+        <Original>Teleporter</Original>
+      </Key>
+      <Key ID="STR_MF_HELP_MACV_SUB">
+        <Original>Fast travel to WLU bases</Original>
+      </Key>
       <Key ID="STR_vn_mf_taskRoster_Main_MikeForceDescription">
         <Original>As special forces infantry, your team's role is to:&lt;br/&gt;- Sweep and clear areas of enemy&lt;br/&gt;- Secure and hold zones&lt;br/&gt;- Protect populations, logistics and supplies&lt;br/&gt;- Reinforce other teams&lt;br/&gt;Tasks&lt;br/&gt;- &lt;img color='#CC000000' image='\vn\ui_f_vietnam\ui\taskroster\img\icons\vn_icon_task_primary.paa'/&gt; Primary Tasks are shared by all teams.&lt;br/&gt;- &lt;img color='#CC000000' image='\vn\ui_f_vietnam\ui\taskroster\img\icons\vn_icon_task_secondary.paa'/&gt; Secondary Tasks are unique to your team.&lt;br/&gt;- &lt;img color='#CC000000' image='\vn\ui_f_vietnam\ui\taskroster\img\icons\vn_icon_task_support.paa'/&gt; Support Tasks are called by other teams in need of your help. You may also request their support, for example transport is provided for you by ACAV or Green Hornets.</Original>
       </Key>

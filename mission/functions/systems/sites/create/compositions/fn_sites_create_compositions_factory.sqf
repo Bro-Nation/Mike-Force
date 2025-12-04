@@ -33,7 +33,7 @@ params ["_position"];
 vn_mf_factory_compositions_default = [];
 vn_mf_factory_compositions = [];
 
-if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh"])then {
+if(toLower(worldName) in ["cam_lao_nam", "vn_khe_sanh", "vn_the_bra"])then {
 	vn_mf_factory_compositions_default = [
 [//BN_Depotv1
 	["Land_vn_pavn_weapons_stack1",[-0.233398,-0.0214844,0.66479],90,1,0,[0,0],"","",false,false], 

@@ -4,16 +4,16 @@
     Date: 2023-01-07
     Last Update: 2023-01-07
     Public: Yes
-    
+
     Description:
 	   	Closes down an active zone, and marks it as completed.
-    
+
     Parameter(s):
 	   	_zone - Zone to complete [STRING]
-    
+
     Returns:
 	   	Nothing
-    
+
     Example(s):
 		["zone_ba_ria"] call vn_mf_fnc_director_complete_zone;
 */
@@ -39,8 +39,13 @@ vn_site_objects apply {deleteVehicle _x};
 [_zone] call vn_mf_fnc_zones_capture_zone;
 
 // upstream SGD allow any connected zone to be open, which is not what we want in BN
-[] call vn_mf_fnc_director_open_closest_zone;
-// [] call vn_mf_fnc_director_open_connected_zones;
+if ((toLower worldName) isEqualTo "vn_the_bra") then {
+    // The Bra: use zones.hpp due to density of AOs
+    [] call vn_mf_fnc_director_open_connected_zones;
+} else {
+    // All other maps: use closest-to-starting_point
+    [] call vn_mf_fnc_director_open_closest_zone;
+};
 
 // we don't want to start playing music for
 // players still in the intro / player init

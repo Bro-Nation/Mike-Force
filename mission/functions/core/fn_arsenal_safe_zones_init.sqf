@@ -19,7 +19,9 @@ private _whitelistedModule = objNull;
 	_whitelistedModule = _x;
 } forEach allMissionObjects "vn_module_whitelistedarsenal";
 
-private _arsenals = synchronizedObjects _whitelistedModule;
+private _arsenals = synchronizedObjects _whitelistedModule select {
+	!(typeOf _x in ["Land_vn_us_weapons_stack4"])
+};
 if (isNil "_previousMessageTime") then {
 	_previousMessageTime = 0;
 };

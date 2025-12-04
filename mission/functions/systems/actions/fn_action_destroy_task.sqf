@@ -101,7 +101,13 @@ private _conditionToShowString = str {
 		private _res = (
 			(side player != east)
 			&& {
-				(typeOf cursorObject in _classNames)
+				(
+					// match any vn_o_boat variant by substring OR match any explicit classname in _classNames
+					((toLower typeOf cursorObject) find "vn_o_boat" > -1)
+					|| {
+						(typeOf cursorObject in _classNames)
+					}
+				)
 			&& {
 				// 1.75m base distance plus object largest dimension divided by 2
 				(player distance cursorObject < (1.75 + (sizeOf (typeOf cursorObject)) / 2))

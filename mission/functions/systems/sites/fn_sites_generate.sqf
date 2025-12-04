@@ -100,6 +100,9 @@ _radios apply {_x call vn_mf_fnc_action_radiotap};
 
 missionNamespace setVariable ["siteRadios", _radios];
 
+// Road mines — once per AO (debug off for normal runs)
+[_zone, 10, 100, false] call vn_mf_fnc_sites_seed_zone_road_mines;
+
 [] call vn_mf_fnc_sites_create_initial_static_ai_crews;
 
 nil;

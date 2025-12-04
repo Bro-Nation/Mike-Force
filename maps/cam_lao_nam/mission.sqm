@@ -8,7 +8,7 @@ class EditorData
 	toggles=586;
 	class ItemIDProvider
 	{
-		nextID=19686;
+		nextID=19687;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=32799;
+		nextID=33031;
 	};
 	class Camera
 	{
@@ -86,7 +86,8 @@ addons[]=
 	"A3_Structures_F_Naval_Piers",
 	"A3_Air_F_Heli_Light_01",
 	"A3_Structures_F_Exp_Civilian_House_Small_01",
-	"A3_Structures_F_EPB_Civ_Garbage"
+	"A3_Structures_F_EPB_Civ_Garbage",
+	"A3_Weapons_F_Ammoboxes"
 };
 class AddonsMetaData
 {
@@ -525,7 +526,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=476;
+		items=477;
 		class Item0
 		{
 			dataType="Marker";
@@ -13568,7 +13569,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_19";
 								disableSimulation=1;
 							};
@@ -16107,7 +16107,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_15";
 								disableSimulation=1;
 							};
@@ -19681,7 +19680,6 @@ class Mission
 									side="Empty";
 									class Attributes
 									{
-										init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 										name="arsenal_cleanup_24";
 										disableSimulation=1;
 									};
@@ -20886,7 +20884,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_21";
 								disableSimulation=1;
 							};
@@ -22031,7 +22028,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_20";
 								disableSimulation=1;
 							};
@@ -24489,7 +24485,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_22";
 								disableSimulation=1;
 							};
@@ -25385,7 +25380,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_18";
 								disableSimulation=1;
 							};
@@ -28070,7 +28064,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_23";
 								disableSimulation=1;
 							};
@@ -32412,7 +32405,6 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this addAction [""Clean Up"", {{ deleteVehicle _x; } forEach nearestObjects [player,[""WeaponHolder"",""GroundWeaponHolder""],20];}]; this attachTo [TrashPadOne];";
 								name="arsenal_cleanup_17";
 								disableSimulation=1;
 							};
@@ -54857,7 +54849,7 @@ class Mission
 					name="connector_attapeu_sihanoukville_1";
 					text="Connector Attapeu to Sihanoukville";
 					type="mil_arrow";
-					angle=228.70764;
+					angle=228.70763;
 					id=19648;
 					atlOffset=-52.366173;
 				};
@@ -55176,7 +55168,7 @@ class Mission
 					name="connector_son_tay_ling_ho_1";
 					text="Connector Son Tay to Ling Ho";
 					type="mil_arrow";
-					angle=56.768127;
+					angle=56.768124;
 					id=19677;
 					atlOffset=-28.567219;
 				};
@@ -55272,16 +55264,64 @@ class Mission
 			id=19562;
 			atlOffset=-152.66122;
 		};
+		class Item476
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16024.195,15.168724,7117.9072};
+				angles[]={0,1.5707964,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				disableSimulation=1;
+				dynamicSimulation=1;
+			};
+			id=19686;
+			type="Box_NATO_Wps_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ammoBox";
+					expression="[_this,_value] call bis_fnc_initAmmoBox;";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="[[[[""vn_m14a1_camo""],[20]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
 	};
 	class Connections
 	{
 		class LinkIDProvider
 		{
-			nextID=399;
+			nextID=400;
 		};
 		class Links
 		{
-			items=399;
+			items=400;
 			class Item0
 			{
 				linkID=0;
@@ -59275,8 +59315,8 @@ class Mission
 			class Item399
 			{
 				linkID=399;
-				item0=264;
-				item1=3784;
+				item0=3784;
+				item1=264;
 				class CustomData
 				{
 					type="Sync";
