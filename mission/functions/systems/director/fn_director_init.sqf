@@ -2,17 +2,17 @@
 	File: fn_director_init.sqf
 	Author: Savage Game Design
 	Public: Yes
-	
+
 	Description:
 		Initialises the gameplay director subsystem
 		This subsystem is responsible for handling primary tasks, and directing mission flow.
-	
+
 	Parameter(s):
 		None
-	
+
 	Returns:
 		None
-	
+
 	Example(s):
 		[] call vn_mf_fnc_director_init;
 */
@@ -32,9 +32,14 @@ mf_s_dir_attack_prep_time = 600;
 mf_s_dir_action_fired = true; //Mark it as dispatched, so we reset back to a new timer.
 
 // from old BN copy
-if (count keys mf_s_dir_activeZones == 0) then 
-{
-	call vn_mf_fnc_director_open_closest_zone;
+if (count keys mf_s_dir_activeZones == 0) then {
+	if ((toLower worldName) isEqualTo "vn_the_bra") then {
+		// The Bra: use adjacency graph in zones.hpp
+		[] call vn_mf_fnc_director_open_connected_zones;
+	} else {
+		// All other maps: use closest-to-starting_point
+		[] call vn_mf_fnc_director_open_closest_zone;
+	};
 };
 
 // ==> upstream SGD allows any connected zone to be active, but players cause problems with that
