@@ -250,3 +250,39 @@ class vn_mf_emotes_menu
 	displayName = "Open Emotes Menu";
 	access = 1;
 };
+
+class vn_mf_channel_change_to_ground
+{
+	defaultKey = DIK_F1;
+	shift = "true";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_teams_comms_change_channel_to_ground";
+	down = 0;
+	displayName = "Switch Channel to 'Ground'";
+	access = 1;
+};
+
+class vn_mf_channel_change_to_air
+{
+	defaultKey = DIK_F2;
+	shift = "true";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_teams_comms_change_channel_to_air";
+	down = 0;
+	displayName = "Switch Channel to 'Air'";
+	access = 1;
+};
+
+class vn_mf_channel_change_to_cff
+{
+	defaultKey = DIK_F3;
+	shift = "true";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_teams_comms_change_channel_to_cff";
+	down = 0;
+	displayName = "Switch Channel to 'CFF'";
+	access = 1;
+};
