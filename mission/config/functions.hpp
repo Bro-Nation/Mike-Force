@@ -1,3 +1,4 @@
+
 class CfgFunctions
 {
 	#include "..\paradigm\client\functions.hpp"
@@ -18,6 +19,10 @@ class CfgFunctions
 			class arsenal_safe_zones_init {};
 			class save_time_elapsed {};
 			class stats_init {};
+			class addHangarLights {};
+			class bulldozer_trees {};
+			class spawn_tank_dozer {};
+			class eject_and_parachute {};
 		};
 
 		class core_helpers
@@ -76,16 +81,6 @@ class CfgFunctions
 			class teams_comms_switchers_onoff {};
 			class teams_comms_switchers_off_all {};
 		};
-
-		class core_teams_comms_change_channels
-		{
-			file = "functions\core\teams\comms_channel_changer";
-			class teams_comms_change_channel {};
-			class teams_comms_change_channel_to_ground {};
-			class teams_comms_change_channel_to_air {};
-			class teams_comms_change_channel_to_cff {};
-		};
-
 		class core_teams_comms_transmit_channels
 		{
 			file = "functions\core\teams\comms_channel_changer";
@@ -123,6 +118,14 @@ class CfgFunctions
 			class ui_update {};
 			class update_loading_screen {};
 			class ui_hud_toggle {};
+		};
+
+		class spawnHelpMarkers
+		{
+			file = "functions\core\ui\spawnHelpMarkers";
+			class spawnHelpMarkers_enable {};
+			class spawnHelpMarkers_buildRegistry {};
+			class spawnHelpMarkers_drawPlaque3D {};
 		};
 
 		// these are functions that are used outside of the taskroster UI
@@ -208,6 +211,7 @@ class CfgFunctions
 			class action_gather_intel {};
 			class action_radiotap {};
 			class action_capture_player {};
+			class action_capture_travel {};
 			class action_arrest_player {};
 			class action_release_from_arrest_player {};
 			class action_drink_water {};
@@ -241,6 +245,12 @@ class CfgFunctions
 			file = "functions\systems\arsenal_cleanup";
 			class arsenal_trash_cleanup_init {};
 			class arsenal_trash_cleanup {};
+		};
+
+		class system_supply_cleanup {
+			file = "functions\systems\supply_cleanup";
+			class supply_cleanup_init {};
+			class supply_cleanup {};
 		};
 
 		class system_attachments {
@@ -281,6 +291,7 @@ class CfgFunctions
 			file = "functions\systems\dac_cong";
 			class daccong_respawns_delete_all {};
 			class capture_player {};
+			class capture_travel {};
 			class ctf_handle_flag_height_change {};
 			class ctf_broadcast_notify_immediate {};
 		}
@@ -353,6 +364,7 @@ class CfgFunctions
 			class sites_discovery_job {};
 			class sites_create_initial_static_ai_crews {};
 			class sites_create_objects_with_tree_removal {};
+			class sites_seed_zone_road_mines {};
 		};
 
 		// remote actions that can be performed at sites
