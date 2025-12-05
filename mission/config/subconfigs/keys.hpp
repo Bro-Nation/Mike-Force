@@ -286,3 +286,39 @@ class vn_mf_channel_change_to_cff
 	displayName = "Switch Channel to 'CFF'";
 	access = 1;
 };
+
+class vn_mf_channel_talk_to_ground
+{
+	defaultKey = DIK_CAPSLOCK;
+	shift = "true";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_teams_comms_transmit_to_ground";
+	down = 1;
+	displayName = "Transmit on Channel 'Ground'";
+	access = 1;
+};
+
+class vn_mf_channel_talk_to_air
+{
+	defaultKey = DIK_CAPSLOCK;
+	shift = "false";
+	ctrl = "true";
+	alt = "false";
+	function = "vn_mf_fnc_teams_comms_transmit_to_air";
+	down = 1;
+	displayName = "Transmit on Channel 'Air'";
+	access = 1;
+};
+
+class vn_mf_channel_talk_to_cff
+{
+	defaultKey = DIK_CAPSLOCK;
+	shift = "false";
+	ctrl = "false";
+	alt = "true";
+	function = "vn_mf_fnc_teams_comms_transmit_to_cff";
+	down = 1;
+	displayName = "Transmit on Channel 'CFF'";
+	access = 1;
+};
