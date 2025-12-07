@@ -1156,6 +1156,13 @@ class spawn_point_types {
 
 	// satans angels /////////////////////////////////////////////////////////////////
 
+		class satans_air_transport_all: unlocked_air_transport_all {
+
+		name = "Helicopters (Transport) [Satan's Angels]";
+		lockTeams[] = LOCKED_SATANS_ANGELS;
+
+	};
+
 	class satansangels_air_jets_runway_custom {
 
 		name = "Jets (All) [Satan's Angels]";

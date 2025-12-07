@@ -43,6 +43,13 @@ params ["_pos"];
 		private _currentVehicles = vehicles;
 
 		vn_site_objects append _factoryObjects;
+		
+		// --- Disable damage for sniper trees ---
+		(_factoryObjects select { (typeOf _x) find "Land_vn_o_snipertree" != -1 
+		}) apply {
+			_x allowDamage false;
+		};
+		
 
 		private _objectTypesToDestroy = [
 			"Land_vn_wf_vehicle_service_point_east",

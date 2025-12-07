@@ -59,6 +59,13 @@ params ["_pos"];
 		private _hqObjects = [_spawnPos] call vn_mf_fnc_sites_create_compositions_hq;
 		vn_site_objects append _hqObjects;
 
+		// Disable damage for sniper trees
+		(_hqObjects select { 
+			(typeOf _x) find "Land_vn_o_snipertree" != -1
+		}) apply {
+			_x allowDamage false;
+		};
+
 		private _fnc_dynSimKindOfChecker = {
 			params ["_object"];
 			(_x isKindOf "StaticWeapon" || _x isKindOf "Building" || _x isKindOf "House" || _x isKindOf "LandVehicle")
