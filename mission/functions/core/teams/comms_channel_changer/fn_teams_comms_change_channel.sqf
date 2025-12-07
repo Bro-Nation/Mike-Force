@@ -24,5 +24,10 @@ params ["_custom_channel_id"];
 
 private _global_channel_id = 15 min (6 max (_custom_channel_id + 5));
 
+if (!(channelEnabled _global_channel_id # 1)) then
+{
+  _custom_channel_id radioChannelAdd [player];
+  _global_channel_id enableChannel [true,true];
+};
 
 setCurrentChannel _global_channel_id;
