@@ -289,8 +289,8 @@ class vn_mf_channel_change_to_cff
 
 class vn_mf_channel_talk_to_ground
 {
-	defaultKey = DIK_CAPSLOCK;
-	shift = "true";
+	defaultKey = DIK_NUMPAD1;
+	shift = "false";
 	ctrl = "false";
 	alt = "false";
 	function = "vn_mf_fnc_teams_comms_transmit_to_ground";
@@ -301,9 +301,9 @@ class vn_mf_channel_talk_to_ground
 
 class vn_mf_channel_talk_to_air
 {
-	defaultKey = DIK_CAPSLOCK;
+	defaultKey = DIK_NUMPAD2;
 	shift = "false";
-	ctrl = "true";
+	ctrl = "false";
 	alt = "false";
 	function = "vn_mf_fnc_teams_comms_transmit_to_air";
 	down = 1;
@@ -313,10 +313,10 @@ class vn_mf_channel_talk_to_air
 
 class vn_mf_channel_talk_to_cff
 {
-	defaultKey = DIK_CAPSLOCK;
+	defaultKey = DIK_NUMPAD3;
 	shift = "false";
 	ctrl = "false";
-	alt = "true";
+	alt = "false";
 	function = "vn_mf_fnc_teams_comms_transmit_to_cff";
 	down = 1;
 	displayName = "Transmit on Channel 'CFF'";
