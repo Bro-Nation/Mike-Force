@@ -4016,7 +4016,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\billboards\bn_charity_bb_2025.paa""];";
+								init="this setObjectTexture [0,""custom\billboards\supporter_sign.paa""];";
 								disableSimulation=1;
 							};
 							id=16872;
@@ -13892,7 +13892,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\billboards\bn_charity_bb_2025.paa""];";
+								init="this setObjectTexture [0,""custom\billboards\BN_Welcome_20240621.paa""];";
 								name="billboard_airfield_right_4";
 							};
 							id=16864;
