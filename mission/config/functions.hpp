@@ -417,6 +417,7 @@ class CfgFunctions
 			class sites_create_site_hq {};
 			class sites_create_site_factory {};
 			class sites_create_site_radar {};
+			class sites_create_site_underwater_wreck {};
 		}
 
 		// utility functions to simplify/DRY the existing site code
