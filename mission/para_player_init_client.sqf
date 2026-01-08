@@ -430,6 +430,17 @@ call vn_mf_fnc_attachments_client_battery_monitor_init;
 // Add decorative hangar lights
 call vn_mf_fnc_addHangarLights;
 
+// Player Icon Toggle Init
+if (isNil { localNamespace getVariable "vn_showPlayerIcons" }) then {
+    localNamespace setVariable ["vn_showPlayerIcons", true]; // ON by default
+};
+
+vn_fnc_toggle_playericons = {
+    params ["_state"];
+    localNamespace setVariable ["vn_showPlayerIcons", _state];
+    hint format ["Player Names: %1", if (_state) then {"ENABLED"} else {"DISABLED"}];
+};
+
 [] call vn_mf_fnc_spawnHelpMarkers_enable;
 
 [missionNamespace, "arsenalClosed", {

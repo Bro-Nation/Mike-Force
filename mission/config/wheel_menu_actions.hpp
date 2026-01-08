@@ -53,7 +53,33 @@ class wheel_menu_actions
 		function = "vn_mf_fnc_earplugs";
 		spawn = 0;
 	};
+	
+	// Show player names
+	class show_player_icons : base_action
+	{
+		visible = "ALWAYS";
+		condition = "(([_target,'MACV'] call para_g_fnc_db_check_whitelist) || ([_target,'MilitaryPolice'] call para_g_fnc_db_check_whitelist)) && !(localNamespace getVariable ['vn_showPlayerIcons', true])";
+		text = "Show Player Names";
+		icon = "custom\wheelmenu\zeus_reveal_player_names.paa";
+		icon_highlighted = "";
+		arguments = "true";
+		function = "vn_fnc_toggle_playericons";
+		spawn = 0;
+	};
 
+	// Hide player names
+	class hide_player_icons : base_action
+	{
+		visible = "ALWAYS";
+		condition = "(([_target,'MACV'] call para_g_fnc_db_check_whitelist) || ([_target,'MilitaryPolice'] call para_g_fnc_db_check_whitelist)) && (localNamespace getVariable ['vn_showPlayerIcons', true])";
+		text = "Hide Player Names";
+		icon = "custom\wheelmenu\zeus_reveal_player_names.paa";
+		icon_highlighted = "";
+		arguments = "false";
+		function = "vn_fnc_toggle_playericons";
+		spawn = 0;
+	};
+	
 	class siren : base_action
 	{
 		visible = "ALWAYS";
