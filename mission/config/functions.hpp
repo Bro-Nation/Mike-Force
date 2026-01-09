@@ -209,6 +209,7 @@ class CfgFunctions
 			class action_vehspawner_show_spawn_point {};
 			class action_destroy_task {};
 			class action_gather_intel {};
+			class action_gather_BlackBox {};
 			class action_radiotap {};
 			class action_capture_player {};
 			class action_capture_travel {};

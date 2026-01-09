@@ -95,18 +95,13 @@ params ["_pos"];
         private _markerPos = _spawnPos getPos [10 + random 20, random 360];
         private _marker = createMarker [format ["UnderwaterWreck_%1", _siteId], _markerPos];
         _marker setMarkerType "o_installation";
-        _marker setMarkerText "Wreck Site";
+        _marker setMarkerText "Boat Wreck";
         _marker setMarkerAlpha 0;
 
         private _partialPos = _spawnPos getPos [10 + random 40, random 360];
         private _partialMarker = createMarker [format ["PartialUnderwaterWreck_%1", _siteId], _partialPos];
         _partialMarker setMarkerType "o_unknown";
         _partialMarker setMarkerAlpha 0;
-
-        // --- Dynamic sim ---
-        [_boat, true] call para_s_fnc_enable_dynamic_sim;
-        [_wall, true] call para_s_fnc_enable_dynamic_sim;
-        [_radio, true] call para_s_fnc_enable_dynamic_sim;
 
         // --- AI Stuff ---
 

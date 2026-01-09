@@ -31,7 +31,7 @@ private _actionProgressIcon = _actionIdleIcon;
 
 private _isNotOpfor = "side player != east";
 private _isInRangeOfRadio = "player distance cursorObject < 5";
-private _isValidObjectType = "typeOf cursorObject in ['vn_o_prop_t102e_01', 'vn_o_prop_t884_01', 'Land_vn_mutt_vysilacka']";
+private _isValidObjectType = "typeOf cursorObject in ['vn_o_prop_t102e_01', 'vn_o_prop_t884_01']";
 
 private _conditionToShow = format [
 	"(%1 && %2 && %3)",
