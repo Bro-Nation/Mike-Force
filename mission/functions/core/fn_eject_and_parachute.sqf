@@ -5,6 +5,7 @@
 
     Description:
         Adds an action to a vehicle that allows players to eject with a parachute from the vehicle.
+        For CH-47, the pilot and co-pilot use emergency eject (GETOUT) via remoteExec.
 
     Parameter(s):
         _vehicle - Vehicle to add the eject action to [OBJECT]  
@@ -13,6 +14,7 @@
 params ["_vehicle"];
 if (isNull _vehicle) exitWith {};
 
+// Add the action to the vehicle
 _vehicle addAction [
     "<t color='#ffffffff'>Eject with Parachute</t>",
     {
@@ -22,9 +24,11 @@ _vehicle addAction [
 
         if (isNull _player || isNull _vehicle) exitWith {};
 
+        // --- Store original backpack and items ---
         private _oldBackpackClass = backpack _player;
         private _oldBackpackItems = backpackItems _player;
 
+        // --- List of parachute backpacks ---
         private _parachutes = [
             "vn_i_pack_parachute_01",
             "vn_o_pack_parachute_01",
@@ -43,18 +47,14 @@ _vehicle addAction [
         private _foundClass = "";
         private _cargo = getBackpackCargo _vehicle;
 
+        // --- Search vehicle cargo for a parachute ---
         if (typeName _cargo == "ARRAY" && {count _cargo == 2}) then {
             private _classes = _cargo select 0;
             private _counts  = _cargo select 1;
 
             for "_i" from 0 to (count _classes - 1) do {
                 private _cls = _classes select _i;
-
-                if (
-                    _foundClass == "" &&
-                    {_parachutes find _cls != -1} &&
-                    {(_counts select _i) > 0}
-                ) then {
+                if (_foundClass == "" && {_parachutes find _cls != -1} && {(_counts select _i) > 0}) then {
                     _foundClass = _cls;
                     _counts set [_i, (_counts select _i) - 1];
                 };
@@ -62,13 +62,13 @@ _vehicle addAction [
 
             if (_foundClass == "") exitWith { hintSilent "No parachute found in helicopter cargo!"; };
 
+            // --- Update cargo with remaining items ---
             private _newClasses = [];
             private _newCounts  = [];
 
             for "_j" from 0 to (count _classes - 1) do {
                 private _c = _classes select _j;
                 private _n = _counts  select _j;
-
                 if (_n > 0) then {
                     _newClasses pushBack _c;
                     _newCounts  pushBack _n;
@@ -89,11 +89,18 @@ _vehicle addAction [
 
         removeBackpack _player;
         _player addBackpack _foundClass;
+        
+        //ch47 ejcet work around
+        if ((typeOf _vehicle) find "vn_b_air_ch47" != -1) then {
+            { [_x] remoteExec ["moveOut", _x] } forEach [driver _vehicle, _vehicle turretUnit [0]];
+        } else {
+            _player action ["EJECT", _vehicle];
+        };
 
-        _player action ["EJECT", _vehicle];
         waitUntil { vehicle _player != _vehicle };
         sleep 0.5;
 
+        // --- Restore original backpack/items ---
         [_player, _oldBackpackClass, _oldBackpackItems, _foundClass] spawn {
             params ["_p", "_oldClass", "_oldItems", "_parachuteClass"];
 
