@@ -112,7 +112,7 @@ params ["_pos"];
 		//};
 
 		//Create a factory marker.
-		private _markerPos = _spawnPos getPos [20 + random 30, random 360];
+		private _markerPos = _spawnPos getPos [10 + random 10, random 360];
 		private _factoryMarker = createMarker [format ["factory_%1", _siteId], _markerPos];
 		_factoryMarker setMarkerType "o_Ordnance";
 		// NOTE: @dijskterhuis: Changed from "Factory"!
@@ -125,22 +125,16 @@ params ["_pos"];
 		_markerPartial setMarkerType "o_unknown";
 		_markerPartial setMarkerAlpha 0;
 
-		private _factoryRespawnMarker = createMarker [format ["dc_respawn_adhoc_%1", _siteId], _markerPos];
-		_factoryRespawnMarker setMarkerType "o_Ordnance";
-		_factoryRespawnMarker setMarkerAlpha 0;
-		
-		private _respawnID = [east, _factoryRespawnMarker] call BIS_fnc_addRespawnPosition;
-		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _markerPos, [], 5, "NONE"];
-		_respawnObj setVariable ["vn_respawn", [_factoryRespawnMarker, _respawnID]];
-	
-		vn_dc_adhoc_respawns pushBack [_factoryRespawnMarker, _respawnID];
-		
-		// 2x ai objectives to replace other factory / hq AI that never get freed in task system
-		private _objectives = [
-			[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend,
-			[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend
-		];
+		private _dc_spawnPos = _spawnPos getPos [30 + random 100, random 360];
+		private _DepotRespawnMarker = createMarker [format ["dc_respawn_adhoc_%1", _siteId], _dc_spawnPos];
+		_DepotRespawnMarker setMarkerType "o_Ordnance";
+		_DepotRespawnMarker setMarkerAlpha 0;
 
+		private _respawnID = [east, _DepotRespawnMarker] call BIS_fnc_addRespawnPosition;
+		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _dc_spawnPos, [], 5, "NONE"];
+		_respawnObj setVariable ["vn_respawn", [_DepotRespawnMarker, _respawnID]];
+		vn_dc_adhoc_respawns pushBack [_DepotRespawnMarker, _respawnID];
+		
 		_siteStore setVariable ["aiObjectives", _objectives];
 		_siteStore setVariable ["markers", [_factoryMarker]];
 		_siteStore setVariable ["partialMarkers", [_markerPartial]];
