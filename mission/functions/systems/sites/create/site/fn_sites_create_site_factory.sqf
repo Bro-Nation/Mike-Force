@@ -111,6 +111,11 @@ params ["_pos"];
 		//	};
 		//};
 
+		// 2x ai objectives to replace other factory / hq AI that never get freed in task system
+		private _objectives = [
+			[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend,
+			[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend
+		];
 		//Create a factory marker.
 		private _markerPos = _spawnPos getPos [10 + random 10, random 360];
 		private _factoryMarker = createMarker [format ["factory_%1", _siteId], _markerPos];
