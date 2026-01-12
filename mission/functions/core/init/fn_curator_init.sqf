@@ -43,6 +43,7 @@ if (_hasZeusPack == false) exitWith {};
 		unassignCurator _myCurObject;
 		sleep 0.4;
 		_thePlayer assignCurator _myCurObject;
+		_myCurObject setVariable ["owner", _playerUID]; // For fixing loss of Zeus utilites on respawn
 		diag_log format ["[+] Player %1 added to %2.", _thePlayer, _myCurObject];
 
 	}, _this] call CBA_fnc_globalExecute;
