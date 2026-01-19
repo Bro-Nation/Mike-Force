@@ -1154,6 +1154,36 @@ class spawn_point_types {
 		};
 	};
 
+	class muskets_grd_transport_light {
+
+		name = "Jeeps/Mules [Muskets]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_SHORT;
+		lockTeams[] = LOCKED_MUSKETS;
+
+		class categories {
+			class m151_us {
+				name = "M151A1 Unarmed (US Army)";
+				icon = VEHICLE_ICON_CAR;
+				vehicles[] = {
+					"vn_b_wheeled_m151_01",
+					"vn_b_wheeled_m151_02",
+					"vn_b_wheeled_m151_mg_03",
+				};
+			};
+			class mule {
+				name = "M274 Mule Unarmed";
+				icon = VEHICLE_ICON_CAR;
+				vehicles[] = {
+					"vn_b_wheeled_m274_01_01",
+					"vn_b_wheeled_m274_01_02",
+					"vn_b_wheeled_m274_02_01",
+					"vn_b_wheeled_m274_02_02",
+				};
+			};
+		};
+	};
+
 	// satans angels /////////////////////////////////////////////////////////////////
 
 		class satans_air_transport_all: unlocked_air_transport_all {
