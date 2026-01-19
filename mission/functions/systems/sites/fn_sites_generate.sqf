@@ -109,6 +109,9 @@ missionNamespace setVariable ["siteRadios", _radios];
 // Road mines — once per AO (debug off for normal runs)
 [_zone, 10, 100, false] call vn_mf_fnc_sites_seed_zone_road_mines;
 
+// Bush traps — once per AO (debug off for normal runs)
+[_zone, 50, 15, false] call vn_mf_fnc_sites_seed_zone_bush_mines;
+
 [] call vn_mf_fnc_sites_create_initial_static_ai_crews;
 
 nil;

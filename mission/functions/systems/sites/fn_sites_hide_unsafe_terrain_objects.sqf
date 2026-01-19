@@ -71,6 +71,7 @@ _nearbyTerrainObjs apply {
 	if (_sitePos inArea _areaArr) then {
 
 		_x hideObjectGlobal true;
+		_x allowDamage false;
 
 		/*
 		rocks can have bushes placed on top of them.
