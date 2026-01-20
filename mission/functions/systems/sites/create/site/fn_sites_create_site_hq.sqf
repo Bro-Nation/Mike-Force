@@ -99,7 +99,7 @@ params ["_pos"];
 		];
 
 		//Create a HQ marker.
-		private _markerPos = _spawnPos getPos [20 + random 30, random 360];
+		private _markerPos = _spawnPos getPos [10 + random 10, random 360];
 		private _hqMarker = createMarker [format ["HQ_%1", _siteId], _markerPos];
 		_hqMarker setMarkerType "o_hq";
 		_hqMarker setMarkerText "HQ";
@@ -110,12 +110,13 @@ params ["_pos"];
 		_markerPartial setMarkerType "o_unknown";
 		_markerPartial setMarkerAlpha 0;
 
-		private _hqRespawnMarker = createMarker [format ["dc_respawn_adhoc_%1", _siteId], _markerPos];
+		private _dc_spawnPos = _spawnPos getPos [30 + random 100, random 360];
+		private _hqRespawnMarker = createMarker [format ["dc_respawn_adhoc_%1", _siteId], _dc_spawnPos];
 		_hqRespawnMarker setMarkerType "o_hq";
 		_hqRespawnMarker setMarkerAlpha 0;
 
 		private _respawnID = [east, _hqRespawnMarker] call BIS_fnc_addRespawnPosition;
-		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _markerPos, [], 5, "NONE"];
+		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _dc_spawnPos, [], 5, "NONE"];
 		_respawnObj setVariable ["vn_respawn", [_hqRespawnMarker,_respawnID]];
 
 		vn_dc_adhoc_respawns pushBack [_hqRespawnMarker,_respawnID];
