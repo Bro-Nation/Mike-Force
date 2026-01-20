@@ -519,15 +519,15 @@ class SatansAngels
     onLeave = "";
 };
 
-class 633rdCSG
+class 633rdcsg
 {
-    name = "Crossbow [633rd CSG]";
-    icon = "custom\taskroster\633rdcombatsupportgroup_HL.paa";
-    shortname = "Crossbow";
+    name = "[633rd TASG]";
+    icon = "custom\taskroster\633rd_HL.paa";
+    shortname = "633rd TASG";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
     colorRGBA[] = {0, 1, 0, 1};
-    description = "Support functions with a focus on aviation support and logistics. We do what others don't want to do or are deemed dangerous.";
+    description = "Support functions with a focus on aviation support and rescue. We do what others don't want to do or are deemed dangerous.";
     side = SIDE_WEST;
     wlu = IS_WLU;
     
