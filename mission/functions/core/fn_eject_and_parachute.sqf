@@ -95,7 +95,7 @@ _vehicle addAction [
            //{ [_x] remoteExec ["moveOut", _x] } forEach [driver _vehicle, _vehicle turretUnit [0]]; 
             if (vehicle _player unitTurret _player == [-1] || vehicle _player unitTurret _player == [0]) then
             {
-                moveOut _player;
+                [_player] remoteExec ["moveOut", _player];
             } else {
                 _player action ["EJECT", _vehicle];
             };
