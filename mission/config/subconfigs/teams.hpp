@@ -519,10 +519,10 @@ class SatansAngels
     onLeave = "";
 };
 
-class 633rdtasg
+class 633rdcsg
 {
-    icon = "custom\taskroster\633rdcombatsupportgroup_HL.paa";
     name = "[633rd TASG]";
+    icon = "custom\taskroster\633rd_HL.paa";
     shortname = "633rd TASG";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
