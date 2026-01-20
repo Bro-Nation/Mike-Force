@@ -92,7 +92,13 @@ _vehicle addAction [
         
         //ch47 ejcet work around
         if ((typeOf _vehicle) find "vn_b_air_ch47" != -1) then {
-            { [_x] remoteExec ["moveOut", _x] } forEach [driver _vehicle, _vehicle turretUnit [0]];
+           //{ [_x] remoteExec ["moveOut", _x] } forEach [driver _vehicle, _vehicle turretUnit [0]]; 
+            if (vehicle _player unitTurret _player == [-1] || vehicle _player unitTurret _player == [0]) then
+            {
+                moveOut _player;
+            } else {
+                _player action ["EJECT", _vehicle];
+            };
         } else {
             _player action ["EJECT", _vehicle];
         };
