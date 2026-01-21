@@ -28,8 +28,10 @@ params ["_pos"];
         private _siteId = _siteStore getVariable "site_id";
         private _sitePos = getPos _siteStore;
 
-        // --- Spawn boat on seabed ---
-        private _spawnPos = [_sitePos # 0, _sitePos # 1, getTerrainHeightASL _sitePos];
+        // --- SEABED POSITION (ASL) ---
+        private _spawnPos = [_sitePos # 0,_sitePos # 1,getTerrainHeightASL _sitePos];
+
+        // --- SPAWN WRECK ---
         private _boat = createVehicle [
             "land_vn_boat_06_wreck",
             _spawnPos,
@@ -37,12 +39,25 @@ params ["_pos"];
             0,
             "CAN_COLLIDE"
         ];
-
-        // setup heading (initial)
+        //this is a specific value to setup the start composition design
         _boat setDir -92.423;
 
-        // --- Plane debris ---
-        private _wallOffset = [-2.7, -3.3, 1.8];
+        // --- PUSH UP UNTIL CLEAR OF TERRAIN ---
+        private _bb = boundingBoxReal _boat;
+        private _minZ = (_bb # 0) # 2;
+
+        private _z = _spawnPos # 2;
+        for "_i" from 0 to 40 do {
+            _boat setPosASL [_spawnPos # 0, _spawnPos # 1, _z];
+            if ((_z + _minZ) > (getTerrainHeightASL _sitePos)) exitWith {};
+            _z = _z + 0.25;
+        };
+
+        // --- ALIGN TO SLOPE ---
+        private _normal = surfaceNormal [_sitePos # 0, _sitePos # 1];
+        _boat setVectorUp _normal;
+
+        // --- PLANE DEBRIS ---
         private _wall = createVehicle [
             "Land_HistoricalPlaneDebris_04_F",
             getPos _boat,
@@ -51,47 +66,23 @@ params ["_pos"];
             "CAN_COLLIDE"
         ];
         _wall enableSimulation false;
-        _wall attachTo [_boat, _wallOffset];
+        _wall allowDamage false;
+        _wall attachTo [_boat, [-2.7, -3.3, 1.8]];
         [_wall, 112, 0, 0] call BIS_fnc_setPitchBank;
-        _wall enableSimulation true;
 
-        // --- Radio ---
-        private _radioOffset = [1.7, -4, 2.4];
-        private _radio = createVehicle [
+        // --- RADIO ---
+        private _blackbox = createVehicle [
             "Land_vn_mutt_vysilacka",
             getPos _boat,
             [],
             0,
             "CAN_COLLIDE"
         ];
-        _radio enableSimulation false;
-        _radio attachTo [_boat, _radioOffset];
-        _radio enableSimulation true;
+        _blackbox enableSimulation false;
+        _blackbox allowDamage false;
+        _blackbox attachTo [_boat, [1.7, -4, 2.4]];
 
-		// --- FINAL BOAT ORIENTATION & ALIGNMENT ---
-
-		// spawn temporary box at the spawn position
-		private _box = "vn_o_ammobox_02" createVehicle _spawnPos;
-		_box enableSimulation true;
-		_box setDamage 1;
-		_box setDir random 360;
-
-		// move boat onto the box
-		_boat enableSimulation false;
-		_boat setPos getPos _box;
-		_boat setDir getDir _box;
-
-		// align boat to terrain slope
-		private _terrainNormal = surfaceNormal [_spawnPos # 0, _spawnPos # 1];
-		_boat setVectorUp _terrainNormal;
-
-		// re-enable simulation
-		_boat enableSimulation true;
-
-		// delete the temporary box
-		deleteVehicle _box;
-
-        // --- Markers ---
+        // --- MARKERS ---
         private _markerPos = _spawnPos getPos [10 + random 20, random 360];
         private _marker = createMarker [format ["UnderwaterWreck_%1", _siteId], _markerPos];
         _marker setMarkerType "o_installation";
@@ -103,15 +94,18 @@ params ["_pos"];
         _partialMarker setMarkerType "o_unknown";
         _partialMarker setMarkerAlpha 0;
 
-        // --- AI Stuff ---
+        // --- COLLECT PERSISTENT OBJECTS (these stay until AO end) ---
+        private _persistentObjects = [_boat, _blackbox];
+        vn_site_objects append _persistentObjects;
 
-        // --- Store site data ---
+
+        // --- STORE SITE DATA ---
         _siteStore setVariable ["markers", [_marker]];
         _siteStore setVariable ["partialMarkers", [_partialMarker]];
-        _siteStore setVariable ["vehicles", [_boat]];
         _siteStore setVariable ["objectsToDestroy", [_wall]];
+        _siteStore setVariable ["vehicles", _persistentObjects];
     },
-    // Teardown condition check
+    // Periodic teardown check
     {
         15 call _fnc_periodicallyAttemptTeardown;
     },
