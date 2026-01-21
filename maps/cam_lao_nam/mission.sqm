@@ -57985,7 +57985,7 @@ class Mission
 							flags=4;
 							class Attributes
 							{
-								init="this setObjectTexture [0,""custom\taskroster\633rdcombatsupportgroup_HL.paa""];";
+								init="this setObjectTexture [0,""custom\taskroster\633rd_HL.paa""];";
 							};
 							id=19273;
 							type="UserTexture10m_F";
