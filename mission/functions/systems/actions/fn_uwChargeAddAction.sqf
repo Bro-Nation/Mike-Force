@@ -71,21 +71,4 @@ _id = _unit addAction [
 ];
 _unit setVariable [VAR_ACTION_ID, _id];
 
-// Respawn EH is persistent, add only once
-private _respawnEh = _unit getVariable [format ["vn_adv_explosives_water_respawn$%1", _magazine], -1];;
-if (_respawnEh == -1) then {
-    // add the action back after respawn
-    _respawnEh = _unit addEventHandler ["Respawn", format [toString {
-        params ["_player", "_oldPlayer"];
-        private _magazine = "%1";
-
-        _oldPlayer removeAction (_oldPlayer getVariable [VAR_ACTION_ID, -1]);
-        _player setVariable [VAR_ACTION_ID, nil];
-
-        [_player, _magazine] call vn_mf_fnc_uwChargeAddAction;
-    }, _magazine]];
-    _unit setVariable [format ["vn_adv_explosives_water_respawn$%1", _magazine], _respawnEh];
-};
-
-
 nil // return
