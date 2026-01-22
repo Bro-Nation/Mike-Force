@@ -87,6 +87,12 @@ for "_i" from 1 to (1 + ceil random (vn_mf_s_max_water_supply_per_zone - 1)) do
 	[_tunnelWaterSupply, _zone] call vn_mf_fnc_sites_create_site_water_supply;
 };
 
+for "_i" from 1 to 1 do
+{
+	private _underWater_wreckSite = [_center, vn_mf_bn_s_zone_radius, 2, 5, 20, _unnaturalObjects] call vn_mf_fnc_sites_get_safe_location;
+	[_underWater_wreckSite, _zone] call vn_mf_fnc_sites_create_site_underwater_wreck;
+};
+
 /*
 RADIO TAP
 
