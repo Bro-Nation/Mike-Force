@@ -26,3 +26,4 @@ private _action_id_pt = -1;
 
 vn_mf_cursor_object_pt = objNull;
 vn_mf_cursor_object = objNull;
+vn_explosive_actionInProgress = false;
