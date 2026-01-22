@@ -563,6 +563,7 @@ class 633rdcsg
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        canAttachLimpets = false;
     };
 
     //Function Calls on team Join
