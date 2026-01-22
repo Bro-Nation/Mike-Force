@@ -229,7 +229,7 @@ class CfgFunctions
 			class action_remove_flashlight {};
 			class uwChargeAddAction {};
 			class uwChargeDoPlace {};
-			class uwChargeAPlacement {};
+			class uwChargePlacement {};
 		};
 
 		class system_actives {
