@@ -95,7 +95,9 @@ private _conditionToShowString = str {
 			"vn_air_uh1d_med_wreck",
 			"vn_air_oh6a_01_wreck",
 			"vn_air_ch34_01_wreck",
-			"vn_air_ah1g_01_wreck"
+			"vn_air_ah1g_01_wreck",
+			//underwater wreck's wall 
+			"Land_HistoricalPlaneDebris_04_F"
 		];
 
 		private _res = (
