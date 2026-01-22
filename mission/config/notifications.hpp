@@ -231,6 +231,24 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 
+	class BlackBoxStart
+	{
+		title = "Gathering Black Box";
+		description = "Picking up the black box...";
+		priority = 8;
+		color[] = {0.7, 1, 0.3, 1};
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconCreated_ca.paa";
+	};
+
+	class BlackBoxSuccess
+	{
+		title = "Black Box Secured";
+		description = "black box recovered. Intel updated.";
+		priority = 8;
+		color[] = {0.7, 1, 0.3, 1};
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
+	};
+
 	class RadioTapStart
 	{
 		title = "Radio Tap Started";
