@@ -27,6 +27,10 @@ params [
     ["_magazine", "", [""]]
 ];
 
+if !(player getUnitTrait "canAttachLimpets") exitWith {
+    
+};
+
 
 private _name = format [localize "STR_Action_PutBomb", getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"), '%1'];
 

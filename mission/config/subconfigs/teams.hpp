@@ -430,6 +430,7 @@ class Frogmen
         scout_multiple = true;
         increasedBuildRate = true;
         canAttachChemlights = true;
+        canAttachLimpets = true;
     };
 
     //Function Calls on team Join
