@@ -32,3 +32,4 @@ params
 
 // log player connected
 ["PlayerConnected mEH: %1", _this] call BIS_fnc_logFormat;
+[player, "vn_mine_limpet_01_mag"] call vn_mf_fnc_uwChargeAddAction;
