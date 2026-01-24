@@ -145,7 +145,7 @@ switch(_team) do
 		8 enableChannel [true, true];
 	};
 
-	case "633rdCSG" : {
+	case "633rdTASG" : {
 		1 radioChannelAdd [player];
 		2 radioChannelAdd [player];
 		3 radioChannelAdd [player];

@@ -22,7 +22,7 @@ class support_gh_cas : support_task
 		"Montagnard",
 		"7thCAV",
 		"TigerForce",
-		"633rdCSG"
+		"633rdTASG"
 	};
 	rankpoints = 10;
 	taskprogress = 0;
