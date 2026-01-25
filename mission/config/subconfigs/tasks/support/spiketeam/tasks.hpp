@@ -67,7 +67,7 @@ class support_st_searchAndDestroy : support_task
 		"QuarterHorse",
 		"Frogmen",
 		"7thCAV",
-		"633rdCSG",
+		"633rdTASG",
 		"GreenHornets",
 		"Muskets",
 		"SatansAngels"

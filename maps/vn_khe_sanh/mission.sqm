@@ -9550,7 +9550,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="vn_mf_633rdcsg_teleporter";
+				name="vn_mf_633rdTASG_teleporter";
 				disableSimulation=1;
 			};
 			id=1037;
@@ -21981,8 +21981,8 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9409.5928,231.56006,6576.4844};
-			name="mf_respawn_633rdcsg";
-			text="@STR_vn_mf_respawn_633rdcsg";
+			name="mf_respawn_633rdTASG";
+			text="@STR_vn_mf_respawn_633rdTASG";
 			type="Empty";
 			angle=278.24414;
 			id=2416;
@@ -21992,7 +21992,7 @@ class Mission
 		{
 			dataType="Marker";
 			position[]={9402.2822,231.60858,6575.7959};
-			name="duty_officer_633rdcsg";
+			name="duty_officer_633rdTASG";
 			text="@STR_vn_mf_duty_officer";
 			type="mil_dot";
 			colorName="ColorWhite";

@@ -519,7 +519,7 @@ class SatansAngels
     onLeave = "";
 };
 
-class 633rdcsg
+class 633rdTASG
 {
     name = "[633rd TASG]";
     icon = "custom\taskroster\633rd_HL.paa";

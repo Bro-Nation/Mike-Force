@@ -8911,7 +8911,7 @@ class Mission
 		class Item20
 		{
 			dataType="Layer";
-			name="633rd CSG";
+			name="633rd TASG";
 			class Entities
 			{
 				items=26;
@@ -9030,7 +9030,7 @@ class Mission
 					flags=4;
 					class Attributes
 					{
-						name="vn_mf_633rdcsg_teleporter";
+						name="vn_mf_633rdTASG_teleporter";
 						disableSimulation=1;
 					};
 					id=1511;
@@ -9124,8 +9124,8 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3368.3152,39.688965,4331.5522};
-					name="baseflag_633rdcsg";
-					text="@STR_vn_mf_respawn_633rdcsg";
+					name="baseflag_633rdTASG";
+					text="@STR_vn_mf_respawn_633rdTASG";
 					type="b_hq";
 					colorName="ColorWEST";
 					angle=0.0086901356;
@@ -9136,8 +9136,8 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3368.2976,40.058113,4335.9014};
-					name="mf_respawn_633rdcsg";
-					text="@STR_vn_mf_respawn_633rdcsg";
+					name="mf_respawn_633rdTASG";
+					text="@STR_vn_mf_respawn_633rdTASG";
 					type="Empty";
 					angle=178.50478;
 					id=1521;
@@ -9147,7 +9147,7 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3366.4099,39.680176,4333.5615};
-					name="duty_officer_633rdcsg";
+					name="duty_officer_633rdTASG";
 					type="mil_dot";
 					colorName="ColorWhite";
 					angle=103.07253;
