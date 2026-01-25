@@ -1,11 +1,22 @@
-params ["_pos", "_zoneName"];
+/*
+    File: fn_sites_create_camp_tunnel.sqf
+    Author: Tylervip
+    Public: yes
+    
+    Description:
+		Creates a new Factory site in the given location.
+    
+    Parameter(s):
+		_pos - Position to spawn the HQ site at
+    
+    Returns:
+        Function reached the end [BOOL]
+    
+    Example(s):
+        [markerPos "myHq"] call vn_mf_fnc_sites_create_tunnel_site
+*/
 
-private _config = missionConfigFile >> "gamemode" >> "settings" >> "aimarkers";
-private _tunnel = getNumber(_config >> "tunnels");
-private _debug = getNumber(missionConfigFile >> "gamemode" >> "debug" >> "aimarkers");
-
-private _tunnelAlpha = 0.5;
-if(_tunnel isEqualTo 0)then {_tunnelAlpha=0};
+params ["_pos"];
 
 [
 	"tunnel",
@@ -17,57 +28,56 @@ if(_tunnel isEqualTo 0)then {_tunnelAlpha=0};
 		private _siteId = _siteStore getVariable "site_id";
 		private _sitePos = getPos _siteStore;
 		private _spawnPos = _sitePos;
+		private _tunnelObj = ["Land_vn_o_trapdoor_01", _spawnPos] call para_g_fnc_create_vehicle;
 
-		private _result = [_spawnPos] call vn_mf_fnc_sites_create_compositions_tunnel;
-		private _createdThings = _result select 0;
+		// Register ONLY the first tunnel for teardown
+		_siteStore setVariable ["objectsToDestroy", [_tunnelObj]];
 
-		private _markerPos = _spawnPos getPos [10 + random 20, random 360];
-		private _tunnelMarker = createMarker [format ["Tunnel_%1", _siteId], _markerPos];
+		// Watch for deletion
+		[_tunnelObj, _siteStore] spawn {
+			params ["_oldTunnel", "_siteStore"];
+			private _pos = getPosATL _oldTunnel;
+			private _dir = getDir _oldTunnel;
+			waitUntil { sleep 0.5; isNull _oldTunnel };
+			private _newTunnel = "Land_vn_o_trapdoor_02" createVehicle _pos;
+			_newTunnel setDir _dir;
+			vn_site_objects pushBack _newTunnel;
+		};
+
+		private _tunnelMarkerPos = _spawnPos getPos [10 + random 20, random 360];
+		private _tunnelMarker = createMarker [format ["Tunnel_%1", _siteId], _tunnelMarkerPos];
 		_tunnelMarker setMarkerType "o_installation";
 		_tunnelMarker setMarkerText "Tunnel";
 		_tunnelMarker setMarkerAlpha 0;
-		
+
 		private _partialMarkerPos = _spawnPos getPos [10 + random 40, random 360];
-		private _markerPartial = createMarker [format ["PartialTunnel_%1", _siteId], _partialMarkerPos];
-		_markerPartial setMarkerType "o_unknown";
-		_markerPartial setMarkerAlpha 0;
+		private _partialMarker = createMarker [format ["PartialTunnel_%1", _siteId], _partialMarkerPos];
+		_partialMarker setMarkerType "o_unknown";
+		_partialMarker setMarkerAlpha 0;
 
-		private _vehicles = _createdThings select 0;
-		{
-			//Disable weapon dissassembly - statics don't get deleted properly when disassembled, so it breaks the site/mission.
-			_x enableWeaponDisassembly false;
-		} forEach _vehicles;
-		private _groups = _createdThings select 1;
-		{
-			[_x, true] call para_s_fnc_enable_dynamic_sim;
-		} forEach (_vehicles + _groups);
-
-		private _tunnels = _result select 1;
-
-		// 70% chance to spawn an ambush
+		_siteStore setVariable ["markers",[_tunnelMarker]];
+		_siteStore setVariable ["partialMarkers",[_partialMarker]];
+		
 		if (random 1 < 0.7) then {
-			_siteStore setVariable ["aiObjectives", [[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_ambush]];
+			_siteStore setVariable [
+				"aiObjectives",
+				[[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_ambush]
+			];
 		} else {
-			_siteStore setVariable ["aiObjectives", [[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend]];
+			_siteStore setVariable [
+				"aiObjectives",
+				[[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend]
+			];
 		};
 
 		if (random 1 < 0.5) then {
-
 			private _mines = ([3, ceil random 8] call vn_mf_fnc_range) apply {
-				createMine ["vn_mine_punji_02", _pos, [], 5]
+				createMine ["vn_mine_punji_02", _spawnPos, [], 5]
 			};
-
-			// deletes the mines once the zone is completed
 			vn_site_objects append _mines;
 		};
 
-		_siteStore setVariable ["markers", [_tunnelMarker]];
-		_siteStore setVariable ["tunnels", _tunnels];
-		_siteStore setVariable ["partialMarkers", [_markerPartial]];
-		_siteStore setVariable ["vehicles", _vehicles]; 
-		_siteStore setVariable ["units", (_createdThings select 1)]; 
-		_siteStore setVariable ["groups", _groups];
-		_siteStore setVariable ["objectsToDestroy", _vehicles];
+
 	},
 	//Teardown condition check code
 	{
@@ -77,8 +87,7 @@ if(_tunnel isEqualTo 0)then {_tunnelAlpha=0};
 	//Teardown condition
 	{
 		params ["_siteStore"];
-		//Teardown when all guns destroyed
-		(_siteStore getVariable "tunnels" findIf {alive _x} == -1)
+		[_siteStore] call vn_mf_fnc_sites_utils_std_check_teardown;
 	},
 	//Teardown code
 	{
