@@ -95,7 +95,7 @@ class objects
 		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "quarterhorse_base"};
 	};
 */	
-	class vn_mf_633rdcsg_teleporter
+	class vn_mf_633rdTASG_teleporter
 	{
 		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base"};
 	};
@@ -344,7 +344,7 @@ class destinations
 	class 633rd_base
 	{
 		image = "custom\taskroster\633rd_HL.paa.paa";
-		position_marker = "mf_respawn_633rdcsg";
+		position_marker = "mf_respawn_633rdTASG";
 	};
 
 	class vacang { image = "custom\daccong_team.paa"; position_marker = "zone_vacang"; };

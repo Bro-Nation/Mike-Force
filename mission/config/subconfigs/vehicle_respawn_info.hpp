@@ -14,7 +14,7 @@
 #define SPAWN_TIME_LONG 60
 
 #define UNLOCKED {}
-#define LOCKED_PUBLIC_HELOS {"MACV", "DacCong", "GreenHornets", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdCSG", "7thCAV", "TigerForce", "SASR", "ARVN"}
+#define LOCKED_PUBLIC_HELOS {"MACV", "DacCong", "GreenHornets", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdTASG", "7thCAV", "TigerForce", "SASR", "ARVN"}
 #define LOCKED_LIMITED_ARMOR {"MACV", "DacCong", "3rdMEU", "QuarterHorse", "ACAV", "TigerForce", "MilitaryPolice", "ARVN"}
 
 #define LOCKED_MACV_DACCONG {"MACV", "DacCong"}
@@ -27,12 +27,12 @@
 #define LOCKED_7THCAV {"MACV", "DacCong", "7thCAV"}
 #define LOCKED_TIGER_FORCE {"MACV", "DacCong", "TigerForce"}
 #define LOCKED_UDT {"MACV", "DacCong", "Frogmen"}
-#define LOCKED_633RD {"MACV", "DacCong", "633rdCSG"}
+#define LOCKED_633RD {"MACV", "DacCong", "633rdTASG"}
 #define LOCKED_USMC {"MACV", "DacCong", "3rdMEU"}
 #define LOCKED_PRESS {"MACV", "DacCong", "PressCorp"}
 
 // #define LOCKED_SCOUT_MG {"MACV", "DacCong", "7thCAV", "Muskets"}
-// #define LOCKED_ONLY_WLUS {"MACV", "DacCong", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdCSG", "7thCAV", "TigerForce", "SASR", "ARVN"}
+// #define LOCKED_ONLY_WLUS {"MACV", "DacCong", "3rdMEU", "MilitaryPolice", "QuarterHorse", "Frogmen", "Muskets", "SatansAngels", "633rdTASG", "7thCAV", "TigerForce", "SASR", "ARVN"}
 
 /*
 **Code is read more often than it is written.**
