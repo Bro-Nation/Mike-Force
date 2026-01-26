@@ -343,7 +343,7 @@ class destinations
 
 	class 633rd_base
 	{
-		image = "custom\taskroster\633rd_HL.paa.paa";
+		image = "custom\taskroster\633rd_HL.paa";
 		position_marker = "mf_respawn_633rdTASG";
 	};
 
