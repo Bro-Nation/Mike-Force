@@ -1366,6 +1366,10 @@
         <Original>Storage</Original>
         <English>Storage</English>
       </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_signs">
+        <Original>Signs</Original>
+        <English>Signs</English>
+      </Key>
     </Container>
     <Container name="supplies">
       <Key ID="STR_vn_mf_light_ammo_supplies">
