@@ -75,6 +75,7 @@ for "_i" from 1 to (5 + ceil random (vn_mf_s_max_aa_per_zone - 5)) do
 	[_aaSite, _zone] call vn_mf_fnc_sites_create_site_aa;
 };
 
+private _tunnels = [];
 for "_i" from 1 to (1 + ceil random (vn_mf_s_max_tunnels_per_zone - 1)) do
 {
 	private _tunnelSite = [_center, vn_mf_bn_s_zone_radius, 0, 5, 20, _unnaturalObjects] call vn_mf_fnc_sites_get_safe_location;

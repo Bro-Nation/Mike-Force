@@ -7,7 +7,7 @@ class map_config {
 	max_fortifications_per_zone = 0;
 	max_radars_per_zone = 2;
 	max_water_supply_per_zone = 2;
-	max_tunnels_per_zone = 3;
+	max_tunnels_per_zone = 3; // max 4
 	max_vehicle_depots_per_zone = 3;
 	max_fuel_per_zone = 3;
 	bn_zone_radius = 1000;

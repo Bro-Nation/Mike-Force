@@ -1,97 +1,99 @@
 /*
-    File: fn_sites_create_camp_tunnel.sqf
+    File: fn_sites_create_site_tunnel.sqf
     Author: Tylervip
     Public: yes
-    
+
     Description:
-		Creates a new Factory site in the given location.
-    
+        Creates a new Tunnel site in the given location with crates and tunnel teleports.
+        Each tunnel site now uses its own teleport points, so Enter Tunnel always goes to a site-specific teleport.
+
     Parameter(s):
-		_pos - Position to spawn the HQ site at
-    
+        _pos - Position to spawn the Tunnel site at
+
     Returns:
         Function reached the end [BOOL]
-    
+
     Example(s):
-        [markerPos "myHq"] call vn_mf_fnc_sites_create_tunnel_site
+        [markerPos "myHq"] call vn_mf_fnc_sites_create_site_tunnel
 */
 
 params ["_pos"];
 
 [
-	"tunnel",
-	_pos,
-	"hq",
-	//Setup Code
-	{
-		params ["_siteStore"];
-		private _siteId = _siteStore getVariable "site_id";
-		private _sitePos = getPos _siteStore;
-		private _spawnPos = _sitePos;
-		private _tunnelObj = ["Land_vn_o_trapdoor_01", _spawnPos] call para_g_fnc_create_vehicle;
+    "tunnel",
+    _pos,
+    "hq",
+    // Setup Code
+    {
+        params ["_siteStore"];
+        private _siteId = _siteStore getVariable "site_id";
+        private _spawnPos = getPos _siteStore;
 
-		// Register ONLY the first tunnel for teardown
-		_siteStore setVariable ["objectsToDestroy", [_tunnelObj]];
+        // --- Tunnel object ---
+        private _tunnel = ["Land_vn_o_trapdoor_01", _spawnPos] call para_g_fnc_create_vehicle;
+        _tunnel setVariable ["siteStore", _siteStore, true];
+        vn_site_objects pushBack _tunnel;
 
-		// Watch for deletion
-		[_tunnelObj, _siteStore] spawn {
-			params ["_oldTunnel", "_siteStore"];
-			private _pos = getPosATL _oldTunnel;
-			private _dir = getDir _oldTunnel;
-			waitUntil { sleep 0.5; isNull _oldTunnel };
-			private _newTunnel = "Land_vn_o_trapdoor_02" createVehicle _pos;
-			_newTunnel setDir _dir;
-			vn_site_objects pushBack _newTunnel;
-		};
+        // --- Register tunnel with subsystem (adds actions and assigns teleport) ---
+        [_tunnel] call vn_mf_fnc_tunnels_register_tunnel;
 
-		private _tunnelMarkerPos = _spawnPos getPos [10 + random 20, random 360];
-		private _tunnelMarker = createMarker [format ["Tunnel_%1", _siteId], _tunnelMarkerPos];
-		_tunnelMarker setMarkerType "o_installation";
-		_tunnelMarker setMarkerText "Tunnel";
-		_tunnelMarker setMarkerAlpha 0;
+        // --- Crate spawning at tunnel objective point ---
+        private _crateSpawn = call vn_mf_fnc_tunnels_get_available_objective;
+        if (!isNull _crateSpawn) then {
+            private _crate = [
+                selectRandom ["Land_vn_pavn_weapons_stack1","Land_vn_pavn_weapons_stack2","Land_vn_pavn_weapons_stack3"],
+                getPosATL _crateSpawn
+            ] call para_g_fnc_create_vehicle;
 
-		private _partialMarkerPos = _spawnPos getPos [10 + random 40, random 360];
-		private _partialMarker = createMarker [format ["PartialTunnel_%1", _siteId], _partialMarkerPos];
-		_partialMarker setMarkerType "o_unknown";
-		_partialMarker setMarkerAlpha 0;
+            _crate setVariable ["exemptFromRadiusCheck", true];
+            vn_site_objects pushBack _crate;
+            _siteStore setVariable ["objectsToDestroy", [_crate], true];
+        } else {
+            systemChat "No available tunnel objective spots for crate spawn";
+        };
 
-		_siteStore setVariable ["markers",[_tunnelMarker]];
-		_siteStore setVariable ["partialMarkers",[_partialMarker]];
-		
-		if (random 1 < 0.7) then {
-			_siteStore setVariable [
-				"aiObjectives",
-				[[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_ambush]
-			];
-		} else {
-			_siteStore setVariable [
-				"aiObjectives",
-				[[_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend]
-			];
-		};
+        // --- Markers ---
+        private _tunnelMarker = createMarker [format ["Tunnel_%1", _siteId], _spawnPos getPos [10 + random 20, random 360]];
+        _tunnelMarker setMarkerType "o_installation";
+        _tunnelMarker setMarkerText "Tunnel";
+        _tunnelMarker setMarkerAlpha 0;
 
-		if (random 1 < 0.5) then {
-			private _mines = ([3, ceil random 8] call vn_mf_fnc_range) apply {
-				createMine ["vn_mine_punji_02", _spawnPos, [], 5]
-			};
-			vn_site_objects append _mines;
-		};
+        private _partialMarker = createMarker [format ["PartialTunnel_%1", _siteId], _spawnPos getPos [10 + random 40, random 360]];
+        _partialMarker setMarkerType "o_unknown";
+        _partialMarker setMarkerAlpha 0;
 
+        _siteStore setVariable ["markers",[_tunnelMarker]];
+        _siteStore setVariable ["partialMarkers",[_partialMarker]];
 
-	},
-	//Teardown condition check code
-	{
-		//Check if we need to teardown every 15 seconds.
-		15 call _fnc_periodicallyAttemptTeardown;
-	},
-	//Teardown condition
-	{
-		params ["_siteStore"];
-		[_siteStore] call vn_mf_fnc_sites_utils_std_check_teardown;
-	},
-	//Teardown code
-	{
-		params ["_siteStore"];
-		[_siteStore] call vn_mf_fnc_sites_utils_std_teardown;
-	}
+        // --- AI Objectives ---
+        if (random 1 < 0.7) then {
+            _siteStore setVariable ["aiObjectives", [[_spawnPos,1,1] call para_s_fnc_ai_obj_request_ambush]];
+        } else {
+            _siteStore setVariable ["aiObjectives", [[_spawnPos,1,1] call para_s_fnc_ai_obj_request_defend]];
+        };
+
+        // --- Mines ---
+        if (random 1 < 0.5) then {
+            private _mines = ([3, ceil random 8] call vn_mf_fnc_range) apply {
+                private _minePos = _spawnPos getPos [random 10, random 360];
+                createMine ["vn_mine_punji_02", _minePos, [], 0]
+            };
+            vn_site_objects append _mines;
+        };
+
+    },
+    // Teardown condition check code
+    {
+        15 call _fnc_periodicallyAttemptTeardown;
+    },
+    // Teardown condition
+    {
+        params ["_siteStore"];
+        [_siteStore] call vn_mf_fnc_sites_utils_std_check_teardown;
+    },
+    // Teardown code
+    {
+        params ["_siteStore"];
+        [_siteStore] call vn_mf_fnc_sites_utils_std_teardown;
+    }
 ] call vn_mf_fnc_sites_create_site;

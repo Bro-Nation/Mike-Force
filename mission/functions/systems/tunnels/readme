@@ -1,0 +1,17 @@
+// Tunnel Subsystem Documentation
+//
+// Overview:
+// The tunnel subsystem enables teleportation between tunnel entrances and exits in the mission.
+// The maximum number of tunnels per zone is defined in the map's map_config\init.hpp file (max_tunnels_per_zone parameter).
+//
+// Requirements:
+// - Place at least max_tunnels_per_zone Land_InvisibleBarrier_F objects in the editor with variable names following the pattern: inTunnelTeleport_XX (e.g., inTunnelTeleport_0, inTunnelTeleport_1)
+// - When placing the Land_InvisibleBarrier_F the hit box should be just above the players head to avoid getting stuck on Barrier
+// - Place objective spawn point objects with variable names following the pattern: inTunnel_objective_XX (e.g., inTunnel_objective_0, inTunnel_objective_1)
+// - Minimum 1 inTunnel_objective_XX per tunnel, no maximum limit
+//
+// How it works:
+// - The subsystem automatically detects and caches these objects during initialization
+// - Each tunnel entrance gets assigned a random available objective spawn point
+// - Players can use "Enter Tunnel" actions to teleport to the assigned objective
+// - "Exit Tunnel" actions allow returning to the original entrance

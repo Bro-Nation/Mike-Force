@@ -33,6 +33,13 @@ if !([_task] call vn_mf_fnc_task_is_completed) then {
 
 call vn_mf_fnc_daccong_respawns_delete_all;
 
+// Unregister tunnels before deleting objects
+{
+    if (!isNull _x && {_x getVariable ["exitTeleport", objNull] isNotEqualTo objNull}) then {
+        [_x] call vn_mf_fnc_tunnels_unregister_tunnel;
+    };
+} forEach vn_site_objects;
+
 // delete all site composition objects.
 vn_site_objects apply {deleteVehicle _x};
 

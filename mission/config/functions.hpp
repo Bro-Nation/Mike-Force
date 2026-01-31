@@ -431,6 +431,17 @@ class CfgFunctions
 			class sites_utils_normalise_object_placement {};
 		}
 
+		// tunnel subsystem for managing tunnel teleports and objectives
+		class system_tunnels
+		{
+			file = "functions\systems\tunnels";
+			class tunnels_subsystem_init {};
+			class tunnels_get_teleports {};
+			class tunnels_get_available_objective {};
+			class tunnels_register_tunnel {};
+			class tunnels_unregister_tunnel {};
+		};
+
 		// simple scheduled utility job to make triple sure that critical
 		// site objects cannot fall through the ground.
 		// much simpler than the paradigm fall through world check.
