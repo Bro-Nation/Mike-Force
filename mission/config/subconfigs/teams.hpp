@@ -279,7 +279,7 @@ class GreenHornets
 class 3rdMEU
 {
     name = "31st MEU [31st MEU]";
-    icon = "custom\taskroster\3_1_patch1.paa";
+    icon = "custom\taskroster\Marines_HL.paa";
     shortname = "3/1 Marines";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
@@ -321,7 +321,7 @@ class 3rdMEU
 class MilitaryPolice
 {
     name = "Military Police [716th MP]";
-    icon = "custom\taskroster\militarypolice_HL.paa";
+    icon = "custom\taskroster\MPs_HL.paa";
     shortname = "Military Police";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
@@ -363,7 +363,7 @@ class MilitaryPolice
 class QuarterHorse
 {
     name = "Black Horse [11th ACR]";
-    icon = "custom\taskroster\blackhorse_HL.paa";
+    icon = "custom\taskroster\Blackhorse_HL.paa";
     shortname = "Black Horse";
     unit = "vn_b_men_army_01";
     color = "ColorOrange";
@@ -405,7 +405,7 @@ class QuarterHorse
 class Frogmen
 {
     name = "Frogmen [UDT]";
-    icon = "custom\taskroster\frogmen_HL.paa";
+    icon = "custom\taskroster\UDT_HL.paa";
     shortname = "Frogmen";
     unit = "vn_b_men_army_01";
     color = "ColorOrange";
@@ -448,7 +448,7 @@ class Frogmen
 class Muskets
 {
     name = "Muskets [176th Gunships]";
-    icon = "custom\taskroster\muskets_HL.paa";
+    icon = "custom\taskroster\Muskets_HL.paa";
     shortname = "Muskets";
     unit = "vn_b_men_army_01";
     color = "ColorIndependent";
@@ -490,7 +490,7 @@ class Muskets
 class SatansAngels
 {
     name = "Satans Angels [433rd TFS]";
-    icon = "custom\taskroster\satansangels_HL.paa";
+    icon = "custom\taskroster\SatansAngels_HL.paa";
     shortname = "Satans Angels";
     unit = "vn_b_men_army_01";
     color = "ColorIndependent";
@@ -616,7 +616,7 @@ class 7thCAV
 class TigerForce
 {
     name = "Tiger Force [Recon]";
-    icon = "custom\taskroster\tigerforce_HL.paa";
+    icon = "custom\taskroster\TigerForce_HL.paa";
     shortname = "Tiger Force";
     unit = "vn_b_men_army_01";
     color = "ColorUNKNOWN";
@@ -659,7 +659,7 @@ class TigerForce
 class SASR
 {
     name = "ANZAC";
-    icon = "custom\taskroster\BN_ANZAC_HL.paa";
+    icon = "custom\taskroster\ANZAC_HL.paa";
     shortname = "ANZAC";
     unit = "vn_b_men_army_01";
     color = "ColorUNKNOWN";
@@ -745,7 +745,7 @@ class ARVN
 class MACV
 {
     name = "MACV [Command]";
-    icon = "custom\taskroster\macv_HL.paa";
+    icon = "custom\taskroster\MACV_HL.paa";
     shortname = "MACV";
     unit = "vn_b_men_army_01";
     color = "ColorYellow";
@@ -787,7 +787,7 @@ class MACV
 class DacCong
 {
     name = "Dac Cong [Commandos]";
-    icon = "custom\taskroster\daccong_team.paa";
+    icon = "custom\taskroster\DacCong_HL.paa";
     shortname = "Dac Cong";
     unit = "vn_b_men_army_01";
     color = "ColorOPFOR";
@@ -828,7 +828,7 @@ class DacCong
 class PressCorp
 {
     name = "Press Corp [DASPO]";
-    icon = "custom\taskroster\presscorp_HL.paa";
+    icon = "custom\taskroster\Press_HL.paa";
     shortname = "Press Corp";
     unit = "C_journalist_F";
     color = "ColorCIV";

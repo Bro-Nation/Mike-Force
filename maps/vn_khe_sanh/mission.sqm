@@ -9015,7 +9015,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\anzac_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Anzac_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=538;
@@ -11238,7 +11238,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\633rdbasesign_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\633rd_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1310;
@@ -11523,7 +11523,7 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\militarypolice_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\MPs_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1335;
@@ -11572,7 +11572,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\BN_Welcome_20240621.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\BN_Welcome_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1336;
@@ -11669,7 +11669,7 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\7th_cav_base_sign.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\7thcav_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1338;
@@ -11718,7 +11718,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\muskets_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Muskets_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1339;
@@ -11767,7 +11767,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\Blackhorse_Base_Sign_2.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Blackhorse_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1340;
@@ -12149,7 +12149,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\tigerforce_sign1.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\TigerForce_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=1383;
@@ -33813,7 +33813,7 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\militarypolice_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\MPs_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=3535;
@@ -33862,7 +33862,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\frogmen_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\UDT_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=3536;
@@ -37680,7 +37680,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\3RD_BAT_Base_sign_3.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Marines_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=3692;
@@ -43798,7 +43798,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\press_corps_sign.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Press_bb.paa""];";
 			};
 			id=4021;
 			type="Land_vn_billboard_f";
@@ -44312,7 +44312,7 @@ class Mission
 					side="Empty";
 					class Attributes
 					{
-						init="this setObjectTexture [0,""custom\billboards\press_corps_sign.paa""];";
+						init="this setObjectTexture [0,""custom\billboards\Press_bb.paa""];";
 					};
 					id=4011;
 					type="SignAd_Sponsor_F";
@@ -45289,7 +45289,7 @@ class Mission
 			flags=1;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\7th_cav_base_sign.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\7thcav_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4080;
@@ -45337,7 +45337,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\press_corps_sign.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Press_bb.paa""];";
 			};
 			id=4082;
 			type="Land_vn_billboard_f";
@@ -45385,7 +45385,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\muskets_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Muskets_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4084;
@@ -45434,7 +45434,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\Blackhorse_Base_Sign_2.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Blackhorse_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4085;
@@ -45483,7 +45483,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\633rdbasesign_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\633rd_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4086;
@@ -45532,7 +45532,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\3RD_BAT_Base_sign_3.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Marines_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4087;
@@ -45580,7 +45580,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\tigerforce_sign1.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\TigerForce_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4088;
@@ -45629,7 +45629,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\frogmen_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\UDT_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4089;
@@ -45678,7 +45678,7 @@ class Mission
 			flags=5;
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\anzac_bb.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Anzac_bb.paa""];";
 				disableSimulation=1;
 			};
 			id=4090;

@@ -241,43 +241,43 @@ class destinations
 
 	class daccong_base
 	{
-		image = "custom\taskroster\daccong_team.paa"; 
+		image = "custom\taskroster\DacCong_HL.paa"; 
 		position_marker = "mf_dc_respawn_daccong";
 	};
 /*
 	class daccong_fsb
 	{
-		image = "custom\taskroster\daccong_team.paa"; 
+		image = "custom\taskroster\DacCong_HL.paa"; 
 		position_marker = "mf_dc_respawn_daccong_fsb";
 	};
 */	
 	class tigerforce_base
 	{
-		image = "custom\taskroster\tigerforce_HL.paa"; 
+		image = "custom\taskroster\TigerForce_HL.paa"; 
 		position_marker = "mf_respawn_tigerforce";
 	};
 
 	class militarypolice_base
 	{
-		image = "custom\taskroster\militarypolice_HL.paa"; 
+		image = "custom\taskroster\MPs_HL.paa"; 
 		position_marker = "mf_respawn_militarypolice";
 	};
 	
 	class macv_base
 	{
-		image = "custom\taskroster\macv_HL.paa"; 
+		image = "custom\taskroster\MACV_HL.paa"; 
 		position_marker = "mf_respawn_macv";
 	};
 	
 	class 3rdMEU_base
 	{
-		image = "custom\taskroster\3_1_patch1.paa"; 
+		image = "custom\taskroster\Marines_HL.paa"; 
 		position_marker = "mf_respawn_3rdMEU";
 	};
 	
 	class quarterhorse_base
 	{
-		image = "custom\taskroster\blackhorse_HL.paa";
+		image = "custom\taskroster\Blackhorse_HL.paa";
 		position_marker = "mf_respawn_quarterhorse";
 	};
 
@@ -289,19 +289,19 @@ class destinations
 /*
 	class quarterhorse_fsb
 	{
-		image = "custom\taskroster\blackhorse_HL.paa";
+		image = "custom\taskroster\Blackhorse_HL.paa";
 		position_marker = "mf_respawn_quarterhorse_fsb";
 	};
 */	
 	class muskets_base
 	{
-		image = "custom\taskroster\muskets_HL.paa"; 
+		image = "custom\taskroster\Muskets_HL.paa"; 
 		position_marker = "mf_respawn_muskets";
 	};
 	
 	class satansangels_base
 	{
-		image = "custom\taskroster\satansangels_HL.paa"; 
+		image = "custom\taskroster\SatansAngels_HL.paa"; 
 		position_marker = "mf_respawn_satansangels";
 	};
 	
@@ -313,25 +313,25 @@ class destinations
 		
 	class sa_base
 	{
-		image = "custom\taskroster\satansangels_HL.paa"; 
+		image = "custom\taskroster\SatansAngels_HL.paa"; 
 		position_marker = "mf_respawn_satansangels_land_hangars";
 	};
 
 	class sasr_base
 	{
-		image = "custom\taskroster\BN_ANZAC_HL.paa"; 
+		image = "custom\taskroster\ANZAC_HL.paa"; 
 		position_marker = "mf_respawn_sasr";
 	};
 
 	class frogmen_base
 	{
-		image = "custom\taskroster\frogmen_HL.paa"; 
+		image = "custom\taskroster\UDT_HL.paa"; 
 		position_marker = "mf_respawn_frogmen";
 	};
 
 	class boat_dock
 	{
-		image = "custom\taskroster\frogmen_HL.paa"; 
+		image = "custom\taskroster\UDT_HL.paa"; 
 		position_marker = "mf_respawn_dock";
 	};
 
@@ -347,34 +347,34 @@ class destinations
 		position_marker = "mf_respawn_633rdTASG";
 	};
 
-	class vacang { image = "custom\daccong_team.paa"; position_marker = "zone_vacang"; };
-	class mugiapass { image = "custom\daccong_team.paa"; position_marker = "zone_mugiapass"; };
-	class plainofjars { image = "custom\daccong_team.paa"; position_marker = "zone_plainofjars"; };
-	class sanbayban { image = "custom\daccong_team.paa"; position_marker = "zone_sanbayban"; };
-	class sihanoukville { image = "custom\daccong_team.paa"; position_marker = "zone_sihanoukville"; };
-	class lumphat { image = "custom\daccong_team.paa"; position_marker = "zone_lumphat"; };
-	class attapeu { image = "custom\daccong_team.paa"; position_marker = "zone_attapeu"; };
-	class phu_quoc { image = "custom\daccong_team.paa"; position_marker = "zone_phu_quoc"; };
-	class dharma { image = "custom\daccong_team.paa"; position_marker = "zone_dharma"; };
-	class khe_sanh { image = "custom\daccong_team.paa"; position_marker = "zone_khe_sanh"; };
-	class bru_village { image = "custom\daccong_team.paa"; position_marker = "zone_bru_village"; };
-	class thud_ridge { image = "custom\daccong_team.paa"; position_marker = "zone_thud_ridge"; };
-	class gia_lam_airbase { image = "custom\daccong_team.paa"; position_marker = "zone_gia_lam_airbase"; };
-	class son_tay { image = "custom\daccong_team.paa"; position_marker = "zone_son_tay"; };
-	class ha_long_navy_base { image = "custom\daccong_team.paa"; position_marker = "zone_ha_long_navy_base"; };
-	class hanoi_city { image = "custom\daccong_team.paa"; position_marker = "zone_hanoi_city"; };
-	class hanoi_docks { image = "custom\daccong_team.paa"; position_marker = "zone_hanoi_docks"; };
-	class khe_gio_valley { image = "custom\daccong_team.paa"; position_marker = "zone_khe_gio_valley"; };
-	class fob_mai_loc { image = "custom\daccong_team.paa"; position_marker = "zone_fob_mai_loc"; };
-	class hue { image = "custom\daccong_team.paa"; position_marker = "zone_hue"; };
-	class hamburger_hill { image = "custom\daccong_team.paa"; position_marker = "zone_hamburger_hill"; };
-	class fsb_quan_loi { image = "custom\daccong_team.paa"; position_marker = "zone_fsb_quan_loi"; };
-	class can_tho { image = "custom\daccong_team.paa"; position_marker = "zone_can_tho"; };
-	class soc_trang { image = "custom\daccong_team.paa"; position_marker = "zone_soc_trang"; };
-	class saigon { image = "custom\daccong_team.paa"; position_marker = "zone_saigon"; };
-	class ba_ria { image = "custom\daccong_team.paa"; position_marker = "zone_ba_ria"; };
-	class ban_hoang { image = "custom\daccong_team.paa"; position_marker = "zone_ban_hoang"; };
-	class da_nang { image = "custom\daccong_team.paa"; position_marker = "zone_da_nang"; };
-	class cu_chi { image = "custom\daccong_team.paa"; position_marker = "zone_cu_chi"; };
-	class mss_leghorn { image = "custom\daccong_team.paa"; position_marker = "zone_mss_leghorn"; };
+	class vacang { image = "custom\DacCong_HL.paa"; position_marker = "zone_vacang"; };
+	class mugiapass { image = "custom\DacCong_HL.paa"; position_marker = "zone_mugiapass"; };
+	class plainofjars { image = "custom\DacCong_HL.paa"; position_marker = "zone_plainofjars"; };
+	class sanbayban { image = "custom\DacCong_HL.paa"; position_marker = "zone_sanbayban"; };
+	class sihanoukville { image = "custom\DacCong_HL.paa"; position_marker = "zone_sihanoukville"; };
+	class lumphat { image = "custom\DacCong_HL.paa"; position_marker = "zone_lumphat"; };
+	class attapeu { image = "custom\DacCong_HL.paa"; position_marker = "zone_attapeu"; };
+	class phu_quoc { image = "custom\DacCong_HL.paa"; position_marker = "zone_phu_quoc"; };
+	class dharma { image = "custom\DacCong_HL.paa"; position_marker = "zone_dharma"; };
+	class khe_sanh { image = "custom\DacCong_HL.paa"; position_marker = "zone_khe_sanh"; };
+	class bru_village { image = "custom\DacCong_HL.paa"; position_marker = "zone_bru_village"; };
+	class thud_ridge { image = "custom\DacCong_HL.paa"; position_marker = "zone_thud_ridge"; };
+	class gia_lam_airbase { image = "custom\DacCong_HL.paa"; position_marker = "zone_gia_lam_airbase"; };
+	class son_tay { image = "custom\DacCong_HL.paa"; position_marker = "zone_son_tay"; };
+	class ha_long_navy_base { image = "custom\DacCong_HL.paa"; position_marker = "zone_ha_long_navy_base"; };
+	class hanoi_city { image = "custom\DacCong_HL.paa"; position_marker = "zone_hanoi_city"; };
+	class hanoi_docks { image = "custom\DacCong_HL.paa"; position_marker = "zone_hanoi_docks"; };
+	class khe_gio_valley { image = "custom\DacCong_HL.paa"; position_marker = "zone_khe_gio_valley"; };
+	class fob_mai_loc { image = "custom\DacCong_HL.paa"; position_marker = "zone_fob_mai_loc"; };
+	class hue { image = "custom\DacCong_HL.paa"; position_marker = "zone_hue"; };
+	class hamburger_hill { image = "custom\DacCong_HL.paa"; position_marker = "zone_hamburger_hill"; };
+	class fsb_quan_loi { image = "custom\DacCong_HL.paa"; position_marker = "zone_fsb_quan_loi"; };
+	class can_tho { image = "custom\DacCong_HL.paa"; position_marker = "zone_can_tho"; };
+	class soc_trang { image = "custom\DacCong_HL.paa"; position_marker = "zone_soc_trang"; };
+	class saigon { image = "custom\DacCong_HL.paa"; position_marker = "zone_saigon"; };
+	class ba_ria { image = "custom\DacCong_HL.paa"; position_marker = "zone_ba_ria"; };
+	class ban_hoang { image = "custom\DacCong_HL.paa"; position_marker = "zone_ban_hoang"; };
+	class da_nang { image = "custom\DacCong_HL.paa"; position_marker = "zone_da_nang"; };
+	class cu_chi { image = "custom\DacCong_HL.paa"; position_marker = "zone_cu_chi"; };
+	class mss_leghorn { image = "custom\DacCong_HL.paa"; position_marker = "zone_mss_leghorn"; };
 };
