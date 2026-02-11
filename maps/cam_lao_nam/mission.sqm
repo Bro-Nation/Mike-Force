@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=36029;
+		nextID=36155;
 	};
 	class Camera
 	{
-		pos[]={15783.521,64.607277,7064.0864};
-		dir[]={0.38283575,-0.62425214,0.68101728};
-		up[]={0.30591315,0.78120714,0.54418129};
-		aside[]={0.87172288,-2.57598e-07,-0.49004123};
+		pos[]={16255.132,70.290489,6512.5396};
+		dir[]={-0.12802109,-0.69621879,0.70635885};
+		up[]={-0.12416354,0.71780801,0.68507683};
+		aside[]={0.98399514,-2.9041985e-07,0.17834029};
 	};
 };
 binarizationWanted=0;
@@ -438,8 +438,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -489,8 +489,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -14329,17 +14329,16 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16267.811,20.657274,6538.8149};
+								position[]={16267.811,18.853275,6538.8149};
 								angles[]={0,1.3601251,0};
 							};
 							side="Empty";
-							flags=1;
+							flags=5;
 							class Attributes
 							{
 							};
 							id=18612;
 							type="Land_vn_lampshabby_f_4xdir_far";
-							atlOffset=1.8039989;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -31838,7 +31837,7 @@ class Mission
 									};
 									id=18423;
 									type="Land_HelipadEmpty_F";
-									atlOffset=0.011260986;
+									atlOffset=0.013122559;
 								};
 							};
 							id=18335;
