@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2269;
+		nextID=2303;
 	};
 	class Camera
 	{
-		pos[]={3330.7356,74.631943,4276.4482};
-		dir[]={0.20487066,-0.64832503,0.73328453};
-		up[]={0.17445318,0.76136243,0.62441385};
-		aside[]={0.96311814,-5.2328687e-08,-0.26908314};
+		pos[]={3360.4524,76.215317,4331.3774};
+		dir[]={0.5973084,-0.58430219,0.54940015};
+		up[]={0.43005377,0.81153291,0.39556107};
+		aside[]={0.676983,3.6670826e-09,-0.73601717};
 	};
 };
 binarizationWanted=0;
@@ -9364,7 +9364,7 @@ class Mission
 					};
 					id=2149;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9463,7 +9463,7 @@ class Mission
 					};
 					id=2143;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9644,7 +9644,7 @@ class Mission
 				};
 			};
 			id=1493;
-			atlOffset=0.62199783;
+			atlOffset=0.62188339;
 		};
 		class Item21
 		{
@@ -9871,16 +9871,16 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3428.854,45.779034,4401.9805};
+						position[]={3428.854,45.779057,4401.9292};
 					};
 					side="Empty";
 					class Attributes
 					{
-						init="this setObjectTexture [0,""custom\billboards\Press_bb.paa""];";
+						init="this setObjectTexture [0, ""custom\billboards\Press_bb.paa""]; " \n "this setVariable [""textureToggle"", 1]; " \n "this addAction [""Toggle Texture"", { " \n "    params [""_target""]; " \n "    private _current = _target getVariable [""textureToggle"", 0]; " \n "    if (_current == 0) then { " \n "        _target setObjectTexture [0, ""custom\billboards\Press_bb.paa""]; " \n "        _target setVariable [""textureToggle"", 1]; " \n "    } else { " \n "        _target setObjectTexture [0, ""custom\presscorp_greenscreen.paa""]; " \n "        _target setVariable [""textureToggle"", 0]; " \n "    }; " \n "}, nil, 1.5, true, true, """", ""(_this distance _target) < 3"", 3];";
 					};
 					id=1542;
 					type="SignAd_Sponsor_F";
-					atlOffset=3.2479782;
+					atlOffset=3.2480011;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -10106,7 +10106,7 @@ class Mission
 				};
 			};
 			id=1531;
-			atlOffset=1.1780548;
+			atlOffset=1.1780701;
 		};
 		class Item22
 		{
@@ -21711,7 +21711,7 @@ class Mission
 					};
 					id=2153;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -21783,7 +21783,7 @@ class Mission
 				};
 			};
 			id=1921;
-			atlOffset=-0.156353;
+			atlOffset=-0.15724564;
 		};
 		class Item30
 		{
@@ -28118,7 +28118,7 @@ class Mission
 					};
 					id=2155;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -28217,7 +28217,7 @@ class Mission
 					};
 					id=2157;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -28334,7 +28334,7 @@ class Mission
 				};
 			};
 			id=2742;
-			atlOffset=0.41090775;
+			atlOffset=0.41043472;
 		};
 		class Item48
 		{
@@ -28754,7 +28754,7 @@ class Mission
 					};
 					id=2188;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.12928391;
+					atlOffset=0.12215805;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -28909,7 +28909,7 @@ class Mission
 					};
 					id=2151;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -29063,7 +29063,7 @@ class Mission
 				};
 			};
 			id=2698;
-			atlOffset=0.63728333;
+			atlOffset=0.63716888;
 		};
 		class Item49
 		{
