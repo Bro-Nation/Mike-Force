@@ -31,7 +31,7 @@ class vn_tr_disp_taskRoster_main_rhs : vn_mf_RscControlsGroupNoScrollbarHV
 			w = UIW(8);
 			h = UIH(4.5);
 
-			text = "custom\billboards\BN_Welcome_20240621.paa";
+			text = "custom\billboards\BN_Welcome_bb.paa";
 		};
 
 		#define HEIGHT_NEW_ROW_BY_NUMB(N)\

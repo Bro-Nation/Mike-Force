@@ -852,3 +852,5 @@ diag_log "VN MikeForce: Initialising Dynamic Groups";
 
 BIS_fnc_endMission = {};
 BIS_fnc_endMissionServer = {};
+
+execVM "custom\scripts\show_fps.sqf";
