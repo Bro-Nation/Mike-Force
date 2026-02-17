@@ -1176,9 +1176,7 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_CAR;
 				vehicles[] = {
 					"vn_b_wheeled_m274_01_01",
-					"vn_b_wheeled_m274_01_02",
 					"vn_b_wheeled_m274_02_01",
-					"vn_b_wheeled_m274_02_02",
 				};
 			};
 		};
