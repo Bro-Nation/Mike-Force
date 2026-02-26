@@ -61,6 +61,13 @@ if !(isNull _unit) then
 	deleteVehicle _unit;
 };
 
+ // Check and delete the siren if attached to this player
+ if ((attachedTo vn_mf_siren) == _unit) then
+ {
+     deleteVehicle vn_mf_siren;
+     vn_mf_siren_toggle = false;
+ };
+
 ["%1 _vardata %2",_this, _vardata] call BIS_fnc_logFormat;
 
 false
