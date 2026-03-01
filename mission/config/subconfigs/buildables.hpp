@@ -4152,6 +4152,14 @@ class Land_vn_pierwooden_01_dock_f
 						icon = VEHICLE_ICON_BOAT;
 						cooldown = 300;
 					};
+					class B_Boat_Transport_01_F
+					{
+						// Assault Boat RIB
+						cost[] = {{"BuildingSupplies", 400}};
+						icon = VEHICLE_ICON_BOAT;
+						cooldown = 300;
+						//side = "WEST";
+					};
 				};
 				class heavy_boats
 				{
