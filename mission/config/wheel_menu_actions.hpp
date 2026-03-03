@@ -80,6 +80,7 @@ class wheel_menu_actions
 		spawn = 0;
 	};
 	
+	/*
 	class siren : base_action
 	{
 		visible = "ALWAYS";
@@ -91,6 +92,7 @@ class wheel_menu_actions
 		function = "vn_mf_fnc_active_siren";
 		spawn = 0;
 	};
+	*/
 
 	class whistle : base_action
 	{
