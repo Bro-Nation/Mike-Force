@@ -46,11 +46,14 @@ private _headlessClients = _allPlayers select {(getUserInfo (getPlayerID _x)) se
 private _headlessClientsDesyncs = _headlessClients apply {((getUserInfo (getPlayerID _x)) select 9) select 2};
 
 private _messageServer = format [
-  "Server: UptimeMins:%1, FPSMin:%2, FPSAv:%3, Scripts:%4, HCs:%5, HCsDesync:%6",
+  "Server: UptimeMins:%1, FPSMin:%2, FPSAv:%3, Scripts:[spawn: %4, execVM: %5, exec: %6, execFSM: %7], HCs:%8, HCsDesync:%9",
   diag_tickTime / 60, // natural time since arma was started, not ingame time
   diag_fpsMin, // minimum server FPS over the last 16 frames
   diag_fps, // average server FPS over last 16 frames
-  diag_activeScripts, // active scripts in THIS frame
+  diag_activeScripts select 0,
+  diag_activeScripts select 1,
+  diag_activeScripts select 2,
+  diag_activeScripts select 3, // active scripts in THIS frame
   _headlessClients,
   _headlessClientsDesyncs // a value above 0 means that the HC has disconnected
 ];

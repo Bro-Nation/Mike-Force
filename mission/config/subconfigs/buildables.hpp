@@ -4152,6 +4152,14 @@ class Land_vn_pierwooden_01_dock_f
 						icon = VEHICLE_ICON_BOAT;
 						cooldown = 300;
 					};
+					class B_Boat_Transport_01_F
+					{
+						// Assault Boat RIB
+						cost[] = {{"BuildingSupplies", 400}};
+						icon = VEHICLE_ICON_BOAT;
+						cooldown = 300;
+						//side = "WEST";
+					};
 				};
 				class heavy_boats
 				{
@@ -4943,6 +4951,134 @@ class vn_flag_arvn
 		class final_state
 		{
 			object_class = "vn_flag_arvn";
+		};
+	};
+};
+
+class Land_vn_sign_mines_f
+{
+	name = "";
+	type = "sign";
+	categories[] = {"signs"};
+	rank = 0;
+	SUPPLY_CAPACITY(50, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "Land_vn_sign_mines_f";
+		};
+		class middle_state
+		{
+			object_class = "Land_vn_sign_mines_f";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_sign_mines_f";
+		};
+	};
+};
+
+class vn_sign_fob_07
+{
+	name = "";
+	type = "sign";
+	categories[] = {"signs"};
+	rank = 0;
+	SUPPLY_CAPACITY(50, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_sign_fob_07";
+		};
+		class middle_state
+		{
+			object_class = "vn_sign_fob_07";
+		};
+		class final_state
+		{
+			object_class = "vn_sign_fob_07";
+		};
+	};
+};
+
+class vn_sign_fob_08
+{
+	name = "";
+	type = "sign";
+	categories[] = {"signs"};
+	rank = 0;
+	SUPPLY_CAPACITY(50, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_sign_fob_08";
+		};
+		class middle_state
+		{
+			object_class = "vn_sign_fob_08";
+		};
+		class final_state
+		{
+			object_class = "vn_sign_fob_08";
+		};
+	};
+};
+
+class vn_sign_so_01
+{
+	name = "";
+	type = "sign";
+	categories[] = {"signs"};
+	rank = 0;
+	SUPPLY_CAPACITY(50, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_ACAV
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "vn_sign_so_01";
+		};
+		class middle_state
+		{
+			object_class = "vn_sign_so_01";
+		};
+		class final_state
+		{
+			object_class = "vn_sign_so_01";
 		};
 	};
 };

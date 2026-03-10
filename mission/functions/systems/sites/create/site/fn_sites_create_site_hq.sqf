@@ -110,7 +110,11 @@ params ["_pos"];
 		_markerPartial setMarkerType "o_unknown";
 		_markerPartial setMarkerAlpha 0;
 
-		private _dc_spawnPos = _spawnPos getPos [30 + random 100, random 360];
+		private _dc_spawnPos = _spawnPos;
+		for "_i" from 1 to 100 do {
+			_dc_spawnPos = _spawnPos getPos [30 + random 100, random 360];
+			if (!surfaceIsWater _dc_spawnPos) exitWith {};
+		};
 		private _hqRespawnMarker = createMarker [format ["dc_respawn_adhoc_%1", _siteId], _dc_spawnPos];
 		_hqRespawnMarker setMarkerType "o_hq";
 		_hqRespawnMarker setMarkerAlpha 0;

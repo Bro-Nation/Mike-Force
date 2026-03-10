@@ -227,6 +227,9 @@ class CfgFunctions
 			class action_press_toggle_spectator {};
 			class action_remove_chemlight {};
 			class action_remove_flashlight {};
+			class uwChargeAddAction {};
+			class uwChargeDoPlace {};
+			class uwChargePlacement {};
 		};
 
 		class system_actives {

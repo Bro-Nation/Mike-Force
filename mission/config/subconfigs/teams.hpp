@@ -141,6 +141,7 @@ class MikeForce
         scout = true;
         increasedBuildRate = false;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -183,6 +184,7 @@ class SpikeTeam
         scout_multiple = true;
         increasedBuildRate = false;
         canAttachChemlights = true;
+        
     };
 
     //Function Calls on team Join
@@ -224,6 +226,7 @@ class ACAV
         scout = false;
         increasedBuildRate = false;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -265,6 +268,7 @@ class GreenHornets
         scout = false;
         increasedBuildRate = false;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -275,7 +279,7 @@ class GreenHornets
 class 3rdMEU
 {
     name = "31st MEU [31st MEU]";
-    icon = "custom\taskroster\3_1_patch1.paa";
+    icon = "custom\taskroster\Marines_HL.paa";
     shortname = "3/1 Marines";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
@@ -306,6 +310,7 @@ class 3rdMEU
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -316,7 +321,7 @@ class 3rdMEU
 class MilitaryPolice
 {
     name = "Military Police [716th MP]";
-    icon = "custom\taskroster\militarypolice_HL.paa";
+    icon = "custom\taskroster\MPs_HL.paa";
     shortname = "Military Police";
     unit = "vn_b_men_army_01";
     color = "ColorBlue";
@@ -347,6 +352,7 @@ class MilitaryPolice
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -357,7 +363,7 @@ class MilitaryPolice
 class QuarterHorse
 {
     name = "Black Horse [11th ACR]";
-    icon = "custom\taskroster\blackhorse_HL.paa";
+    icon = "custom\taskroster\Blackhorse_HL.paa";
     shortname = "Black Horse";
     unit = "vn_b_men_army_01";
     color = "ColorOrange";
@@ -388,6 +394,7 @@ class QuarterHorse
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -398,7 +405,7 @@ class QuarterHorse
 class Frogmen
 {
     name = "Frogmen [UDT]";
-    icon = "custom\taskroster\frogmen_HL.paa";
+    icon = "custom\taskroster\UDT_HL.paa";
     shortname = "Frogmen";
     unit = "vn_b_men_army_01";
     color = "ColorOrange";
@@ -430,6 +437,7 @@ class Frogmen
         scout_multiple = true;
         increasedBuildRate = true;
         canAttachChemlights = true;
+        
     };
 
     //Function Calls on team Join
@@ -440,7 +448,7 @@ class Frogmen
 class Muskets
 {
     name = "Muskets [176th Gunships]";
-    icon = "custom\taskroster\muskets_HL.paa";
+    icon = "custom\taskroster\Muskets_HL.paa";
     shortname = "Muskets";
     unit = "vn_b_men_army_01";
     color = "ColorIndependent";
@@ -471,6 +479,7 @@ class Muskets
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -481,7 +490,7 @@ class Muskets
 class SatansAngels
 {
     name = "Satans Angels [433rd TFS]";
-    icon = "custom\taskroster\satansangels_HL.paa";
+    icon = "custom\taskroster\SatansAngels_HL.paa";
     shortname = "Satans Angels";
     unit = "vn_b_men_army_01";
     color = "ColorIndependent";
@@ -512,6 +521,7 @@ class SatansAngels
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -544,15 +554,16 @@ class 633rdTASG
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
         loadCoef = 1;
-        engineer = true;
+        engineer = false;
         explosiveSpecialist = false;
-        medic = false;
+        medic = true;
         UAVHacker = false;
         vn_artillery = false;
         harassable = true;
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -594,6 +605,7 @@ class 7thCAV
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -604,7 +616,7 @@ class 7thCAV
 class TigerForce
 {
     name = "Tiger Force [Recon]";
-    icon = "custom\taskroster\tigerforce_HL.paa";
+    icon = "custom\taskroster\TigerForce_HL.paa";
     shortname = "Tiger Force";
     unit = "vn_b_men_army_01";
     color = "ColorUNKNOWN";
@@ -636,6 +648,7 @@ class TigerForce
         scout_multiple = true;
         increasedBuildRate = true;
         canAttachChemlights = true;
+        
     };
 
     //Function Calls on team Join
@@ -646,7 +659,7 @@ class TigerForce
 class SASR
 {
     name = "ANZAC";
-    icon = "custom\taskroster\BN_ANZAC_HL.paa";
+    icon = "custom\taskroster\ANZAC_HL.paa";
     shortname = "ANZAC";
     unit = "vn_b_men_army_01";
     color = "ColorUNKNOWN";
@@ -678,6 +691,7 @@ class SASR
         scout_multiple = true;
         increasedBuildRate = true;
         canAttachChemlights = true;
+        
     };
 
     //Function Calls on team Join
@@ -720,6 +734,7 @@ class ARVN
         scout_multiple = true;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
@@ -730,7 +745,7 @@ class ARVN
 class MACV
 {
     name = "MACV [Command]";
-    icon = "custom\taskroster\macv_HL.paa";
+    icon = "custom\taskroster\MACV_HL.paa";
     shortname = "MACV";
     unit = "vn_b_men_army_01";
     color = "ColorYellow";
@@ -761,6 +776,7 @@ class MACV
         scout = true;
         increasedBuildRate = true;
         canAttachChemlights = true;
+        
     };
 
     //Function Calls on team Join
@@ -771,7 +787,7 @@ class MACV
 class DacCong
 {
     name = "Dac Cong [Commandos]";
-    icon = "custom\taskroster\daccong_team.paa";
+    icon = "custom\taskroster\DacCong_HL.paa";
     shortname = "Dac Cong";
     unit = "vn_b_men_army_01";
     color = "ColorOPFOR";
@@ -801,6 +817,7 @@ class DacCong
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = true;
+        
     };
 
     //Function Calls on team Join
@@ -811,7 +828,7 @@ class DacCong
 class PressCorp
 {
     name = "Press Corp [DASPO]";
-    icon = "custom\taskroster\presscorp_HL.paa";
+    icon = "custom\taskroster\Press_HL.paa";
     shortname = "Press Corp";
     unit = "C_journalist_F";
     color = "ColorCIV";
@@ -842,6 +859,7 @@ class PressCorp
         scout = false;
         increasedBuildRate = true;
         canAttachChemlights = false;
+        
     };
 
     //Function Calls on team Join
