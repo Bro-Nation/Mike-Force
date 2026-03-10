@@ -440,6 +440,9 @@ class CfgFunctions
 			class tunnels_get_available_objective {};
 			class tunnels_register_tunnel {};
 			class tunnels_unregister_tunnel {};
+			class tunnels_spawn_objective_ai {};
+			class tunnels_eject_players {};
+			class tunnels_cleanup_ai {};
 		};
 
 		// simple scheduled utility job to make triple sure that critical

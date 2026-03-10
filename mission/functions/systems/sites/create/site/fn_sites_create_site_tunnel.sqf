@@ -45,6 +45,12 @@ params ["_pos"];
                 getPosATL _crateSpawn
             ] call para_g_fnc_create_vehicle;
 
+            _crate allowDamage false;
+            [_crate] spawn {
+                sleep 5;
+                (_this select 0) allowDamage true;
+            };
+
             _crate setVariable ["exemptFromRadiusCheck", true];
             vn_site_objects pushBack _crate;
             _siteStore setVariable ["objectsToDestroy", [_crate], true];
