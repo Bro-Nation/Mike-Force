@@ -65,6 +65,21 @@ params ["_pos"];
 		}) apply {
 			_x allowDamage false;
 		};
+		// --- Disable weapon disassembly for static weapons ---
+		(_hqObjects select {
+			_x isKindOf "StaticWeapon" &&
+			!(typeOf _x in ["vn_o_nva_65_static_zpu4", "vn_o_nva_static_zpu4"])
+		}) apply {
+			_x enableWeaponDisassembly false;
+			_x addAction [
+				"Disable Weapon",
+				{
+					params ["_target", "_caller", "_actionId", "_arguments"];
+					_target setDamage 1;
+					_target removeAction _actionId;
+				},[],1.5,false,false,"_caller distance _target < 5"
+			];
+		};
 
 		private _fnc_dynSimKindOfChecker = {
 			params ["_object"];
@@ -124,6 +139,7 @@ params ["_pos"];
 		_respawnObj setVariable ["vn_respawn", [_hqRespawnMarker,_respawnID]];
 
 		vn_dc_adhoc_respawns pushBack [_hqRespawnMarker,_respawnID];
+
 		_siteStore setVariable ["aiObjectives", _objectives];
 		_siteStore setVariable ["markers", [_hqMarker]];
 		_siteStore setVariable ["partialMarkers", [_markerPartial]];

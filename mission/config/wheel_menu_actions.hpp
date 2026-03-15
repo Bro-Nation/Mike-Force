@@ -80,10 +80,11 @@ class wheel_menu_actions
 		spawn = 0;
 	};
 	
+	/*
 	class siren : base_action
 	{
 		visible = "ALWAYS";
-		condition = "(([_target, 'MACV'] call vn_mf_fnc_player_on_team) || ([_target, 'MilitaryPolice'] call vn_mf_fnc_player_on_team))";
+		condition = "([_target, 'MilitaryPolice'] call vn_mf_fnc_player_on_team)";
 		text = "Siren";
 		icon = "custom\wheelmenu\siren.paa";
 		icon_highlighted = "";
@@ -91,6 +92,7 @@ class wheel_menu_actions
 		function = "vn_mf_fnc_active_siren";
 		spawn = 0;
 	};
+	*/
 
 	class whistle : base_action
 	{
