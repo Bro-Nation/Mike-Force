@@ -986,6 +986,15 @@ class spawn_point_types {
 					"vn_b_wheeled_m54_ammo",
 				};
 			};
+
+			class jeeps {
+				name = "M151A1";
+				icon = VEHICLE_ICON_CAR;
+				vehicles[] = {
+					"vn_b_wheeled_m151_01",
+					"vn_b_wheeled_m151_02",
+				};
+			};
 		};
 	};
 
@@ -1176,9 +1185,7 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_CAR;
 				vehicles[] = {
 					"vn_b_wheeled_m274_01_01",
-					"vn_b_wheeled_m274_01_02",
 					"vn_b_wheeled_m274_02_01",
-					"vn_b_wheeled_m274_02_02",
 				};
 			};
 		};

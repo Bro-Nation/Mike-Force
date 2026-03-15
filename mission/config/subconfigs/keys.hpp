@@ -215,15 +215,15 @@ class vn_mf_veh_asset_locate_vehicle_spawn_point
 	access = 1;
 };
 
-class vn_mf_toggle_earplugs
+class vn_mf_toggle_team_sound
 {
 	defaultKey = DIK_F6;
 	shift = "false";
 	ctrl = "false";
 	alt = "false";
-	function = "vn_mf_fnc_earplugs_toggle";
+	function = "vn_mf_fnc_active_team_sound";
 	down = 0;
-	displayName = "Toggle Earplugs";
+	displayName = "Toggle Team Sound";
 	access = 1;
 };
 

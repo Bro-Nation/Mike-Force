@@ -554,9 +554,9 @@ class 633rdTASG
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
         loadCoef = 1;
-        engineer = true;
+        engineer = false;
         explosiveSpecialist = false;
-        medic = false;
+        medic = true;
         UAVHacker = false;
         vn_artillery = false;
         harassable = true;
