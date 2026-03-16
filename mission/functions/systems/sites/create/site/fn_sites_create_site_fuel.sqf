@@ -43,6 +43,14 @@ params ["_pos"];
 
 		vn_site_objects append _objs;
 
+		// --- Disable weapon disassembly for static weapons ---
+		(_objs select {
+			_x isKindOf "StaticWeapon" &&
+			!(typeOf _x in ["vn_o_nva_65_static_zpu4", "vn_o_nva_static_zpu4"])
+		}) apply {
+			_x call vn_mf_fnc_sites_utils_add_disable_weapon_action;
+		};
+
 		private _objectsToDestroy = _objs select {typeOf _x isEqualTo "Land_vn_tank_rust_f"};
 
 		private _markerPos = _spawnPos getPos [10 + random 20, random 360];

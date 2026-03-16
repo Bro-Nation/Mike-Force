@@ -238,6 +238,7 @@ class CfgFunctions
 			class active_init {};
 			class active_siren {};
 			class active_whistle {};
+			class active_team_sound {};
 		};
 
 		class system_ammo_repack {
@@ -432,6 +433,7 @@ class CfgFunctions
 			class sites_utils_std_teardown {};
 			class sites_utils_std_check_teardown {};
 			class sites_utils_normalise_object_placement {};
+			class sites_utils_add_disable_weapon_action {};
 		}
 
 		// tunnel subsystem for managing tunnel teleports and objectives

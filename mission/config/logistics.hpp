@@ -22,6 +22,11 @@ class vn_logistics
 		inventory_max_weight = 50;
 		inventory_max_size = 1;
 	};
+	class bn_bh_large
+	{
+		inventory_max_weight = 1200
+		inventory_max_size = 10
+	};
 	//Jeeps + Small Cars
 	class vn_b_wheeled_m151_01 : vn_defaults_small {};
 	class vn_b_wheeled_m151_01_mp : vn_defaults_small {};
@@ -56,6 +61,8 @@ class vn_logistics
 	class vn_b_wheeled_m54_01 : vn_defaults_large {};
 	class vn_b_wheeled_m54_01_airport : vn_defaults_large {};
 	class vn_b_wheeled_m54_02 : vn_defaults_large {};
+	class vn_b_wheeled_m54_01_sog : bn_bh_large {};
+	class vn_b_wheeled_m54_02_sog : bn_bh_large {};	
 	//M109 Command Truck
 	class vn_b_wheeled_m54_03 : vn_defaults_medium {};
 	//Repair Truck
