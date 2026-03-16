@@ -433,6 +433,7 @@ class CfgFunctions
 			class sites_utils_std_teardown {};
 			class sites_utils_std_check_teardown {};
 			class sites_utils_normalise_object_placement {};
+			class sites_utils_add_disable_weapon_action {};
 		}
 
 		// simple scheduled utility job to make triple sure that critical
