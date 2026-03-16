@@ -55,15 +55,7 @@ params ["_pos"];
 			_x isKindOf "StaticWeapon" &&
 			!(typeOf _x in ["vn_o_nva_65_static_zpu4", "vn_o_nva_static_zpu4"])
 		}) apply {
-			_x enableWeaponDisassembly false;
-			_x addAction [
-				"Disable Weapon",
-				{
-					params ["_target", "_caller", "_actionId", "_arguments"];
-					_target setDamage 1;
-					_target removeAction _actionId;
-				},[],1.5,false,false,"_caller distance _target < 5"
-			];
+			_x call vn_mf_fnc_sites_utils_add_disable_weapon_action;
 		};
 
 		private _objectTypesToDestroy = [
