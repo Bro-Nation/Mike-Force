@@ -40,6 +40,8 @@ params ["_pos"];
 
 		vn_site_objects append _artyObjs;
 
+
+
 		/*
 		TODO: mortar site compositions currently have a bunch
 		of ammo crates dotted around that have a holdAction attached to them
@@ -72,7 +74,23 @@ params ["_pos"];
 			"vn_o_vc_static_d44",
 			"vn_o_vc_static_d44_01"
 		];
-
+		
+		// --- Disable weapon disassembly for static weapons ---
+		(_artyObjs select {
+			_x isKindOf "StaticWeapon" &&
+			!(typeOf _x in _objectTypesToDestroy) &&
+			!(typeOf _x in ["vn_o_nva_65_static_zpu4", "vn_o_nva_static_zpu4"])
+		}) apply {
+			_x enableWeaponDisassembly false;
+			_x addAction [
+				"Disable Weapon",
+				{
+					params ["_target", "_caller", "_actionId", "_arguments"];
+					_target setDamage 1;
+					_target removeAction _actionId;
+				},[],1.5,false,false,"_caller distance _target < 5"
+			];
+		};
 		private _objectsToDestroy = _artyObjs select {
 			typeOf _x in _objectTypesToDestroy;
 		};

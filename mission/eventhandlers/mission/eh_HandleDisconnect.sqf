@@ -61,6 +61,20 @@ if !(isNull _unit) then
 	deleteVehicle _unit;
 };
 
-["%1 _vardata %2",_this, _vardata] call BIS_fnc_logFormat;
+	// Check and delete the siren if attached to this player
+	if ((attachedTo vn_mf_siren) == _unit) then
+	{
+		deleteVehicle vn_mf_siren;
+		vn_mf_siren_toggle = false;
+	};
+
+	// Check and delete the whistle if attached to this player
+	if ((attachedTo vn_mf_whistle) == _unit) then
+	{
+		deleteVehicle vn_mf_whistle;
+		vn_mf_whistle = objNull;
+	};
+
+	["%1 _vardata %2",_this, _vardata] call BIS_fnc_logFormat;
 
 false

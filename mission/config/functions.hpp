@@ -238,6 +238,7 @@ class CfgFunctions
 			class active_init {};
 			class active_siren {};
 			class active_whistle {};
+			class active_team_sound {};
 		};
 
 		class system_ammo_repack {
