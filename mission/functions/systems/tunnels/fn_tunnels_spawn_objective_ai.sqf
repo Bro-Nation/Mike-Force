@@ -41,10 +41,13 @@ private _tunnelObjectives = missionNamespace getVariable ["vn_mf_tunnel_objectiv
 private _allBuildingPositions = [];
 {
     private _objectivePos = getPos _x;
-    private _nearbyObjects = nearestObjects [_objectivePos, [], 50];
+    private _nearbyObjects = nearestObjects [_objectivePos, [], 10];
     {
-        private _positions = [_x] call BIS_fnc_buildingPositions;
-        _allBuildingPositions append _positions;
+        // Skip platforms
+        if ((toLower (typeOf _x)) find "platform" == -1) then {
+            private _positions = [_x] call BIS_fnc_buildingPositions;
+            _allBuildingPositions append _positions;
+        };
     } forEach _nearbyObjects;
 } forEach _tunnelObjectives;
 
@@ -60,7 +63,7 @@ for "_i" from 1 to _count do {
     private _unit = _group createUnit [_unitType, _spawnPos, [], 0, "NONE"];
 
     _unit setVariable ["vn_mf_tunnel_ai", true, true];
-    _unit disableAI "MOVE";
+    _unit disableAI "PATH";
     _spawnedUnits pushBack _unit;
 
     // Add killed event handler for cleanup

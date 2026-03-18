@@ -1,5 +1,6 @@
 /*
 Tunnel Subsystem Documentation
+Author: tylervip
 
 Overview:
 The tunnel subsystem enables teleportation between tunnel entrances and exits in the mission.

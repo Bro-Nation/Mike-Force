@@ -1,4 +1,3 @@
-
 class CfgFunctions
 {
 	#include "..\paradigm\client\functions.hpp"
@@ -445,6 +444,10 @@ class CfgFunctions
 			class tunnels_get_available_objective {};
 			class tunnels_register_tunnel {};
 			class tunnels_unregister_tunnel {};
+			class tunnels_add_actions {};
+			class tunnels_action_look_for_wires {};
+			class tunnels_action_disable_trap {};
+			class tunnels_action_open_tunnel {};
 			class tunnels_spawn_objective_ai {};
 			class tunnels_eject_players {};
 			class tunnels_cleanup_ai {};

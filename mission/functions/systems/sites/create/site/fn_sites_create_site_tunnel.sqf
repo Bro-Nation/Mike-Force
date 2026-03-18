@@ -29,19 +29,37 @@ params ["_pos"];
         private _siteId = _siteStore getVariable "site_id";
         private _spawnPos = getPos _siteStore;
 
-        // --- Tunnel object ---
-        private _tunnel = ["Land_vn_o_trapdoor_01", _spawnPos] call para_g_fnc_create_vehicle;
-        _tunnel setVariable ["siteStore", _siteStore, true];
-        vn_site_objects pushBack _tunnel;
+        // --- Tunnel objects (closed and open) ---
+        private _tunnelClosed = ["Land_vn_o_trapdoor_01", _spawnPos] call para_g_fnc_create_vehicle;
+        private _tunnelOpen = ["Land_vn_o_trapdoor_02", _spawnPos] call para_g_fnc_create_vehicle;
 
-        // --- Register tunnel with subsystem (adds actions and assigns teleport) ---
-        [_tunnel] call vn_mf_fnc_tunnels_register_tunnel;
+        // Force exact overlap so swapping visibility does not shift location.
+        _tunnelOpen setPosWorld (getPosWorld _tunnelClosed);
+        _tunnelOpen setDir (getDir _tunnelClosed);
+        _tunnelOpen setVectorDirAndUp [vectorDir _tunnelClosed, vectorUp _tunnelClosed];
+        
+        _tunnelClosed setVariable ["siteStore", _siteStore, true];
+        _tunnelOpen setVariable ["siteStore", _siteStore, true];
+        _tunnelClosed setVariable ["linkedOpenTunnel", _tunnelOpen, true];
+        _tunnelOpen setVariable ["linkedClosedTunnel", _tunnelClosed, true];
+        
+        vn_site_objects pushBack _tunnelClosed;
+        vn_site_objects pushBack _tunnelOpen;
+        
+        // Hide the open trapdoor initially
+        _tunnelOpen hideObjectGlobal true;
+        
+        // Register only the open tunnel with subsystem (adds actions and assigns teleport)
+        [_tunnelOpen] call vn_mf_fnc_tunnels_register_tunnel;
+        
+        // Add trap mechanics and open action to the closed trapdoor
+        [_tunnelClosed] call vn_mf_fnc_tunnels_add_actions;
 
         // --- Crate spawning at tunnel objective point ---
         private _crateSpawn = call vn_mf_fnc_tunnels_get_available_objective;
         if (!isNull _crateSpawn) then {
             private _crate = [
-                selectRandom ["Land_vn_pavn_weapons_stack1","Land_vn_pavn_weapons_stack2","Land_vn_pavn_weapons_stack3"],
+                selectRandom ["vn_o_ammobox_02"],
                 getPosATL _crateSpawn
             ] call para_g_fnc_create_vehicle;
 
@@ -72,7 +90,7 @@ params ["_pos"];
         _siteStore setVariable ["partialMarkers",[_partialMarker]];
 
         // --- AI Objectives ---
-        if (random 1 < 0.7) then {
+        if (random 1 < 0.5) then {
             _siteStore setVariable ["aiObjectives", [[_spawnPos,1,1] call para_s_fnc_ai_obj_request_ambush]];
         } else {
             _siteStore setVariable ["aiObjectives", [[_spawnPos,1,1] call para_s_fnc_ai_obj_request_defend]];
@@ -81,7 +99,7 @@ params ["_pos"];
         // --- Mines ---
         if (random 1 < 0.5) then {
             private _mines = ([3, ceil random 8] call vn_mf_fnc_range) apply {
-                private _minePos = _spawnPos getPos [random 10, random 360];
+                private _minePos = _spawnPos getPos [2 + random 10, random 360];
                 createMine ["vn_mine_punji_02", _minePos, [], 0]
             };
             vn_site_objects append _mines;
