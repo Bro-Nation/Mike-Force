@@ -21,12 +21,7 @@ params ["_tunnel"];
 
 if (isNull _tunnel) exitWith { systemChat "ERROR: Tunnel is null!"; false };
 
-private _tunnels = missionNamespace getVariable ["vn_mf_tunnels", []];
-private _tunnelIndex = count _tunnels;
-_tunnels pushBack _tunnel;
-missionNamespace setVariable ["vn_mf_tunnels", _tunnels, true];
-
-// Get cached teleports
+// Get cached teleports FIRST
 private _teleports = call vn_mf_fnc_tunnels_get_teleports;
 
 if (_teleports isEqualTo []) exitWith {
@@ -34,26 +29,47 @@ if (_teleports isEqualTo []) exitWith {
     false
 };
 
-// Assign a teleport exit (cycle through available teleports)
-private _exitTeleport = _teleports select (_tunnelIndex mod (count _teleports));
+// Assign an available teleport exit (no overlap) BEFORE adding to list
+private _exitTeleport = call vn_mf_fnc_tunnels_get_available_teleport;
+if (isNull _exitTeleport) exitWith {
+    systemChat "ERROR: Not enough teleports for all tunnels!";
+    false
+};
+
+// --- Only add tunnel to list after validating we have a teleport ---
+private _tunnels = missionNamespace getVariable ["vn_mf_tunnels", []];
+_tunnels pushBack _tunnel;
+missionNamespace setVariable ["vn_mf_tunnels", _tunnels, true];
 _tunnel setVariable ["exitTeleport", _exitTeleport, true];
 _tunnel setVariable ["siteTeleports", _teleports, true];
 _exitTeleport setVariable ["linkedTunnel", _tunnel, true];
 _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
 
 // --- Enter Tunnel action ---
-private _actionId1 = _tunnel addAction [
+private _actionId1 = [
+    _tunnel,
     "Enter Tunnel",
+    "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
+    "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
+    "player distance _target < 5",
+    "player distance _target < 5",
+    {},
+    {},
     {
-        params ["_target", "_caller"];
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
         private _exitTeleport = _target getVariable ["exitTeleport", objNull];
         
         if (isNull _exitTeleport) exitWith { hint "No tunnel exit assigned"; };
         
         _caller setPosATL (getPosATL _exitTeleport vectorAdd [0,0,-3]);
     },
-    nil, 1, true, true, "", "true"
-];
+    {},
+    [],
+    2,
+    100,
+    false,
+    false
+] call BIS_fnc_holdActionAdd;
 _tunnel setVariable ["enterActionId", _actionId1, true];
 
 // --- Exit Tunnel action (on the teleport point inside) ---
@@ -63,10 +79,17 @@ if (_existingActionId > -1) then {
     _exitTeleport removeAction _existingActionId;
 };
 
-private _actionId2 = _exitTeleport addAction [
+private _actionId2 = [
+    _exitTeleport,
     "Exit Tunnel",
+    "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
+    "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
+    "_target distance _this < 10",
+    "_target distance _this < 10",
+    {},
+    {},
     {
-        params ["_target", "_caller"];
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
         private _source = _target getVariable ["linkedTunnel", objNull];
         if (!isNull _source) then {
             _caller setPosATL getPosATL _source;
@@ -79,8 +102,13 @@ private _actionId2 = _exitTeleport addAction [
             };
         };
     },
-    nil, 1, true, true, "", "_target distance _this < 10"
-];
+    {},
+    [],
+    2,
+    100,
+    false,
+    false
+] call BIS_fnc_holdActionAdd;
 _exitTeleport setVariable ["exitActionId", _actionId2, true];
 
 true

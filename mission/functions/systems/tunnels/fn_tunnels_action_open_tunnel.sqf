@@ -19,10 +19,17 @@
 
 params ["_tunnelClosed"];
 
-_tunnelClosed addAction [
+[
+    _tunnelClosed,
     "Open Tunnel",
+    "custom\holdactions\holdAction_interact_ca.paa",
+    "custom\holdactions\holdAction_interact_ca.paa",
+    "player distance _target < 5",
+    "player distance _target < 5",
+    {},
+    {},
     {
-        params ["_target", "_caller", "_actionId"];
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
         private _tunnelOpen = _target getVariable ["linkedOpenTunnel", objNull];
         if (isNull _tunnelOpen) exitWith {};
 
@@ -38,15 +45,11 @@ _tunnelClosed addAction [
         // Open the tunnel regardless
         _target hideObjectGlobal true;
         _tunnelOpen hideObjectGlobal false;
-
-        // Remove all remaining actions from the closed trapdoor
-        removeAllActions _target;
     },
-    nil,
-    1,
+    {},
+    [],
+    3,
+    100,
     true,
-    true,
-    "",
-    "true",
-    5
-];
+    false
+] call BIS_fnc_holdActionAdd;

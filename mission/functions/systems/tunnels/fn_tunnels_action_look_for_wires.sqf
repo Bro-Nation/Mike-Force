@@ -19,10 +19,17 @@
 
 params ["_tunnelClosed"];
 
-_tunnelClosed addAction [
-    "Look for Wires",
+[
+    _tunnelClosed,
+    "<t color='#ffc444'>Look for Wires</t>",
+    "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
+    "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
+    "((player getUnitTrait 'scout_multiple') || (player getUnitTrait 'explosiveSpecialist')) && player distance _target < 5",
+    "player distance _target < 5",
+    {},
+    {},
     {
-        params ["_target", "_caller", "_actionId"];
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
         private _isTrapped = _target getVariable ["trapActive", false];
 
         if (_isTrapped) then {
@@ -33,13 +40,11 @@ _tunnelClosed addAction [
         };
 
         _target setVariable ["trapChecked", true, true];
-        _target removeAction _actionId;
     },
-    nil,
-    1.5,
+    {},
+    [],
+    4,
+    100,
     true,
-    true,
-    "",
-    "true", //maybe only show for spike teams from team.hpp or if player has explosiveSpecialist trait?
-    5
-];
+    false
+] call BIS_fnc_holdActionAdd;

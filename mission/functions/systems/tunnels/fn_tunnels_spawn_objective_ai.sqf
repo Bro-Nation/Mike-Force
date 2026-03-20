@@ -61,11 +61,18 @@ for "_i" from 1 to _count do {
     
     private _unitType = selectRandom _unitTypes;
     private _unit = _group createUnit [_unitType, _spawnPos, [], 0, "NONE"];
-
+    
     _unit setVariable ["vn_mf_tunnel_ai", true, true];
     _unit disableAI "PATH";
     _spawnedUnits pushBack _unit;
 
+    // Remove all throwable items from the unit dynamically
+        {
+            if (isThrowable (_x select 0)) then {
+                _unit removeMagazines (_x select 0);
+            };
+        } forEach magazinesAmmoFull _unit;
+        
     // Add killed event handler for cleanup
     _unit addEventHandler ["Killed", {
         params ["_unit", "_killer"];
@@ -79,6 +86,7 @@ for "_i" from 1 to _count do {
         };
     }];
 };
+
 
 missionNamespace setVariable ["vn_mf_tunnel_ai_count", count _spawnedUnits, true];
 missionNamespace setVariable ["vn_mf_tunnel_ai_units", _spawnedUnits, true];

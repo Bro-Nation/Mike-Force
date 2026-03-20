@@ -55,6 +55,9 @@ missionNamespace setVariable ["vn_mf_used_tunnel_objectives", [], true];
 // --- Initialize tracking for created tunnels ---
 missionNamespace setVariable ["vn_mf_tunnels", [], true];
 
+// --- Initialize tracking for used teleports (prevent overlap) ---
+missionNamespace setVariable ["vn_mf_used_tunnel_teleports", [], true];
+
 // --- Initialize tunnel AI count tracking ---
 missionNamespace setVariable ["vn_mf_tunnel_ai_count", 0, true];
 

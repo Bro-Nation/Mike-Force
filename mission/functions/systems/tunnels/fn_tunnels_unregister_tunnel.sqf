@@ -34,6 +34,11 @@ if (!isNull _exitTeleport) then {
     // Just clear the linkedTunnel reference
     _exitTeleport setVariable ["linkedTunnel", nil, true];
     // Keep exitActionId for now
+
+    // Release teleport back to available pool
+    private _usedTeleports = missionNamespace getVariable ["vn_mf_used_tunnel_teleports", []];
+    _usedTeleports = _usedTeleports - [_exitTeleport];
+    missionNamespace setVariable ["vn_mf_used_tunnel_teleports", _usedTeleports, true];
 };
 
 // Remove from tunnels array

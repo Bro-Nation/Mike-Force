@@ -19,19 +19,24 @@
 
 params ["_tunnelClosed"];
 
-_tunnelClosed addAction [
+[
+    _tunnelClosed,
     "<t color='#ff4444'>Disable Trap</t>",
+    "\a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_takemine_ca.paa",
+    "\a3\ui_f\data\igui\cfg\actions\obsolete\ui_action_takemine_ca.paa",
+    "((player getUnitTrait 'explosiveSpecialist') && (('vn_b_item_toolkit' in (backpackItems player)) || ('vn_b_item_trapkit' in (backpackItems player)) || ('MineDetector' in (backpackItems player)) || ('vn_b_item_toolkit' in (vestItems player)) || ('vn_b_item_trapkit' in (vestItems player)) || ('MineDetector' in (vestItems player)) || ('vn_b_item_toolkit' in (uniformItems player)) || ('vn_b_item_trapkit' in (uniformItems player)) || ('MineDetector' in (uniformItems player)))) && player distance _target < 5",
+    "player distance _target < 5",
+    {},
+    {},
     {
-        params ["_target", "_caller", "_actionId"];
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
         _target setVariable ["trapActive", false, true];
-        _target removeAction _actionId;
         hint "Trap disabled. Safe to open.";
     },
-    nil,
-    2,
+    {},
+    [],
+    8,
+    100,
     true,
-    true,
-    "",
-    "true", //need a in inventory check here to only show if player has tool kit or knife 
-    5
-];
+    false
+] call BIS_fnc_holdActionAdd;

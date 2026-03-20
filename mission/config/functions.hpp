@@ -442,6 +442,7 @@ class CfgFunctions
 			class tunnels_subsystem_init {};
 			class tunnels_get_teleports {};
 			class tunnels_get_available_objective {};
+			class tunnels_get_available_teleport {};
 			class tunnels_register_tunnel {};
 			class tunnels_unregister_tunnel {};
 			class tunnels_add_actions {};
