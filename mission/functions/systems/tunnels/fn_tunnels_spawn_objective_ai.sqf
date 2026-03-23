@@ -63,8 +63,25 @@ for "_i" from 1 to _count do {
     private _unit = _group createUnit [_unitType, _spawnPos, [], 0, "NONE"];
     
     _unit setVariable ["vn_mf_tunnel_ai", true, true];
+    _unit setSkill ["aimingAccuracy", 0.25];
+    _unit setSkill ["spotDistance", 0.5];
+    _unit setSkill ["spotTime", 0.5];
     _unit disableAI "PATH";
+    _unit disableAI "FIREWEAPON";
     _spawnedUnits pushBack _unit;
+
+    // Check line of sight before enabling AI to fire
+    _unit addEventHandler ["AnimChanged", {
+        params ["_unit", "_anim"];
+        private _players = allPlayers select {isPlayer _x};
+        private _hasLineOfSight = _players findIf {!(lineIntersects [eyePos _unit, getPos _x])} != -1;
+
+        if (_hasLineOfSight) then {
+            _unit enableAI "FIREWEAPON";
+        } else {
+            _unit disableAI "FIREWEAPON";
+        };
+    }];
 
     // Remove all throwable items from the unit dynamically
         {
