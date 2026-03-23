@@ -20,13 +20,13 @@
 if (!isServer) exitWith { 0 };
 
 private _ejectedCount = 0;
-private _allTeleports = call vn_mf_fnc_tunnels_get_teleports;
+private _tunnelObjectives = missionNamespace getVariable ["vn_mf_tunnel_objectives", []];
 
 {
-    private _teleport = _x;
+    private _objective = _x;
     {
-        if (isPlayer _x && {_x distance _teleport < 10}) then {
-            private _trapdoorPos = _teleport getVariable ["exitPosition", []];
+        if (isPlayer _x && {_x distance2D _objective < 10}) then {
+            private _trapdoorPos = _objective getVariable ["exitPosition", []];
             if (_trapdoorPos isNotEqualTo []) then {
                 // Execute eject on player's client
                 [_trapdoorPos] remoteExecCall ["vn_mf_fnc_tunnels_eject_player_client", _x];
@@ -34,6 +34,6 @@ private _allTeleports = call vn_mf_fnc_tunnels_get_teleports;
             };
         };
     } forEach allPlayers;
-} forEach _allTeleports;
+} forEach _tunnelObjectives;
 
 _ejectedCount

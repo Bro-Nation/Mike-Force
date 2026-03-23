@@ -63,7 +63,4 @@ missionNamespace setVariable ["vn_mf_tunnel_ai_count", 0, true];
 
 ["INFO", format ["Tunnel subsystem initialized: %1 teleports, %2 objectives", count _teleports, count _objectives]] call para_g_fnc_log;
 
-// --- Spawn tunnel AI at AO start ---
-[20] call vn_mf_fnc_tunnels_spawn_objective_ai;
-
 true

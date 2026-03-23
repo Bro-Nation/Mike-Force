@@ -72,6 +72,11 @@ for "_i" from 1 to _count do {
                 _unit removeMagazines (_x select 0);
             };
         } forEach magazinesAmmoFull _unit;
+    
+    // Remove all mines from the unit
+    {
+        _unit removeMagazines _x;
+    } forEach (magazines _unit select { _x find "Mine" != -1 || _x find "mine" != -1 });
         
     // Add killed event handler for cleanup
     _unit addEventHandler ["Killed", {

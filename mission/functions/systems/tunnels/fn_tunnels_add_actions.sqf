@@ -27,6 +27,66 @@ private _isTrapped = random 1 < 0.75;
 _tunnelClosed setVariable ["trapActive", _isTrapped, true];
 _tunnelClosed setVariable ["trapChecked", false, true];
 
-// Add individual actions on all clients (not server)
-[_tunnelClosed] remoteExec ["vn_mf_fnc_tunnels_action_look_for_wires", 0, _tunnelClosed];
-[_tunnelClosed] remoteExec ["vn_mf_fnc_tunnels_action_open_tunnel", 0, _tunnelClosed];
+// --- Look for Wires action (scouts/explosive specialists only) ---
+[
+    _tunnelClosed,
+    "<t color='#ffc444'>Look for Wires</t>",
+    "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
+    "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
+    "((player getUnitTrait 'scout_multiple') || (player getUnitTrait 'explosiveSpecialist')) && player distance _target < 5",
+    "player distance _target < 5",
+    {},
+    {},
+    {
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
+        private _isTrapped = _target getVariable ["trapActive", false];
+
+        if (_isTrapped) then {
+            hint "You found a trip wire! Disable the trap before opening.";
+            [_target] remoteExec ["vn_mf_fnc_tunnels_action_disable_trap", 0, _target];
+        } else {
+            hint "No wires found. Tunnel appears safe.";
+        };
+
+        _target setVariable ["trapChecked", true, true];
+    },
+    {},
+    [],
+    4,
+    100,
+    true,
+    false
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnelClosed];
+
+// --- Open Tunnel action ---
+[
+    _tunnelClosed,
+    "Open Tunnel",
+    "custom\holdactions\holdAction_interact_ca.paa",
+    "custom\holdactions\holdAction_interact_ca.paa",
+    "player distance _target < 5",
+    "player distance _target < 5",
+    {},
+    {},
+    {
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
+        private _tunnelOpen = _target getVariable ["linkedOpenTunnel", objNull];
+        if (isNull _tunnelOpen) exitWith {};
+
+        private _isTrapped = _target getVariable ["trapActive", false];
+
+        [_target, _tunnelOpen, _isTrapped] remoteExecCall ["vn_mf_fnc_tunnels_open_tunnel_server", 2];
+        
+        if (_isTrapped) then {
+            hint "The tunnel was booby-trapped!";
+        } else {
+            hint "Tunnel opened.";
+        };
+    },
+    {},
+    [],
+    3,
+    100,
+    true,
+    false
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnelClosed];

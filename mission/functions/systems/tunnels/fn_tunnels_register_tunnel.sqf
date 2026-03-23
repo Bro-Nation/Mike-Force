@@ -103,4 +103,6 @@ _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
     false
 ] remoteExec ["BIS_fnc_holdActionAdd", 0, _exitTeleport];
 
+// --- Add drop grenade actions here (WIP) ---
+
 true

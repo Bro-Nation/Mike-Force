@@ -115,4 +115,7 @@ missionNamespace setVariable ["siteRadios", _radios];
 
 [] call vn_mf_fnc_sites_create_initial_static_ai_crews;
 
+// Spawn tunnel AI for this AO
+[20] call vn_mf_fnc_tunnels_spawn_objective_ai;
+
 nil;
