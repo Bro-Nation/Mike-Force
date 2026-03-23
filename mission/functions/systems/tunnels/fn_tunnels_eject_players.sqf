@@ -17,6 +17,8 @@
         call vn_mf_fnc_tunnels_eject_players
 */
 
+if (!isServer) exitWith { 0 };
+
 private _ejectedCount = 0;
 private _allTeleports = call vn_mf_fnc_tunnels_get_teleports;
 
@@ -26,14 +28,8 @@ private _allTeleports = call vn_mf_fnc_tunnels_get_teleports;
         if (isPlayer _x && {_x distance _teleport < 10}) then {
             private _trapdoorPos = _teleport getVariable ["exitPosition", []];
             if (_trapdoorPos isNotEqualTo []) then {
-                // Fade to black
-                _x cutText ["", "BLACK OUT", 0.5];
-                sleep 0.5;
-
-                _x setPosATL _trapdoorPos;
-                _x cutText ["", "BLACK IN", 1];
-                hint "Tunnel collapsed!";
-
+                // Execute eject on player's client
+                [_trapdoorPos] remoteExecCall ["vn_mf_fnc_tunnels_eject_player_client", _x];
                 _ejectedCount = _ejectedCount + 1;
             };
         };

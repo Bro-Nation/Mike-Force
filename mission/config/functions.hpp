@@ -449,6 +449,8 @@ class CfgFunctions
 			class tunnels_action_look_for_wires {};
 			class tunnels_action_disable_trap {};
 			class tunnels_action_open_tunnel {};
+			class tunnels_open_tunnel_server {};
+			class tunnels_eject_player_client {};
 			class tunnels_spawn_objective_ai {};
 			class tunnels_eject_players {};
 			class tunnels_cleanup_ai {};

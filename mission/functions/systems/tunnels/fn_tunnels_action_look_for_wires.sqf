@@ -34,11 +34,12 @@ params ["_tunnelClosed"];
 
         if (_isTrapped) then {
             hint "You found a trip wire! Disable the trap before opening.";
-            [_target] call vn_mf_fnc_tunnels_action_disable_trap;
+            [_target] remoteExec ["vn_mf_fnc_tunnels_action_disable_trap", 0, _target];
         } else {
             hint "No wires found. Tunnel appears safe.";
         };
 
+        // Sync trap check to all machines
         _target setVariable ["trapChecked", true, true];
     },
     {},

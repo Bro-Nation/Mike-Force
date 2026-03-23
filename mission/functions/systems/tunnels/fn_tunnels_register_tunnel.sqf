@@ -46,7 +46,7 @@ _exitTeleport setVariable ["linkedTunnel", _tunnel, true];
 _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
 
 // --- Enter Tunnel action ---
-private _actionId1 = [
+[
     _tunnel,
     "Enter Tunnel",
     "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
@@ -69,23 +69,16 @@ private _actionId1 = [
     100,
     false,
     false
-] call BIS_fnc_holdActionAdd;
-_tunnel setVariable ["enterActionId", _actionId1, true];
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnel];
 
 // --- Exit Tunnel action (on the teleport point inside) ---
-// Remove any existing exit action first
-private _existingActionId = _exitTeleport getVariable ["exitActionId", -1];
-if (_existingActionId > -1) then {
-    _exitTeleport removeAction _existingActionId;
-};
-
-private _actionId2 = [
+[
     _exitTeleport,
     "Exit Tunnel",
     "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
     "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
-    "_target distance _this < 10",
-    "_target distance _this < 10",
+    "player distance _target < 10",
+    "player distance _target < 10",
     {},
     {},
     {
@@ -108,7 +101,6 @@ private _actionId2 = [
     100,
     false,
     false
-] call BIS_fnc_holdActionAdd;
-_exitTeleport setVariable ["exitActionId", _actionId2, true];
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _exitTeleport];
 
 true

@@ -35,16 +35,14 @@ params ["_tunnelClosed"];
 
         private _isTrapped = _target getVariable ["trapActive", false];
 
-        // If trap is still active and player didn't disable it, spawn grenade
+        // Execute the tunnel opening on the server
+        [_target, _tunnelOpen, _isTrapped] remoteExecCall ["vn_mf_fnc_tunnels_open_tunnel_server", 2];
+        
         if (_isTrapped) then {
-            private _grenadePos = _target modelToWorld [0, 0, 1];
-            private _grenade = "vn_t67_grenade_ammo" createVehicle _grenadePos;
             hint "The tunnel was booby-trapped!";
+        } else {
+            hint "Tunnel opened.";
         };
-
-        // Open the tunnel regardless
-        _target hideObjectGlobal true;
-        _tunnelOpen hideObjectGlobal false;
     },
     {},
     [],

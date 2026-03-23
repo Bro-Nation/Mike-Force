@@ -30,6 +30,7 @@ params ["_tunnelClosed"];
     {},
     {
         params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
+        // Sync trap disable to all machines
         _target setVariable ["trapActive", false, true];
         hint "Trap disabled. Safe to open.";
     },

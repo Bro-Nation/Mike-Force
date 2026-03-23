@@ -17,6 +17,8 @@
         call vn_mf_fnc_tunnels_cleanup_ai
 */
 
+if (!isServer) exitWith {};
+
 private _tunnelAiUnits = missionNamespace getVariable ["vn_mf_tunnel_ai_units", []];
 {
     if (!isNull _x) then {

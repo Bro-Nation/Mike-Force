@@ -27,6 +27,6 @@ private _isTrapped = random 1 < 0.75;
 _tunnelClosed setVariable ["trapActive", _isTrapped, true];
 _tunnelClosed setVariable ["trapChecked", false, true];
 
-// Add individual actions
-[_tunnelClosed] call vn_mf_fnc_tunnels_action_look_for_wires;
-[_tunnelClosed] call vn_mf_fnc_tunnels_action_open_tunnel;
+// Add individual actions on all clients (not server)
+[_tunnelClosed] remoteExec ["vn_mf_fnc_tunnels_action_look_for_wires", 0, _tunnelClosed];
+[_tunnelClosed] remoteExec ["vn_mf_fnc_tunnels_action_open_tunnel", 0, _tunnelClosed];
