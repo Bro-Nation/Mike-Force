@@ -27,6 +27,10 @@ private _isTrapped = random 1 < 0.75;
 _tunnelClosed setVariable ["trapActive", _isTrapped, true];
 _tunnelClosed setVariable ["trapChecked", false, true];
 
+// Unique JIP IDs so actions persist for players who join later
+private _jipWires = format ["tunnels_wires_%1", netId _tunnelClosed];
+private _jipOpen  = format ["tunnels_open_%1", netId _tunnelClosed];
+
 // --- Look for Wires action (scouts/explosive specialists only) ---
 [
     _tunnelClosed,
@@ -56,7 +60,7 @@ _tunnelClosed setVariable ["trapChecked", false, true];
     100,
     true,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnelClosed];
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipWires];
 
 // --- Open Tunnel action ---
 [
@@ -89,4 +93,4 @@ _tunnelClosed setVariable ["trapChecked", false, true];
     100,
     true,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnelClosed];
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipOpen];
