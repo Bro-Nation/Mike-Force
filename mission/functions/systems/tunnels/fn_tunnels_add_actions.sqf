@@ -30,9 +30,10 @@ _tunnelClosed setVariable ["trapChecked", false, true];
 // Unique JIP IDs so actions persist for players who join later
 private _jipWires = format ["tunnels_wires_%1", netId _tunnelClosed];
 private _jipOpen  = format ["tunnels_open_%1", netId _tunnelClosed];
+private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
 
 // --- Look for Wires action (scouts/explosive specialists only) ---
-[
+private _wiresActionId = [
     _tunnelClosed,
     "<t color='#ffc444'>Look for Wires</t>",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
@@ -53,6 +54,9 @@ private _jipOpen  = format ["tunnels_open_%1", netId _tunnelClosed];
         };
 
         _target setVariable ["trapChecked", true, true];
+        
+        // Remove this action from all clients
+        [_target, _actionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
     },
     {},
     [],
@@ -61,6 +65,8 @@ private _jipOpen  = format ["tunnels_open_%1", netId _tunnelClosed];
     true,
     false
 ] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipWires];
+
+_tunnelClosed setVariable ["wiresActionId", _wiresActionId, true];
 
 // --- Open Tunnel action ---
 [
@@ -94,3 +100,31 @@ private _jipOpen  = format ["tunnels_open_%1", netId _tunnelClosed];
     true,
     false
 ] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipOpen];
+
+// --- Enter Tunnel action (DacCong team only) ---
+[
+    _tunnelClosed,
+    "(DAC)Enter Tunnel",
+    "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
+    "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
+    "player distance _target < 5 && ([player, 'DacCong'] call vn_mf_fnc_player_on_team)",
+    "player distance _target < 5 && ([player, 'DacCong'] call vn_mf_fnc_player_on_team)",
+    {},
+    {},
+    {
+        params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
+        private _linkedTunnel = _target getVariable ["linkedOpenTunnel", objNull];
+        if (isNull _linkedTunnel) exitWith { hint "No linked tunnel found"; };
+        
+        private _exitTeleport = _linkedTunnel getVariable ["exitTeleport", objNull];
+        if (isNull _exitTeleport) exitWith { hint "No tunnel exit assigned"; };
+        
+        _caller setPosATL (getPosATL _exitTeleport vectorAdd [0,0,-3]);
+    },
+    {},
+    [],
+    2,
+    100,
+    false,
+    false
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipEnter];

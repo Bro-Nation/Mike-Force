@@ -33,6 +33,9 @@ params ["_tunnelClosed"];
         // Sync trap disable to all machines
         _target setVariable ["trapActive", false, true];
         hint "Trap disabled. Safe to open.";
+        
+        // Remove this action from all clients
+        [_target, _actionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
     },
     {},
     [],
