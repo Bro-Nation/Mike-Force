@@ -33,12 +33,13 @@ private _jipOpen  = format ["tunnels_open_%1", netId _tunnelClosed];
 private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
 
 // --- Look for Wires action (scouts/explosive specialists only) ---
-private _wiresActionId = [
+// Condition uses trapChecked variable so action auto-hides on all clients once checked
+[
     _tunnelClosed,
     "<t color='#ffc444'>Look for Wires</t>",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
-    "((player getUnitTrait 'scout_multiple') || (player getUnitTrait 'explosiveSpecialist')) && player distance _target < 5",
+    "((player getUnitTrait 'scout_multiple') || (player getUnitTrait 'explosiveSpecialist')) && !(_target getVariable ['trapChecked', false]) && player distance _target < 5",
     "player distance _target < 5",
     {},
     {},
@@ -53,10 +54,8 @@ private _wiresActionId = [
             hint "No wires found. Tunnel appears safe.";
         };
 
+        // Setting this to true hides this action on all clients via the show condition
         _target setVariable ["trapChecked", true, true];
-        
-        // Remove this action from all clients
-        [_target, _actionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
     },
     {},
     [],
@@ -65,8 +64,6 @@ private _wiresActionId = [
     true,
     false
 ] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipWires];
-
-_tunnelClosed setVariable ["wiresActionId", _wiresActionId, true];
 
 // --- Open Tunnel action ---
 [

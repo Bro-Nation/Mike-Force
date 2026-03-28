@@ -72,12 +72,13 @@ _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
 ] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnel];
 
 // --- Exit Tunnel action (on the teleport point inside) ---
+private _jipExit = format ["tunnels_exit_%1", netId _exitTeleport];
 [
     _exitTeleport,
     "Exit Tunnel",
     "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
     "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
-    "player distance _target < 10",
+    "(_target getVariable ['tunnelActive', false]) && player distance _target < 10",
     "player distance _target < 10",
     {},
     {},
@@ -101,7 +102,11 @@ _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
     100,
     false,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _exitTeleport];
+] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipExit];
+
+// Store the JIP ID so it can be cleared on cleanup
+_exitTeleport setVariable ["exitJipId", _jipExit, true];
+_exitTeleport setVariable ["tunnelActive", true, true];
 
 // --- Add drop grenade actions here (WIP) ---
 

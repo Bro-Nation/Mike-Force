@@ -30,10 +30,19 @@ if (_enterActionId > -1) then {
 // Remove exit action from teleport
 private _exitTeleport = _tunnel getVariable ["exitTeleport", objNull];
 if (!isNull _exitTeleport) then {
+    // Hide exit action on all connected clients via show condition
+    _exitTeleport setVariable ["tunnelActive", false, true];
+
+    // Clear JIP entry so late joiners don't get the stale action
+    private _jipId = _exitTeleport getVariable ["exitJipId", ""];
+    if (_jipId != "") then {
+        remoteExec ["", _jipId];
+        _exitTeleport setVariable ["exitJipId", nil, true];
+    };
+    
     // Keep the exitPosition for players who might still be in the tunnel
     // Just clear the linkedTunnel reference
     _exitTeleport setVariable ["linkedTunnel", nil, true];
-    // Keep exitActionId for now
 
     // Release teleport back to available pool
     private _usedTeleports = missionNamespace getVariable ["vn_mf_used_tunnel_teleports", []];

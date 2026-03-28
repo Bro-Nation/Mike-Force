@@ -27,7 +27,7 @@ params ["_tunnelClosed", "_tunnelOpen", "_isTrapped"];
 // If trap is still active and player didn't disable it, spawn grenade
 if (_isTrapped) then {
     private _grenadePos = _tunnelClosed modelToWorld [0, 0, 1];
-    "vn_t67_grenade_ammo" createVehicle _grenadePos;
+    createVehicle ["vn_t67_grenade_ammo", _grenadePos, [], 0, "CAN_COLLIDE"];
 };
 
 // Open the tunnel - hide closed, show open
