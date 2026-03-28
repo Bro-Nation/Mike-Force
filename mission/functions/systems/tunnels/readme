@@ -11,6 +11,7 @@ Requirements:
 - When placing the Land_InvisibleBarrier_F the hit box should be just above the players head to avoid getting stuck on Barrier
 - Place objective spawn point objects with variable names following the pattern: inTunnel_objective_XX (e.g., inTunnel_objective_0, inTunnel_objective_1)
 - Minimum 1 inTunnel_objective_XX per tunnel, no maximum limit
+- tunnel system must be inside of the map boundary we are putting it in the air 30k up 
 
 How it works:
 - The subsystem automatically detects and caches these objects during initialization

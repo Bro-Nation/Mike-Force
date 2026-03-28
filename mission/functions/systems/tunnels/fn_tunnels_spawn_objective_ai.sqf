@@ -40,10 +40,10 @@ private _tunnelObjectives = missionNamespace getVariable ["vn_mf_tunnel_objectiv
 // Collect all available building positions near objectives
 private _allBuildingPositions = [];
 {
-    private _objectivePos = getPos _x;
+    private _objectivePos = getPosATL _x;
     private _nearbyObjects = nearestObjects [_objectivePos, [], 10];
     {
-        // Skip platforms
+        // Skip buildings
         if ((toLower (typeOf _x)) find "platform" == -1) then {
             private _positions = [_x] call BIS_fnc_buildingPositions;
             _allBuildingPositions append _positions;
@@ -54,34 +54,21 @@ private _allBuildingPositions = [];
 // Spawn units distributed across building positions
 for "_i" from 1 to _count do {
     private _spawnPos = if (count _allBuildingPositions > 0) then {
-        _allBuildingPositions select (random (count _allBuildingPositions - 1))
+        _allBuildingPositions select floor(random count _allBuildingPositions)
     } else {
-        getPos (selectRandom _tunnelObjectives)
+        getPosATL (selectRandom _tunnelObjectives)
     };
     
     private _unitType = selectRandom _unitTypes;
     private _unit = _group createUnit [_unitType, _spawnPos, [], 0, "NONE"];
     
+    _unit setPosATL _spawnPos;
+    
     _unit setVariable ["vn_mf_tunnel_ai", true, true];
     _unit setSkill ["aimingAccuracy", 0.25];
-    _unit setSkill ["spotDistance", 0.5];
-    _unit setSkill ["spotTime", 0.5];
     _unit disableAI "PATH";
     _unit disableAI "FIREWEAPON";
     _spawnedUnits pushBack _unit;
-
-    // Check line of sight before enabling AI to fire
-    _unit addEventHandler ["AnimChanged", {
-        params ["_unit", "_anim"];
-        private _players = allPlayers select {isPlayer _x};
-        private _hasLineOfSight = _players findIf {!(lineIntersects [eyePos _unit, getPos _x])} != -1;
-
-        if (_hasLineOfSight) then {
-            _unit enableAI "FIREWEAPON";
-        } else {
-            _unit disableAI "FIREWEAPON";
-        };
-    }];
 
     // Remove all throwable items from the unit dynamically
         {

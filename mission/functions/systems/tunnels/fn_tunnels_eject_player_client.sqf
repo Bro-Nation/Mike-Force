@@ -25,6 +25,7 @@ sleep 0.5;
 
 // Teleport player
 player setPosATL _trapdoorPos;
+player setUnitFreefallHeight 1e10;
 
 // Fade back in
 cutText ["", "BLACK IN", 1];
