@@ -67,7 +67,6 @@ for "_i" from 1 to _count do {
     _unit setVariable ["vn_mf_tunnel_ai", true, true];
     _unit setSkill ["aimingAccuracy", 0.25];
     _unit disableAI "PATH";
-    _unit disableAI "FIREWEAPON";
     _spawnedUnits pushBack _unit;
 
     // Remove all throwable items from the unit dynamically
