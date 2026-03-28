@@ -46,7 +46,9 @@ enableDebugConsole[] = {
 	//Cypher
 	"76561199175533497",
 	//Legend
-	"76561198976258425"
+	"76561198976258425",
+	//Ravenhead
+	"76561198047157697"
 };
 
 allowFunctionsLog = 1;
