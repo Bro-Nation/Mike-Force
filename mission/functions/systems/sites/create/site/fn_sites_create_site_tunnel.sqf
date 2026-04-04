@@ -58,9 +58,10 @@ params ["_pos"];
         // --- Crate spawning at tunnel objective point ---
         private _crateSpawn = call vn_mf_fnc_tunnels_get_available_objective;
         if (!isNull _crateSpawn) then {
+            private _crateSpawnPos = getPosATL _crateSpawn;
             private _crate = [
                 selectRandom ["vn_o_ammobox_02"],
-                getPosATL _crateSpawn
+                _crateSpawnPos
             ] call para_g_fnc_create_vehicle;
 
             _crate allowDamage false;
@@ -69,7 +70,18 @@ params ["_pos"];
                 (_this select 0) allowDamage true;
             };
 
+            [_crate, _crateSpawnPos] spawn {
+                params ["_crate", "_originPos"];
+                while {!isNull _crate} do {
+                    if ((_crate distance _originPos) > 10) then {
+                        _crate setPosATL _originPos;
+                    };
+                    sleep 15;
+                };
+            };
+
             _crate setVariable ["exemptFromRadiusCheck", true];
+            _crate setVariable ["originSpawnPos", _crateSpawnPos, true];
             vn_site_objects pushBack _crate;
             _siteStore setVariable ["objectsToDestroy", [_crate], true];
         } else {
