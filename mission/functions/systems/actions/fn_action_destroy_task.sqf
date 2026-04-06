@@ -81,7 +81,7 @@ private _conditionToShowString = str {
 			'vn_sa2',
 			'vn_o_static_rsna75',
 			// tunnel
-			'Land_vn_o_trapdoor_01',
+			// 'Land_vn_o_trapdoor_01',
 			// fuel depot
 			"Land_vn_tank_rust_f",
 			"Land_vn_ruvehicleammo",

@@ -778,6 +778,9 @@ time.
 diag_log "VN MikeForce: Initialising Sites";
 [] call vn_mf_fnc_sites_init;
 
+diag_log "VN MikeForce: Initialising Tunnel Subsystem";
+[] call vn_mf_fnc_tunnels_subsystem_init;
+
 /*
 =========================================================================================
 init: `vn_mf_fnc_director_init`
