@@ -73,8 +73,11 @@ params ["_pos"];
             [_crate, _crateSpawnPos] spawn {
                 params ["_crate", "_originPos"];
                 while {!isNull _crate} do {
-                    if ((_crate distance _originPos) > 10) then {
+                    if ((_crate distance _originPos) > 3) then {
+                        _crate allowDamage false;
                         _crate setPosATL _originPos;
+                        sleep 1;
+                        _crate allowDamage true;
                     };
                     sleep 15;
                 };
