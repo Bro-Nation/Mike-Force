@@ -203,15 +203,15 @@ class vn_mf_channel_disable_all
 	access = 1;
 };
 
-class vn_mf_veh_asset_locate_vehicle_spawn_point
+class vn_mf_earplugs_toggle
 {
 	defaultKey = DIK_F5;
 	shift = "false";
 	ctrl = "false";
 	alt = "false";
-	function = "vn_mf_fnc_veh_asset_client_locate_vehicle_spawn_point";
+	function = "vn_mf_fnc_earplugs_toggle";
 	down = 0;
-	displayName = "Locate Vehicle's Spawner";
+	displayName = "Toggle Earplugs";
 	access = 1;
 };
 

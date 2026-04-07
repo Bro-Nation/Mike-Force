@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2555;
+		nextID=2591;
 	};
 	class Camera
 	{
-		pos[]={4883.498,30435.844,1351.2662};
-		dir[]={0.66791201,-0.72131169,0.18377733};
-		up[]={0.69553179,0.69253641,0.19137679};
-		aside[]={0.26531652,-3.9263978e-07,-0.96424866};
+		pos[]={4853.1831,30476.586,1338.5068};
+		dir[]={0.50401211,-0.86303127,0.037615765};
+		up[]={0.86069936,0.50500965,0.064237341};
+		aside[]={0.074433751,1.1009761e-06,-0.99733955};
 	};
 };
 binarizationWanted=0;
@@ -9373,7 +9373,7 @@ class Mission
 					};
 					id=2149;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9472,7 +9472,7 @@ class Mission
 					};
 					id=2143;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9653,7 +9653,7 @@ class Mission
 				};
 			};
 			id=1493;
-			atlOffset=0.62199783;
+			atlOffset=0.62188339;
 		};
 		class Item21
 		{
@@ -21720,7 +21720,7 @@ class Mission
 					};
 					id=2153;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -21792,7 +21792,7 @@ class Mission
 				};
 			};
 			id=1921;
-			atlOffset=-0.156353;
+			atlOffset=-0.15724564;
 		};
 		class Item30
 		{
@@ -28127,7 +28127,7 @@ class Mission
 					};
 					id=2155;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -28226,7 +28226,7 @@ class Mission
 					};
 					id=2157;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -28343,7 +28343,7 @@ class Mission
 				};
 			};
 			id=2742;
-			atlOffset=0.41090775;
+			atlOffset=0.41043472;
 		};
 		class Item48
 		{
@@ -28763,7 +28763,7 @@ class Mission
 					};
 					id=2188;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.12928391;
+					atlOffset=0.12215805;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -28918,7 +28918,7 @@ class Mission
 					};
 					id=2151;
 					type="Land_vn_b_helipad_01";
-					atlOffset=0.080474854;
+					atlOffset=0.073348999;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -29072,7 +29072,7 @@ class Mission
 				};
 			};
 			id=2698;
-			atlOffset=0.63728333;
+			atlOffset=0.63716888;
 		};
 		class Item49
 		{
@@ -39521,8 +39521,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4926.2612,30401.172,1366.3007};
-								angles[]={1.5707964,1.5707964,5.7595868};
+								position[]={4926.7036,30401.172,1367.0667};
+								angles[]={4.712389,4.712389,0.52359849};
 							};
 							side="Empty";
 							flags=1;
@@ -39619,8 +39619,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={4923.7417,30401.205,1321.5497};
-								angles[]={1.5707964,1.5707964,5.7595868};
+								position[]={4924.1519,30401.205,1322.2603};
+								angles[]={4.712389,4.712389,0.52359855};
 							};
 							side="Empty";
 							flags=1;
