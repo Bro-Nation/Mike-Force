@@ -88,12 +88,12 @@ private _jipExit = format ["tunnels_exit_%1", netId _exitTeleport];
         private _source = _target getVariable ["linkedTunnel", objNull];
         if (!isNull _source) then {
             _caller setPosATL getPosATL _source;
-            _caller _unit setUnitFreefallHeight 100;
+            _caller setUnitFreefallHeight 100;
         } else {
             private _exitPos = _target getVariable ["exitPosition", []];
             if (_exitPos isNotEqualTo []) then {
                 _caller setPosATL _exitPos;
-                _caller _unit setUnitFreefallHeight 100;
+                _caller setUnitFreefallHeight 100;
             } else {
                 hint "No tunnel exit available";
             };
