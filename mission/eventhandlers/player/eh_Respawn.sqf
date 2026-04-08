@@ -45,4 +45,4 @@ call vn_mf_fnc_action_init;
 [player, "vn_mine_limpet_01_mag"] call vn_mf_fnc_uwChargeAddAction;
 
 //freefall height reset
-player setUnitFreefallHeight 1e10;
+player _unit setUnitFreefallHeight 100;
