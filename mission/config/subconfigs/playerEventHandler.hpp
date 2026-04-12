@@ -1,4 +1,5 @@
 class GetInMan {};
+class GetOutMan {};
 class InventoryOpened			// Inventory Opened EH
 {
 	// optional: - files[] = {"eventhandlers\player\eh_KeyDown.sqf"};

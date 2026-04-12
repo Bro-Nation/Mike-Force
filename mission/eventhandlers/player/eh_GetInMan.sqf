@@ -24,3 +24,9 @@ if !([_unit, _role, _vehicle] call vn_mf_fnc_player_can_enter_vehicle) then {
 	moveOut _unit;
 	["VehicleLockedToTeam"] remoteExec ["para_c_fnc_show_notification", _unit];
 };
+
+// Switch earplug volume when entering vehicle
+if (localNamespace getVariable ["vn_mf_earplugs", false]) then {
+	private _volume = missionNamespace getVariable ["vn_mf_earplugs_volume_vehicle", 0.5];
+	_volume fadeSound _volume;
+};
