@@ -50,7 +50,7 @@ if !(isNull _unit) then
 	["SET", (_uid + "_loadout"), getUnitLoadout _unit] call para_s_fnc_profile_db;
 
 	// freefall height reset
-	_unit _unit setUnitFreefallHeight 100;
+	_unit setUnitFreefallHeight 100;
 
 	private _playerTeam = _unit getVariable ["vn_mf_db_player_group", "MikeForce"];
 	private _playerTeamArray = missionNamespace getVariable [_playerTeam, []];
