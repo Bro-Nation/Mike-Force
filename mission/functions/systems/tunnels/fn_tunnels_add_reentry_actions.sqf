@@ -20,10 +20,19 @@
 params ["_reentryPoints"];
 
 {
-    _x addAction [
+    private _jipId = format ["tunnelReentry_%1", netId _x];
+    
+    [
+        _x,
         "<t color='#ff8800'>Re-enter Tunnel</t>",
+        "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+        "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+        "player distance _target < 5",
+        "player distance _target < 5",
+        {},
+        {},
         {
-            params ["_target", "_caller", "_actionId", "_args"];
+            params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
             private _objectives = missionNamespace getVariable ["vn_mf_tunnel_objectives", []];
             if (_objectives isEqualTo []) exitWith { hint "No tunnel objectives found."; };
 
@@ -42,12 +51,11 @@ params ["_reentryPoints"];
             _caller setPosATL (getPosATL _closest);
             hint "Teleported back into tunnel.";
         },
+        {},
         [],
-        6,
+        1,
+        100,
         true,
-        true,
-        "",
-        "player distance _target < 5",
-        5
-    ];
+        false
+    ] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipId];
 } forEach _reentryPoints;
