@@ -49,6 +49,18 @@ private _objectives = [];
 
 missionNamespace setVariable ["vn_mf_tunnel_objectives", _objectives, true];
 
+// --- Cache tunnel re-entry points ---
+// These are Land_vn_infostand_v2_f objects with names like "tunnelReentry_0"
+private _reentryPoints = [];
+{
+    private _name = vehicleVarName _x;
+    if (_name find "tunnelReentry_" == 0) then {
+        _reentryPoints pushBack _x;
+    };
+} forEach allMissionObjects "Land_vn_infostand_v2_f";
+
+missionNamespace setVariable ["vn_mf_tunnel_reentry_points", _reentryPoints, true];
+
 // --- Initialize tracking for used objectives ---
 missionNamespace setVariable ["vn_mf_used_tunnel_objectives", [], true];
 
@@ -61,6 +73,9 @@ missionNamespace setVariable ["vn_mf_used_tunnel_teleports", [], true];
 // --- Initialize tunnel AI count tracking ---
 missionNamespace setVariable ["vn_mf_tunnel_ai_count", 0, true];
 
-["INFO", format ["Tunnel subsystem initialized: %1 teleports, %2 objectives", count _teleports, count _objectives]] call para_g_fnc_log;
+// --- Add re-entry actions to tunnel reentry points ---
+[_reentryPoints] call vn_mf_fnc_tunnels_add_reentry_actions;
+
+["INFO", format ["Tunnel subsystem initialized: %1 teleports, %2 objectives, %3 reentry points", count _teleports, count _objectives, count _reentryPoints]] call para_g_fnc_log;
 
 true

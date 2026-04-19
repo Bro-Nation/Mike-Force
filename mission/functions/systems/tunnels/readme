@@ -11,6 +11,9 @@ Requirements:
 - When placing the Land_InvisibleBarrier_F the hit box should be just above the players head to avoid getting stuck on Barrier
 - Place objective spawn point objects with variable names following the pattern: inTunnel_objective_XX (e.g., inTunnel_objective_0, inTunnel_objective_1)
 - Minimum 1 inTunnel_objective_XX per tunnel, no maximum limit
+- Place Land_vn_infostand_v2_f objects with variable names following the pattern: tunnelReentry_XX (e.g., tunnelReentry_0, tunnelReentry_1)
+- These are used as re-entry points for players who fall out of the tunnel
+- Players can activate "Re-enter Tunnel" action on these objects to teleport to the nearest objective
 - tunnel system must be inside of the map boundary we are putting it in the air 30k up 
 
 How it works:

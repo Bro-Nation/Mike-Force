@@ -254,6 +254,9 @@
       <Key ID="STR_vn_mf_respawn_daccong_fsb">
         <Original>FSB Harass - DAC CONG</Original>
       </Key>
+      <Key ID="STR_vn_mf_respawn_daccong_aotunnel">
+        <Original>AO TUNNEL</Original>
+      </Key>
 	    <Key ID="STR_vn_mf_respawn_tunnel_1">
         <Original>POW TUNNEL 1</Original>
       </Key>
