@@ -26,6 +26,7 @@ vn_dc_respawn_points = vn_mf_dc_markers_base_respawns apply {
 };
 
 // When a player spawns at the AO Tunnel respawn, give them freefall height for tunnel entry
+//todo make sure this is the right place to put this
 ["onPlayerRespawn", [{
 	params ["_handlerParams", "_eventParams"];
 	_eventParams params ["_player", "_identity"];
