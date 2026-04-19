@@ -76,6 +76,9 @@ missionNamespace setVariable ["vn_mf_tunnel_ai_count", 0, true];
 // --- Add re-entry actions to tunnel reentry points ---
 [_reentryPoints] call vn_mf_fnc_tunnels_add_reentry_actions;
 
+// --- Start fallout detection loop ---
+[] spawn vn_mf_fnc_tunnels_fallout_detection;
+
 ["INFO", format ["Tunnel subsystem initialized: %1 teleports, %2 objectives, %3 reentry points", count _teleports, count _objectives, count _reentryPoints]] call para_g_fnc_log;
 
 true

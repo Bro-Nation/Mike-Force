@@ -116,6 +116,8 @@ private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
         private _exitTeleport = _linkedTunnel getVariable ["exitTeleport", objNull];
         if (isNull _exitTeleport) exitWith { hint "No tunnel exit assigned"; };
         // Teleport player to exit point and set freefall height for safe landing
+        _caller setVariable ["inTunnel", true, true];
+        _caller setVariable ["tunnelExitTeleport", _exitTeleport, true];
         _caller setUnitFreefallHeight 32000;
         _caller setPosATL (getPosATL _exitTeleport vectorAdd [0,0,-3]);
     },

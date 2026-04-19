@@ -32,5 +32,6 @@ vn_dc_respawn_points = vn_mf_dc_markers_base_respawns apply {
 	_eventParams params ["_player", "_identity"];
 	if (_identity isEqualTo "mf_dc_respawn_daccong_aotunnel") then {
 		_player setUnitFreefallHeight 32000;
+		_player setVariable ["inTunnel", true, true];
 	};
 }, []]] call para_g_fnc_event_add_handler;

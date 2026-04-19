@@ -46,3 +46,4 @@ call vn_mf_fnc_action_init;
 
 //freefall height reset
 player setUnitFreefallHeight 100;
+player setVariable ["inTunnel", false, true];

@@ -453,6 +453,7 @@ class CfgFunctions
 			class tunnels_spawn_objective_ai {};
 			class tunnels_eject_players {};
 			class tunnels_cleanup_ai {};
+			class tunnels_fallout_detection {};
 		};
 
 		// simple scheduled utility job to make triple sure that critical

@@ -61,6 +61,8 @@ _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
         
         if (isNull _exitTeleport) exitWith { hint "No tunnel exit assigned"; };
         // Teleport player to exit point and set freefall height for safe landing
+        _caller setVariable ["inTunnel", true, true];
+        _caller setVariable ["tunnelExitTeleport", _exitTeleport, true];
         _caller setUnitFreefallHeight 32000;
         _caller setPosATL (getPosATL _exitTeleport vectorAdd [0,0,-3]);
     },
@@ -89,11 +91,13 @@ private _jipExit = format ["tunnels_exit_%1", netId _exitTeleport];
         if (!isNull _source) then {
             _caller setPosATL getPosATL _source;
             _caller setUnitFreefallHeight 100;
+            _caller setVariable ["inTunnel", false, true];
         } else {
             private _exitPos = _target getVariable ["exitPosition", []];
             if (_exitPos isNotEqualTo []) then {
                 _caller setPosATL _exitPos;
                 _caller setUnitFreefallHeight 100;
+                _caller setVariable ["inTunnel", false, true];
             } else {
                 hint "No tunnel exit available";
             };

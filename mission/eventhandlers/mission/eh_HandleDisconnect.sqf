@@ -51,6 +51,7 @@ if !(isNull _unit) then
 
 	// freefall height reset
 	_unit setUnitFreefallHeight 100;
+	_unit setVariable ["inTunnel", false, true];
 
 	private _playerTeam = _unit getVariable ["vn_mf_db_player_group", "MikeForce"];
 	private _playerTeamArray = missionNamespace getVariable [_playerTeam, []];
