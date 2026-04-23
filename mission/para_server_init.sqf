@@ -261,6 +261,8 @@ Set up respawn points for players
 
 [] call vn_mf_fnc_respawn_points_init;
 
+call vn_mf_fnc_texture_toggle_load;
+
 /*
 =========================================================================================
 init: `para_g_fnc_scheduler_subsystem_init`

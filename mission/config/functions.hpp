@@ -231,6 +231,13 @@ class CfgFunctions
 			class uwChargePlacement {};
 		};
 
+		class custom_texture_scripts {
+			file = "custom\advertisement\advert_system";
+			class texture_toggle_add {};
+			class texture_toggle_apply {};
+			class texture_toggle_load {};
+		};
+
 		class system_actives {
 			file = "functions\systems\actives";
 
