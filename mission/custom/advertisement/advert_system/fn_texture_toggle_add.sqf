@@ -51,15 +51,15 @@ _object setVariable ["vn_mf_hasTextureToggle", true, true]; // Mark object for r
 		_label,
 		{
 			params ["_target", "_caller", "_actionId", "_args"];
-			_args params ["_texPath", "_texIndex"];
-			[_target, _texPath, _texIndex] remoteExecCall ["vn_mf_fnc_texture_toggle_apply", 0];
+			_args params ["_texPath", "_texIndex", "_label"];
+			[_target, _texPath, _texIndex, _caller, _label] remoteExecCall ["vn_mf_fnc_texture_toggle_apply", 0];
 		},
-		[_texPath, _texIndex],
+		[_texPath, _texIndex, _label],
 		1.5,           // priority
 		true,          // show window
 		true,          // hide on use
 		"",            // shortcut
-		"(player distance _target < 5) && ([_caller, 'MACV'] call vn_mf_fnc_player_on_team)",
+		"([_this, 'MACV'] call vn_mf_fnc_player_on_team)",
 		5              // max distance
 	];
 } forEach _textures;
