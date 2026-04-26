@@ -28,10 +28,8 @@ if (count _textures == 0) exitWith {
 	diag_log "[vn_mf_fnc_texture_toggle_add] Texture list is empty.";
 };
 
-// Set initial texture and state
-_object setObjectTextureGlobal [0, _textures select 0];
-_object setVariable ["vn_mf_textureIndex", 0, true];
-_object setVariable ["vn_mf_hasTextureToggle", true, true]; // Mark object for restoration on restart
+// Mark object for restoration on restart (don't set texture here—let server startup handle it)
+_object setVariable ["vn_mf_hasTextureToggle", true, true];
 
 // Build one sub-action per texture
 {
@@ -51,10 +49,10 @@ _object setVariable ["vn_mf_hasTextureToggle", true, true]; // Mark object for r
 		_label,
 		{
 			params ["_target", "_caller", "_actionId", "_args"];
-			_args params ["_texPath", "_texIndex", "_label"];
-			[_target, _texPath, _texIndex, _caller, _label] remoteExecCall ["vn_mf_fnc_texture_toggle_apply", 0];
+			_args params ["_texPath", "_texIndex"];
+			[_target, _texPath, _texIndex] remoteExecCall ["vn_mf_fnc_texture_toggle_apply", 0];
 		},
-		[_texPath, _texIndex, _label],
+		[_texPath, _texIndex],
 		1.5,           // priority
 		true,          // show window
 		true,          // hide on use
