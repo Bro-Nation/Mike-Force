@@ -20,6 +20,22 @@
 // ============================================================
 
 [
+	"custom\presscorp_greenscreen.paa",
 	"custom\billboards\Press_bb.paa",
-	"custom\presscorp_greenscreen.paa"
+	"custom\advertisement\bn_conquest_01_ad.paa",
+	"custom\advertisement\bn_conquest_02_ad.paa",
+	"custom\advertisement\bn_conquest_03_ad.paa",
+	"custom\advertisement\bn_hearts_minds_01_ad.paa",
+	"custom\advertisement\bn_hearts_minds_02_ad.paa",
+	"custom\advertisement\mf_mondays_01_ad.paa",
+	"custom\advertisement\mf_mondays_02_ad.paa",
+	"custom\advertisement\punji_pit_ad.paa",
+	"custom\advertisement\tracked_thursdays_01_ad.paa",
+	"custom\advertisement\tracked_thursdays_02_ad.paa",
+	"custom\advertisement\unit_apps_open_01_ad.paa",
+	"custom\advertisement\unit_apps_open_02_ad.paa",
+	"custom\advertisement\unit_apps_open_03_ad.paa",
+	"custom\advertisement\wlu_wed_01_ad.paa",
+	"custom\advertisement\wlu_wed_ns_01.paa",
+	"custom\advertisement\wlu_wed_ns_02.paa"
 ]

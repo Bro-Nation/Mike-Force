@@ -8,7 +8,7 @@ class EditorData
 	toggles=546;
 	class ItemIDProvider
 	{
-		nextID=4355;
+		nextID=4365;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3510;
+		nextID=3547;
 	};
 	class Camera
 	{
-		pos[]={471.57263,30490.346,13803.032};
-		dir[]={-0.69947344,-0.69530064,-0.16596827};
-		up[]={-0.67671436,0.7184692,-0.16056015};
-		aside[]={-0.23089322,4.2850152e-06,0.9730984};
+		pos[]={9638.7461,270.16882,6523.5771};
+		dir[]={0.73435968,-0.64036715,0.22548883};
+		up[]={0.61217546,0.76803553,0.18796827};
+		aside[]={0.29355815,3.4545519e-07,-0.95603651};
 	};
 };
 binarizationWanted=0;
@@ -297,7 +297,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=721;
+		items=725;
 		class Item0
 		{
 			dataType="Layer";
@@ -9712,7 +9712,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9408.6338,231.66724,6658.5386};
+				position[]={9410.1914,231.64409,6658.2651};
 				angles[]={6.278976,0.17391691,0.0032581778};
 			};
 			side="Empty";
@@ -9724,7 +9724,6 @@ class Mission
 			};
 			id=1087;
 			type="Land_vn_b_prop_mapstand_01";
-			atlOffset=-0.00019836426;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -11574,8 +11573,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9677.9932,233.29649,6561.873};
-				angles[]={0,0.16847663,0};
+				position[]={9677.9932,233.34749,6561.873};
+				angles[]={0,0.18236946,0};
 			};
 			side="Empty";
 			flags=5;
@@ -11586,7 +11585,6 @@ class Mission
 			};
 			id=1336;
 			type="Land_Billboard_F";
-			atlOffset=-0.050994873;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -30396,8 +30394,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9688.7988,231.6682,6560.1587};
-				angles[]={0,0.18237509,0};
+				position[]={9688.7988,231.66855,6560.1592};
+				angles[]={0,0.18236946,0};
 			};
 			side="Empty";
 			flags=5;
@@ -30407,7 +30405,7 @@ class Mission
 			};
 			id=3013;
 			type="Land_vn_usaf_revetment_8";
-			atlOffset=-0.0023498535;
+			atlOffset=-0.0019989014;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -30763,8 +30761,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9434.5615,231.50462,6668.7432};
-				angles[]={0,1.7624006,0};
+				position[]={9434.5615,231.50461,6668.7432};
+				angles[]={0,1.7623985,0};
 			};
 			side="Empty";
 			flags=5;
@@ -30774,6 +30772,7 @@ class Mission
 			};
 			id=3072;
 			type="Land_vn_usaf_revetment_8";
+			atlOffset=-1.5258789e-05;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -31164,7 +31163,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9404.7598,231.65283,6658.4492};
+				position[]={9406.3174,231.62968,6658.1758};
 				angles[]={0.0019547688,3.4058878,6.2775478};
 			};
 			side="Empty";
@@ -31176,7 +31175,7 @@ class Mission
 			};
 			id=3089;
 			type="Land_vn_object_trashcan_01";
-			atlOffset=1.5258789e-05;
+			atlOffset=0.0047454834;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -31200,7 +31199,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9406.6367,231.62489,6658.6465};
+				position[]={9408.1943,231.60175,6658.373};
 				angles[]={0,3.3654151,0};
 			};
 			side="Empty";
@@ -31211,7 +31210,7 @@ class Mission
 			};
 			id=3090;
 			type="Land_vn_us_weapons_stack2";
-			atlOffset=0.0025634766;
+			atlOffset=-0.0010375977;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -37931,7 +37930,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={9863.7832,234.44469,6547.709};
+				position[]={9863.7832,233.44818,6547.709};
 				angles[]={0,0.19430751,0};
 			};
 			side="Empty";
@@ -37941,7 +37940,7 @@ class Mission
 			};
 			id=3717;
 			type="B_Heli_Light_01_F";
-			atlOffset=1.2587585;
+			atlOffset=0.26225281;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -44272,7 +44271,7 @@ class Mission
 					side="Empty";
 					class Attributes
 					{
-						init="this setObjectTexture [0, ""custom\billboards\Press_bb.paa""]; " \n "this setVariable [""textureToggle"", 1]; " \n "this addAction [""Toggle Texture"", { " \n "    params [""_target""]; " \n "    private _current = _target getVariable [""textureToggle"", 0]; " \n "    if (_current == 0) then { " \n "        _target setObjectTexture [0, ""custom\billboards\Press_bb.paa""]; " \n "        _target setVariable [""textureToggle"", 1]; " \n "    } else { " \n "        _target setObjectTexture [0, ""custom\presscorp_greenscreen.paa""]; " \n "        _target setVariable [""textureToggle"", 0]; " \n "    }; " \n "}, nil, 1.5, true, true, """", ""(_this distance _target) < 3"", 3];";
+						init="this call vn_mf_fnc_texture_toggle_add;";
 					};
 					id=4011;
 					type="SignAd_Sponsor_F";
@@ -51218,6 +51217,199 @@ class Mission
 					};
 				};
 				nAttributes=1;
+			};
+		};
+		class Item721
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9683.8965,233.38602,6560.7729};
+				angles[]={0,0.18236946,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this call vn_mf_fnc_texture_toggle_add;";
+				disableSimulation=1;
+			};
+			id=4363;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item722
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9689.8047,233.41515,6559.6841};
+				angles[]={0,0.18236946,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this call vn_mf_fnc_texture_toggle_add;";
+				disableSimulation=1;
+			};
+			id=4364;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item723
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9408.7949,233.34488,6659.6055};
+				angles[]={0,0.19160332,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setObjectTexture [0,""custom\billboards\SatanAngels_bb.paa""];";
+				disableSimulation=1;
+			};
+			id=4358;
+			type="Land_Billboard_F";
+			atlOffset=-0.0034942627;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item724
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={9436.9033,230.1284,6510.3672};
+				angles[]={0,4.9024906,-0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="this setObjectTexture [0,""custom\billboards\arvn_bb.paa""];";
+				disableSimulation=1;
+			};
+			id=4362;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 	};
