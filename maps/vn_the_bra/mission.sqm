@@ -23468,7 +23468,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						init="this setObjectTexture [0,""custom\taskroster\arvn_bb.paa""];";
+						init="this setObjectTexture [0,""custom\billboards\arvn_bb.paa""];";
 						disableSimulation=1;
 					};
 					id=2315;
