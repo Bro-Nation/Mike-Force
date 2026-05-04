@@ -116,6 +116,12 @@ params ["_player", "_didJIP"];
 
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
+// Initialize earplug volumes from saved profile settings
+private _earplugVolumeGround = profileNamespace getVariable ["para_optionsMenu_para_earplugVolumeGround", 0.5];
+private _earplugVolumeVehicle = profileNamespace getVariable ["para_optionsMenu_para_earplugVolumeVehicle", 0.5];
+missionNamespace setVariable ["vn_mf_earplugs_volume_ground", _earplugVolumeGround];
+missionNamespace setVariable ["vn_mf_earplugs_volume_vehicle", _earplugVolumeVehicle];
+
 player createDiaryRecord ["Diary", [localize "STR_vn_mf_howtobuild", localize "STR_vn_mf_howtobuild_long"], taskNull, "", false];
 player createDiaryRecord ["Diary", [localize "STR_vn_mf_other_keys", localize "STR_vn_mf_other_keys_long"], taskNull, "", false];
 

@@ -50,6 +50,13 @@ params ["_pos"];
 			_x allowDamage false;
 		};
 		
+		// --- Disable weapon disassembly for static weapons ---
+		(_factoryObjects select {
+			_x isKindOf "StaticWeapon" &&
+			!(typeOf _x in ["vn_o_nva_65_static_zpu4", "vn_o_nva_static_zpu4"])
+		}) apply {
+			_x call vn_mf_fnc_sites_utils_add_disable_weapon_action;
+		};
 
 		private _objectTypesToDestroy = [
 			"Land_vn_wf_vehicle_service_point_east",
@@ -142,6 +149,7 @@ params ["_pos"];
 		private _respawnID = [east, _DepotRespawnMarker] call BIS_fnc_addRespawnPosition;
 		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _dc_spawnPos, [], 5, "NONE"];
 		_respawnObj setVariable ["vn_respawn", [_DepotRespawnMarker, _respawnID]];
+		
 		vn_dc_adhoc_respawns pushBack [_DepotRespawnMarker, _respawnID];
 		
 		_siteStore setVariable ["aiObjectives", _objectives];

@@ -50,7 +50,7 @@ params ["_pos"];
         for "_i" from 0 to 40 do {
             _boat setPosASL [_spawnPos # 0, _spawnPos # 1, _z];
             if ((_z + _minZ) > (getTerrainHeightASL _sitePos)) exitWith {};
-            _z = _z + 0.25;
+            _z = _z + 0.1;
         };
 
         // --- ALIGN TO SLOPE ---
@@ -94,7 +94,13 @@ params ["_pos"];
         _partialMarker setMarkerType "o_unknown";
         _partialMarker setMarkerAlpha 0;
 
-        // --- COLLECT PERSISTENT OBJECTS (these stay until AO end) ---
+        // --- HIDE GRASS AND VEGETATION ---
+        private _nearbyVegetation = nearestTerrainObjects [ getPos _wall, ["TREE", "SMALL TREE", "BUSH"], 10, false, true];
+        {
+            _x hideObjectGlobal true;
+        } forEach _nearbyVegetation;
+
+        // --- COLLECT PERSISTENT OBJECTS ---
         private _persistentObjects = [_boat, _blackbox];
         vn_site_objects append _persistentObjects;
 

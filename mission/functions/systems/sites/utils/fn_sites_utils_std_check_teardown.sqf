@@ -56,8 +56,13 @@ private _existingObject = _objects findIf {
 	private _objIsAlive = alive _x;
 	private _objNotLogisticsd = !(_x getVariable ["log_inventory_loaded", false]);
 	private _objWithinSiteRadius = count ([_x] inAreaArray [_pos, _radius, _radius, 0, false]) > 0;
+	private _objExemptFromRadius = _x getVariable ["exemptFromRadiusCheck", false];
 
-	(_objIsAlive && _objNotLogisticsd && _objWithinSiteRadius)
+	if (_objExemptFromRadius) then {
+		(_objIsAlive && _objNotLogisticsd)
+	} else {
+		(_objIsAlive && _objNotLogisticsd && _objWithinSiteRadius)
+	};
 };
 
 _existingObject == -1

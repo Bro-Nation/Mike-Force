@@ -2,16 +2,16 @@
     File: fn_sites_create_camp_site.sqf
     Author: Cerebral
     Public: No
-    
+
     Description:
 		Creates a new Factory site in the given location.
-    
+
     Parameter(s):
 		_pos - Position to spawn the HQ site at
-    
+
     Returns:
         Function reached the end [BOOL]
-    
+
     Example(s):
         [markerPos "myHq"] call vn_mf_fnc_sites_create_camp_site
 */
@@ -75,6 +75,17 @@ params ["_pos"];
 		_markerPartial setMarkerType "o_unknown";
 		_markerPartial setMarkerAlpha 0;
 
+		private _campRespawnMarker = createMarker [format ["dc_respawn_adhoc_%1", _siteId], _markerPos];
+		_campRespawnMarker setMarkerType "o_recon";
+		_campRespawnMarker setMarkerAlpha 0;
+
+		private _respawnID = [east, _campRespawnMarker] call BIS_fnc_addRespawnPosition;
+		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _markerPos, [], 3, "NONE"];
+		_respawnObj setVariable ["vn_respawn", [_campRespawnMarker, _respawnID]];
+
+		vn_dc_adhoc_respawns pushBack [_campRespawnMarker, _respawnID];
+
+
 		// Building Kind of includes bushes and the DC wallfoliage fences
 		_campObjs select {_x isKindOf "Building"} apply {
 			[_x] call vn_mf_fnc_sites_utils_normalise_object_placement;
@@ -82,7 +93,7 @@ params ["_pos"];
 
 		// 30% chance to spawn an ambush
 		// @dijksterhuis: we don't assign AI to every camp site to save AI budget on other assignments
-		// like tracker teams or factory/HQ/arty sites. 
+		// like tracker teams or factory/HQ/arty sites.
 		// also reduce the scaling factor (affects how many AI should be assigned to this specific location)
 		if (random 1 < 0.3) then {
 			_siteStore setVariable ["aiObjectives", [[_spawnPos, 0.5, 1] call para_s_fnc_ai_obj_request_ambush]];

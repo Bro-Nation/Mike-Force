@@ -24,3 +24,14 @@ vn_mf_respawn_points = vn_mf_markers_base_respawns apply {
 vn_dc_respawn_points = vn_mf_dc_markers_base_respawns apply { 
 	[east, _x, markerText _x] call BIS_fnc_addRespawnPosition;
 };
+
+// When a player spawns at the AO Tunnel respawn, give them freefall height for tunnel entry
+//todo make sure this is the right place to put this
+["onPlayerRespawn", [{
+	params ["_handlerParams", "_eventParams"];
+	_eventParams params ["_player", "_identity"];
+	if (_identity isEqualTo "mf_dc_respawn_daccong_aotunnel") then {
+		_player setUnitFreefallHeight 32000;
+		_player setVariable ["inTunnel", true, true];
+	};
+}, []]] call para_g_fnc_event_add_handler;

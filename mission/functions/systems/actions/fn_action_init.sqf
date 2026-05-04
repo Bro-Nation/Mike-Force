@@ -44,4 +44,6 @@ if (isNil "vn_mf_actions_initialized" || vn_mf_actions_player != player) then //
 	call vn_mf_fnc_action_curator_unlock_spawner;
 	// press corp only
 	call vn_mf_fnc_action_press_toggle_spectator;
+	// For limpet mines 
+	[player, "vn_mine_limpet_01_mag"] call vn_mf_fnc_uwChargeAddAction;
 };

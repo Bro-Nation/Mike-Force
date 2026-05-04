@@ -261,6 +261,8 @@ Set up respawn points for players
 
 [] call vn_mf_fnc_respawn_points_init;
 
+call vn_mf_fnc_texture_toggle_load;
+
 /*
 =========================================================================================
 init: `para_g_fnc_scheduler_subsystem_init`
@@ -777,6 +779,9 @@ time.
 
 diag_log "VN MikeForce: Initialising Sites";
 [] call vn_mf_fnc_sites_init;
+
+diag_log "VN MikeForce: Initialising Tunnel Subsystem";
+[] call vn_mf_fnc_tunnels_subsystem_init;
 
 /*
 =========================================================================================

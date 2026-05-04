@@ -42,4 +42,8 @@ call vn_mf_fnc_action_init;
 
 // reset the emotes menu setup because player object has now changed!
 [player] call vn_mf_fnc_emotes_init;
-[player, "vn_mine_limpet_01_mag"] call vn_mf_fnc_uwChargeAddAction;
+
+
+//freefall height reset
+player setUnitFreefallHeight 100;
+player setVariable ["inTunnel", false, true];

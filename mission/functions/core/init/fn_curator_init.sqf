@@ -4,7 +4,7 @@ BIS_fnc_endMission = {};
 
 private _curators = missionNamespace getVariable ["curatorUIDs", []];
 private _playerUID = getPlayerUID _player;
-private _playerIsCurator = _curators findIf { _x == _playerUID } > -1;
+private _playerIsCurator = (_curators findIf { _x == _playerUID }) > -1;
 
 if (!_playerIsCurator) exitWith {
 	diag_log format ["[CURATOR] Player %1 (%2) not in curator list. UIDs: %3", name _player, _playerUID, _curators];

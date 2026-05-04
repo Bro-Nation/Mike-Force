@@ -33,6 +33,18 @@ if !([_task] call vn_mf_fnc_task_is_completed) then {
 
 call vn_mf_fnc_daccong_respawns_delete_all;
 
+//--tunnel cleanup--
+// Eject players from tunnels first
+call vn_mf_fnc_tunnels_eject_players;
+// Unregister tunnels before deleting objects
+{
+    if (!isNull _x && {_x getVariable ["exitTeleport", objNull] isNotEqualTo objNull}) then {
+        [_x] call vn_mf_fnc_tunnels_unregister_tunnel;
+    };
+} forEach vn_site_objects;
+// Clean up tunnel AI
+call vn_mf_fnc_tunnels_cleanup_ai;
+
 // delete all site composition objects.
 vn_site_objects apply {deleteVehicle _x};
 // Clear the array to prevent accumulation of dead object references across AO cycles

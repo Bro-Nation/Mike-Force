@@ -50,7 +50,7 @@ class TeamName
         // The higher the value for the loadCoef the less stamina a unit has.
         // Negative values will dramatically increase the stamina actually to
         // a point where it extends the stamina bar.
-        loadCoef = 1;
+        loadCoef = 0;
 
         // Ability to partially repair vehicles with toolkit
         // Can also use the paradigm building system
@@ -131,7 +131,7 @@ class MikeForce
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = false;
         explosiveSpecialist = false;
         medic = false;
@@ -173,7 +173,7 @@ class SpikeTeam
     {
         camouflageCoef = 1;
         audibleCoef = 0.3;
-        loadCoef = 0.5;
+        loadCoef = -1;
         engineer = false;
         explosiveSpecialist = false;
         medic = false;
@@ -216,7 +216,7 @@ class ACAV
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = false;
         medic = false;
@@ -258,7 +258,7 @@ class GreenHornets
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = false;
         explosiveSpecialist = false;
         medic = false;
@@ -300,7 +300,7 @@ class 3rdMEU
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = true;
         medic = false;
@@ -342,7 +342,7 @@ class MilitaryPolice
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = false;
         explosiveSpecialist = false;
         medic = true;
@@ -384,7 +384,7 @@ class QuarterHorse
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = false;
         medic = false;
@@ -426,7 +426,7 @@ class Frogmen
     {
         camouflageCoef = 1;
         audibleCoef = 0.3;
-        loadCoef = 0.5;
+        loadCoef = -1;
         engineer = true;
         explosiveSpecialist = true;
         medic = false;
@@ -469,7 +469,7 @@ class Muskets
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = false;
         medic = false;
@@ -511,7 +511,7 @@ class SatansAngels
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = false;
         explosiveSpecialist = false;
         medic = false;
@@ -553,7 +553,7 @@ class 633rdTASG
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = false;
         explosiveSpecialist = false;
         medic = true;
@@ -595,7 +595,7 @@ class 7thCAV
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = true;
         medic = false;
@@ -637,7 +637,7 @@ class TigerForce
     {
         camouflageCoef = 1;
         audibleCoef = 0.3;
-        loadCoef = 0.5;
+        loadCoef = -1;
         engineer = true;
         explosiveSpecialist = true;
         medic = true;
@@ -680,7 +680,7 @@ class SASR
     {
         camouflageCoef = 1;
         audibleCoef = 0.3;
-        loadCoef = 0.5;
+        loadCoef = -1;
         engineer = true;
         explosiveSpecialist = true;
         medic = true;
@@ -723,7 +723,7 @@ class ARVN
     {
         camouflageCoef = 0.8;
         audibleCoef = 0.6;
-        loadCoef = 0.5;
+        loadCoef = -1;
         engineer = true;
         explosiveSpecialist = true;
         medic = false;
@@ -766,7 +766,7 @@ class MACV
     {
         camouflageCoef = 1;
         audibleCoef = 0;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = true;
         medic = true;
@@ -807,7 +807,7 @@ class DacCong
     {
         camouflageCoef = 1;
         audibleCoef = 0;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = true;
         explosiveSpecialist = true;
         medic = true;
@@ -849,7 +849,7 @@ class PressCorp
     {
         camouflageCoef = 1;
         audibleCoef = 0;
-        loadCoef = 1;
+        loadCoef = 0;
         engineer = false;
         explosiveSpecialist = false;
         medic = false;

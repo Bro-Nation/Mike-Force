@@ -4,7 +4,7 @@
 	Public: No
 	
 	Description:
-		Toggles a siren (Only for MACV/MPs)
+		Toggles a siren (Only for Military Police)
 	
 	Parameter(s): none
 	

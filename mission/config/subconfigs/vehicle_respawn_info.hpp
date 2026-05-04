@@ -239,11 +239,11 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_01",
-					"vn_b_wheeled_m54_01_sog",
+					// "vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_01_usmc",
 					"vn_b_wheeled_m54_02",
 					"vn_b_wheeled_m54_02_usmc",
-					"vn_b_wheeled_m54_02_sog",
+					// "vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
 				};
@@ -278,11 +278,11 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_01",
-					"vn_b_wheeled_m54_01_sog",
+					//"vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_01_usmc",
 					"vn_b_wheeled_m54_02",
 					"vn_b_wheeled_m54_02_usmc",
-					"vn_b_wheeled_m54_02_sog",
+					//"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
 				};
@@ -329,11 +329,11 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_01",
-					"vn_b_wheeled_m54_01_sog",
+					//"vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_01_usmc",
 					"vn_b_wheeled_m54_02",
 					"vn_b_wheeled_m54_02_usmc",
-					"vn_b_wheeled_m54_02_sog",
+					//"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 					"vn_b_wheeled_m54_03_usmc",
 				};
@@ -974,6 +974,7 @@ class spawn_point_types {
 				name = "M54 Transport Trucks";
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
+					"vn_b_wheeled_m54_01_sog",
 					"vn_b_wheeled_m54_02_sog",
 					"vn_b_wheeled_m54_03",
 				};
@@ -984,6 +985,15 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_TRUCK;
 				vehicles[] = {
 					"vn_b_wheeled_m54_ammo",
+				};
+			};
+
+			class jeeps {
+				name = "M151A1";
+				icon = VEHICLE_ICON_CAR;
+				vehicles[] = {
+					"vn_b_wheeled_m151_01",
+					"vn_b_wheeled_m151_02",
 				};
 			};
 		};

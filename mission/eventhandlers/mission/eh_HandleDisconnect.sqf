@@ -49,6 +49,10 @@ if !(isNull _unit) then
 	// save players loadout
 	["SET", (_uid + "_loadout"), getUnitLoadout _unit] call para_s_fnc_profile_db;
 
+	// freefall height reset
+	_unit setUnitFreefallHeight 100;
+	_unit setVariable ["inTunnel", false, true];
+
 	private _playerTeam = _unit getVariable ["vn_mf_db_player_group", "MikeForce"];
 	private _playerTeamArray = missionNamespace getVariable [_playerTeam, []];
 
@@ -61,6 +65,20 @@ if !(isNull _unit) then
 	deleteVehicle _unit;
 };
 
-["%1 _vardata %2",_this, _vardata] call BIS_fnc_logFormat;
+	// Check and delete the siren if attached to this player
+	if ((attachedTo vn_mf_siren) == _unit) then
+	{
+		deleteVehicle vn_mf_siren;
+		vn_mf_siren_toggle = false;
+	};
+
+	// Check and delete the whistle if attached to this player
+	if ((attachedTo vn_mf_whistle) == _unit) then
+	{
+		deleteVehicle vn_mf_whistle;
+		vn_mf_whistle = objNull;
+	};
+
+	["%1 _vardata %2",_this, _vardata] call BIS_fnc_logFormat;
 
 false

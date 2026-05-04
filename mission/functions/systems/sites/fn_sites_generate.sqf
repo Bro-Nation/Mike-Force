@@ -75,7 +75,8 @@ for "_i" from 1 to (5 + ceil random (vn_mf_s_max_aa_per_zone - 5)) do
 	[_aaSite, _zone] call vn_mf_fnc_sites_create_site_aa;
 };
 
-for "_i" from 1 to (1 + ceil random (vn_mf_s_max_tunnels_per_zone - 1)) do
+private _tunnels = [];
+for "_i" from 1 to vn_mf_s_max_tunnels_per_zone do
 {
 	private _tunnelSite = [_center, vn_mf_bn_s_zone_radius, 0, 5, 20, _unnaturalObjects] call vn_mf_fnc_sites_get_safe_location;
 	[_tunnelSite, _zone] call vn_mf_fnc_sites_create_site_tunnel;
@@ -113,5 +114,8 @@ missionNamespace setVariable ["siteRadios", _radios];
 [_zone, 50, 15, false] call vn_mf_fnc_sites_seed_zone_bush_mines;
 
 [] call vn_mf_fnc_sites_create_initial_static_ai_crews;
+
+// Spawn tunnel AI for this AO
+[20] call vn_mf_fnc_tunnels_spawn_objective_ai;
 
 nil;
