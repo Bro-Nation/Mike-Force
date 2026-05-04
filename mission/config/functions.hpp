@@ -235,7 +235,10 @@ class CfgFunctions
 			file = "custom\advertisement\advert_system";
 			class texture_toggle_add {};
 			class texture_toggle_apply {};
+			class texture_toggle_get_db_key {};
 			class texture_toggle_load {};
+			class texture_toggle_preserve_db_entries {};
+			class texture_toggle_restore_db_entries {};
 		};
 
 		class system_actives {

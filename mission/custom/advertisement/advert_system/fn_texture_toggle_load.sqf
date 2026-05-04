@@ -30,12 +30,7 @@ private _allObjects = allMissionObjects "All" select {(_x getVariable ["vn_mf_ha
 {
 	private _object = _x;
 	private _objectPos = getPosATL _object;
-	private _key = format ["vn_mf_texture_%1_%2_%3_%4", 
-		round (_objectPos select 0), 
-		round (_objectPos select 1), 
-		round (_objectPos select 2),
-		typeOf _object
-	];
+	private _key = [_object] call vn_mf_fnc_texture_toggle_get_db_key;
 	
 	// Try to get saved texture index from database
 	private _savedIndex = -1;

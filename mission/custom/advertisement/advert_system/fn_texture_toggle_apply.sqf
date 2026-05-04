@@ -37,13 +37,7 @@ private _changedByName = if (_changedBy isEqualType objNull && {!isNull _changed
 
 // Save texture state to both serverNamespace (session) and database (persistent)
 if (isServer) then {
-	private _objectPos = getPosATL _object;
-	private _key = format ["vn_mf_texture_%1_%2_%3_%4", 
-		round (_objectPos select 0), 
-		round (_objectPos select 1), 
-		round (_objectPos select 2),
-		typeOf _object
-	];
+	private _key = [_object] call vn_mf_fnc_texture_toggle_get_db_key;
 	// Save to serverNamespace for current session
 	serverNamespace setVariable [_key, _texIndex];
 	

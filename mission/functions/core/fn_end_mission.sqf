@@ -22,9 +22,11 @@
 
 [] spawn {
 	uiSleep 1;
+	call vn_mf_fnc_texture_toggle_preserve_db_entries;
 	// wipe db
 	["CLEAR"] call para_s_fnc_profile_db;
 	["SAVE"] call para_s_fnc_profile_db;
+	call vn_mf_fnc_texture_toggle_restore_db_entries;
 	"clear db" call BIS_fnc_log;
 
 	uiSleep 1;
