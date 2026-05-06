@@ -441,9 +441,14 @@ if (isNil { localNamespace getVariable "vn_showPlayerIcons" }) then {
     localNamespace setVariable ["vn_showPlayerIcons", true]; // ON by default
 };
 
+if (isNil { localNamespace getVariable "vn_adminLogEnabled" }) then {
+    localNamespace setVariable ["vn_adminLogEnabled", true]; // ON by default
+};
+
 vn_fnc_toggle_playericons = {
     params ["_state"];
     localNamespace setVariable ["vn_showPlayerIcons", _state];
+    localNamespace setVariable ["vn_adminLogEnabled", _state];
     hint format ["Player Names: %1", if (_state) then {"ENABLED"} else {"DISABLED"}];
 };
 
