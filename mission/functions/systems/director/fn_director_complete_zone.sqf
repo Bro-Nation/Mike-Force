@@ -47,6 +47,8 @@ call vn_mf_fnc_tunnels_cleanup_ai;
 
 // delete all site composition objects.
 vn_site_objects apply {deleteVehicle _x};
+// Clear the array to prevent accumulation of dead object references across AO cycles
+vn_site_objects = [];
 
 [_zone] call vn_mf_fnc_zones_capture_zone;
 
