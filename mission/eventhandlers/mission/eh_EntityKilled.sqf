@@ -53,6 +53,21 @@ if (_is_unit_player) then
 		}
 		else
 		{
+			// Check if killed player is on same team (friendly fire) or enemy
+			private _unitTeam = _unit getVariable ["vn_mf_db_player_group", "MikeForce"];
+			private _instigatorTeam = _instigator getVariable ["vn_mf_db_player_group", "MikeForce"];
+
+			if (_unitTeam isEqualTo _instigatorTeam) then
+			{
+				_kill_type = "friendlyfire";
+				[[_instigator],"rank", -25] call vn_mf_fnc_change_player_stat;
+			}
+			else
+			{
+				_kill_type = "kills";
+				[[_instigator],"rank", 25] call vn_mf_fnc_change_player_stat;
+			};
+
 			{
 				private _inMACV = [_x, "MACV"] call para_g_fnc_db_check_whitelist;
 				private _instigatorIsMACV = [_instigator] call para_g_fnc_db_check_curator;
@@ -62,11 +77,11 @@ if (_is_unit_player) then
 				if !(_inMACV) then { continue };
 				
 				systemChat _message;
-				["AdminLog", [_message]] remoteExec ["para_c_fnc_show_notification", _x];
+				if (localNamespace getVariable ["vn_adminLogEnabled", true]) then {
+					["AdminLog", [_message]] remoteExec ["para_c_fnc_show_notification", _x];
+				};
 			} forEach allPlayers;
 
-			_kill_type = "friendlyfire";
-			[[_instigator],"rank", -25] call vn_mf_fnc_change_player_stat;
 			[[_instigator],_kill_type] call vn_mf_fnc_change_player_stat;
 		};
 	};
