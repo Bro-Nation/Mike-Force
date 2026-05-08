@@ -112,6 +112,7 @@ class CfgFunctions
 			file = "functions\core\ui";
 			class armor_calc {};
 			class display_location_time {};
+			class ui_warning_dynamic_text {};
 			class ui_create {};
 			class ui_sub_menu {};
 			class ui_update {};
@@ -661,6 +662,8 @@ class CfgFunctions
 			class task_pri_build_fob { file = "functions\tasks\primary\fn_task_pri_build_fob.sqf"; };
 			class task_pri_capture { file = "functions\tasks\primary\fn_task_pri_capture.sqf"; };
 			class task_pri_prepare { file = "functions\tasks\primary\fn_task_pri_prepare.sqf"; };
+			class task_pri_prepare_warn_near_ao { file = "functions\tasks\primary\ao_warning_helper\fn_warn_near_ao.sqf"; };
+			class task_pri_prepare_countdown_in_ao { file = "functions\tasks\primary\ao_warning_helper\fn_countdown_in_ao.sqf"; };
 
 			class task_sec_spike_wiretap { file = "functions\tasks\secondary\fn_task_sec_spike_wiretap.sqf";};
 

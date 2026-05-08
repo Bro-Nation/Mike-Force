@@ -16,6 +16,9 @@ CONSTANTS
 _taskDataStore setVariable ["subtaskDurationSeconds", 3 * 60];
 _taskDataStore setVariable ["subtaskStartTimeRTB", 0];
 _taskDataStore setVariable ["subtaskStartTimePrepare", 0];
+_taskDataStore setVariable ["warningBufferMeters", 500];
+_taskDataStore setVariable ["inZoneCountdownSeconds", 20];
+_taskDataStore setVariable ["warningWarnedPlayerUIDs", []];
 
 /*
 METHODS
@@ -106,13 +109,28 @@ _taskDataStore setVariable ["_fnc_getPlayersInArea", {
 }];
 
 /*
+PRIVATE METHOD -- should only be used by methods defined below.
+
+Get players who are near the AO but have not entered the blocked zone yet.
+*/
+_taskDataStore setVariable ["_fnc_getPlayersInWarningArea", {
+	params ["_tds", "_playersToCheck"];
+
+	private _warningAreaDescriptor = _tds getVariable ["warningAreaDescriptor", []];
+	private _playersInWarningArea = _playersToCheck inAreaArray _warningAreaDescriptor;
+	private _playersInBlockedArea = [_tds, _playersToCheck] call (_tds getVariable "_fnc_getPlayersInArea");
+
+	_playersInWarningArea select {!(_x in _playersInBlockedArea)}
+}];
+
+/*
 PUBLIC METHOD -- can be used by any task method
 
 Find out if ANY players have entered the zone while the RTB subtask is active.
 */
 _taskDataStore setVariable ["fnc_getPlayersInAreaRTB", {
 	params ["_tds"];
-	[_tds, allPlayers select {alive _x}] call (_tds getVariable "_fnc_getPlayersInArea")
+	[_tds, (allPlayers select {alive _x}) select {side _x != east}] call (_tds getVariable "_fnc_getPlayersInArea")
 }];
 
 /*
@@ -123,6 +141,70 @@ Find out if non-DC players have entered the zone while the prepare subtask is ac
 _taskDataStore setVariable ["fnc_getPlayersInAreaPrepare", {
 	params ["_tds"];
 	[_tds, (allPlayers select {alive _x}) select {side _x != east}] call (_tds getVariable "_fnc_getPlayersInArea")
+}];
+
+/*
+PUBLIC METHOD -- can be used by any task method
+
+Find out if ANY players are in the AO warning ring during RTB.
+*/
+_taskDataStore setVariable ["fnc_getPlayersInWarningAreaRTB", {
+	params ["_tds"];
+	[_tds, (allPlayers select {alive _x}) select {side _x != east}] call (_tds getVariable "_fnc_getPlayersInWarningArea")
+}];
+
+/*
+PUBLIC METHOD -- can be used by any task method
+
+Find out if non-DC players are in the AO warning ring during prepare.
+*/
+_taskDataStore setVariable ["fnc_getPlayersInWarningAreaPrepare", {
+	params ["_tds"];
+	[_tds, (allPlayers select {alive _x}) select {side _x != east}] call (_tds getVariable "_fnc_getPlayersInWarningArea")
+}];
+
+/*
+PUBLIC METHOD -- can be used by any task method
+
+Clear anti-spam state for proximity warnings.
+*/
+_taskDataStore setVariable ["fnc_resetWarningState", {
+	params ["_tds"];
+	_tds setVariable ["warningWarnedPlayerUIDs", []];
+}];
+
+/*
+PUBLIC METHOD -- can be used by any task method
+
+Warn players once per approach when they enter the AO warning ring.
+*/
+_taskDataStore setVariable ["fnc_warnPlayersNearAO", {
+	params ["_tds", "_playersInWarningArea"];
+	[_tds, _playersInWarningArea] call vn_mf_fnc_task_pri_prepare_warn_near_ao;
+}];
+
+/*
+PUBLIC METHOD -- can be used by any task method
+
+Start per-player countdown when players are inside the blocked AO.
+*/
+_taskDataStore setVariable ["fnc_startInZoneCountdownForPlayers", {
+	params ["_tds", "_playersInArea"];
+
+	private _areaDescriptor = _tds getVariable ["areaDescriptor", []];
+	private _countdownSeconds = _tds getVariable ["inZoneCountdownSeconds", 20];
+
+	{
+		if (
+			isPlayer _x
+			&& alive _x
+			&& side _x != east
+			&& !(_x getVariable ["vn_mf_prepareAO_inZoneCountdownRunning", false])
+		) then {
+			_x setVariable ["vn_mf_prepareAO_inZoneCountdownRunning", true, true];
+			[_x, _areaDescriptor, _countdownSeconds] remoteExec ["vn_mf_fnc_task_pri_prepare_countdown_in_ao", _x];
+		};
+	} forEach _playersInArea;
 }];
 
 /*
@@ -186,6 +268,8 @@ _taskDataStore setVariable ["fnc_subtaskGoAway", {
 	*/
 	if ((count _playersInArea) > 0) exitWith {
 
+		[_tds, _playersInArea] call (_tds getVariable "fnc_startInZoneCountdownForPlayers");
+
 		private _logmsg = format [
 			"Task: Prepare: GoAway: Players still in the AO: %1",
 			_playersInArea apply {getPlayerUID _x}
@@ -228,6 +312,9 @@ _taskDataStore setVariable ["fnc_subtaskRTB", {
 
 	private _subtaskEndTime = [_tds] call (_tds getVariable "fnc_getSubtaskEndTimeRTB");
 	private _playersInArea = [_tds] call (_tds getVariable "fnc_getPlayersInAreaRTB");
+	private _playersInWarningArea = [_tds] call (_tds getVariable "fnc_getPlayersInWarningAreaRTB");
+
+	[_tds, _playersInWarningArea] call (_tds getVariable "fnc_warnPlayersNearAO");
 
 	// we have not generated any sites already...
 	// wait for a few minutes to generate the sites -- otherwise the server is having to handle players
@@ -296,6 +383,9 @@ _taskDataStore setVariable ["fnc_subtaskRTB", {
 		// set start time to zero so we know next time we trigger the subtask that we'll need to recalculate
 		_tds setVariable ["subtaskStartTimeRTB", 0];
 
+		// entered blocked AO, so allow warnings to fire again on the next approach.
+		[_tds] call (_tds getVariable "fnc_resetWarningState");
+
 		// be explicit about the fact that we were not successful generating the sites.
 		_tds setVariable ["generated", false];
 
@@ -338,6 +428,9 @@ _taskDataStore setVariable ["fnc_subtaskPrepare", {
 	[_tds, "ColorBlue"] call (_tds getVariable "fnc_changeAreaMarkerColor");
 	private _subtaskEndTime = [_tds] call (_tds getVariable "fnc_getSubtaskEndTimePrepare");
 	private _playersInArea = [_tds] call (_tds getVariable "fnc_getPlayersInAreaPrepare");
+	private _playersInWarningArea = [_tds] call (_tds getVariable "fnc_getPlayersInWarningAreaPrepare");
+
+	[_tds, _playersInWarningArea] call (_tds getVariable "fnc_warnPlayersNearAO");
 
 	// success -- everything has gone smoothly and we can now close out the final subtask
 	if (serverTime > _subtaskEndTime and (count _playersInArea) == 0) exitWith {
@@ -360,6 +453,7 @@ _taskDataStore setVariable ["fnc_subtaskPrepare", {
 		] call para_g_fnc_log;
 
 		_tds setVariable ["subtaskStartTimePrepare", 0];
+		[_tds] call (_tds getVariable "fnc_resetWarningState");
 
 		[
 			"FAILED", 
@@ -401,7 +495,10 @@ _taskDataStore setVariable ["INIT", {
 	/* area marker is the outer BN circle, or effective AO play area. */
 	private _areaMarkerSize = vn_mf_bn_s_zone_radius + 100;
 	private _areaDescriptor = [_zonePosition, _areaMarkerSize, _areaMarkerSize, 0, false];
+	private _warningRadius = _areaMarkerSize + (_taskDataStore getVariable ["warningBufferMeters", 500]);
+	private _warningAreaDescriptor = [_zonePosition, _warningRadius, _warningRadius, 0, false];
 	_taskDataStore setVariable ["areaDescriptor", _areaDescriptor];
+	_taskDataStore setVariable ["warningAreaDescriptor", _warningAreaDescriptor];
 
 	/*
 	Initial changes to the marker for the BN playable area.
@@ -499,6 +596,7 @@ _taskDataStore setVariable ["AFTER_STATES_RUN", {
 }];
 
 _taskDataStore setVariable ["FINISH", {
+	[_taskDataStore] call (_taskDataStore getVariable "fnc_resetWarningState");
 	diag_log format ["Prepare AO: Task complete, cleaning up."];
 	private _areaMarkerName = _taskDataStore getVariable "areaMarkerName";
 	deleteMarker _areaMarkerName;
