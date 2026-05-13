@@ -4,6 +4,7 @@
 #define CONDITION_NOT_IN_RESTRICTED_ZONE { $STR_vn_mf_buildingMenu_condition_inRestrictedZone, "vn_mf_markers_blocked_areas findIf {_pos inArea _x} isEqualTo -1"}
 #define CONDITION_IS_ACAV { $STR_vn_mf_buildingMenu_condition_inACav, "!(player getVariable ['vn_mf_db_player_group', 'MikeForce'] in ['MikeForce', 'GreenHornets', 'SpikeTeam'])"}
 #define CONDITION_IS_DAC_CONG { $STR_vn_mf_buildingMenu_condition_inDacCong, "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'DacCong'"}
+#define CONDITION_IS_MILITARY_POLICE { "Military Police", "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'MilitaryPolice'"}
 
 //Icon Classes for Vehicle Spawner
 #define VEHICLE_ICON_BOAT "\vn\ui_f_vietnam\ui\wheelmenu\img\icons\vn_mf_boat_ca.paa"
@@ -5079,6 +5080,69 @@ class vn_sign_so_01
 		class final_state
 		{
 			object_class = "vn_sign_so_01";
+		};
+	};
+};
+
+class Land_vn_bargate_f
+{
+	name = "";
+	type = "props";
+	categories[] = {"fortifications", "fences"};
+	rank = 0;
+	SUPPLY_CAPACITY(60, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_MILITARY_POLICE
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "Land_vn_bargate_f";
+		};
+		class middle_state
+		{
+			object_class = "Land_vn_bargate_f";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_bargate_f";
+		};
+	};
+};
+
+class Land_vn_o_prop_cong_cage_01
+{
+	name = "";
+	type = "props";
+	categories[] = {"fortifications", "fences"};
+	rank = 0;
+	SUPPLY_CAPACITY(60, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "Land_vn_o_prop_cong_cage_01";
+		};
+		class middle_state
+		{
+			object_class = "Land_vn_o_prop_cong_cage_01";
+		};
+		class final_state
+		{
+			object_class = "Land_vn_o_prop_cong_cage_01";
 		};
 	};
 };
