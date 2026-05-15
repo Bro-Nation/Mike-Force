@@ -124,6 +124,11 @@ class Land_vn_tent_mash_01_04
 			object_class = "Land_vn_tent_mash_01_04";
 		};
 	};
+
+	class features
+	{
+		class invulnerable {};
+	};
 };
 
 class Land_vn_tent_mash_02_03
@@ -156,6 +161,11 @@ class Land_vn_tent_mash_02_03
 			object_class = "Land_vn_tent_mash_02_03";
 		};
 	};
+
+	class features
+	{
+		class invulnerable {};
+	};
 };
 
 class Land_vn_tent_mash_01
@@ -187,6 +197,11 @@ class Land_vn_tent_mash_01
 		{
 			object_class = "Land_vn_tent_mash_01";
 		};
+	};
+
+	class features
+	{
+		class invulnerable {};
 	};
 };
 
