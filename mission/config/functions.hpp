@@ -24,6 +24,20 @@ class CfgFunctions
 			class eject_and_parachute {};
 		};
 
+		class mobile_respawn
+		{
+			file = "functions\systems\mobile_respawn";
+			class isTentDeployed {};
+			class mobile_respawn_track_vehicle {};
+			class mobile_respawn_add_supplies {};
+			class mobile_respawn_has_supplies {};
+			class mobile_respawn_init {};
+			class mobile_respawn_job {};
+			class mobile_respawn_register_apc {};
+			class mobile_respawn_unregister_apc {};
+			class mobile_respawn_consume {};
+		};
+
 		class core_helpers
 		{
 			file = "functions\core\helpers";
@@ -486,6 +500,7 @@ class CfgFunctions
 			class action_supplies {};
 			class client_request_supplies {};
 			class create_supply_officer {};
+			class monitor_food_crate {};
 			class override_crate_contents {};
 			class supplyrequest {};
 		};

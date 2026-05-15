@@ -52,7 +52,7 @@ class support
 		name = "STR_vn_mf_food_supplies";
 		className = "vn_b_ammobox_supply_02";
 		icon = "\vn\ui_f_vietnam\ui\wheelmenu\img\icons\vn_ico_mf_sup_food_ca.paa";
-		//crateName = "FoodCrate";
+		crateConfig = "FoodCrate";
 	};
 
 	class MedicalSupplies

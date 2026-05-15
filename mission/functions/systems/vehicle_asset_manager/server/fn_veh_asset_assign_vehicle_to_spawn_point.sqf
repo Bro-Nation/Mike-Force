@@ -22,6 +22,10 @@ _spawnPoint set ["lastClassSpawned", typeOf _vehicle];
 [_spawnPoint, "currentVehicle", _vehicle] call vn_mf_fnc_veh_asset_set_global_variable;
 
 [_vehicle] call vn_mf_fnc_veh_asset_add_unlock_action;
+
+[_vehicle] call vn_mf_fnc_mobile_respawn_track_vehicle;
+
+// add the eject and parachute action to it
 if (_vehicle isKindOf "Helicopter") then {
     [_vehicle] remoteExecCall ["vn_mf_fnc_eject_and_parachute", 0, _vehicle];
 };

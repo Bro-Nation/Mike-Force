@@ -293,6 +293,17 @@ call para_g_fnc_event_subsystem_init;
 
 /*
 =========================================================================================
+init: `vn_mf_fnc_mobile_respawn_init`
+=========================================================================================
+Initialises the M577 mobile tent respawn system.
+Requires both the scheduler and event subsystems to already be running.
+=========================================================================================
+*/
+
+[] call vn_mf_fnc_mobile_respawn_init;
+
+/*
+=========================================================================================
 init: `para_s_fnc_cleanup_subsystem_init`
 =========================================================================================
 Deletes bodies, objects and gear after a certain amount of time.

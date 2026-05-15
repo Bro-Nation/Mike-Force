@@ -264,7 +264,10 @@ class FoodCrate
 	objectClassname = "vn_b_ammobox_supply_02";
 	weapons[] = {};
 	magazines[] = {};
-	items[] = {};
+	items[] = {
+	{"vn_prop_food_box_01_03", 10},
+	{"vn_prop_drink_06", 10}
+	};
 	backpacks[] = {};
 };
 

@@ -31,3 +31,8 @@ if (_clear) then
 { _crate addWeaponCargoGlobal _x } forEach getArray(_crateConfigData>> "weapons");
 { _crate addItemCargoGlobal _x } forEach getArray(_crateConfigData>> "items");
 { _crate addBackpackCargoGlobal _x } forEach getArray(_crateConfigData>> "backpacks");
+
+if (_crateConfig isEqualTo "FoodCrate") then
+{
+	[_crate] call vn_mf_fnc_monitor_food_crate;
+};

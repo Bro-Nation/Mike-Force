@@ -791,6 +791,7 @@ class spawn_point_types {
 				vehicles[] = {
 					"vn_i_armor_m125_01",
 					"vn_i_armor_m132_01",
+					"vn_b_armor_m577_01",
 					"vn_i_armor_m113_acav_06",
 					"vn_i_armor_m113_acav_05",
 					"vn_i_armor_m113_acav_04",
@@ -949,6 +950,7 @@ class spawn_point_types {
 				icon = VEHICLE_ICON_ARMOUR;
 				vehicles[] = {
 					"vn_b_armor_m132_01",
+					"vn_b_armor_m577_01",
 					"vn_b_armor_m113_acav_05",
 					"vn_b_armor_m113_acav_06",
 					"vn_b_armor_m125_01",
