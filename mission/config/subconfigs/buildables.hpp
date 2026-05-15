@@ -58,10 +58,10 @@ class Land_vn_guardhouse_01
 		};
 	};
 
-	class features
-	{
-		class respawn {};
-	};
+	// class features
+	// {
+	// 	class respawn {};
+	// };
 };
 class Land_vn_lampshabby_f_dir_far
 {
@@ -1957,10 +1957,10 @@ class Land_vn_b_trench_bunker_01_01
 			object_class = "Land_vn_b_trench_bunker_01_01";
 		};
 	};
-	class features
-	{
-		class respawn {};
-	};
+	// class features
+	// {
+	// 	class respawn {};
+	// };
 };
 
 class Land_vn_b_trench_90_02
@@ -5088,7 +5088,7 @@ class Land_vn_bargate_f
 {
 	name = "";
 	type = "props";
-	categories[] = {"fortifications", "fences"};
+	categories[] = {"fortifications", "fences", "mp"};
 	rank = 0;
 	SUPPLY_CAPACITY(60, DAYS_TO_SECONDS(1));
 	resupply = "BuildingSupplies";
@@ -5113,6 +5113,11 @@ class Land_vn_bargate_f
 		{
 			object_class = "Land_vn_bargate_f";
 		};
+	};
+
+	class features
+	{
+		class invulnerable {};
 	};
 };
 
