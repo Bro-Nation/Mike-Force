@@ -8,6 +8,11 @@ import user_paths
 arma_missions_folder = Path(user_paths.MISSIONS_PATH)
 mission_stem = "bn_mikeforce_indev"
 
+def mission_folder_name(map_folder_name):
+	if map_folder_name == "mftraining":
+		return "bn_mftraining_indev.cam_lao_nam"
+	return f"{mission_stem}.{map_folder_name}"
+
 # Test message please ignore
 # We don't need these - they bloat the build
 blacklisted_folders = [
@@ -45,7 +50,7 @@ if not output_folder.exists():
 	output_folder.mkdir()
 
 for map_folder in map_folders:
-	folder_name = f"{mission_stem}.{map_folder.name}"
+	folder_name = mission_folder_name(map_folder.name)
 	source_folder = arma_missions_folder / folder_name
 	target_folder = output_folder / folder_name
 

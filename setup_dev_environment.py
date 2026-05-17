@@ -32,6 +32,11 @@ else:
     map_root = content_root / "maps"
     map_folders = [ map_path for map_path in map_root.iterdir() if map_path.is_dir() ]
 
+    def mission_folder_name(map_folder_name):
+        if map_folder_name == "mftraining":
+            return "bn_mftraining_indev.cam_lao_nam"
+        return f"{mission_stem}.{map_folder_name}"
+
     arma_missions_folder = Path(user_paths.MISSIONS_PATH)
     arma_missions_folder.mkdir(parents=True, exist_ok=True)
 
@@ -39,14 +44,12 @@ else:
         for path in source.iterdir():
             (target / path.name).symlink_to(path, target_is_directory=path.is_dir())
 
-    existing_path_found = False
+    existing_paths = []
     for map_folder in map_folders:
-        target_folder = arma_missions_folder / f"{mission_stem}.{map_folder.name}"
+        target_folder = arma_missions_folder / mission_folder_name(map_folder.name)
         if target_folder.exists():
             print(f"Existing mission folder exists: {target_folder}")
-            existing_path_found = True
-
-        if existing_path_found:
+            existing_paths.append(target_folder)
             continue
 
         target_folder.mkdir()
@@ -58,9 +61,9 @@ else:
         print("Symlinking paradigm...")
         (target_folder / "paradigm").symlink_to(paradigm_path, target_is_directory=True)
 
-    if existing_path_found:
-        print("Cannot create links in Documents/Arma 3 - existing folders found. Please delete these then try again.")
+    if existing_paths:
+        print("Skipped existing mission folders while creating missing links.")
 
     input("Press any key to exit...")
-    exit(1 if existing_path_found else 0)
+    exit(0)
 

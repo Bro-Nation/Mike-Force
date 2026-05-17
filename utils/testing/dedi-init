@@ -120,6 +120,11 @@ class Missions
     template = "bn_mikeforce_indev.cam_lao_nam";
     difficulty = "Custom";
   };
+  class bn_mftraining_camlaonam
+  {
+    template = "bn_mftraining_indev.cam_lao_nam";
+    difficulty = "Custom";
+  };
   class bn_khesanh
   {
     template = "bn_mikeforce_indev.vn_khe_sanh";
@@ -263,13 +268,14 @@ EOF
 fi
 
 
-if [[ -d "${A3_SERVER_MPMISSIONS_DIR_PATH}/bn_mikeforce_indev.cam_lao_nam" ]]
+if [[ -d "${A3_SERVER_MPMISSIONS_DIR_PATH}/bn_mikeforce_indev.cam_lao_nam" || -d "${A3_SERVER_MPMISSIONS_DIR_PATH}/bn_mftraining_indev.cam_lao_nam" ]]
 then
   echo "WARN: Existing dedicated server MPMission directories found:"
   ls -al "${A3_SERVER_MPMISSIONS_DIR_PATH}"
-  echo "WARN: You have 10 seconds until anything starting with 'bn_mikeforce' gets wiped."
+  echo "WARN: You have 10 seconds until anything starting with 'bn_mikeforce' or 'bn_mftraining' gets wiped."
   sleep 10
   rm -rf "${A3_SERVER_MPMISSIONS_DIR_PATH}"/bn_mikeforce*
+  rm -rf "${A3_SERVER_MPMISSIONS_DIR_PATH}"/bn_mftraining*
 fi
 
 BASE_REPO_PATH=$(pwd)
@@ -302,7 +308,13 @@ rm -rf \
 echo "INFO: Copying: 'map' files > ${MAPS_BUILD_DIR_PATH}"
 for MAP_BASE_PATH in ${BASE_REPO_PATH}/maps/*
 do
-  MAP_DIR_NAME="bn_mikeforce_indev.$(basename ${MAP_BASE_PATH})"
+  MAP_KEY_NAME="$(basename ${MAP_BASE_PATH})"
+  if [[ "${MAP_KEY_NAME}" == "mftraining" ]]
+  then
+    MAP_DIR_NAME="bn_mftraining_indev.cam_lao_nam"
+  else
+    MAP_DIR_NAME="bn_mikeforce_indev.${MAP_KEY_NAME}"
+  fi
   MAP_DIR_PATH="${MAPS_BUILD_DIR_PATH}/${MAP_DIR_NAME}"
 
   mkdir -p "${MAP_DIR_PATH}"

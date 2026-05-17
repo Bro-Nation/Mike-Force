@@ -37,7 +37,13 @@ rm -rf \
 for MAP_BASE_PATH in ${BASE_REPO_PATH}/maps/*
 do
 	echo "PACKAGING MAP: ${MAP_BASE_PATH}"
-	MAP_DIR_NAME="bn_mikeforce_indev.$(basename ${MAP_BASE_PATH})"
+	MAP_KEY_NAME="$(basename ${MAP_BASE_PATH})"
+	if [[ "${MAP_KEY_NAME}" == "mftraining" ]]
+	then
+		MAP_DIR_NAME="bn_mftraining_indev.cam_lao_nam"
+	else
+		MAP_DIR_NAME="bn_mikeforce_indev.${MAP_KEY_NAME}"
+	fi
 	MAP_DIR_PATH="${MAPS_BUILD_DIR_PATH}/${MAP_DIR_NAME}"
 
 	mkdir -p "${MAP_DIR_PATH}"
