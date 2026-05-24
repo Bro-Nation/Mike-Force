@@ -211,6 +211,52 @@ class objects
 	{
 		destinations[] = {"mikeforce_base", "greenhornets_base", "acav_base"};
 	};
+
+	class vn_mf_gunrange_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "cqbrange_base", "explosivesrange_base"};
+	};
+
+	class vn_mf_cbqrange_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "gunrange_base", "explosivesrange_base"};
+	};
+
+	class vn_mf_explosivesrange_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "cqbrange_base", "gunrange_base"};
+	};
+
+	class vn_mf_sapperrange_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "engineerrange_base", "jtacrange_base"};
+	};
+
+	class vn_mf_engineer_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "sapperrange_base", "jtacrange_base"};
+	};
+
+	class vn_mf_jtacrange_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "engineerrange_base", "sapperrange_base"};
+	};
+
+	class vn_mf_macv_training_teleporter
+	{
+		destinations[] = { "rappelrange_bot_base", "rappelrange_top_base", "gunrange_base", "cqbrange_base", "explosivesrange_base", "sapperrange_base", "engineerrange_base", "jtacrange_base"};
+	};
+
+	class vn_mf_rappel_bot_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "rappelrange_top_base"};
+	};
+
+	class vn_mf_rappel_top_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "rappelrange_bot_base"};
+	};
+
 };
 
 class destinations
@@ -345,6 +391,54 @@ class destinations
 	{
 		image = "custom\taskroster\633rd_HL.paa";
 		position_marker = "mf_respawn_633rdTASG";
+	};
+
+	class gunrange_base
+	{
+		image = "training\wheelmenu\gunrange_spawn.paa";
+		position_marker = "mf_respawn_shooting_range";
+	};
+
+	class cqbrange_base
+	{
+		image = "training\wheelmenu\cqb.paa";
+		position_marker = "mf_respawn_cqb_range";
+	};
+
+	class explosivesrange_base
+	{
+		image = "training\wheelmenu\Explosives.paa";
+		position_marker = "mf_respawn_explosives_range";
+	};
+
+	class sapperrange_base
+	{
+		image = "training\wheelmenu\Sapper.paa";
+		position_marker = "mf_respawn_sapper_range";
+	};
+
+	class engineerrange_base
+	{
+		image = "training\wheelmenu\Engineer.paa";
+		position_marker = "mf_respawn_engineer_range";
+	};
+
+	class jtacrange_base
+	{
+		image = "training\wheelmenu\JTAC.paa";
+		position_marker = "mf_respawn_jtac_range";
+	};
+
+	class rappelrange_bot_base
+	{
+		image = "training\wheelmenu\rappel.paa";
+		position_marker = "mf_respawn_rappel_range_bot";
+	};
+
+	class rappelrange_top_base
+	{
+		image = "training\wheelmenu\rappel.paa";
+		position_marker = "mf_respawn_rappel_range_top";
 	};
 
 	class vacang { image = "custom\DacCong_HL.paa"; position_marker = "zone_vacang"; };

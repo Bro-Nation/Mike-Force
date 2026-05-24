@@ -278,6 +278,27 @@
 	    <Key ID="STR_vn_mf_respawn_shooting_range">
         <Original>GUN RANGE</Original>
       </Key>
+	    <Key ID="STR_vn_mf_respawn_cqb_range">
+        <Original>CQB RANGE</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_explosives_range">
+        <Original>EXPLOSIVES RANGE</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_sapper_range">
+        <Original>SAPPER RANGE</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_engineer_range">
+        <Original>ENGINEER RANGE</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_jtac_range">
+        <Original>JTAC RANGE</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_rappel_range_bot">
+        <Original>RAPPEL RANGE BOT</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_rappel_range_top">
+        <Original>RAPPEL RANGE TOP</Original>
+      </Key>
 	    <Key ID="STR_vn_mf_respawn_militarypolice">
         <Original>MILITARY POLICE</Original>
       </Key>

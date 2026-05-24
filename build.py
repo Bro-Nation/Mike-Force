@@ -21,6 +21,11 @@ blacklisted_folders = [
 	".vscode",
 ]
 
+# Folders from mission/ that only belong in the training mission build
+training_only_folders = {
+	"training",
+}
+
 def set_permissions_if_delete_fails(func, path, exc_info):
     """
     Error handler for ``shutil.rmtree``.
@@ -60,7 +65,22 @@ for map_folder in map_folders:
 		
 	print(f"Copying mission to {folder_name}")
 	shutil.copytree(source_folder, target_folder)
-	
+
+	# Also copy any folders/files from the repo that weren't symlinked into
+	# the live folder (e.g. added after setup was last run)
+	for source in [map_folder, content_root / "mission"]:
+		for item in source.iterdir():
+			if item.name in training_only_folders and map_folder.name != "mftraining":
+				continue
+			target_item = target_folder / item.name
+			if not target_item.exists():
+				if item.is_dir():
+					print(f"  Adding folder from repo: {item.name}")
+					shutil.copytree(item, target_item)
+				else:
+					print(f"  Adding file from repo: {item.name}")
+					shutil.copy2(item, target_item)
+
 	print("Trimming fat...")
 	to_delete = [ target_folder / folder for folder in blacklisted_folders ]
 	for path_to_delete in to_delete:

@@ -48,5 +48,12 @@ if(_destinationName isEqualTo "satansangels_base") then {
 }
 else
 {
-  _player setPos _newLocation;
+  //traing server 
+  if (_destinationName isEqualTo "rappelrange_top_base") then {
+    _player setPosATL (_destination vectorAdd [0,0,34]);
+  }
+  else
+  {
+    _player setPos _newLocation;
+  };
 };

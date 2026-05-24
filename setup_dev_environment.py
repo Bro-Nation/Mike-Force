@@ -40,8 +40,13 @@ else:
     arma_missions_folder = Path(user_paths.MISSIONS_PATH)
     arma_missions_folder.mkdir(parents=True, exist_ok=True)
 
-    def symlink_immediate_children(target, source):
+    # Folders from mission/ that only belong in the training mission
+    training_only_folders = {"training"}
+
+    def symlink_immediate_children(target, source, exclude=None):
         for path in source.iterdir():
+            if exclude and path.name in exclude:
+                continue
             (target / path.name).symlink_to(path, target_is_directory=path.is_dir())
 
     existing_paths = []
@@ -57,7 +62,8 @@ else:
         print("Symlinking map-specific content...")
         symlink_immediate_children(target_folder, map_folder)
         print("Symlinking mission content...")
-        symlink_immediate_children(target_folder, mission_root)
+        exclude = None if map_folder.name == "mftraining" else training_only_folders
+        symlink_immediate_children(target_folder, mission_root, exclude=exclude)
         print("Symlinking paradigm...")
         (target_folder / "paradigm").symlink_to(paradigm_path, target_is_directory=True)
 
