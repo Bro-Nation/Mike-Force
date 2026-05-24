@@ -34,5 +34,15 @@ if (_vehicle isKindOf "Helicopter") then {
 _vehicle addEventHandler ["RopeAttach", {[_this # 2] call vn_mf_fnc_veh_asset_unlock_vehicle}];
 
 private _lockTeamArr = _spawnPoint get "settings" getOrDefault ["lockTeams", []];
+private _spawnPointConfigClass = _spawnPoint get "settings" getOrDefault ["configClass", ""];
+
+// Training-only heli loadout hook for instructor transport spawns.
+if (
+	_vehicle isKindOf "Helicopter"
+	&& {_spawnPointConfigClass isEqualTo "instructors_air_transport"}
+	&& {fileExists "training\scripts\fn_mainHeliLoadout.sqf"}
+) then {
+	[_vehicle] execVM "training\scripts\fn_mainHeliLoadout.sqf";
+};
 
 [_vehicle, _lockTeamArr] call vn_mf_fnc_lock_vehicle_to_teams;

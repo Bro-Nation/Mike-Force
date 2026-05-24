@@ -27,6 +27,7 @@ class gamemode
     class teams
     {
         #include "subconfigs\teams.hpp"
+        #include "..\map_config\teams_append.hpp"
     };
 	class crates
 	{
