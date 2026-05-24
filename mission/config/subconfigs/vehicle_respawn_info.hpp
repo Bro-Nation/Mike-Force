@@ -1099,6 +1099,52 @@ class spawn_point_types {
 		};
 	};
 
+	// instructors ///////////////////////////////////////////////////////////////////////////
+	
+	class instructors_air_transport : unlocked_air_transport_all {
+
+		name = "Helicopters (Transport) [Instructors]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_SHORT;
+		lockTeams[] = {"MACV", "Instructors"};
+
+		class categories : categories {
+			class cia {
+				name = "Instructor";
+				icon = VEHICLE_ICON_HELO;
+				vehicles[] = {
+					"vn_b_air_uh1d_04_09",
+					"vn_b_air_uh1d_04_09",
+				};
+			};
+			class cayuse : cayuse {};
+			class uh1b : uh1b {};
+			class uh1d : uh1d {};
+			class uh1ef : uh1ef {};
+			class ch47 : ch47 {};
+			class ch34 : ch34 {};
+		};
+	};
+
+	class instructors_grnd_command_respawn {
+
+		name = "M577 Command Respawn [Instructors]";
+		respawnType = SPAWN_TYPE_RESPAWN;
+		time = SPAWN_TIME_MEDIUM;
+		lockTeams[] = {"MACV", "Instructors"};
+
+		class categories {
+			class command_post {
+				name = "M577 Command Post";
+				icon = VEHICLE_ICON_ARMOUR;
+				vehicles[] = {
+					"vn_b_armor_m577_01",
+					"vn_b_armor_m577_02",
+				};
+			};
+		};
+	};
+
 	// muskets ////////////////////////////////////////////////////////////////////////
 
 	class muskets_air_transport_all: unlocked_air_transport_all {

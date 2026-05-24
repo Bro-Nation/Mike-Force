@@ -332,6 +332,9 @@
 	    <Key ID="STR_vn_mf_respawn_sasr">
         <Original>ANZAC</Original>
       </Key>
+	    <Key ID="STR_vn_mf_respawn_Instructors">
+        <Original>INSTRUCTORS</Original>
+      </Key>
       <Key ID="STR_vn_mf_supply_officer">
         <Original>Supply Officer</Original>
       </Key>

@@ -47,17 +47,19 @@ else:
         for path in source.iterdir():
             if exclude and path.name in exclude:
                 continue
-            (target / path.name).symlink_to(path, target_is_directory=path.is_dir())
+            target_path = target / path.name
+            if target_path.exists():
+                continue
+            target_path.symlink_to(path, target_is_directory=path.is_dir())
 
     existing_paths = []
     for map_folder in map_folders:
         target_folder = arma_missions_folder / mission_folder_name(map_folder.name)
         if target_folder.exists():
-            print(f"Existing mission folder exists: {target_folder}")
+            print(f"Existing mission folder exists, syncing missing links: {target_folder}")
             existing_paths.append(target_folder)
-            continue
-
-        target_folder.mkdir()
+        else:
+            target_folder.mkdir()
 
         print("Symlinking map-specific content...")
         symlink_immediate_children(target_folder, map_folder)
@@ -65,10 +67,12 @@ else:
         exclude = None if map_folder.name == "mftraining" else training_only_folders
         symlink_immediate_children(target_folder, mission_root, exclude=exclude)
         print("Symlinking paradigm...")
-        (target_folder / "paradigm").symlink_to(paradigm_path, target_is_directory=True)
+        paradigm_target = target_folder / "paradigm"
+        if not paradigm_target.exists():
+            paradigm_target.symlink_to(paradigm_path, target_is_directory=True)
 
     if existing_paths:
-        print("Skipped existing mission folders while creating missing links.")
+        print("Synced missing links into existing mission folders.")
 
     input("Press any key to exit...")
     exit(0)
