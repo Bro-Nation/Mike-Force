@@ -21,13 +21,7 @@ disableSerialization;
 
 private _fnc_uid_in_whitelist = {
 	params ["_uid", "_teamConfName"];
-
-	private _teamArray = missionNamespace getVariable [
-		format["whitelist_%1", _teamConfName],
-		[]
-	];
-
-	(_uid in _teamArray)
+	[player, _teamConfName] call para_g_fnc_db_check_whitelist
 };
 
 private _fnc_get_teams_data = {
