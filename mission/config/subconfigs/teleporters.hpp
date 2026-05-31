@@ -232,6 +232,11 @@ class objects
 		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "engineerrange_base", "jtacrange_base"};
 	};
 
+	class vn_mf_sapperrange_end_teleporter
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "engineerrange_base", "jtacrange_base", "sapperrange_base"};
+	};
+
 	class vn_mf_engineer_teleporter
 	{
 		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "sapperrange_base", "jtacrange_base"};

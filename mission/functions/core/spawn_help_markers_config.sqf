@@ -35,6 +35,7 @@ vn_mf_spawn_help_marker_cfg = [
   ["vn_mf_macv_teleporter",         "STR_MF_HELP_TP",      "STR_MF_HELP_TP_SUB",      2.00, 12],
   ["vn_mf_macv_WL1_teleporter",     "STR_MF_HELP_MACV",    "STR_MF_HELP_MACV_SUB",    0.50, 12],
   ["vn_mf_macv_WL2_teleporter",     "STR_MF_HELP_MACV",    "STR_MF_HELP_MACV_SUB",    0.50, 12],
+  ["vn_mf_macv_training_teleporter","STR_MF_HELP_MACV",    "STR_MF_HELP_MACV_TRAINING_SUB", 0.50, 12],
   // Khe Sanh extras
   ["arsenal_cleanup_12",             "STR_MF_HELP_TRASH",   "STR_MF_HELP_TRASH_SUB",  1.00,  5],
   ["arsenal_cleanup_8",             "STR_MF_HELP_TRASH",    "STR_MF_HELP_TRASH_SUB",  1.00,  5],

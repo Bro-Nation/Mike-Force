@@ -17,15 +17,43 @@
 vn_mf_duty_officers = [];
 vn_mf_groups = [];
 
-// Create all groups agents and join into all groups
+// Load team config once for compatibility with existing systems.
 private _groups = "true" configClasses (_gamemode_config >> "teams" );
+
+// Keep team arrays initialized, even though duty officer spawning is marker-driven.
 {
-	private _config = _x;
 	private _groupName = configName _x;
-	private _class = getText(_config >> "unit");
-	private _marker = "duty_officer_" + tolower(_groupName);
+	missionNamespace setVariable [_groupName, []];
+	publicVariable _groupName;
+	vn_mf_groups pushBack _groupName;
+} forEach _groups;
+
+private _groupConfigByMarker = createHashMap;
+{
+	_groupConfigByMarker set [toLower (configName _x), _x];
+} forEach _groups;
+
+// Spawn duty officers from all map markers named duty_officer_*
+private _dutyOfficerMarkers = allMapMarkers select { (toLower _x) find "duty_officer_" isEqualTo 0 };
+_dutyOfficerMarkers sort true;
+
+{
+	private _marker = _x;
+	private _groupKey = toLower (_marker select [13]);
+	private _config = _groupConfigByMarker getOrDefault [_groupKey, configNull];
+	private _class = "vn_b_men_army_01";
+	if !(isNull _config) then
+	{
+		private _configuredClass = getText(_config >> "unit");
+		if (_configuredClass isNotEqualTo "") then
+		{
+			_class = _configuredClass;
+		};
+	};
+
 	private _location = getMarkerPos _marker;
 	private _direction = markerDir _marker;
+
 	if !(_location isEqualTo [0,0,0]) then
 	{
 		// duty officer agent
@@ -42,7 +70,7 @@ private _groups = "true" configClasses (_gamemode_config >> "teams" );
 			_this setCaptive true;
 		};
 
-		if(_marker isEqualTo "duty_officer_satansangels") then //gotta do jank cause it's a prop
+		if ((toLower _marker) isEqualTo "duty_officer_satansangels") then //gotta do jank cause it's a prop
 		{
 			vehicle _agent setVehiclePosition [_location,[],0,"None"];
 		};
@@ -50,17 +78,10 @@ private _groups = "true" configClasses (_gamemode_config >> "teams" );
 		//Set up custom interaction overlay
 		_agent setVariable ["#para_InteractionOverlay_ConfigClass", "DutyOfficer", true];
 
-		// set group name as global var and reference to group server side
-		missionNamespace setVariable [_groupName, []]; //initialize group array
-		publicVariable _groupName;
-
 		// save duty officers to array for later use
 		vn_mf_duty_officers pushBack _agent;
-
-		//create a list of active groups(replacement for allGroups)
-		vn_mf_groups pushBack _groupName;
 	};
-} forEach _groups;
+} forEach _dutyOfficerMarkers;
 
 // broadcast duty officers
 publicVariable "vn_mf_duty_officers";
