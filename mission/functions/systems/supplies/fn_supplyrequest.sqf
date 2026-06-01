@@ -25,6 +25,9 @@ if !([_officer] inAreaArray [getPos _player, 20, 20, 0, false, 20] isEqualTo [])
 {
 	private _dropMarker = _officer getVariable ["vn_mf_supply_drop_marker", "supply_drop_1"];
 	private _spawnPos = getMarkerPos _dropMarker;
+	if(_dropMarker isEqualTo "supply_drop_initial_7") then {
+		_spawnPos = [_spawnPos select 0, _spawnPos select 1, (_spawnPos select 2)+11];
+	};
 	private _nearby = _spawnPos nearSupplies 10;
 	if (count _nearby > 5) exitWith
 	{
@@ -35,7 +38,9 @@ if !([_officer] inAreaArray [getPos _player, 20, 20, 0, false, 20] isEqualTo [])
 
 	if !(isClass _dropConfig) exitWith {};
 
+	
 	private _object = createVehicle [getText (_dropConfig >> "className"), _spawnPos, [], 1, "NONE"];
+	
 	_object setMass ((getMass _object) min 2500);
 	_object setVariable ["supply_drop_config", _dropConfig, true];
 	if (isText(_dropConfig >> "crateConfig")) then

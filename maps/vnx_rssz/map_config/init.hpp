@@ -1,5 +1,5 @@
 class map_config {
-	starting_zones[] = {"zone_ba_ria", "zone_ban_hoang"};
+	starting_zones[] = {"zone_xa_long_son"};
 	max_camps_per_zone = 4;
 	max_wrecks_per_zone = 2;
 	max_aa_per_zone = 10;

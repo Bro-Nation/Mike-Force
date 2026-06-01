@@ -42,7 +42,7 @@ class objects
 
 	class vn_mf_macv_WL2_teleporter
 	{
-		destinations[] = {"sa_base", "satansangels_base", "muskets_base", "sasr_base", "frogmen_base", "boat_dock", "tigerforce_base"};
+		destinations[] = {"sa_base", "satansangels_base", "muskets_base", "sasr_base", "frogmen_base", "boat_dock_1", "tigerforce_base"};
 	};
 
 	class vn_mf_quarterhorse_teleporter
@@ -72,12 +72,17 @@ class objects
 	
 	class vn_mf_frogmen_teleporter
 	{
-		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "boat_dock"};
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "boat_dock", "boat_dock_1"};
 	};
 
 	class vn_mf_dock_teleporter
 	{
-		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "frogmen_base"};
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "frogmen_base", "boat_dock_1"};
+	};
+	
+	class vn_mf_dock_teleporter_1
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "frogmen_base", "boat_dock"};
 	};
 
 	// class vn_mf_montagnard_teleporter
@@ -97,8 +102,13 @@ class objects
 */	
 	class vn_mf_633rdTASG_teleporter
 	{
-		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base"};
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "633rd_base_fw"};
 	};
+	class vn_mf_633rdcsg_teleporter_fw
+	{
+		destinations[] = {"mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base", "633rd_base"};
+	};
+	
 	
 	class vn_mf_sasr_teleporter
 	{
@@ -115,7 +125,7 @@ class objects
 		destinations[] = {"satansangels_base", "mikeforce_base", "acav_base", "spiketeam_base", "greenhornets_base", "macv_base"};
 	};
 		
-	class dc_tunnel_1_low_E
+	/*class dc_tunnel_1_low_E
 	{
 		destinations[] = {"daccong_base"};
 	};
@@ -187,16 +197,16 @@ class objects
 		destinations[] = {"mikeforce_base", "greenhornets_base", "acav_base"};
 	};
 
+
+
+	*/
+	
 	class dc_tunnel_1_top_N_2
 	{
 		destinations[] = {"mikeforce_base", "greenhornets_base", "acav_base"};
 	};
-//MODERN MP DAC HELPER
-	class dc_tunnel_1_top_S
-	{
-		destinations[] = {"daccong_base"};
-	};
-
+	
+	
 	class dc_tunnel_1_top_S_2
 	{
 		destinations[] = {"mikeforce_base", "greenhornets_base", "acav_base"};
@@ -334,6 +344,12 @@ class destinations
 		image = "custom\taskroster\UDT_HL.paa"; 
 		position_marker = "mf_respawn_dock";
 	};
+	
+	class boat_dock_1
+	{
+		image = "custom\taskroster\frogmen_HL.paa"; 
+		position_marker = "mf_respawn_dock_1";
+	};
 
 	class arvn_base
 	{
@@ -346,6 +362,12 @@ class destinations
 		image = "custom\taskroster\633rd_HL.paa";
 		position_marker = "mf_respawn_633rdTASG";
 	};
+	class 633rd_base_fw
+	{
+		image = "custom\taskroster\633rd_HL.paa"; 
+		position_marker = "mf_respawn_633rdcsg_fw";
+	};
+	
 
 	class vacang { image = "custom\DacCong_HL.paa"; position_marker = "zone_vacang"; };
 	class mugiapass { image = "custom\DacCong_HL.paa"; position_marker = "zone_mugiapass"; };

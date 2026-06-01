@@ -25,9 +25,43 @@ private _groups = "true" configClasses (_gamemode_config >> "teams" );
 	private _class = getText(_config >> "unit");
 	private _marker = "duty_officer_" + tolower(_groupName);
 	private _location = getMarkerPos _marker;
+	
 	private _direction = markerDir _marker;
 	if !(_location isEqualTo [0,0,0]) then
 	{
+	
+		//udt duplicate
+		if(_marker isEqualTo "duty_officer_frogmen") then {
+			_location = [_location select 0, _location select 1, (_location select 2)+11.4];
+			// duty officer agent
+			private _agent = createAgent [_class, getMarkerPos "duty_officer_frogmen_1", [], 0, "CAN_COLLIDE"];
+			_agent allowDamage false;
+			_agent setDir markerDir "duty_officer_frogmen_1";
+
+			_id = _agent spawn {
+				removeAllWeapons _this;
+				_this switchmove "";
+				uiSleep 1;
+				_this enableSimulationGlobal false;
+				_this disableAI "ALL";
+				_this setCaptive true;
+	
+			};
+
+			//Set up custom interaction overlay
+			_agent setVariable ["#para_InteractionOverlay_ConfigClass", "DutyOfficer", true];
+
+			// set group name as global var and reference to group server side
+			missionNamespace setVariable [_groupName, []]; //initialize group array
+			publicVariable _groupName;
+
+			// save duty officers to array for later use
+			vn_mf_duty_officers pushBack _agent;
+
+			//create a list of active groups(replacement for allGroups)
+			vn_mf_groups pushBack _groupName;
+		};
+		
 		// duty officer agent
 		private _agent = createAgent [_class, _location, [], 0, "CAN_COLLIDE"];
 		_agent allowDamage false;
