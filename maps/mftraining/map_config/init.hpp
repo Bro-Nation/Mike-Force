@@ -11,6 +11,7 @@ class map_config {
 	max_vehicle_depots_per_zone = 3;
 	max_fuel_per_zone = 3;
 	bn_zone_radius = 1000;
+	manual_ao_start = 1;
 	class zones {
 		#include "zones.hpp"
 	};

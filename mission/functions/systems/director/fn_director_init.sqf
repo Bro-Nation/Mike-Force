@@ -31,8 +31,10 @@ mf_s_dir_next_action_time = serverTime;
 mf_s_dir_attack_prep_time = 600;
 mf_s_dir_action_fired = true; //Mark it as dispatched, so we reset back to a new timer.
 
+private _manualAOStart = missionNamespace getVariable ["vn_mf_manual_ao_start", false];
+
 // from old BN copy
-if (count keys mf_s_dir_activeZones == 0) then {
+if (!_manualAOStart && {count keys mf_s_dir_activeZones == 0}) then {
 	if ((toLower worldName) isEqualTo "vn_the_bra") then {
 		// The Bra: use adjacency graph in zones.hpp
 		[] call vn_mf_fnc_director_open_connected_zones;
