@@ -81,7 +81,11 @@ class vn_logistics
 	//C119
 	class vnx_b_air_ac119_01_01 : vn_defaults_tiny {};
 	class vnx_b_air_ac119_04_01 : vn_defaults_small {};
-	class vnx_b_air_ac119_03_01 : vn_defaults_large {};
+	class vnx_b_air_ac119_03_01
+	{
+		inventory_max_weight = 1200;
+		inventory_max_size = 15;
+	};
 	class vnx_b_air_ac119_03_02 : vn_defaults_large {};
 	class vnx_b_air_ac119_02_01 : vn_defaults_small {};
 	class vnx_b_air_ac119_02_02 : vn_defaults_small {};
