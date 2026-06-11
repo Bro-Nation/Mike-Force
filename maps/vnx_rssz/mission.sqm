@@ -36796,7 +36796,7 @@ class Mission
 			side="Empty";
 			class Attributes
 			{
-				init="this setObjectTexture [0,""custom\billboards\press_corps_sign.paa""];";
+				init="this setObjectTexture [0,""custom\billboards\Press_bb.paa""];";
 			};
 			id=1471;
 			type="Land_vn_billboard_f";
