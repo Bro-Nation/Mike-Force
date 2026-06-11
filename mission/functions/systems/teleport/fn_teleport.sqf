@@ -30,6 +30,7 @@ private _object = missionNamespace getVariable [_objectName, objNull];
 if (_player distance2D _object > 20) exitWith {};
 
 private _destination = getMarkerPos getText (_destinationConfig >> "position_marker");
+
 if (_destination isEqualTo [0,0,0]) exitWith {};
 
 private _newLocation = _destination findEmptyPosition [3,20,typeOf _player];
@@ -37,13 +38,16 @@ if (_newLocation isEqualTo []) then {_newLocation = _destination};
 
 remoteExecCall ["vn_mf_fnc_display_location_time",_player];
 
-if(_destinationName isEqualTo "satansangels_base") then {
-  if ((toLower worldName) isEqualTo "cam_lao_nam") then {
-    _player setPosATL [20152.6,67.6535,123.54];
+
+
+if((_destinationName isEqualTo "satansangels_base") || (_destinationName isEqualTo "boat_dock_1")) then {
+  
+  if(_destinationName isEqualTo "satansangels_base") then {
+	_player setPosATL [10187.2,191.438,106];
   }
   else
   {
-    _player setPos _newLocation;
+    _player setPosATL [13261.7,8604.96,11.1319];
   };
 }
 else
