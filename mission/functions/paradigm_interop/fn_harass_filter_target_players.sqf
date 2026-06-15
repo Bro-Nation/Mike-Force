@@ -20,10 +20,20 @@
 params ["_players"];
 
 private _blockedAreas = vn_mf_markers_blocked_areas + vn_mf_markers_no_harass;
+private _isTrainingServer = vn_mf_is_training_server;
 
-//Player isn't in a blocked area.
+//Filter players based on server type
 _players select 
 {
 	private _player = _x;
-	(_blockedAreas findIf {_player inArea _x}) == -1
+	private _notBlocked = (_blockedAreas findIf {_player inArea _x}) == -1;
+	
+	if (_isTrainingServer) then {
+		//Training server: Player must be in an AO and not in a blocked area
+		private _inAO = (vn_mf_markers_zones findIf {_player inArea _x}) > -1;
+		_inAO && _notBlocked
+	} else {
+		//Live server: Only need to avoid blocked areas
+		_notBlocked
+	}
 };

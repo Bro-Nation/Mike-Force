@@ -24,4 +24,4 @@ if (isNull _target) exitWith {};
 
 _target addAction ["SPAWN OR REPLACE WATER SUPPLY", {
     0 = [] execVM "training\scripts\water_supply\spawn_or_replace_training_water_supply.sqf";
-}, 0, 5, true, true, "", "(player distance _target < 5) && ([player, 'Instructors'] call vn_mf_fnc_player_on_team)"];
+}, 0, 5, true, true, "", "(player distance _target < 5) && (([player, 'UDT'] call vn_mf_fnc_player_on_team) || ([player, 'Instructors'] call vn_mf_fnc_player_on_team))"];

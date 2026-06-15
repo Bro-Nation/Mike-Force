@@ -24,4 +24,4 @@ if (isNull _target) exitWith {};
 
 _target addAction ["SPAWN OR REPLACE UNDERWATER WRECKS", {
     0 = [] execVM "training\scripts\underwater_wreck\spawn_or_replace_training_underwater_wreck.sqf";
-}, 0, 5, true, true, "", "(player distance _target < 5) && ([player, 'Instructors'] call vn_mf_fnc_player_on_team)"];
+}, 0, 5, true, true, "", "(player distance _target < 5) && (([player, 'UDT'] call vn_mf_fnc_player_on_team) || ([player, 'Instructors'] call vn_mf_fnc_player_on_team))"];

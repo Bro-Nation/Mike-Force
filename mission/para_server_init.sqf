@@ -34,6 +34,15 @@ call vn_mf_fnc_server_init_backend;
 
 /*
 =========================================================================================
+Training Server Detection
+=========================================================================================
+Set to true if training scripts/functions are available in this mission config
+*/
+vn_mf_is_training_server = isClass (missionConfigFile >> "CfgFunctions" >> "vn_mf" >> "training");
+publicVariable "vn_mf_is_training_server";
+
+/*
+=========================================================================================
 job: `restart_messages`
 =========================================================================================
 WARNING: YOU WILL NOT HAVE THIS DURING LOCAL DEVELOPMENT. This always generates an error
