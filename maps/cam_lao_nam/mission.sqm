@@ -530,8 +530,8 @@ class Mission
 		forecastWaves=0.1;
 		forecastLightnings=0.1;
 		year=1968;
-		month=2;
-		day=6;
+		month=6;
+		day=21;
 		hour=8;
 		minute=0;
 		startFogDecay=0.014;
