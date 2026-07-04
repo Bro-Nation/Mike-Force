@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=0.1;
 	autoGroupingDist=10;
-	toggles=618;
+	toggles=1642;
 	class ItemIDProvider
 	{
-		nextID=26159;
+		nextID=26160;
 	};
 	class MarkerIDProvider
 	{
@@ -16,13 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=33260;
+		nextID=33722;
 	};
 	class Camera
 	{
-		pos[]={17074.305,22.221674,7073.686};
-		dir[]={-0.91836107,-0.39493936,-0.025216121};
-		up[]={-0.39479059,0.91870713,-0.010840057};
+		pos[]={17092.748,39.206871,7064.5029};
+		dir[]={-0.091607697,-0.62036335,0.77895105};
+		up[]={-0.072457977,0.78431249,0.61611903};
+		aside[]={0.99316049,7.552444e-08,0.11680006};
 	};
 };
 binarizationWanted=0;
@@ -644,8 +645,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -695,8 +696,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -752,7 +753,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=431;
+		items=432;
 		class Item0
 		{
 			dataType="Marker";
@@ -142810,6 +142811,23 @@ class Mission
 			};
 			id=26156;
 			type="Land_vn_usaf_revetment_3";
+		};
+		class Item431
+		{
+			dataType="Marker";
+			position[]={17090.016,154.68201,7523.04};
+			name="no_harass_0";
+			text="block AI";
+			markerType="ELLIPSE";
+			type="rectangle";
+			colorName="ColorCIV";
+			alpha=0.25241962;
+			fillName="Grid";
+			a=4447.6851;
+			b=3780.3083;
+			angle=35.295998;
+			id=26159;
+			atlOffset=139.02872;
 		};
 	};
 	class Connections
