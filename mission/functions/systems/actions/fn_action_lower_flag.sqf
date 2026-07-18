@@ -23,10 +23,10 @@ private _actionIdleIcon = "custom\holdactions\holdAction_interact_ca.paa";
 private _actionProgressIcon = "custom\holdactions\holdAction_danger_ca.paa";
 
 private _isOpfor = "side player isEqualTo east";
-private _isInRangeOf = "player distance cursorObject < 5";
+private _isInRangeOfObjectiveFlag2D = "!(isNil 'vn_mf_bn_dc_target_flag') && ((player distance2D vn_mf_bn_dc_target_flag) < 5)";
 private _validFlagsArr = "['vn_flag_usa', 'vn_flag_aus', 'vn_flag_arvn', 'vn_flag_nz']";
 private _isValidObjectType = format [
-	"typeOf cursorObject in %1",
+	"!(isNil 'vn_mf_bn_dc_target_flag') && ((typeOf vn_mf_bn_dc_target_flag) in %1)",
 	_validFlagsArr
 ];
 
@@ -39,14 +39,11 @@ need to use a publicVar, else we'd need to remoteExec constantly as part
 of condition to show... but mike force hold actions are attached to the PLAYER
 which means constantly running remoteExec's whenever a player is looking at ANYTHING.
 */
-private _isObjectiveFlag = "!(isNil 'vn_mf_bn_dc_target_flag') && (cursorObject isEqualTo vn_mf_bn_dc_target_flag)";
-
 private _conditionToShow = format [
-        "(%1 && %2 && %3 && %4)",
+	"(%1 && %2 && %3)",
         _isOpfor,
-        _isInRangeOf,
-        _isValidObjectType,
-        _isObjectiveFlag
+	_isInRangeOfObjectiveFlag2D,
+	_isValidObjectType
 ];
 
 private _conditionToProgress = "true";

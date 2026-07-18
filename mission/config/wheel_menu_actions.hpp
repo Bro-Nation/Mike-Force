@@ -106,6 +106,30 @@ class wheel_menu_actions
 		spawn = 0;
 	};
 
+	class toggle_captive : base_action
+	{
+		visible = "ALWAYS";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team)";
+		text = "Toggle Captive";
+		icon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa";
+		icon_highlighted = "";
+		arguments = "[]";
+		function = "vn_mf_fnc_toggle_captive";
+		spawn = 0;
+	};
+
+	class dac_force_enter_vehicle : base_action
+	{
+		visible = "ALWAYS";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {captive player} && {_target isKindOf 'AllVehicles'} && {_target != player} && {alive _target} && {(fullCrew [_target, '', true]) findIf {(_x # 0) isEqualTo objNull} > -1}";
+		text = "Force Enter Vehicle";
+		icon = "custom\holdactions\holdAction_car_ca.paa";
+		icon_highlighted = "";
+		arguments = "_target";
+		function = "vn_mf_fnc_daccong_force_enter_vehicle";
+		spawn = 0;
+	};
+
 	//Add a sandbag to a building.
 	class add_sandbag : base_action
 	{

@@ -87,7 +87,7 @@ for "_i" from 1 to _count do {
         params ["_unit", "_killer"];
         [_unit] spawn {
             private _grp = group (_this select 0);
-            sleep 60;
+            sleep 300;
             deleteVehicle (_this select 0);
             if (count units _grp == 0) then {
                 deleteGroup _grp;

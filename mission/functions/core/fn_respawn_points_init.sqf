@@ -31,6 +31,9 @@ vn_dc_respawn_points = vn_mf_dc_markers_base_respawns apply {
 	params ["_handlerParams", "_eventParams"];
 	_eventParams params ["_player", "_identity"];
 	if (_identity isEqualTo "mf_dc_respawn_daccong_aotunnel") then {
+		private _exitTeleport = missionNamespace getVariable ["mf_dc_spawnpoint_daccong_aotunnel", objNull];
+		_player setPosATL (getPosATL _exitTeleport vectorAdd [0,0,1]);
+
 		_player setUnitFreefallHeight 32000;
 		_player setVariable ["inTunnel", true, true];
 	};

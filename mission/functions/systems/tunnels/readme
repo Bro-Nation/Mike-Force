@@ -14,6 +14,9 @@ Requirements:
 - Place Land_vn_infostand_v2_f objects with variable names following the pattern: tunnelReentry_XX (e.g., tunnelReentry_0, tunnelReentry_1)
 - These are used as re-entry points for players who fall out of the tunnel
 - Players can activate "Re-enter Tunnel" action on these objects to teleport to the nearest objective
+- For DAC-only respawn teleports, place objects with these variable name prefixes:
+- dacTunnelRespawnAction_XX -> gets "Teleport: Tunnel Respawn"
+- dacPowCampRespawnAction_XX -> gets "Teleport: POW Camp Respawn"
 - tunnel system must be inside of the map boundary we are putting it in the air 30k up 
 
 How it works:

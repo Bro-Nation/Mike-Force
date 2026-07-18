@@ -25,7 +25,12 @@ if (isNil "vn_mf_actions_initialized" || vn_mf_actions_player != player) then //
 	vn_mf_actions_player = player;
 	vn_mf_actions_initialized = 1;
 	call vn_mf_fnc_action_capture_player;
-	call vn_mf_fnc_action_capture_travel;
+	call vn_mf_fnc_action_capture_player_tunnel;
+	call vn_mf_fnc_action_capture_player_powcamp;
+	call vn_mf_fnc_action_ai_snap_neck;
+	call vn_mf_fnc_action_search_weapon;
+	call vn_mf_fnc_action_capture_travel_tunnel;
+	call vn_mf_fnc_action_capture_travel_powcamp;
 	//call vn_mf_fnc_action_arrest_player;
 	//call vn_mf_fnc_release_from_arrest_player;
 	call vn_mf_fnc_action_destroy_task;
@@ -44,6 +49,8 @@ if (isNil "vn_mf_actions_initialized" || vn_mf_actions_player != player) then //
 	call vn_mf_fnc_action_curator_unlock_spawner;
 	// press corp only
 	call vn_mf_fnc_action_press_toggle_spectator;
+	// Add DAC-only tunnel/POW teleport actions on the local player.
+	call vn_mf_fnc_daccong_add_teleport_actions;
 	// For limpet mines 
 	[player, "vn_mine_limpet_01_mag"] call vn_mf_fnc_uwChargeAddAction;
 };

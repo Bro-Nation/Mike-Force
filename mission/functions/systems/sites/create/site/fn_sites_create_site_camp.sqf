@@ -79,8 +79,11 @@ params ["_pos"];
 		_campRespawnMarker setMarkerType "o_recon";
 		_campRespawnMarker setMarkerAlpha 0;
 
-		private _respawnID = [east, _campRespawnMarker] call BIS_fnc_addRespawnPosition;
+		private _respawnName = "DAC Camp";
+		private _respawnID = [east, _campRespawnMarker, _respawnName] call BIS_fnc_addRespawnPosition;
 		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _markerPos, [], 3, "NONE"];
+		private _platformNormal = surfaceNormal [_markerPos # 0, _markerPos # 1];
+		_respawnObj setVectorUp _platformNormal;
 		_respawnObj setVariable ["vn_respawn", [_campRespawnMarker, _respawnID]];
 
 		vn_dc_adhoc_respawns pushBack [_campRespawnMarker, _respawnID];

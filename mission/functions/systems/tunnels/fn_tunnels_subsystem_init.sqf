@@ -61,6 +61,26 @@ private _reentryPoints = [];
 
 missionNamespace setVariable ["vn_mf_tunnel_reentry_points", _reentryPoints, true];
 
+// --- Cache DAC teleport action objects ---
+// These can be any object type; naming controls which action is attached.
+// Prefixes:
+// - dacTunnelRespawnAction_XX => Teleport: Tunnel Respawn
+// - dacPowCampRespawnAction_XX => Teleport: POW Camp Respawn
+private _dacTunnelRespawnActionObjects = [];
+private _dacPowCampRespawnActionObjects = [];
+{
+    private _name = vehicleVarName _x;
+    if (_name find "dacTunnelRespawnAction_" == 0) then {
+        _dacTunnelRespawnActionObjects pushBack _x;
+    };
+    if (_name find "dacPowCampRespawnAction_" == 0) then {
+        _dacPowCampRespawnActionObjects pushBack _x;
+    };
+} forEach allMissionObjects "All";
+
+missionNamespace setVariable ["vn_mf_dac_tunnel_respawn_action_objects", _dacTunnelRespawnActionObjects, true];
+missionNamespace setVariable ["vn_mf_dac_powcamp_respawn_action_objects", _dacPowCampRespawnActionObjects, true];
+
 // --- Initialize tracking for used objectives ---
 missionNamespace setVariable ["vn_mf_used_tunnel_objectives", [], true];
 
@@ -79,6 +99,6 @@ missionNamespace setVariable ["vn_mf_tunnel_ai_count", 0, true];
 // --- Start fallout detection loop ---
 [] spawn vn_mf_fnc_tunnels_fallout_detection;
 
-["INFO", format ["Tunnel subsystem initialized: %1 teleports, %2 objectives, %3 reentry points", count _teleports, count _objectives, count _reentryPoints]] call para_g_fnc_log;
+["INFO", format ["Tunnel subsystem initialized: %1 teleports, %2 objectives, %3 reentry points, %4 DAC tunnel respawn actions, %5 DAC POW camp respawn actions", count _teleports, count _objectives, count _reentryPoints, count _dacTunnelRespawnActionObjects, count _dacPowCampRespawnActionObjects]] call para_g_fnc_log;
 
 true

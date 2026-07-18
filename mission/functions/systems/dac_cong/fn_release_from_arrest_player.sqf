@@ -19,6 +19,7 @@ if !(isPlayer _target) exitWith {};
 
 {
     player setVariable ['isArrested', 'false', true];
+    [player, false] call vn_mf_fnc_toggle_captive;
 	action ["CancelAction", player];
 } remoteExec ["call", _target];
 

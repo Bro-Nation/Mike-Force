@@ -3740,7 +3740,7 @@ class Land_vn_bagfence_round_f
 {
 	name = "";
 	type = "walls";
-	categories[] = {"fortifications", "nonAcav", "fences"};
+	categories[] = {"fortifications", "nonAcav", "fences", "nv"};
 	rank = 0;
 	SUPPLY_CAPACITY(100, DAYS_TO_SECONDS(1));
 	resupply = "BuildingSupplies";
@@ -3771,7 +3771,7 @@ class Land_vn_bagfence_short_f
 {
 	name = "";
 	type = "walls";
-	categories[] = {"fortifications", "nonAcav", "fences"};
+	categories[] = {"fortifications", "nonAcav", "fences", "nv"};
 	rank = 0;
 	SUPPLY_CAPACITY(100, DAYS_TO_SECONDS(1));
 	resupply = "BuildingSupplies";
@@ -3895,7 +3895,7 @@ class Land_vn_bagfence_01_long_green_f
 {
 	name = "";
 	type = "walls";
-	categories[] = {"fortifications", "nonAcav", "fences"};
+	categories[] = {"fortifications", "nonAcav", "fences", "nv"};
 	rank = 0;
 	SUPPLY_CAPACITY(100, DAYS_TO_SECONDS(1));
 	resupply = "BuildingSupplies";

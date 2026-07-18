@@ -143,8 +143,20 @@
       <Key ID="STR_vn_mf_capture_player">
         <Original>Capture</Original>
       </Key>
-      <Key ID="STR_vn_mf_capture_travel">
-        <Original>Capture Travel</Original>
+      <Key ID="STR_vn_mf_capture_player_tunnel">
+        <Original>Capture (Tunnel)</Original>
+      </Key>
+      <Key ID="STR_vn_mf_capture_player_powcamp">
+        <Original>Capture (POW Camp)</Original>
+      </Key>
+      <Key ID="STR_vn_mf_neck_snap_ai">
+        <Original>Neck Snap</Original>
+      </Key>
+      <Key ID="STR_vn_mf_capture_travel_tunnel">
+        <Original>Capture Travel (Tunnel)</Original>
+      </Key>
+      <Key ID="STR_vn_mf_capture_travel_powcamp">
+        <Original>Capture Travel (POW Camp)</Original>
       </Key>
       <Key ID="STR_vn_mf_arrest_player">
         <Original>Arrest</Original>
@@ -255,10 +267,10 @@
         <Original>FSB Harass - DAC CONG</Original>
       </Key>
       <Key ID="STR_vn_mf_respawn_daccong_aotunnel">
-        <Original>AO TUNNEL</Original>
+        <Original>AO/POW TUNNEL</Original>
       </Key>
-	    <Key ID="STR_vn_mf_respawn_tunnel_1">
-        <Original>POW TUNNEL 1</Original>
+	    <Key ID="STR_vn_mf_respawn_daccong_powcamp">
+        <Original>POW CAMP</Original>
       </Key>
       <Key ID="STR_vn_mf_respawn_daccong_jets">
         <Original>NVA JETS</Original>

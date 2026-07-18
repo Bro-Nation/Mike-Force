@@ -48,6 +48,7 @@ class CfgFunctions
 			class color_confname_to_rgba {};
 			class sample_positions_circle {};
 			class rExecServerToGlobal_playerHost_or_dedicated {};
+			class toggle_captive {};
 		};
 
 		class core_init
@@ -220,13 +221,18 @@ class CfgFunctions
 		class system_actions {
 			file = "functions\systems\actions";
 			class action_init {};
+			class action_ai_snap_neck {};
+			class action_search_weapon {};
 			class action_vehspawner_show_spawn_point {};
 			class action_destroy_task {};
 			class action_gather_intel {};
 			class action_gather_BlackBox {};
 			class action_radiotap {};
 			class action_capture_player {};
-			class action_capture_travel {};
+			class action_capture_player_tunnel {};
+			class action_capture_player_powcamp {};
+			class action_capture_travel_tunnel {};
+			class action_capture_travel_powcamp {};
 			class action_arrest_player {};
 			class action_release_from_arrest_player {};
 			class action_drink_water {};
@@ -244,6 +250,13 @@ class CfgFunctions
 			class uwChargeAddAction {};
 			class uwChargeDoPlace {};
 			class uwChargePlacement {};
+		};
+
+		class system_neck_snap {
+			file = "functions\systems\neck_snap";
+			class neck_snap_ai {};
+			class neck_snap_start {};
+			class neck_snap_interrupt {};
 		};
 
 		class custom_texture_scripts {
@@ -318,7 +331,10 @@ class CfgFunctions
 
 		class system_dac_cong {
 			file = "functions\systems\dac_cong";
+			class capture_captive_monitor {};
 			class daccong_respawns_delete_all {};
+			class daccong_force_enter_vehicle {};
+			class daccong_add_teleport_actions {};
 			class capture_player {};
 			class capture_travel {};
 			class ctf_handle_flag_height_change {};
