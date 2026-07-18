@@ -106,15 +106,39 @@ class wheel_menu_actions
 		spawn = 0;
 	};
 
-	class toggle_captive : base_action
+	class captive_in : base_action
+	{
+		visible = "ALWAYS";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {!captive player}";
+		text = "Set Captive";
+		icon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa";
+		icon_highlighted = "";
+		arguments = "[player, true]";
+		function = "vn_mf_fnc_toggle_captive";
+		spawn = 0;
+	};
+
+	class captive_out : base_action
+	{
+		visible = "ALWAYS";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {captive player}";
+		text = "Unset Captive";
+		icon = "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\attack_ca.paa";
+		icon_highlighted = "";
+		arguments = "[player, false]";
+		function = "vn_mf_fnc_toggle_captive";
+		spawn = 0;
+	};
+
+	class dac_create_edit_intel : base_action
 	{
 		visible = "ALWAYS";
 		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team)";
-		text = "Toggle Captive";
-		icon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa";
+		text = "Create/Edit Intel";
+		icon = "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\map_ca.paa";
 		icon_highlighted = "";
-		arguments = "[]";
-		function = "vn_mf_fnc_toggle_captive";
+		arguments = "[player]";
+		function = "zen_modules_fnc_moduleCreateIntel";
 		spawn = 0;
 	};
 

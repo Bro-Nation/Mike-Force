@@ -32,7 +32,7 @@ private _codeOnTick = {};
 private _codeOnComplete = {
 	if (random 1 < 0.3) then {
         if (random 1 < 0.01) then {
-            player addWeapon "vn_m1911";
+            player addWeapon "vn_hd";
             hint "You found a gun!";
             sleep 1;
             hint "";
