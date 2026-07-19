@@ -8,7 +8,7 @@ class EditorData
 	toggles=610;
 	class ItemIDProvider
 	{
-		nextID=21906;
+		nextID=21908;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=37679;
+		nextID=37713;
 	};
 	class Camera
 	{
@@ -440,8 +440,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -491,8 +491,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -61590,7 +61590,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39862;
+							angle=227.39861;
 							id=4465;
 							atlOffset=6.1035156e-05;
 						};
@@ -70690,7 +70690,7 @@ class Mission
 			name="tunnels";
 			class Entities
 			{
-				items=113;
+				items=115;
 				class Item0
 				{
 					dataType="Object";
@@ -76286,9 +76286,37 @@ class Mission
 						nAttributes=1;
 					};
 				};
+				class Item113
+				{
+					dataType="Marker";
+					position[]={6548.7593,124.31934,10208.014};
+					name="blocked_area5_1";
+					text="Base Block 5";
+					markerType="RECTANGLE";
+					type="rectangle";
+					a=100.88721;
+					b=100.88721;
+					angle=135;
+					id=21906;
+					atlOffset=1.0418472;
+				};
+				class Item114
+				{
+					dataType="Marker";
+					position[]={6542.9058,124.30119,10211.601};
+					name="no_sites_11";
+					text="Dac Cong Tunnels";
+					markerType="ELLIPSE";
+					type="";
+					a=164.62036;
+					b=164.62036;
+					angle=135;
+					id=21907;
+					atlOffset=0.55091095;
+				};
 			};
 			id=21745;
-			atlOffset=0.031600952;
+			atlOffset=110.24557;
 		};
 		class Item223
 		{
