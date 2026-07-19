@@ -70,6 +70,14 @@ params ["_pos"];
 		_campMarker setMarkerText "Camp";
 		_campMarker setMarkerAlpha 0;
 
+		[[_campMarker], {
+			params ["_marker"];
+
+			if (hasInterface && {side group player isEqualTo east}) then {
+				_marker setMarkerAlphaLocal 1;
+			};
+		}] remoteExecCall ["BIS_fnc_call", 0];
+
 		private _partialMarkerPos = _spawnPos getPos [10 + random 40, random 360];
 		private _markerPartial = createMarker [format ["PartialCamp_%1", _siteId], _partialMarkerPos];
 		_markerPartial setMarkerType "o_unknown";
