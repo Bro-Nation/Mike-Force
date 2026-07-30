@@ -19,7 +19,7 @@
 	format ["<t color='#FF3333'>%1</t>", localize 'STR_vn_mf_neck_snap_ai'],
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_forceRespawn_ca.paa",
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_forceRespawn_ca.paa",
-	"player distance cursorTarget < 3 && {cursorTarget isKindOf 'Man'} && {!isPlayer cursorTarget} && {alive cursorTarget} && {side cursorTarget != side player} && {abs ((cursorTarget getRelDir player) - 180) < 100}",
+	"player distance cursorTarget < 3 && {cursorTarget isKindOf 'Man'} && {!isPlayer cursorTarget} && {alive cursorTarget} && {!(cursorTarget in (missionNamespace getVariable ['vn_mf_duty_officers', []]))} && {side cursorTarget != side player} && {abs ((cursorTarget getRelDir player) - 180) < 100}",
 	"player distance cursorTarget < 3",
 	{
 		[cursorTarget, player] remoteExec ["vn_mf_fnc_neck_snap_start", 2];
