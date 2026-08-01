@@ -27,7 +27,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="bn_mikeforce_indev";
+sourceName="MikeForce";
 addons[]=
 {
 	"objects_f_vietnam_c",
@@ -566,7 +566,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=234;
+		items=330;
 		class Item0
 		{
 			dataType="Marker";
