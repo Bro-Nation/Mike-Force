@@ -1,6 +1,6 @@
 /*
     File: setup_training_formation_sign_console.sqf
-    Author: Generated
+    Author: Spade
     Public: Yes
 
     Description:

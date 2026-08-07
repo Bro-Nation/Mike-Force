@@ -1,6 +1,6 @@
 /*
     File: setup_formation_sign_actions.sqf
-    Author: Generated
+    Author: Spade
     Public: Yes
 
     Description:
