@@ -12,12 +12,20 @@ addMissionEventHandler ["Draw3D", {
     {
         private _pole = _x;
 
+        if (!alive _pole) then {
+            continue;
+        };
+
+        if (isObjectHidden _pole) then {
+            continue;
+        };
+
         if (_player distance _pole > 5) then {
             continue;
         };
 
         private _index = _pole getVariable ["FT_index", -1];
-        if !(_index isEqualType 0) then {
+        if (_index < 0) then {
             continue;
         };
 

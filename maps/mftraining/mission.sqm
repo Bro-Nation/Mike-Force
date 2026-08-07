@@ -8,7 +8,7 @@ class EditorData
 	toggles=1642;
 	class ItemIDProvider
 	{
-		nextID=26311;
+		nextID=26332;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=34191;
+		nextID=34659;
 	};
 	class Camera
 	{
-		pos[]={15960.496,72.153152,6962.3037};
-		dir[]={-0.3985565,-0.3148894,0.86139429};
-		up[]={-0.13222787,0.94912887,0.28578219};
-		aside[]={0.90756369,-1.6996637e-08,0.4199186};
+		pos[]={17133.633,21.566662,7106.4033};
+		dir[]={-0.43568781,-0.41914937,0.79655337};
+		up[]={-0.20113903,0.90791595,0.36773556};
+		aside[]={0.87734032,8.920324e-09,0.47987464};
 	};
 };
 binarizationWanted=0;
@@ -645,8 +645,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -696,8 +696,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -29056,7 +29056,7 @@ class Mission
 									};
 									id=18423;
 									type="Land_HelipadEmpty_F";
-									atlOffset=0.011260986;
+									atlOffset=0.013122559;
 								};
 								class Item2
 								{
@@ -32784,8 +32784,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16060.986,15.214649,7072.5317};
-								angles[]={0,1.5364701,0};
+								position[]={16060.986,15.214468,7072.5322};
+								angles[]={0,1.5364656,0};
 							};
 							side="Empty";
 							flags=5;
@@ -32795,7 +32795,7 @@ class Mission
 							};
 							id=18770;
 							type="vn_signad_sponsors_f";
-							atlOffset=-0.90681839;
+							atlOffset=-0.90699959;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -32816,7 +32816,7 @@ class Mission
 						};
 					};
 					id=18331;
-					atlOffset=-0.29853058;
+					atlOffset=-0.29862118;
 				};
 				class Item14
 				{
@@ -34059,8 +34059,8 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16033.152,15.051783,7105.7466};
-								angles[]={0,1.4725063,0};
+								position[]={16033.153,15.051783,7105.7461};
+								angles[]={0,1.4724993,0};
 							};
 							side="Empty";
 							flags=4;
@@ -35461,7 +35461,7 @@ class Mission
 				};
 			};
 			id=18339;
-			atlOffset=15.307081;
+			atlOffset=15.307079;
 		};
 		class Item204
 		{
@@ -40600,7 +40600,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39879;
+							angle=227.39842;
 							id=26168;
 							atlOffset=6.1035156e-05;
 						};
@@ -47800,8 +47800,8 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17097.209,18.752029,7232.7222};
-										angles[]={0,3.1698618,0};
+										position[]={17144.4,18.81559,7118.353};
+										angles[]={0,0.028268965,0};
 									};
 									side="Empty";
 									flags=5;
@@ -47810,7 +47810,7 @@ class Mission
 									};
 									id=18972;
 									type="Land_vn_lampshabby_f_dir_far";
-									atlOffset=0.066332817;
+									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -47933,36 +47933,19 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17132.504,15.865999,7213.7549};
-										angles[]={0,6.1687441,0};
+										position[]={17140.385,15.94356,7143.4263};
+										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 3]; " \n "this setVariable [""FT_group"", 2];";
+										name="pole_stagcol_3";
 									};
 									id=18980;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.013999939;
-								};
-								class Item6
-								{
-									dataType="Object";
-									class PositionInfo
-									{
-										position[]={17096.654,15.848,7205.4761};
-										angles[]={0,6.1622343,0};
-									};
-									side="Empty";
-									flags=5;
-									class Attributes
-									{
-										init="this setVariable [""FT_index"", 4]; " \n "this setVariable [""FT_group"", 1];";
-									};
-									id=18981;
-									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.031999588;
+									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -47978,7 +47961,69 @@ class Mission
 												};
 											};
 										};
-										nAttributes=1;
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
+								};
+								class Item6
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={17145.139,15.94356,7150.6353};
+										angles[]={0,3.0206416,0};
+									};
+									side="Empty";
+									flags=5;
+									class Attributes
+									{
+										init="this setVariable [""FT_index"", 4]; " \n "this setVariable [""FT_group"", 1];";
+										name="pole_file_4";
+									};
+									id=18981;
+									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
 									};
 								};
 								class Item7
@@ -47986,313 +48031,882 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17096.893,15.848,7212.8628};
-										angles[]={0,6.1622343,0};
+										position[]={17144.9,15.94356,7143.2485};
+										angles[]={0,3.0206416,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 3]; " \n "this setVariable [""FT_group"", 1];";
+										name="pole_file_3";
 									};
 									id=18982;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.031999588;
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item8
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17096.922,15.848,7220.4189};
-										angles[]={0,6.1622343,0};
+										position[]={17144.871,15.94356,7135.6924};
+										angles[]={0,3.0206416,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 2]; " \n "this setVariable [""FT_group"", 1];";
+										name="pole_file_2";
 									};
 									id=18983;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.031999588;
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item9
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17097.336,15.847781,7228.022};
-										angles[]={0,6.1622343,0};
+										position[]={17144.457,15.943341,7128.0894};
+										angles[]={0,3.0206416,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 1];" \n "this setVariable [""FT_group"", 1];" \n "";
+										name="pole_file_1";
 									};
 									id=18984;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.001999855;
+									atlOffset=0.063342094;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item10
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17132.58,15.865999,7228.917};
-										angles[]={0,6.1687441,0};
+										position[]={17140.377,15.94356,7130.6646};
+										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 1]; " \n "this setVariable [""FT_group"", 2];";
+										name="pole_stagcol_1";
 									};
 									id=18985;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.013999939;
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item11
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17122.797,15.865999,7220.7842};
-										angles[]={0,6.1687441,0};
+										position[]={17150.092,15.94356,7136.397};
+										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 2]; " \n "this setVariable [""FT_group"", 2];";
+										name="pole_stagcol_2";
 									};
 									id=18986;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.013999939;
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item12
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17121.99,15.865999,7205.5488};
-										angles[]={0,6.1687441,0};
+										position[]={17150.898,15.94356,7151.6323};
+										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 4]; " \n "this setVariable [""FT_group"", 2];";
+										name="pole_stagcol_4";
 									};
 									id=18987;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=-0.013999939;
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item13
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17160.078,15.879999,7228.4922};
-										angles[]={0,6.1010079,0};
+										position[]={17145.74,15.94356,7127.8042};
+										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 1];" \n "this setVariable [""FT_group"", 3];" \n "";
+										name="pole_echelon_1";
 									};
 									id=18988;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item14
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17154.078,15.879999,7222.3071};
-										angles[]={0,6.1010079,0};
+										position[]={17151.74,15.94356,7133.9893};
+										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 2];" \n "this setVariable [""FT_group"", 3];" \n "";
+										name="pole_echelon_2";
 									};
 									id=18989;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item15
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17148.287,15.879999,7216.146};
-										angles[]={0,6.1010079,0};
+										position[]={17157.531,15.94356,7140.1504};
+										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 3];" \n "this setVariable [""FT_group"", 3];" \n "";
+										name="pole_echelon_3";
 									};
 									id=18990;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item16
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17142.621,15.879999,7209.8262};
-										angles[]={0,6.1010079,0};
+										position[]={17163.197,15.94356,7146.4702};
+										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 4];" \n "this setVariable [""FT_group"", 3];" \n "";
+										name="pole_echelon_4";
 									};
 									id=18991;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item17
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17206.586,15.879999,7224.3389};
-										angles[]={0,4.7289524,0};
+										position[]={17129.406,15.94356,7129.2334};
+										angles[]={0,1.5873595,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 1];" \n "this setVariable [""FT_group"", 4];" \n "";
+										name="pole_line_1";
 									};
 									id=18992;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item18
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17195.496,15.879999,7225.02};
-										angles[]={0,4.7289524,0};
+										position[]={17140.496,15.94356,7128.5522};
+										angles[]={0,1.5873595,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 2];" \n "this setVariable [""FT_group"", 4];" \n "";
+										name="pole_line_2";
 									};
 									id=18993;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item19
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17185.156,15.879869,7225.2822};
-										angles[]={0,4.7289524,0};
+										position[]={17150.836,15.94356,7128.29};
+										angles[]={0,1.5873595,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 3];" \n "this setVariable [""FT_group"", 4];" \n "";
+										name="pole_line_3";
 									};
 									id=18994;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.0010004044;
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item20
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17175.518,15.879999,7225.7271};
-										angles[]={0,4.7289524,0};
+										position[]={17160.475,15.94356,7127.8452};
+										angles[]={0,1.5873595,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 4];" \n "this setVariable [""FT_group"", 4];" \n "";
+										name="pole_line_4";
 									};
 									id=18995;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item21
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17228.563,15.879999,7226.7368};
-										angles[]={0,0.09079203,0};
+										position[]={17146.07,15.94356,7131.5283};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 1];" \n "this setVariable [""FT_group"", 5];" \n "";
+										name="pole_wedge_1";
 									};
 									id=19000;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item22
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17220.592,15.879999,7221.9429};
-										angles[]={0,0.09079203,0};
+										position[]={17154.041,15.94356,7136.3223};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 2];" \n "this setVariable [""FT_group"", 5];" \n "";
+										name="pole_wedge_2";
 									};
 									id=19001;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item23
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17236.008,15.879999,7221.7671};
-										angles[]={0,0.09079203,0};
+										position[]={17138.625,15.94356,7136.4971};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 3];" \n "this setVariable [""FT_group"", 5];" \n "";
+										name="pole_wedge_3";
 									};
 									id=19002;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item24
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17212.6,15.879999,7216.8042};
-										angles[]={0,0.09079203,0};
+										position[]={17162.033,15.94356,7141.46};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 4];" \n "this setVariable [""FT_group"", 5];" \n "";
+										name="pole_wedge_4";
 									};
 									id=19003;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item25
 								{
@@ -48366,72 +48980,200 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17262.254,15.879999,7226.7612};
-										angles[]={0,0.09079203,0};
+										position[]={17145.115,15.94356,7126.5103};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 1];" \n "this setVariable [""FT_group"", 6];" \n "";
+										name="pole_diamond_1";
 									};
 									id=25342;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item28
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17254.295,15.879999,7220.9731};
-										angles[]={0,0.09079203,0};
+										position[]={17153.074,15.94356,7132.2983};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 2];" \n "this setVariable [""FT_group"", 6];" \n "";
+										name="pole_diamond_2";
 									};
 									id=25343;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item29
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17269.711,15.879999,7220.7969};
-										angles[]={0,0.09079203,0};
+										position[]={17137.658,15.94356,7132.4741};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 3];" \n "this setVariable [""FT_group"", 6];" \n "";
+										name="pole_diamond_3";
 									};
 									id=25344;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 								class Item30
 								{
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17262.123,15.879999,7215.2222};
-										angles[]={0,0.09079203,0};
+										position[]={17145.246,15.94356,7138.0493};
+										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
 									flags=5;
 									class Attributes
 									{
 										init="this setVariable [""FT_index"", 4];" \n "this setVariable [""FT_group"", 6];" \n "";
+										name="pole_diamond_4";
 									};
 									id=25345;
 									type="Land_SurveyMarker_01_post_F";
+									atlOffset=0.063560486;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													singleType="BOOL";
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
 								};
 							};
 							id=18966;
-							atlOffset=-0.00030708313;
+							atlOffset=0.060274124;
 						};
 						class Item3
 						{
@@ -48789,8 +49531,8 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17116.879,15.258765,7109.3667};
-										angles[]={0,1.5735084,0};
+										position[]={17116.879,15.259,7109.3672};
+										angles[]={0,1.5735016,0};
 									};
 									side="Empty";
 									flags=1;
@@ -48799,7 +49541,7 @@ class Mission
 									};
 									id=19168;
 									type="vn_sign_town_d_14_01";
-									atlOffset=0.27876568;
+									atlOffset=0.27900028;
 								};
 								class Item17
 								{
@@ -57582,8 +58324,8 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17134.916,15.903209,7110.1074};
-										angles[]={0,3.1598651,0};
+										position[]={17134.916,15.903,7110.1069};
+										angles[]={0,3.1598661,0};
 									};
 									side="Empty";
 									flags=1;
@@ -57592,7 +58334,7 @@ class Mission
 									};
 									id=22345;
 									type="vn_sign_town_d_14";
-									atlOffset=0.92320919;
+									atlOffset=0.92300034;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -129160,7 +129902,7 @@ class Mission
 						};
 					};
 					id=18832;
-					atlOffset=-76.533981;
+					atlOffset=-76.764351;
 				};
 				class Item2
 				{
@@ -131472,8 +132214,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={17117.574,16.723186,7105.0054};
-				angles[]={0,1.5946953,0};
+				position[]={17117.574,16.723186,7105.0049};
+				angles[]={0,1.59469,0};
 			};
 			side="Empty";
 			flags=5;
@@ -131604,199 +132346,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={17097.266,15.707865,7232.2598};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=25404;
-			type="Land_Noticeboard_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ObjectTextureCustom0";
-					expression="_this setObjectTextureGlobal [0,_value]";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="training\billboards\column.paa";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item370
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17127.627,15.771425,7232.2344};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=25405;
-			type="Land_Noticeboard_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ObjectTextureCustom0";
-					expression="_this setObjectTextureGlobal [0,_value]";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="training\billboards\staggeredcolumn.paa";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item371
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17160.104,15.771425,7232.2271};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=25406;
-			type="Land_Noticeboard_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ObjectTextureCustom0";
-					expression="_this setObjectTextureGlobal [0,_value]";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="training\billboards\echelon.paa";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item372
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17190.197,15.753473,7232.2417};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=25407;
-			type="Land_Noticeboard_F";
-			atlOffset=0.031368256;
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ObjectTextureCustom0";
-					expression="_this setObjectTextureGlobal [0,_value]";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="training\billboards\line.paa";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item373
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17228.988,15.771425,7232.2949};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=25408;
-			type="Land_Noticeboard_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ObjectTextureCustom0";
-					expression="_this setObjectTextureGlobal [0,_value]";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="training\billboards\wedge.paa";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item374
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={17262.693,15.771425,7232.3525};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=25409;
-			type="Land_Noticeboard_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="ObjectTextureCustom0";
-					expression="_this setObjectTextureGlobal [0,_value]";
-					class Value
-					{
-						class data
-						{
-							singleType="STRING";
-							value="training\billboards\diamond.paa";
-						};
-					};
-				};
-				nAttributes=1;
-			};
-		};
-		class Item375
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={17050.4,16.723186,7068.8408};
 				angles[]={0,4.7308717,0};
 			};
@@ -131839,7 +132388,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item376
+		class Item370
 		{
 			dataType="Layer";
 			name="Fuel Depot lite V1.1";
@@ -131868,28 +132417,28 @@ class Mission
 			id=25438;
 			atlOffset=103.16;
 		};
-		class Item377
+		class Item371
 		{
 			dataType="Layer";
 			name="Fuel Depot lite V2.1";
 			id=25452;
 			atlOffset=103.16;
 		};
-		class Item378
+		class Item372
 		{
 			dataType="Layer";
 			name="Fuel Depot lite V3.1";
 			id=25467;
 			atlOffset=103.16;
 		};
-		class Item379
+		class Item373
 		{
 			dataType="Layer";
 			name="Fuel Depot lite V4.1";
 			id=25484;
 			atlOffset=103.16;
 		};
-		class Item380
+		class Item374
 		{
 			dataType="Layer";
 			name="Fuel Depot lite V1.1";
@@ -132098,7 +132647,7 @@ class Mission
 			id=25498;
 			atlOffset=0.10795593;
 		};
-		class Item381
+		class Item375
 		{
 			dataType="Layer";
 			name="BN_Depotv1";
@@ -133625,7 +134174,7 @@ class Mission
 			id=25606;
 			atlOffset=-0.0010070801;
 		};
-		class Item382
+		class Item376
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -133669,7 +134218,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item383
+		class Item377
 		{
 			dataType="Layer";
 			name="BN_HQv1";
@@ -134933,7 +135482,7 @@ class Mission
 			id=25688;
 			atlOffset=-0.038269043;
 		};
-		class Item384
+		class Item378
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -134975,7 +135524,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item385
+		class Item379
 		{
 			dataType="Layer";
 			name="Phantom tweaked";
@@ -135264,7 +135813,7 @@ class Mission
 			id=25700;
 			atlOffset=0.13990784;
 		};
-		class Item386
+		class Item380
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135281,7 +135830,7 @@ class Mission
 			type="Land_vn_b_prop_body_01";
 			atlOffset=-0.00030517578;
 		};
-		class Item387
+		class Item381
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135298,7 +135847,7 @@ class Mission
 			type="Land_vn_b_prop_body_02_02";
 			atlOffset=-0.00032043457;
 		};
-		class Item388
+		class Item382
 		{
 			dataType="Layer";
 			name="SAM COMP";
@@ -135586,7 +136135,7 @@ class Mission
 			id=25724;
 			atlOffset=-0.051864624;
 		};
-		class Item389
+		class Item383
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135602,7 +136151,7 @@ class Mission
 			id=25729;
 			type="Land_vn_o_platform_04";
 		};
-		class Item390
+		class Item384
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135618,7 +136167,7 @@ class Mission
 			id=25730;
 			type="Land_vn_o_trapdoor_01";
 		};
-		class Item391
+		class Item385
 		{
 			dataType="Marker";
 			position[]={17750.934,19.131983,5258.834};
@@ -135631,7 +136180,7 @@ class Mission
 			id=25830;
 			atlOffset=1.7618332;
 		};
-		class Item392
+		class Item386
 		{
 			dataType="Marker";
 			position[]={17662.387,26.737497,5555.1094};
@@ -135644,7 +136193,7 @@ class Mission
 			angle=359.42313;
 			id=25831;
 		};
-		class Item393
+		class Item387
 		{
 			dataType="Marker";
 			position[]={17977.822,17.583185,4505.6235};
@@ -135657,7 +136206,7 @@ class Mission
 			id=25832;
 			atlOffset=1.7618361;
 		};
-		class Item394
+		class Item388
 		{
 			dataType="Marker";
 			position[]={18066.174,16.17,4208.7842};
@@ -135670,7 +136219,7 @@ class Mission
 			angle=359.42313;
 			id=25833;
 		};
-		class Item395
+		class Item389
 		{
 			dataType="Marker";
 			position[]={16126.146,5.8629999,2334.064};
@@ -135680,7 +136229,7 @@ class Mission
 			id=3392;
 			atlOffset=5.3288274;
 		};
-		class Item396
+		class Item390
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135715,7 +136264,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item397
+		class Item391
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135750,7 +136299,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item398
+		class Item392
 		{
 			dataType="Object";
 			class PositionInfo
@@ -135786,7 +136335,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item399
+		class Item393
 		{
 			dataType="Layer";
 			name="modules";
@@ -136344,7 +136893,7 @@ class Mission
 			id=26088;
 			atlOffset=1456465.5;
 		};
-		class Item400
+		class Item394
 		{
 			dataType="Marker";
 			position[]={12991.278,1.372,13387.953};
@@ -136359,7 +136908,7 @@ class Mission
 			id=26089;
 			atlOffset=0.00018846989;
 		};
-		class Item401
+		class Item395
 		{
 			dataType="Marker";
 			position[]={16967.891,34.515999,8051.627};
@@ -136373,7 +136922,7 @@ class Mission
 			id=26090;
 			atlOffset=18.108313;
 		};
-		class Item402
+		class Item396
 		{
 			dataType="Marker";
 			position[]={17603.305,15.017578,7298.9717};
@@ -136387,7 +136936,7 @@ class Mission
 			id=26091;
 			atlOffset=4.8635988;
 		};
-		class Item403
+		class Item397
 		{
 			dataType="Marker";
 			position[]={16991.463,14.97998,7137.2256};
@@ -136401,7 +136950,7 @@ class Mission
 			id=26092;
 			atlOffset=-1.9073486e-05;
 		};
-		class Item404
+		class Item398
 		{
 			dataType="Marker";
 			position[]={16758.016,14.774414,7368.8496};
@@ -136415,7 +136964,7 @@ class Mission
 			id=26093;
 			atlOffset=-5.2499676;
 		};
-		class Item405
+		class Item399
 		{
 			dataType="Marker";
 			position[]={17242.645,14.98,7066.8652};
@@ -136425,7 +136974,7 @@ class Mission
 			colorName="ColorEAST";
 			id=26095;
 		};
-		class Item406
+		class Item400
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136460,7 +137009,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item407
+		class Item401
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136495,7 +137044,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item408
+		class Item402
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136530,7 +137079,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item409
+		class Item403
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136565,7 +137114,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item410
+		class Item404
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136600,7 +137149,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item411
+		class Item405
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136635,7 +137184,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item412
+		class Item406
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136670,7 +137219,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item413
+		class Item407
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136705,7 +137254,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item414
+		class Item408
 		{
 			dataType="Object";
 			class PositionInfo
@@ -136740,7 +137289,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item415
+		class Item409
 		{
 			dataType="Layer";
 			name="training tunnel";
@@ -137118,7 +137667,7 @@ class Mission
 			id=26109;
 			atlOffset=14.160156;
 		};
-		class Item416
+		class Item410
 		{
 			dataType="Marker";
 			position[]={15998.395,0,8121.4688};
@@ -137128,7 +137677,7 @@ class Mission
 			id=26123;
 			atlOffset=6.1072426;
 		};
-		class Item417
+		class Item411
 		{
 			dataType="Marker";
 			position[]={15592.756,0,8270.7988};
@@ -137138,7 +137687,7 @@ class Mission
 			id=26126;
 			atlOffset=7.9012403;
 		};
-		class Item418
+		class Item412
 		{
 			dataType="Marker";
 			position[]={15395.268,0,8184.8789};
@@ -137148,7 +137697,7 @@ class Mission
 			id=26127;
 			atlOffset=7.1410694;
 		};
-		class Item419
+		class Item413
 		{
 			dataType="Marker";
 			position[]={15323.796,0,8004.5977};
@@ -137158,7 +137707,7 @@ class Mission
 			id=26128;
 			atlOffset=6.1500001;
 		};
-		class Item420
+		class Item414
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137194,7 +137743,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item421
+		class Item415
 		{
 			dataType="Marker";
 			position[]={15378.895,0,8503.2695};
@@ -137204,7 +137753,7 @@ class Mission
 			id=26130;
 			atlOffset=6.3423142;
 		};
-		class Item422
+		class Item416
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137240,7 +137789,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item423
+		class Item417
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137276,7 +137825,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item424
+		class Item418
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137312,7 +137861,7 @@ class Mission
 				nAttributes=1;
 			};
 		};
-		class Item425
+		class Item419
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137359,7 +137908,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item426
+		class Item420
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137406,7 +137955,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item427
+		class Item421
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137453,7 +138002,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item428
+		class Item422
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137469,7 +138018,7 @@ class Mission
 			id=26155;
 			type="Land_vn_usaf_revetment_3";
 		};
-		class Item429
+		class Item423
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137485,7 +138034,7 @@ class Mission
 			id=26156;
 			type="Land_vn_usaf_revetment_3";
 		};
-		class Item430
+		class Item424
 		{
 			dataType="Marker";
 			position[]={17090.016,154.68201,7523.04};
@@ -137498,11 +138047,11 @@ class Mission
 			fillName="Grid";
 			a=4447.6851;
 			b=3780.3083;
-			angle=35.295986;
+			angle=35.295982;
 			id=26159;
 			atlOffset=139.02872;
 		};
-		class Item431
+		class Item425
 		{
 			dataType="Layer";
 			name="tunnels_1";
@@ -137540,7 +138089,7 @@ class Mission
 			id=26177;
 			atlOffset=0.084922791;
 		};
-		class Item432
+		class Item426
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137557,7 +138106,7 @@ class Mission
 			type="vn_c_bicycle_01";
 			atlOffset=-7.6293945e-06;
 		};
-		class Item433
+		class Item427
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137574,7 +138123,7 @@ class Mission
 			type="vn_c_bicycle_01";
 			atlOffset=7.6293945e-06;
 		};
-		class Item434
+		class Item428
 		{
 			dataType="Object";
 			class PositionInfo
@@ -137591,7 +138140,7 @@ class Mission
 			type="vn_c_bicycle_01";
 			atlOffset=7.6293945e-06;
 		};
-		class Item435
+		class Item429
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -137735,7 +138284,7 @@ class Mission
 				nAttributes=10;
 			};
 		};
-		class Item436
+		class Item430
 		{
 			dataType="Layer";
 			name="tunnels";
@@ -143731,6 +144280,200 @@ class Mission
 			};
 			id=26184;
 			atlOffset=1.9144745;
+		};
+		class Item431
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17144.344,16.723186,7118.8154};
+				angles[]={0,3.1415925,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init=" this execVM ""training\scripts\formations_range\setup_training_formation_sign_console.sqf""; " \n "";
+			};
+			id=26311;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="a3\structures_f\civ\infoboards\data\billboard_metal_co.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item432
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17126.783,16.723186,7118.0571};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=26327;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="training\billboards\minests1.jpg";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item433
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17134.131,16.723186,7117.9541};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=26328;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="training\billboards\minests2.jpg";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item434
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17237.381,16.723186,7116.7202};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=26329;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="training\billboards\camp.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item435
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17243.477,16.723186,7116.7241};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=26330;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="training\billboards\filecab.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item436
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17250.131,16.723186,7116.6641};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=26331;
+			type="Land_Billboard_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="training\billboards\mapsleve.paa";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 	class Connections
