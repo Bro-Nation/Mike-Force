@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=34659;
+		nextID=35127;
 	};
 	class Camera
 	{
-		pos[]={17243.484,19.723562,7103.5581};
-		dir[]={0.043944694,-0.24416567,0.96873736};
-		up[]={0.011064674,0.96973348,0.24391483};
-		aside[]={0.99897271,0,-0.045316257};
+		pos[]={17133.9,37.514851,7150.5869};
+		dir[]={0.16715935,-0.65247226,-0.73920137};
+		up[]={0.14392148,0.75778019,-0.6364398};
+		aside[]={-0.9754138,-1.4771649e-07,-0.22057685};
 	};
 };
 binarizationWanted=0;
@@ -645,8 +645,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -696,8 +696,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -40600,7 +40600,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39841;
+							angle=227.39833;
 							id=26168;
 							atlOffset=6.1035156e-05;
 						};
@@ -47933,7 +47933,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17140.385,15.94356,7143.4263};
+										position[]={17139.807,15.879999,7139.2515};
 										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
@@ -47945,7 +47945,6 @@ class Mission
 									};
 									id=18980;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -47970,7 +47969,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48019,7 +48018,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48068,7 +48067,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48117,7 +48116,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48166,7 +48165,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48178,7 +48177,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17140.377,15.94356,7130.6646};
+										position[]={17139.799,15.879999,7126.4897};
 										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
@@ -48190,7 +48189,6 @@ class Mission
 									};
 									id=18985;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48215,7 +48213,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48227,7 +48225,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17150.092,15.94356,7136.397};
+										position[]={17149.514,15.879999,7132.2222};
 										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
@@ -48239,7 +48237,6 @@ class Mission
 									};
 									id=18986;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48264,7 +48261,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48276,7 +48273,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17150.898,15.94356,7151.6323};
+										position[]={17150.32,15.879999,7147.4575};
 										angles[]={0,3.0271513,0};
 									};
 									side="Empty";
@@ -48288,7 +48285,6 @@ class Mission
 									};
 									id=18987;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48313,7 +48309,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48325,7 +48321,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17145.74,15.94356,7127.8042};
+										position[]={17136.605,15.879999,7126.5767};
 										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
@@ -48337,7 +48333,6 @@ class Mission
 									};
 									id=18988;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48362,7 +48357,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48374,7 +48369,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17151.74,15.94356,7133.9893};
+										position[]={17142.605,15.879999,7132.7617};
 										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
@@ -48386,7 +48381,6 @@ class Mission
 									};
 									id=18989;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48411,7 +48405,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48423,7 +48417,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17157.531,15.94356,7140.1504};
+										position[]={17148.396,15.879999,7138.9229};
 										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
@@ -48435,7 +48429,6 @@ class Mission
 									};
 									id=18990;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48460,7 +48453,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48472,7 +48465,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17163.197,15.94356,7146.4702};
+										position[]={17154.063,15.879999,7145.2427};
 										angles[]={0,2.9594152,0};
 									};
 									side="Empty";
@@ -48484,7 +48477,6 @@ class Mission
 									};
 									id=18991;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48509,7 +48501,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48558,7 +48550,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48570,7 +48562,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17140.496,15.94356,7128.5522};
+										position[]={17140.496,15.943999,7128.5518};
 										angles[]={0,1.5873595,0};
 									};
 									side="Empty";
@@ -48582,7 +48574,7 @@ class Mission
 									};
 									id=18993;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
+									atlOffset=0.06400013;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48607,7 +48599,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48656,7 +48648,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48705,7 +48697,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48717,7 +48709,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17146.07,15.94356,7131.5283};
+										position[]={17144.396,15.879999,7130.9272};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -48729,7 +48721,6 @@ class Mission
 									};
 									id=19000;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48754,7 +48745,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48766,7 +48757,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17154.041,15.94356,7136.3223};
+										position[]={17152.367,15.879999,7135.7212};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -48778,7 +48769,6 @@ class Mission
 									};
 									id=19001;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48803,7 +48793,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48815,7 +48805,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17138.625,15.94356,7136.4971};
+										position[]={17136.951,15.879999,7135.896};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -48827,7 +48817,6 @@ class Mission
 									};
 									id=19002;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48852,7 +48841,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48864,7 +48853,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17162.033,15.94356,7141.46};
+										position[]={17160.359,15.879999,7140.8589};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -48876,7 +48865,6 @@ class Mission
 									};
 									id=19003;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -48901,7 +48889,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -48980,7 +48968,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17145.115,15.94356,7126.5103};
+										position[]={17144.146,15.879999,7126.3384};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -48992,7 +48980,6 @@ class Mission
 									};
 									id=25342;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -49017,7 +49004,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -49029,7 +49016,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17153.074,15.94356,7132.2983};
+										position[]={17152.105,15.879999,7132.1265};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -49041,7 +49028,6 @@ class Mission
 									};
 									id=25343;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -49066,7 +49052,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -49078,7 +49064,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17137.658,15.94356,7132.4741};
+										position[]={17136.689,15.879999,7132.3022};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -49090,7 +49076,6 @@ class Mission
 									};
 									id=25344;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -49115,7 +49100,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -49127,7 +49112,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={17145.246,15.94356,7138.0493};
+										position[]={17144.277,15.879999,7137.8774};
 										angles[]={0,3.2323847,0};
 									};
 									side="Empty";
@@ -49139,7 +49124,6 @@ class Mission
 									};
 									id=25345;
 									type="Land_SurveyMarker_01_post_F";
-									atlOffset=0.063560486;
 									class CustomAttributes
 									{
 										class Attribute0
@@ -49164,7 +49148,7 @@ class Mission
 												class data
 												{
 													singleType="BOOL";
-													value=1;
+													value=0;
 												};
 											};
 										};
@@ -49173,7 +49157,7 @@ class Mission
 								};
 							};
 							id=18966;
-							atlOffset=0.060274124;
+							atlOffset=-0.000248909;
 						};
 						class Item3
 						{
@@ -129902,7 +129886,7 @@ class Mission
 						};
 					};
 					id=18832;
-					atlOffset=-76.764351;
+					atlOffset=-76.765991;
 				};
 				class Item2
 				{

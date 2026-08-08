@@ -49,15 +49,24 @@ private _jipId = format ["vn_formationSignActions_%1", netId _sign];
 missionNamespace setVariable ["vn_formationSignActions_jip", _jipId, true];
 
 // Hide all poles at mission start.
-{
-    _x params ["", "_poles"];
-    { if (!isNull _x) then { _x hideObjectGlobal true }; } forEach _poles;
-} forEach _formationSets;
+[[_formationSets], {
+    params ["_formationSets"];
+    {
+        _x params ["", "_poles"];
+        { if (!isNull _x) then { _x hideObjectGlobal true }; } forEach _poles;
+    } forEach _formationSets;
+}] remoteExecCall ["BIS_fnc_call", 2];
 
 [[_sign, _formationSets], {
     params ["_sign", "_formationSets"];
     if (!hasInterface || { isNull _sign }) exitWith {};
     _sign setVariable ["vn_formationSets", _formationSets, true];
+
+    // Ensure everything stays hidden until a formation is chosen.
+    {
+        _x params ["", "_poles"];
+        { if (!isNull _x) then { _x hideObjectGlobal true }; } forEach _poles;
+    } forEach _formationSets;
 
     {
         private _name = _x select 0;
@@ -68,14 +77,18 @@ missionNamespace setVariable ["vn_formationSignActions_jip", _jipId, true];
             {
                 params ["_target", "_caller", "_actionId", "_args"];
                 _args params ["_selectedPoles", "_texture"];
-                {
-                    _x params ["", "_poleSet"];
-                    { if (!isNull _x) then { _x hideObjectGlobal true }; } forEach _poleSet;
-                } forEach (_target getVariable ["vn_formationSets", []]);
-                { if (!isNull _x) then { _x hideObjectGlobal false }; } forEach _selectedPoles;
-                if (!isNull _target) then {
-                    _target setObjectTextureGlobal [0, _texture];
-                };
+                private _formationSets = _target getVariable ["vn_formationSets", []];
+                [[_target, _formationSets, _selectedPoles, _texture], {
+                    params ["_target", "_formationSets", "_selectedPoles", "_texture"];
+                    {
+                        _x params ["", "_poleSet"];
+                        { if (!isNull _x) then { _x hideObjectGlobal true }; } forEach _poleSet;
+                    } forEach _formationSets;
+                    { if (!isNull _x) then { _x hideObjectGlobal false }; } forEach _selectedPoles;
+                    if (!isNull _target) then {
+                        _target setObjectTextureGlobal [0, _texture];
+                    };
+                }] remoteExecCall ["BIS_fnc_call", 2];
             },
             [_poles, _texture],
             1.5, true, true, "", "true"
