@@ -1572,6 +1572,9 @@
       <Key ID="STR_vn_mf_vic_static">
         <Original>Statics</Original>
       </Key>
+			<Key ID="STR_vn_mf_vic_transport">
+        <Original>Transport</Original>
+      </Key>
 			<Key ID="STR_vn_mf_vic_supply">
         <Original>Supplies</Original>
       </Key>

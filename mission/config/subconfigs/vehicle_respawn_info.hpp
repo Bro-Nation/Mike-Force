@@ -1055,8 +1055,6 @@ class spawn_point_types {
 					"vn_b_wheeled_m151_mg_02_mp",
 					"vn_b_wheeled_m151_mg_03_mp",
 					"vn_b_wheeled_m151_mg_04_mp",
-					"vn_b_wheeled_lr2a_02_nz_army",
-					"vn_b_wheeled_lr2a_02_aus_army",
 				};
 			};
 			class transport {
@@ -1606,6 +1604,13 @@ class spawn_point_types {
 					"vn_o_wheeled_z157_ammo",
 					"vn_o_wheeled_z157_fuel",
 					"vn_o_wheeled_z157_repair",
+				};
+			};
+			class car_armed {
+				name = "Cars (Armed)";
+				icon = VEHICLE_ICON_CAR;
+				vehicles[] = {
+					"vn_o_car_04_mg_01_kr",
 				};
 			};
 		};
