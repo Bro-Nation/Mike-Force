@@ -108,7 +108,7 @@ class wheel_menu_actions
 
 	class captive_in : base_action
 	{
-		visible = "ALWAYS";
+		visible = "NO_TARGET";
 		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {!captive player}";
 		text = "Set Captive";
 		icon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa";
@@ -120,7 +120,7 @@ class wheel_menu_actions
 
 	class captive_out : base_action
 	{
-		visible = "ALWAYS";
+		visible = "NO_TARGET";
 		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {captive player}";
 		text = "Unset Captive";
 		icon = "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\attack_ca.paa";
@@ -132,7 +132,7 @@ class wheel_menu_actions
 
 	class dac_create_edit_intel : base_action
 	{
-		visible = "ALWAYS";
+		visible = "NO_TARGET";
 		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team)";
 		text = "Create/Edit Intel";
 		icon = "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\map_ca.paa";
