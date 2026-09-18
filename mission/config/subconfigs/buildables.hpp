@@ -4,7 +4,7 @@
 #define CONDITION_NOT_IN_RESTRICTED_ZONE { $STR_vn_mf_buildingMenu_condition_inRestrictedZone, "vn_mf_markers_blocked_areas findIf {_pos inArea _x} isEqualTo -1"}
 #define CONDITION_IS_ACAV { $STR_vn_mf_buildingMenu_condition_inACav, "!(player getVariable ['vn_mf_db_player_group', 'MikeForce'] in ['MikeForce', 'GreenHornets', 'SpikeTeam'])"}
 #define CONDITION_IS_DAC_CONG { $STR_vn_mf_buildingMenu_condition_inDacCong, "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'DacCong'"}
-#define CONDITION_IN_ACTIVE_AO { $STR_vn_mf_buildingMenu_condition_inActiveAO, "_pos inArea 'activeZoneCircle'"}
+#define CONDITION_IN_ACTIVE_AO { $STR_vn_mf_buildingMenu_condition_inActiveAO, "private _activeZones = missionNamespace getVariable ['mf_g_dir_activeZoneNames', []]; private _aoMarker = _activeZones param [0, '']; (_aoMarker in allMapMarkers) && {_pos distance2D markerPos _aoMarker <= (getNumber (missionConfigFile >> 'map_config' >> 'bn_zone_radius') + 100)}"}
 #define CONDITION_NO_EXISTING_COMS_TOWER_IN_AO { $STR_vn_mf_buildingMenu_condition_noComsTowerInAO, "!((missionNamespace getVariable ['vn_mf_coms_tower_built_in_ao', false]) && !(missionNamespace getVariable ['vn_mf_coms_tower_destroyed_in_ao', false]))"}
 #define CONDITION_COMS_TOWER_NOT_DESTROYED_IN_AO { $STR_vn_mf_buildingMenu_condition_comsTowerNotDestroyedInAO, "!(missionNamespace getVariable ['vn_mf_coms_tower_destroyed_in_ao', false])"}
 #define CONDITION_IS_MILITARY_POLICE { "Military Police", "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'MilitaryPolice'"}
@@ -4469,7 +4469,7 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_TANK;
 						//side = "WEST";
 					};
 
@@ -4477,7 +4477,7 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_TANK;
 						//side = "WEST";
 					};
 
@@ -4485,7 +4485,7 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_TANK;
 						//side = "WEST";
 					};
 
@@ -4493,7 +4493,7 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_TANK;
 						//side = "WEST";
 					};
 
@@ -4501,7 +4501,7 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_ARMOUR;
 						//side = "WEST";
 					};
 
@@ -4509,7 +4509,7 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_CAR;
 						//side = "WEST";
 					};
 
@@ -4517,20 +4517,81 @@ class vn_sign_town_d_11_01
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_TRUCK;
+						//side = "WEST";
+					};
+
+					class vn_o_car_04_mg_01_kr
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_CAR;
+						//side = "WEST";
+					};
+
+					class vn_o_wheeled_z157_mg_01
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_TRUCK;
 						//side = "WEST";
 					};
 				};
 				class transport
 				{
-					icon = VEHICLE_ICON_ARMOUR;
+					icon = VEHICLE_ICON_TRUCK;
 					name = "STR_vn_mf_vic_transport";
 
 					class vn_o_bicycle_01_vcmf
 					{
 						cost[] = {{"BuildingSupplies", 10}};
 						cooldown = 5;
-						icon = VEHICLE_ICON_STATIC;
+						icon = VEHICLE_ICON_CAR;
+						//side = "WEST";
+					};
+
+					class vn_o_wheeled_btr40_01
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_CAR;
+						//side = "WEST";
+					};
+
+					class vn_o_wheeled_z157_01
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_TRUCK;
+						//side = "WEST";
+					};
+
+					class vn_o_wheeled_z157_02
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_TRUCK;
+						//side = "WEST";
+					};
+				};
+				class supplies
+				{
+					icon = VEHICLE_ICON_SUPPLY;
+					name = "STR_vn_mf_vic_supply";
+
+					class vn_o_wheeled_z157_ammo
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_TRUCK;
+						//side = "WEST";
+					};
+
+					class vn_o_wheeled_z157_fuel
+					{
+						cost[] = {{"BuildingSupplies", 10}};
+						cooldown = 5;
+						icon = VEHICLE_ICON_TRUCK;
 						//side = "WEST";
 					};
 				};

@@ -49,12 +49,14 @@ if (missionNamespace getVariable ["vn_mf_coms_tower_destroyed_in_ao", false]) ex
     ["Coms tower destroyed in this AO. Static crews are locked until next AO.", _owner] call _notifyFail;
 };
 
-if !(["activeZoneCircle"] call BIS_fnc_markerExists) exitWith {
+private _activeZones = missionNamespace getVariable ["mf_g_dir_activeZoneNames", []];
+private _aoMarker = _activeZones param [0, ""];
+if !(_aoMarker in allMapMarkers) exitWith {
     ["No active AO marker found.", _owner] call _notifyFail;
 };
 
-private _aoCenter = markerPos "activeZoneCircle";
-private _aoRadius = selectMax ((getMarkerSize "activeZoneCircle") apply {abs _x});
+private _aoCenter = markerPos _aoMarker;
+private _aoRadius = getNumber (missionConfigFile >> "map_config" >> "bn_zone_radius") + 100;
 private _functionalTowers = (nearestObjects [_aoCenter, ["Land_vn_ttowersmall_2_f"], _aoRadius, true]) select {
     private _building = _x getVariable ["para_g_building", objNull];
     alive _x && {!isNull _building} && {_building getVariable ["para_g_building_constructed", false]}
