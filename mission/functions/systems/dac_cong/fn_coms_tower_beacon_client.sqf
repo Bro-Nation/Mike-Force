@@ -96,9 +96,11 @@ missionNamespace setVariable ["vn_mf_coms_tower_beacon_loop", true];
                 _nextScanAt = time + _scanInterval;
 
                 private _candidateTowers = [];
-                if ("activeZoneCircle" in allMapMarkers) then {
-                    private _aoCenter = markerPos "activeZoneCircle";
-                    private _aoRadius = selectMax ((getMarkerSize "activeZoneCircle") apply {abs _x});
+                private _activeZones = missionNamespace getVariable ["mf_g_dir_activeZoneNames", []];
+                private _aoMarker = _activeZones param [0, ""];
+                if (_aoMarker in allMapMarkers) then {
+                    private _aoCenter = markerPos _aoMarker;
+                    private _aoRadius = getNumber (missionConfigFile >> "map_config" >> "bn_zone_radius") + 100;
                     _candidateTowers = nearestObjects [_aoCenter, ["Land_vn_ttowersmall_2_f"], _aoRadius, true];
                 };
                 private _builtTowers = _candidateTowers select {

@@ -40,11 +40,15 @@ _taskDataStore setVariable ["wait_for_tower", {
 	if (missionNamespace getVariable ["vn_mf_coms_tower_built_in_ao", false]) exitWith {
 		["SUCCEEDED", [["create_units"]]] call _fnc_finishSubtask;
 	};
+	private _activeZones = missionNamespace getVariable ["mf_g_dir_activeZoneNames", []];
+	private _aoMarker = _activeZones param [0, ""];
+	if !(_aoMarker in allMapMarkers) exitWith {};
+	private _aoRadius = getNumber (missionConfigFile >> "map_config" >> "bn_zone_radius") + 100;
 
 	private _towersInAO = nearestObjects [
-		getMarkerPos "activeZoneCircle",
+		getMarkerPos _aoMarker,
 		["Land_vn_ttowersmall_2_f"],
-		500
+		_aoRadius
 	];
 
 	private _builtTowerIdx = _towersInAO findIf {!isNull (_x getVariable ["para_g_building", objNull]) && (_x getVariable ["para_g_building", objNull] getVariable ["para_g_building_constructed", false])};
@@ -69,7 +73,15 @@ _taskDataStore setVariable ["create_units", {
 	};
 
 	// Get tower position
-	private _towersInAO = entities "Land_vn_ttowersmall_2_f" inArea "activeZoneCircle";
+	private _activeZones = missionNamespace getVariable ["mf_g_dir_activeZoneNames", []];
+	private _aoMarker = _activeZones param [0, ""];
+	if !(_aoMarker in allMapMarkers) exitWith {
+		["FAILED"] call _fnc_finishSubtask;
+		["FAILED"] call _fnc_finishTask;
+	};
+	private _aoCenter = markerPos _aoMarker;
+	private _aoRadius = getNumber (missionConfigFile >> "map_config" >> "bn_zone_radius") + 100;
+	private _towersInAO = nearestObjects [_aoCenter, ["Land_vn_ttowersmall_2_f"], _aoRadius];
 	if (count _towersInAO == 0) exitWith {
 		["FAILED"] call _fnc_finishSubtask;
 		["FAILED"] call _fnc_finishTask;

@@ -148,12 +148,22 @@ private _conditionToShowString = str {
 } trim ["{}", 0];
 
 private _conditionToProgressString = _conditionToShowString;
-private _codeOnStart = {};
-private _codeOnProgressTick = {};
-private _codeOnCompletion =	{
-	[cursorObject, player] remoteExec ["vn_mf_fnc_sites_remoteactions_destroy_task", 2];
+private _codeOnStart = {
+	params ["_target", "_caller", "_actionId", "_arguments"];
+	_caller setVariable ["vn_mf_destroy_task_target", cursorObject, false];
 };
-private _codeOnInterrupted = {};
+private _codeOnProgressTick = {};
+private _codeOnCompletion = {
+	params ["_target", "_caller", "_actionId", "_arguments"];
+	private _destroyTarget = _caller getVariable ["vn_mf_destroy_task_target", objNull];
+	if (isNull _destroyTarget) exitWith {};
+	[_destroyTarget, _caller] remoteExec ["vn_mf_fnc_sites_remoteactions_destroy_task", 2];
+	_caller setVariable ["vn_mf_destroy_task_target", objNull, false];
+};
+private _codeOnInterrupted = {
+	params ["_target", "_caller", "_actionId", "_arguments"];
+	_caller setVariable ["vn_mf_destroy_task_target", objNull, false];
+};
 private _args = [];
 private _duration = 5;
 private _priority = 100;
