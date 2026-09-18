@@ -20,6 +20,8 @@ if (isNil "vn_mf_actions_player") then
 	vn_mf_actions_player = player;
 };
 
+if (!hasInterface) exitWith {}; // only run on clients fix for dup actions maybe
+
 if (isNil "vn_mf_actions_initialized" || vn_mf_actions_player != player) then //arma's  variable system is asinine
 {
 	vn_mf_actions_player = player;
