@@ -466,7 +466,8 @@ restarts.
 */
 
 diag_log "VN MikeForce: Starting building state tracker";
-["building_state_tracker", {call para_s_fnc_building_state_tracker}, [], 60] call para_g_fnc_scheduler_add_job;
+// Check decay deadlines frequently enough that a building expires near-immediately when it hits zero.
+["building_state_tracker", {call para_s_fnc_building_state_tracker}, [], 10] call para_g_fnc_scheduler_add_job;
 
 /*
 =========================================================================================
