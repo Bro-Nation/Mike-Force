@@ -15,7 +15,7 @@
 
 params ["_unit"];
 
-_gas = (63 allObjects 3) select {_unit distance _x <= 10}; 
+_gas = (63 allObjects 3) select {_unit distance _x <= 10 && (getModelInfo _x # 0) isEqualTo "vn_cs_gas_yellow.p3d"}; 
  
 if (count _gas > 0) then 
 { 

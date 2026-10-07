@@ -14,66 +14,66 @@
 */
 params ["_unit"];
 
-blurred = ppEffectCreate ["DynamicBlur", 500];
-publicVariable "blurred";
+private _blurred = ppEffectCreate ["DynamicBlur", 500];
 
 
-_unit setSkill ["aimingAccuracy", 0];
-_unit setSkill ["aimingSpeed", 0];
-_unit setSkill ["spotDistance",0];
-_unit setSkill ["aimingShake",0];
-_unit setSkill ["spotTime",0];
+if (isPlayer _unit && _unit == player) then
+{
+    // Apply effects to given unit ONLY
+    if (ppEffectEnabled _blurred == false) then {
+        
+        _blurred ppeffectadjust [5];
+        _blurred ppEffectEnable true;
+        _blurred ppeffectcommit 15;
 
+        
 
-// Apply effects to given unit ONLY
-[blurred, [5]] remoteExec ["ppeffectadjust", _unit];
-[blurred, true] remoteExec ["ppeffectenable", _unit];
-[blurred, 15] remoteExec ["ppeffectcommit", _unit];
+        [_unit] spawn {
 
-[_unit] spawn {
+            _sound = (_this # 0) say3D "cough";
 
-    _sound = (_this # 0) say3D "cough";
+            sleep 6.135;
 
-	sleep 6.135;
+            deleteVehicle _sound;
+        };
 
-	deleteVehicle _sound;
+    };
+} else {
+    [_unit] spawn {
+
+        _sound = (_this # 0) say3D "cough";
+
+        sleep 6.135;
+
+        deleteVehicle _sound;
+    };
 };
 
 
 // Force AI to disperse (fleeing)
 if (!isPlayer _unit) then
 {
-    
-    if (isNull _unit getVariable "FleeingCS") then
+    // Force AI to get off static weapons
+    if ((vehicle _unit) isKindOf "StaticWeapon") then
     {
-        _unit setVariable ["FleeingCS",true];
-        [_unit] joinSilent grpNull;
-        _unit addWaypoint [position _unit, 50, 1];
-        _unit setCurrentWaypoint [group _unit, 1];
-        _unit setBehaviour "CARELESS";
+        [_unit] orderGetIn false;
     };
+    _unit setBehaviour "CARELESS";
+    _unit move (_unit getRelPos [75, random 360]);
+
 };
 
 // Effects wear off
-[_unit, blurred] spawn {
+[_unit, _blurred] spawn {
     _gasTimer = [15] call BIS_fnc_countdown;
 
     waitUntil {[0] call BIS_fnc_countdown < 1};
 
     // Apply effects to given unit ONLY
-    [(_this # 1), [0]] remoteExec ["ppeffectadjust", (_this # 0)];
-    [(_this # 1), 15] remoteExec ["ppeffectcommit", (_this # 0)];
-    [(_this # 1), false] remoteExec ["ppEffectEnable", (_this # 0)];
+    (_this # 1) ppeffectadjust [0];
+    (_this # 1) ppEffectEnable false;
+    (_this # 1) ppeffectcommit 0;
 
-    (_this # 0) setSkill ["aimingAccuracy", 0.25];
-    (_this # 0) setSkill ["aimingSpeed", 0.35];
-    (_this # 0) setSkill ["spotDistance",0.85];
-    (_this # 0) setSkill ["aimingShake",0.15];
-    (_this # 0) setSkill ["spotTime",0.85];
 
-    // Reform a patch-work squad
-    [(_this # 0)] joinSilent (((_this # 0) nearEntities [["CAManBase"], 150] select {side (_this # 0) == east and !isPlayer (_this # 0)}) select 0);
-
-    (_this # 0) setVariable ["FleeingCS",nil];
     (_this # 0) setBehaviour "AWARE";
 };

@@ -19,9 +19,6 @@
 _target_scope = call para_g_fnc_custom_scope;
 _target_scope call vn_mf_fnc_init_mission_handlers;
 
-blurred = ppEffectCreate ["DynamicBlur", 500];
-publicVariable "blurred";
-
 [] spawn vn_mf_fnc_init_comms;
 
 [] call vn_mf_fnc_adv_revive_params;

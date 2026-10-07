@@ -29,6 +29,6 @@ class CfgSounds
 	class cough
 	{
 		sound[] = { "custom\sounds\Hacking_Cough.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
-		titles[] = { 0, "*Someone's hacking their lungs out*" };			// subtitles
+		titles[] = { 0, "" };			// subtitles
 	}
 };
