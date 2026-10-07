@@ -10,3 +10,4 @@ user_paths.py
 *.code-workspace
 *.pyc
 user_paths_example.py
+.vscode/

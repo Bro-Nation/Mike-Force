@@ -111,6 +111,31 @@ class CfgFunctions
 			class holster_weapon {};
 			class release_cargo {};
 		};
+		
+		class keybinds
+        {
+            file = "functions\systems\keybinds";
+
+            class add_custom_keybinds {};
+        };
+
+        class slingloading
+        {
+            file = "functions\systems\keybinds\slingloading";
+
+			class valid_state_for_asl {};
+            class deploy_helo_ropes {};
+            class extend_ropes {};
+            class shorten_ropes {};
+            class sling_summary {};
+            class release_cargo_via_shortcut {};
+            class retract_all_ropes {};
+        };
+
+		class utility {
+			file = "functions\systems\keybinds\utility";
+			class delete_dead_vehicle_occupants {};
+		};
 
 		class debug {
 			file = "functions\debug";
