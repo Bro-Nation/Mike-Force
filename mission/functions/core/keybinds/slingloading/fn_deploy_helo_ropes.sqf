@@ -1,7 +1,7 @@
 /*
     fn_deploy_helo_ropes.sqf
 
-    Author: Bro-Nation Dev Team
+    Author: TernaryOperator
 
     Deploys the requested TOTAL NUMBER OF rope sets.
     Informs the user if for logical reasons it can't match the request

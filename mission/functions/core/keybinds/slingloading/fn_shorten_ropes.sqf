@@ -1,14 +1,13 @@
 /*
     fn_shorten_ropes.sqf
 
-    Author: Bro-Nation Dev Team
+    Author: TernaryOperator
 
     Shortens ALL deployed rope sets by one step.
     Informs the user if for logical reasons it can't be done.
 
     Params:
-        _player          (OBJECT) - unit whose current vehicle should shorten its ropes
-                                   (any seat, not just the pilot)
+        None
 
     Returns:
         NUMBER - number of rope sets told to shorten
@@ -17,7 +16,11 @@
 
     Behaviour:
 
-        [player] -> shortens every deployed rope set by one step
+        Explicitly handles only applying rope interactions to currentPilot (not driver)
+        i.e cleanly handles pilot/co-pilot and `take control` interactions via
+        vn_mf_fnc_valid_state_for_asl
+
+        Shortens every deployed rope set by one step
 
         Works whether or not a rope set currently has cargo attached.
         Mirrors ASL's own "Shorten Cargo Ropes" -> "All Ropes" action.
@@ -49,30 +52,28 @@
         the owner's machine a moment after this returns.
 */
 
-params [
-    ["_player", objNull, [objNull]]
-];
+
 
 // Check we conform with expectations (ASL loaded, in a heli etc)
-if!([_player] call vn_mf_fnc_valid_state_for_asl) exitWith {
+if!([player] call vn_mf_fnc_valid_state_for_asl) exitWith {
     0
 };
 
 // Not in a vehicle -> nothing to do
-private _heli = vehicle _player;
+private _heli = vehicle player;
 
 // [[ropeIndex, label], ...] for every rope set that is currently deployed
 private _active = [_heli] call ASL_Get_Active_Ropes;
 
-[_player] call vn_mf_fnc_sling_summary;
+[player] call vn_mf_fnc_sling_summary;
 
 
 // Can exit if no ropes active
 if (_active isEqualTo []) exitWith { 0 };
 
 {
-    [_heli, _player, _x select 0] call ASL_Shorten_Ropes;
+    [_heli, player, _x select 0] call ASL_Shorten_Ropes;
 } forEach _active;
 
-[_player] remoteExec ["vn_mf_fnc_sling_summary", _player];
+[player] remoteExec ["vn_mf_fnc_sling_summary", player];
 count _active

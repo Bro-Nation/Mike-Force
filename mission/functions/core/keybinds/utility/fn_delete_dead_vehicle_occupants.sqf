@@ -1,14 +1,13 @@
 /*
     mf_vn_delete_dead_vehicle_occupants.sqf
 
-    Author: Bro-Nation Dev Team
+    Author: TernaryOperator
 
     Removes dead occupants from the vehicle currently occupied by
     the supplied player.
 
     Params:
-        _player          (OBJECT) - player whose current vehicle should
-                                   have its dead occupants removed
+        NONE
 
     Returns:
         NOTHING
@@ -65,23 +64,19 @@
         [player] call mf_vn_delete_dead_vehicle_occupants;
 */
 
-params [
-    ["_player", objNull, [objNull]]
-];
-
 // Validate the supplied object
-if (isNull _player) exitWith {};
-if (!isPlayer _player) exitWith {};
+if (isNull player) exitWith {};
+if (!isPlayer player) exitWith {};
 
 // Find the vehicle the player is currently occupying
-private _vehicle = objectParent _player;
+private _vehicle = objectParent player;
 
 if (isNull _vehicle) exitWith {};
 
 // If the vehicle is not local to this machine, execute the cleanup
 // where the vehicle is local.
 if (!local _vehicle) exitWith {
-    [_player] remoteExecCall ["mf_vn_delete_dead_vehicle_occupants", owner _vehicle];
+    [player] remoteExecCall ["mf_vn_delete_dead_vehicle_occupants", owner _vehicle];
 };
 
 private _deadCrew = crew _vehicle select {
@@ -98,3 +93,5 @@ private _deadCrew = crew _vehicle select {
         _vehicle deleteVehicleCrew _unit;
     };
 } forEach _deadCrew;
+
+systemChat "Dead bodies removed from vehicle";

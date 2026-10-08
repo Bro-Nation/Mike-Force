@@ -1,7 +1,7 @@
 /*
     fn_sling_summary.sqf
 
-    Author: Bro-Nation Dev Team
+    Author: TernaryOperator
 
     Prints a one-line summary of the Advanced Sling Loading (ASL) ropes and cargo
     on the vehicle the given player is in, using systemChat on that player's
@@ -85,13 +85,13 @@ private _parts = [];
 		private _length = round ((ropeLength (_ropes select 0)) * 10) / 10;
 
 		if (isNull _cargo) then {
-			_parts pushBack format ["Rope %1: Length %2m Cargo: None", _forEachIndex + 1, _length];
+			_parts pushBack format ["Rope %1: (%2m) None", _forEachIndex + 1, _length];
 		} else {
 			// Human readable cargo name from config, falling back to classname
 			private _cargoName = getText (configOf _cargo >> "displayName");
 			if (_cargoName isEqualTo "") then { _cargoName = typeOf _cargo; };
 
-			_parts pushBack format ["Attached %1: Length %2m Cargo: %3", _forEachIndex + 1, _length, _cargoName];
+			_parts pushBack format ["Rope %1: (%2m) - %3", _forEachIndex + 1, _length, _cargoName];
 		};
 	};
 } forEach _allRopes;

@@ -112,19 +112,18 @@ class CfgFunctions
 			class release_cargo {};
 		};
 		
-		class keybinds
-        {
-            file = "functions\systems\keybinds";
-
-            class add_custom_keybinds {};
-        };
-
         class slingloading
         {
-            file = "functions\systems\keybinds\slingloading";
+            file = "functions\core\keybinds\slingloading";
 
 			class valid_state_for_asl {};
             class deploy_helo_ropes {};
+			
+			// Utility functions since when called via keys.hpp which can't take a parameter to pass to `function`
+			class deploy_one_ropes {};
+			class deploy_two_ropes {};
+			class deploy_three_ropes {};
+
             class extend_ropes {};
             class shorten_ropes {};
             class sling_summary {};
@@ -133,7 +132,7 @@ class CfgFunctions
         };
 
 		class utility {
-			file = "functions\systems\keybinds\utility";
+			file = "functions\core\keybinds\utility";
 			class delete_dead_vehicle_occupants {};
 		};
 

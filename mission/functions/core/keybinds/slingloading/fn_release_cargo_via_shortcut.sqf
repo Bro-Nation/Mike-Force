@@ -3,7 +3,7 @@
 
     Named as it is to avoid conflict with the existing release_cargo override BN MF has.
 
-    Author: Bro-Nation Dev Team
+    Author: TernaryOperator
 
     Releases ALL Advanced Sling Loading (ASL) cargo from the unit's current helicopter,
     exactly like ASL's own "Release Cargo" action does. Every rope set that currently
@@ -11,15 +11,18 @@
     by itself.
 
     Params:
-        _player          (OBJECT) - unit whose current vehicle should release its cargo
-                                    (any seat, not just the pilot)
-
+        None
     Returns:
         NUMBER - number of cargo items released
                  0 if the unit is not in a supported helicopter, nothing is attached,
                  or ASL is not loaded
 
     Behaviour:
+
+        Explicitly handles only applying rope interactions to currentPilot (not driver)
+        i.e cleanly handles pilot/co-pilot and `take control` interactions via
+        vn_mf_fnc_valid_state_for_asl
+
 
         All rope sets with cargo attached are released in the same call. If the user
         wishes to release one specific load, that can be done via the scroll menu as

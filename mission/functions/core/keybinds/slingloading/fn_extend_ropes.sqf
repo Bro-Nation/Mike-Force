@@ -1,15 +1,14 @@
 /*
     fn_extend_ropes.sqf
 
-    Author: Bro-Nation Dev Team
+    Author: TernaryOperator
 
     Extends ALL deployed rope sets on the unit's current helicopter by one step,
     exactly like ASL's own "Extend Cargo Ropes" action does when you pick "All Ropes".
     Works whether or not a rope set currently has cargo attached.
 
     Params:
-        _player          (OBJECT) - unit whose current vehicle should extend its ropes
-                                    (any seat, not just the pilot)
+        None
 
     Returns:
         NUMBER - number of rope sets told to extend
@@ -17,6 +16,10 @@
                  deployed, or ASL is not loaded
 
     Behaviour:
+
+        Explicitly handles only applying rope interactions to currentPilot (not driver)
+        i.e cleanly handles pilot/co-pilot and `take control` interactions via
+        vn_mf_fnc_valid_state_for_asl
 
         If called repeatedly will extend per step (ASL unwinds 5 m per action).
         Call it repeatedly (e.g. from a keybind or a loop) to keep paying out rope.
@@ -44,25 +47,21 @@
         returns.
 */
 
-params [
-    ["_player", objNull, [objNull]]
-];
-
 // Check we conform with expectations (ASL loaded, in a heli etc)
-if!([_player] call vn_mf_fnc_valid_state_for_asl) exitWith {
+if!([player] call vn_mf_fnc_valid_state_for_asl) exitWith {
     0
 };
 
-private _heli = vehicle _player;
+private _heli = vehicle player;
 
 // [[ropeIndex, label], ...] for every rope set that is currently deployed
 private _active = [_heli] call ASL_Get_Active_Ropes;
 if (_active isEqualTo []) exitWith { 0 };
 
 {
-    [_heli, _player, _x select 0] call ASL_Extend_Ropes;
+    [_heli, player, _x select 0] call ASL_Extend_Ropes;
 } forEach _active;
 
-[_player] remoteExec ["vn_mf_fnc_sling_summary", _player];
+[player] remoteExec ["vn_mf_fnc_sling_summary", player];
 
 count _active

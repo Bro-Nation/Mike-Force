@@ -5,6 +5,11 @@
     rope sets on the helicopter.
 
     Behaviour:
+
+        Explicitly handles only applying rope interactions to currentPilot (not driver)
+        i.e cleanly handles pilot/co-pilot and `take control` interactions via
+        vn_mf_fnc_valid_state_for_asl
+
         - Rope has cargo:
             ASL_Release_Cargo is called.
             ASL detaches the cargo and then retracts that rope automatically.
@@ -17,8 +22,7 @@
         no cargo attached  -> retract
 
     Params:
-        _player (OBJECT) - unit whose current vehicle should be processed.
-                           Any seat is valid, not just the pilot.
+        None
 
     Returns:
         NUMBER - number of rope sets processed.
@@ -40,16 +44,12 @@
         helicopter's owner using its normal ASL remote execution mechanism.
 */
 
-params [
-    ["_player", objNull, [objNull]]
-];
-
 // Check we conform with expectations (ASL loaded, in a heli etc)
-if!([_player] call vn_mf_fnc_valid_state_for_asl) exitWith {
+if!([player] call vn_mf_fnc_valid_state_for_asl) exitWith {
     0
 };
 
-private _heli = vehicle _player;
+private _heli = vehicle player;
 
 private _activeRopes = [_heli] call ASL_Get_Active_Ropes;
 
@@ -75,11 +75,11 @@ if (_activeRopes isEqualTo []) exitWith {
     // Does it have cargo?
     if (_hasCargo) then {
         // It does release exactly same as ASL would (which also retracts that rope)
-        [_heli, _player, _ropeIndex] call ASL_Release_Cargo;
+        [_heli, player, _ropeIndex] call ASL_Release_Cargo;
 
     } else {
         // It does not so we need to call retract on the rope index directly
-        [_heli, _player, _ropeIndex] call ASL_Retract_Ropes;
+        [_heli, player, _ropeIndex] call ASL_Retract_Ropes;
     };
 
 } forEach _activeRopes;

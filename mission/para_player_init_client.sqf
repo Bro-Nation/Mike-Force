@@ -492,6 +492,3 @@ player addEventHandler ["Respawn", {
         //systemChat format ["DEBUG: Applied insignia '%1' to player %2 after respawn.", _insignia, name _unit];
     };
 }];
-
-// Calls a single function to register all keybinds
-[] call vn_mf_fnc_add_custom_keybinds;
