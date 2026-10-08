@@ -119,7 +119,7 @@ class CfgFunctions
 			class valid_state_for_asl {};
             class deploy_helo_ropes {};
 			
-			// Utility functions since when called via keys.hpp which can't take a parameter to pass to `function`
+			// Utility functions since when called via keys.hpp 'function' can't takea a parameter
 			class deploy_one_ropes {};
 			class deploy_two_ropes {};
 			class deploy_three_ropes {};
