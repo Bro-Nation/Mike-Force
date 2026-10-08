@@ -25,3 +25,4 @@ _target_scope call vn_mf_fnc_init_mission_handlers;
 
 call vn_mf_fnc_chat_init;
 
+call vn_mf_fnc_csInit;
