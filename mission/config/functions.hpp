@@ -115,6 +115,7 @@ class CfgFunctions
 		class csgas
 		{
 			file = "functions\systems\csgas"
+			class csInit {};
 			class checkForGas {};
 			class gasUnit {};
 		}
