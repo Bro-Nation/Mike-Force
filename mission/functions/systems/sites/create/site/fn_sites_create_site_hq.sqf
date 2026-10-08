@@ -112,6 +112,14 @@ params ["_pos"];
 		_hqMarker setMarkerText "HQ";
 		_hqMarker setMarkerAlpha 0;
 
+		[[_hqMarker], {
+			params ["_marker"];
+
+			if (hasInterface && {side group player isEqualTo east}) then {
+				_marker setMarkerAlphaLocal 1;
+			};
+		}] remoteExecCall ["BIS_fnc_call", 0];
+
 		private _partialMarkerPos = _spawnPos getPos [10 + random 40, random 360];
 		private _markerPartial = createMarker [format ["PartialHQ_%1", _siteId], _partialMarkerPos];
 		_markerPartial setMarkerType "o_unknown";
@@ -126,8 +134,11 @@ params ["_pos"];
 		_hqRespawnMarker setMarkerType "o_hq";
 		_hqRespawnMarker setMarkerAlpha 0;
 
-		private _respawnID = [east, _hqRespawnMarker] call BIS_fnc_addRespawnPosition;
+		private _respawnName = "DAC HQ";
+		private _respawnID = [east, _hqRespawnMarker, _respawnName] call BIS_fnc_addRespawnPosition;
 		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _dc_spawnPos, [], 5, "NONE"];
+		private _platformNormal = surfaceNormal [_dc_spawnPos # 0, _dc_spawnPos # 1];
+		_respawnObj setVectorUp _platformNormal;
 		_respawnObj setVariable ["vn_respawn", [_hqRespawnMarker,_respawnID]];
 
 		vn_dc_adhoc_respawns pushBack [_hqRespawnMarker,_respawnID];

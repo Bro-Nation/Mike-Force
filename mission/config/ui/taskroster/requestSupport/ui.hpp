@@ -40,7 +40,7 @@ class vn_tr_disp_requestSupportMap_RHS : vn_mf_RscControlsGroupNoScrollbarHV
 		};
 		class rhs_title: vn_mf_RscText
 		{
-			idc = -1;
+			idc = VN_TR_SUPREQ_STEP_MAP_TITLE_IDC;
 			x = UIW(2);
 			y = UIH(2);
 			w = UIW(15);
@@ -56,7 +56,7 @@ class vn_tr_disp_requestSupportMap_RHS : vn_mf_RscControlsGroupNoScrollbarHV
 		};
 		class rhs_helptext: vn_mf_RscText
 		{
-			idc = -1;
+			idc = VN_TR_SUPREQ_STEP_MAP_HELP_IDC;
 			x = UIW(2);
 			y = UIH(3);
 			w = UIW(16.5);
@@ -82,7 +82,7 @@ class vn_tr_disp_requestSupportMap_RHS : vn_mf_RscControlsGroupNoScrollbarHV
 			text = "CONFIRM";
 			font = USEDFONT;
 			sizeEx = TXT_L;
-			onButtonClick = "call vn_mf_fnc_tr_supportTask_selectPosition_accept; call vn_mf_fnc_tr_supportTask_create;";
+			onButtonClick = "diag_log format ['[SUPPORT UI] CONFIRM clicked by %1 (%2)', name player, getPlayerUID player]; call vn_mf_fnc_tr_supportTask_selectPosition_accept; call vn_mf_fnc_tr_supportTask_create;";
 			colorText[] = {0,0,0,1};
 			colorBackground[] = {0,0,0,0.1};
 		};
@@ -175,7 +175,7 @@ class vn_tr_disp_showRequestSupport
 
 		class lhs_request_support_title_text: vn_mf_RscText
 		{
-			idc = -1;
+			idc = VN_TR_SUPREQ_TITLE_IDC;
 			style = "0x10";
 
 			x = UIX_CL(17.5);
@@ -197,7 +197,7 @@ class vn_tr_disp_showRequestSupport
 		// Text for the team's description field.
 		class lhs_request_support_description_stext: vn_mf_RscStructuredText
 		{
-			idc = -1;
+			idc = VN_TR_SUPREQ_SUBTITLE_IDC;
 			style = "0x10";
 
 			x = UIX_CL(17.5);
@@ -246,10 +246,10 @@ class vn_tr_disp_showRequestSupport
 		};
 		class lhs_task_select_subtitle: vn_mf_RscText
 		{
-			idc = -1;
+			idc = VN_TR_SUPREQ_STEP_TASK_IDC;
 			x = UIX_CL(17.5);
 			y = UIY_CU(4);
-			w = UIW(8);
+			w = UIW(15);
 			h = UIH(1);
 
 			style = "0x10 + 0x0200";
@@ -258,7 +258,7 @@ class vn_tr_disp_showRequestSupport
 			shadow = 0;
 			text = "1. Select Task";
 			font = USEDFONT_B;
-			sizeEx = TXT_M;
+			sizeEx = TXT_S;
 		};
 		class lhs_task_select_listNBox: vn_mf_RscListNBox
 		{
@@ -292,7 +292,7 @@ class vn_tr_disp_showRequestSupport
 		};
 		class lhs_team_select_subtitle: lhs_task_select_subtitle
 		{
-			idc = -1;
+			idc = VN_TR_SUPREQ_STEP_TEAM_IDC;
 
 			x = UIX_CL(8.5);
 			text = "2. Select Team";

@@ -97,6 +97,14 @@ params ["_pos"];
         _tunnelMarker setMarkerText "Tunnel";
         _tunnelMarker setMarkerAlpha 0;
 
+        [[_tunnelMarker], {
+            params ["_marker"];
+
+            if (hasInterface && {side group player isEqualTo east}) then {
+                _marker setMarkerAlphaLocal 1;
+            };
+        }] remoteExecCall ["BIS_fnc_call", 0];
+
         private _partialMarker = createMarker [format ["PartialTunnel_%1", _siteId], _spawnPos getPos [10 + random 40, random 360]];
         _partialMarker setMarkerType "o_unknown";
         _partialMarker setMarkerAlpha 0;

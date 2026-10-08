@@ -54,6 +54,11 @@ _taskDataStore setVariable ["INIT", {
 	_taskDataStore setVariable ["hq_sites_destroyed", false];
 	_taskDataStore setVariable ["factory_sites_destroyed", false];
 
+	// Reset coms tower flags for this AO
+	missionNamespace setVariable ["vn_mf_coms_tower_destroyed_in_ao", false, true];
+	missionNamespace setVariable ["vn_mf_coms_tower_built_in_ao", false, true];
+	missionNamespace setVariable ["vn_mf_coms_tower_notified_in_ao", false, true];
+
 	private _initialTasks = [
 		["destroy_hq_sites", _zonePosition getPos [100, 0]],
 		["destroy_factory_sites", _zonePosition getPos [100, 90]],

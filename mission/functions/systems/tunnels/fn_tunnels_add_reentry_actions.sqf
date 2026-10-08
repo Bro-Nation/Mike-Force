@@ -55,7 +55,7 @@ params ["_reentryPoints"];
         [],
         1,
         100,
-        true,
+        false,
         false
     ] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipId];
 } forEach _reentryPoints;

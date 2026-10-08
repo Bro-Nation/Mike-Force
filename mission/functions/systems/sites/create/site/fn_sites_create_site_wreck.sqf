@@ -171,6 +171,14 @@ private _hmapParams = [
 		_mainMarker setMarkerText "Wreck";
 		_mainMarker setMarkerAlpha 0;
 
+		[[_mainMarker], {
+			params ["_marker"];
+
+			if (hasInterface && {side group player isEqualTo east}) then {
+				_marker setMarkerAlphaLocal 1;
+			};
+		}] remoteExecCall ["BIS_fnc_call", 0];
+
 		private _partialMarkerPos = _spawnPos getPos [10 + random 40, random 360];
 		private _markerPartial = createMarker [format ["PartialWreck_%1", _siteId], _partialMarkerPos];
 		_markerPartial setMarkerType "o_unknown";

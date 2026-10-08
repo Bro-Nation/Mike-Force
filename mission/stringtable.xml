@@ -143,8 +143,20 @@
       <Key ID="STR_vn_mf_capture_player">
         <Original>Capture</Original>
       </Key>
-      <Key ID="STR_vn_mf_capture_travel">
-        <Original>Capture Travel</Original>
+      <Key ID="STR_vn_mf_capture_player_tunnel">
+        <Original>Capture (Tunnel)</Original>
+      </Key>
+      <Key ID="STR_vn_mf_capture_player_powcamp">
+        <Original>Capture (POW Camp)</Original>
+      </Key>
+      <Key ID="STR_vn_mf_neck_snap_ai">
+        <Original>Neck Snap</Original>
+      </Key>
+      <Key ID="STR_vn_mf_capture_travel_tunnel">
+        <Original>Capture Travel (Tunnel)</Original>
+      </Key>
+      <Key ID="STR_vn_mf_capture_travel_powcamp">
+        <Original>Capture Travel (POW Camp)</Original>
       </Key>
       <Key ID="STR_vn_mf_arrest_player">
         <Original>Arrest</Original>
@@ -254,11 +266,13 @@
       <Key ID="STR_vn_mf_respawn_daccong_fsb">
         <Original>FSB Harass - DAC CONG</Original>
       </Key>
-      <Key ID="STR_vn_mf_respawn_daccong_aotunnel">
-        <Original>AO TUNNEL</Original>
-      </Key>
 	    <Key ID="STR_vn_mf_respawn_tunnel_1">
         <Original>POW TUNNEL 1</Original>
+      <Key ID="STR_vn_mf_respawn_daccong_aotunnel">
+        <Original>AO/POW TUNNEL</Original>
+      </Key>
+	    <Key ID="STR_vn_mf_respawn_daccong_powcamp">
+        <Original>POW CAMP</Original>
       </Key>
       <Key ID="STR_vn_mf_respawn_daccong_jets">
         <Original>NVA JETS</Original>
@@ -876,6 +890,15 @@
       <Key ID="STR_vn_mf_buildingMenu_condition_inRestrictedZone">
         <Original>Restricted Zone</Original>
       </Key>
+      <Key ID="STR_vn_mf_buildingMenu_condition_inActiveAO">
+        <Original>Within Active AO</Original>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_condition_noExistingTower">
+        <Original>No Comms Tower in Active AO</Original>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_condition_notDestroyed">
+        <Original>Coms Tower not destroyed</Original>
+      </Key>
       <Key ID="STR_vn_mf_buildingMenu_ui_costs">
         <Original>Costs</Original>
       </Key>
@@ -940,6 +963,22 @@
       <Key ID="STR_vn_mf_buildingMenu_condition_inDacCong">
         <Original>In Dac Cong</Original>
         <English>In Dac Cong</English>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_condition_noComsTowerInAO">
+        <Original>No Coms Tower in Active AO</Original>
+        <English>No Coms Tower in Active AO</English>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_condition_comsTowerNotDestroyedInAO">
+        <Original>Coms Tower Not Destroyed in Active AO</Original>
+        <English>Coms Tower Not Destroyed in Active AO</English>
+      </Key>
+      <Key ID="STR_vn_mf_notification_title_comsTowerBuilt">
+        <Original>Coms Tower</Original>
+        <English>Coms Tower</English>
+      </Key>
+      <Key ID="STR_vn_mf_notification_desc_comsTowerBuilt">
+        <Original>Coms Tower Built! Expect Enemy Reinforcements!</Original>
+        <English>Coms Tower Built! Expect Enemy Reinforcements!</English>
       </Key>
     </Container>
     <Container name="params">
@@ -1260,6 +1299,10 @@
         <Original>+Feature: Building Supply Depot</Original>
         <English>+Feature: Building Supply Depot</English>
       </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_coms_tower">
+        <Original>+Feature: Coms Tower</Original>
+        <English>+Feature: Coms Tower</English>
+      </Key>
       <Key ID="STR_vn_mf_buildingMenu_category_functional">
         <Original>Special Buildings</Original>
         <English>Special Buildings</English>
@@ -1323,6 +1366,10 @@
       <Key ID="STR_vn_mf_buildingMenu_category_nv">
         <Original>North Vietnamese</Original>
         <English>North Vietnamese</English>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_both">
+        <Original>Both Sides</Original>
+        <English>Both Sides</English>
       </Key>
       <Key ID="STR_vn_mf_buildingMenu_category_anyone">
         <Original>Anyone Can Build</Original>
@@ -1528,6 +1575,9 @@
       </Key>
       <Key ID="STR_vn_mf_vic_static">
         <Original>Statics</Original>
+      </Key>
+			<Key ID="STR_vn_mf_vic_transport">
+        <Original>Transport</Original>
       </Key>
 			<Key ID="STR_vn_mf_vic_supply">
         <Original>Supplies</Original>

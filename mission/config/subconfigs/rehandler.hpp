@@ -34,6 +34,10 @@ class supporttaskcreate
 {
 	fnc = "vn_mf_fnc_supporttaskcreate";
 };
+class opforcrewstatic
+{
+	fnc = "vn_mf_fnc_opfor_crew_static";
+};
 class teleport
 {
 	fnc = "vn_mf_fnc_teleport";

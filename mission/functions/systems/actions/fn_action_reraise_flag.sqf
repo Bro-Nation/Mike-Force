@@ -22,22 +22,20 @@ private _actionIdleIcon = "custom\holdactions\holdAction_interact_ca.paa";
 private _actionProgressIcon = "custom\holdactions\holdAction_interact_ca.paa";
 
 private _isNotOpfor = "(side player) isEqualTo west";
-private _isInRangeOf = "player distance cursorObject < 5";
 private _validFlagsArr = "['vn_flag_usa', 'vn_flag_aus', 'vn_flag_arvn', 'vn_flag_nz']";
+private _isInRangeOfObjectiveFlag2D = "!(isNil 'vn_mf_bn_dc_target_flag') && ((player distance2D vn_mf_bn_dc_target_flag) < 5)";
 private _isValidObjectType = format [
-	"typeOf cursorObject in %1",
-	_validFlagsArr
+        "!(isNil 'vn_mf_bn_dc_target_flag') && ((typeOf vn_mf_bn_dc_target_flag) in %1)",
+        _validFlagsArr
 ];
-private _isObjectiveFlag = "!(isNil 'vn_mf_bn_dc_target_flag') && (cursorObject isEqualTo vn_mf_bn_dc_target_flag)";
-private _isFlagLowered = "((flagAnimationPhase cursorObject) isNotEqualTo 1)";
+private _isFlagLowered = "!(isNil 'vn_mf_bn_dc_target_flag') && ((flagAnimationPhase vn_mf_bn_dc_target_flag) isNotEqualTo 1)";
 
 // bluefor can raise the flag only if it has been lowered
 private _conditionToShow = format [
-        "(%1 && %2 && %3 && %4 && %5)",
+        "(%1 && %2 && %3 && %4)",
         _isNotOpfor,
-        _isInRangeOf,
+        _isInRangeOfObjectiveFlag2D,
         _isValidObjectType,
-        _isObjectiveFlag,
         _isFlagLowered
 ];
 
@@ -64,7 +62,7 @@ private _codeOnInterrupted = {
 
 private _codeOnComplete = {};
 private _codeOnInterrupted = {};
-private _extraArgsArr = [flagAnimationPhase cursorObject];
+private _extraArgsArr = [];
 private _actionDurationSeconds = 10;
 private _actionPriority = 100;
 private _actionRemoveOnComplete = false;

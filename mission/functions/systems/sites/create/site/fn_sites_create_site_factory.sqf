@@ -132,6 +132,14 @@ params ["_pos"];
 		_factoryMarker setMarkerText "Depot";
 		_factoryMarker setMarkerAlpha 0;
 
+		[[_factoryMarker], {
+			params ["_marker"];
+
+			if (hasInterface && {side group player isEqualTo east}) then {
+				_marker setMarkerAlphaLocal 1;
+			};
+		}] remoteExecCall ["BIS_fnc_call", 0];
+
 		private _partialMarkerPos = _spawnPos getPos [10 + random 40, random 360];
 		private _markerPartial = createMarker [format ["PartialFactory_%1", _siteId], _partialMarkerPos];
 		_markerPartial setMarkerType "o_unknown";
@@ -146,8 +154,11 @@ params ["_pos"];
 		_DepotRespawnMarker setMarkerType "o_Ordnance";
 		_DepotRespawnMarker setMarkerAlpha 0;
 
-		private _respawnID = [east, _DepotRespawnMarker] call BIS_fnc_addRespawnPosition;
+		private _respawnName = "DAC Depot";
+		private _respawnID = [east, _DepotRespawnMarker, _respawnName] call BIS_fnc_addRespawnPosition;
 		private _respawnObj = createVehicle ["Land_vn_o_platform_04", _dc_spawnPos, [], 5, "NONE"];
+		private _platformNormal = surfaceNormal [_dc_spawnPos # 0, _dc_spawnPos # 1];
+		_respawnObj setVectorUp _platformNormal;
 		_respawnObj setVariable ["vn_respawn", [_DepotRespawnMarker, _respawnID]];
 		
 		vn_dc_adhoc_respawns pushBack [_DepotRespawnMarker, _respawnID];

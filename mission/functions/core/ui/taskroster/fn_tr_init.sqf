@@ -21,6 +21,11 @@ if(isNull VN_DISP_TR_TASKROSTER)then
 {
 	//open TaskRoster
 	createDialog "vn_tr_disp_taskRoster_Main";
+
+  private _groupID = player getVariable ["vn_mf_db_player_group", "MikeForce"];
+  if (_groupID isEqualTo "DacCong") then {
+    VN_TR_TASK_REQ_CTRL ctrlSetText "Create Support";
+  };
 }else{
 	//close TaskRoster
 	closeDialog VN_IDD_TR_TASKROSTER;

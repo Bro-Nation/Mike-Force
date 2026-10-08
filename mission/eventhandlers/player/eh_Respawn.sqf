@@ -45,5 +45,10 @@ call vn_mf_fnc_action_init;
 
 
 //freefall height reset
-player setUnitFreefallHeight 100;
-player setVariable ["inTunnel", false, true];
+private _isTunnelRespawn = _unit getVariable ["vn_mf_respawned_in_tunnel", false];
+if (_isTunnelRespawn) then {
+    _unit setVariable ["vn_mf_respawned_in_tunnel", false, true];
+} else {
+    player setUnitFreefallHeight 100;
+    player setVariable ["inTunnel", false, true];
+};

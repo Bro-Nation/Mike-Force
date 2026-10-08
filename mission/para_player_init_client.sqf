@@ -59,7 +59,7 @@ private _fnc_tick_loading_screen = {
 	progressLoadingScreen _progress;
 
 	// this logic is a bit nasty -- we really need to track progression through a DAG.
-	// but hackiness is fine for the moment. i could spend time working out a better 
+	// but hackiness is fine for the moment. i could spend time working out a better
 	// way of organising this code, but it's really not that big of a deal right now.
 	if (_progress > 0.3333 && !(_img in ["patreonBasic", "patreonSupporters"])) then {
 		[getText (missionConfigFile >> "gamemode" >> "loadingScreens" >> "patreonBasic"), 5002] call vn_mf_fnc_update_loading_screen;
@@ -132,7 +132,7 @@ _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 call para_g_fnc_event_subsystem_init;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
-//Read pow cage locations and populate arrays 
+//Read pow cage locations and populate arrays
 call vn_mf_fnc_pow_init;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
@@ -178,10 +178,10 @@ if (_lastTeamName == "FAILED") then {
 
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
-private _respawnMarker = format ["mf_respawn_%1", _lastTeamName]; 
-if (side player == east) then 
+private _respawnMarker = format ["mf_respawn_%1", _lastTeamName];
+if (side player == east) then
 {
-	_respawnMarker = format ["mf_dc_respawn_%1", _lastTeamName]; 
+	_respawnMarker = format ["mf_dc_respawn_%1", _lastTeamName];
 };
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
@@ -348,6 +348,9 @@ else{
 
 // Tutorial System
 [] call vn_mf_fnc_tutorial_subsystem_client_init;
+
+// Client-side coms tower beacon audio (no server scheduler load)
+[] call vn_mf_fnc_coms_tower_beacon_client;
 
 
 //Add Master Arm addAction for Boats and Land Vehicles

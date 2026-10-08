@@ -106,6 +106,54 @@ class wheel_menu_actions
 		spawn = 0;
 	};
 
+	class captive_in : base_action
+	{
+		visible = "NO_TARGET";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {!captive player}";
+		text = "Set Captive";
+		icon = "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa";
+		icon_highlighted = "";
+		arguments = "[player, true]";
+		function = "vn_mf_fnc_toggle_captive";
+		spawn = 0;
+	};
+
+	class captive_out : base_action
+	{
+		visible = "NO_TARGET";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {captive player}";
+		text = "Unset Captive";
+		icon = "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\attack_ca.paa";
+		icon_highlighted = "";
+		arguments = "[player, false]";
+		function = "vn_mf_fnc_toggle_captive";
+		spawn = 0;
+	};
+
+	class dac_create_edit_intel : base_action
+	{
+		visible = "NO_TARGET";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team)";
+		text = "Create/Edit Intel";
+		icon = "\a3\ui_f_oldman\data\IGUI\Cfg\holdactions\map_ca.paa";
+		icon_highlighted = "";
+		arguments = "[player]";
+		function = "zen_modules_fnc_moduleCreateIntel";
+		spawn = 0;
+	};
+
+	class dac_force_enter_vehicle : base_action
+	{
+		visible = "ALWAYS";
+		condition = "([player, 'DacCong'] call vn_mf_fnc_player_on_team) && {captive player} && {_target isKindOf 'AllVehicles'} && {_target != player} && {alive _target} && {(fullCrew [_target, '', true]) findIf {(_x # 0) isEqualTo objNull} > -1}";
+		text = "Force Enter Vehicle";
+		icon = "custom\holdactions\holdAction_car_ca.paa";
+		icon_highlighted = "";
+		arguments = "_target";
+		function = "vn_mf_fnc_daccong_force_enter_vehicle";
+		spawn = 0;
+	};
+
 	//Add a sandbag to a building.
 	class add_sandbag : base_action
 	{

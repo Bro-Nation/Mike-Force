@@ -22,9 +22,6 @@
 [
 	"custom\presscorp_greenscreen.paa",
 	"custom\billboards\Press_bb.paa",
-	"custom\advertisement\bn_conquest_01_ad.paa",
-	"custom\advertisement\bn_conquest_02_ad.paa",
-	"custom\advertisement\bn_conquest_03_ad.paa",
 	"custom\advertisement\bn_hearts_minds_01_ad.paa",
 	"custom\advertisement\bn_hearts_minds_02_ad.paa",
 	"custom\advertisement\mf_mondays_01_ad.paa",

@@ -51,6 +51,11 @@ vn_mf_markers_no_harass = [];
 		vn_mf_markers_no_sites pushBack _x; 
 	};
 
+	if (_x find "no_harass_" isEqualTo 0) then {
+		_x setMarkerAlpha 0;
+		vn_mf_markers_no_harass pushBack _x;
+	};
+
 	if (_x find "fsb_" isEqualTo 0) then
 	{
 		_x setMarkerAlpha 0;

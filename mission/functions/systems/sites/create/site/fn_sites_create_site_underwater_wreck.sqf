@@ -89,6 +89,14 @@ params ["_pos"];
         _marker setMarkerText "Boat Wreck";
         _marker setMarkerAlpha 0;
 
+        [[_marker], {
+            params ["_markerName"];
+
+            if (hasInterface && {side group player isEqualTo east}) then {
+                _markerName setMarkerAlphaLocal 1;
+            };
+        }] remoteExecCall ["BIS_fnc_call", 0];
+
         private _partialPos = _spawnPos getPos [10 + random 40, random 360];
         private _partialMarker = createMarker [format ["PartialUnderwaterWreck_%1", _siteId], _partialPos];
         _partialMarker setMarkerType "o_unknown";

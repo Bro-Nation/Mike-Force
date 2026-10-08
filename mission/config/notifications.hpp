@@ -213,7 +213,7 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 
-	class NoFireZone 
+	class NoFireZone
 	{
 		title = "No Fire Zone";
 		description = "Do not fire your weapon near the arsenal. Use the Gun Range!";
@@ -222,7 +222,7 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 
-	class NoExplosives 
+	class NoExplosives
 	{
 		title = "No Explosives";
 		description = "Please equip a satchel or breaching charge!";
@@ -284,6 +284,30 @@ class CfgNotifications
 		duration = 10;
 		color[] = {1,0,0,1};
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
+	};
+
+	class ComsTowerBuilt {
+		title = "Da Cong Comms Tower Constructed";
+		description = "Expect reinforcements to arrive shortly.";
+		iconPicture = "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\radio_ca.paa";
+		color[] = {1, 0.1, 0.1, 1};
+		duration = 8;
+	};
+
+	class OpforTroopRequestSuccess {
+		title = "Support Troops";
+		description = "%1";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconDone_ca.paa";
+		color[] = {0.7,1,0.3,1};
+		duration = 8;
+	};
+
+	class OpforTroopRequestFailed {
+		title = "Support Troops";
+		description = "%1";
+		iconPicture = "\A3\ui_f\data\map\mapcontrol\taskIconFailed_ca.paa";
+		color[] = {1,0.3,0.2,1};
+		duration = 8;
 	};
 
 	class POWCapturedRed
@@ -392,7 +416,7 @@ class CfgNotifications
 		iconPicture = "\A3\ui_f\data\Map\Markers\Military\warning_ca.paa";
 	};
 
-	class ServerRestart 
+	class ServerRestart
 	{
 		title = "Scheduled Restart";
 		description = "%1";

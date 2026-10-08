@@ -168,3 +168,4 @@ class support_transport : support_task
 #include "greenhornets\tasks.hpp"
 #include "mikeforce\tasks.hpp"
 #include "spiketeam\tasks.hpp"
+#include "opfor\tasks.hpp"

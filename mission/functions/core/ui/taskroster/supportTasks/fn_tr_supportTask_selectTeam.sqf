@@ -24,10 +24,14 @@ _display = ctrlParent (_this#0);
 //get selected Index of ctrl
 _index = _this#1;
 
+private _isOpfor = (player getVariable ["vn_mf_db_player_group", "MikeForce"]) isEqualTo "DacCong";
+
+if (!_isOpfor) then {
 //disable "Create new support Task" (all requirements must be met, before it get's enabled)
 VN_TR_SUPREQ_CTASK_CTRL ctrlEnable false;
 //reset Map position (if Team or Mission selection has changed)
 VN_TR_SUPREQ_SELPOS_CTRL ctrlSetText "Select Position";
+};
 //Classname of selected Team (i hope)
 _selectedTeam = VN_TR_SUPREQ_TEAM_CTRL lnbData [_index,0];
 //update temporary data

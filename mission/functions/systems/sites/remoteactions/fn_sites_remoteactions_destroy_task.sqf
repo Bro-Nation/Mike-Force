@@ -30,7 +30,6 @@
 
 params ["_task", "_player"];
 
-
 /*
 Magazines in arma are not the same as ammo which does the firing.
 Even a breaching charge etc has ammo, and the ammo is what explodes.
@@ -94,6 +93,12 @@ switch (true) do {
 
 	/* has explosives and task is a paradigm built building. deref the paradigm building then destroy the object */
 	case (((count _playerExplosives) > 0) && !(isNull (_task getVariable ["para_g_building", objNull]))): {
+
+		// If destroying a coms tower, set destroyed flag for AO
+		if ((typeOf _task) isEqualTo "Land_vn_ttowersmall_2_f") then {
+			missionNamespace setVariable ["vn_mf_coms_tower_destroyed_in_ao", true, true];
+			missionNamespace setVariable ["vn_mf_coms_tower_built_in_ao", false, true];
+		};
 
 		private _explosive = [_player, _playerExplosives] call _fnc_take_explosive_ammo_from_inventory_mags;
 		[_task, _explosive] spawn vn_mf_fnc_sites_remoteactions_destroy_task_para_building;
