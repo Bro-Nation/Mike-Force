@@ -112,6 +112,14 @@ class CfgFunctions
 			class release_cargo {};
 		};
 
+		class csgas
+		{
+			file = "functions\systems\csgas"
+			class csInit {};
+			class checkForGas {};
+			class gasUnit {};
+		}
+
 		class debug {
 			file = "functions\debug";
 			class debug_monitor {};
