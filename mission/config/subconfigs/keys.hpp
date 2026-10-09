@@ -343,7 +343,7 @@ class vn_mf_shorten_ropes
 	alt = "false";
 	function = "vn_mf_fnc_shorten_ropes";
 	down = 0;
-	displayName = "Extend Sling Ropes";
+	displayName = "Shorten Sling Ropes";
 	access = 1;
 }
 
@@ -418,6 +418,3 @@ class vn_mf_delete_dead_vehicle_occupants
 	displayName = "Delete Bodies from Vic";
 	access = 1;
 }
-
-
-
