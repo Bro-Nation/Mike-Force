@@ -101,7 +101,6 @@ if (_activeRopes > 0) exitWith {
 
 // Refuse the request if ropes are deployed
 if ((count _existingRopes) > 0) exitWith {
-
     systemChat "Cannot deploy new rope configuration: existing rope slots must be fully retracted first.";
 
     0
@@ -113,7 +112,6 @@ private _slingLoadPoints =
 
 private _maxRopes =
     count _slingLoadPoints;
-
 
 if (_maxRopes <= 0) exitWith {
     systemChat "Vehicle doesn't support cargo ropes";
@@ -148,7 +146,6 @@ private _deployedCount = 0;
         _deployedCount = _deployedCount + 1;
     };
 } forEach _deployedRopes;
-
 
 if (_deployedCount == _numberOfRopes) then {
     
