@@ -111,6 +111,30 @@ class CfgFunctions
 			class holster_weapon {};
 			class release_cargo {};
 		};
+		
+        class slingloading
+        {
+            file = "functions\core\keybinds\slingloading";
+
+			class valid_state_for_asl {};
+            class deploy_helo_ropes {};
+			
+			// Utility functions since when called via keys.hpp 'function' can't takea a parameter
+			class deploy_one_ropes {};
+			class deploy_two_ropes {};
+			class deploy_three_ropes {};
+
+            class extend_ropes {};
+            class shorten_ropes {};
+            class sling_summary {};
+            class release_cargo_via_shortcut {};
+            class retract_all_ropes {};
+        };
+
+		class utility {
+			file = "functions\core\keybinds\utility";
+			class delete_dead_vehicle_occupants {};
+		};
 
 		class debug {
 			file = "functions\debug";

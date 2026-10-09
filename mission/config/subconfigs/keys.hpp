@@ -322,3 +322,99 @@ class vn_mf_channel_talk_to_cff
 	displayName = "Transmit on Channel 'CFF'";
 	access = 1;
 };
+
+class vn_mf_extend_ropes
+{
+	defaultKey = DIK_END;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_extend_ropes";
+	down = 0;
+	displayName = "Extend Sling Ropes";
+	access = 1;
+}
+
+class vn_mf_shorten_ropes
+{
+	defaultKey = DIK_HOME;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_shorten_ropes";
+	down = 0;
+	displayName = "Shorten Sling Ropes";
+	access = 1;
+}
+
+class vn_mf_retract_all_ropes
+{
+	defaultKey = DIK_HOME;
+	shift = "true";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_retract_all_ropes";
+	down = 0;
+	displayName = "Jettison Cargo/Retract Ropes";
+	access = 1;
+}
+
+class vn_mf_deploy_one_ropes
+{
+	defaultKey = DIK_1;
+	shift = "false";
+	ctrl = "true";
+	alt = "false";
+	function = "vn_mf_fnc_deploy_one_ropes";
+	down = 0;
+	displayName = "Deploy One Ropes";
+	access = 1;
+}
+
+class vn_mf_deploy_two_ropes
+{
+	defaultKey = DIK_2;
+	shift = "false";
+	ctrl = "true";
+	alt = "false";
+	function = "vn_mf_fnc_deploy_two_ropes";
+	down = 0;
+	displayName = "Deploy Two Ropes";
+	access = 1;
+}
+
+class vn_mf_deploy_three_ropes
+{
+	defaultKey = DIK_3;
+	shift = "false";
+	ctrl = "true";
+	alt = "false";
+	function = "vn_mf_fnc_deploy_three_ropes";
+	down = 0;
+	displayName = "Deploy Three Ropes";
+	access = 1;
+}
+
+class vn_mf_release_cargo_via_shortcut
+{
+	defaultKey = DIK_NUMPAD0;
+	shift = "false";
+	ctrl = "false";
+	alt = "false";
+	function = "vn_mf_fnc_release_cargo_via_shortcut";
+	down = 0;
+	displayName = "Release Cargo";
+	access = 1;
+}
+
+class vn_mf_delete_dead_vehicle_occupants
+{
+	defaultKey = DIK_X;
+	shift = "false";
+	ctrl = "true";
+	alt = "false";
+	function = "vn_mf_fnc_delete_dead_vehicle_occupants";
+	down = 0;
+	displayName = "Delete Bodies from Vic";
+	access = 1;
+}
