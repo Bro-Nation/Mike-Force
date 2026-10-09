@@ -3,7 +3,8 @@
 
     Author: TernaryOperator
 
-    Wrapper function for calling vn_mf_fnc_deploy_helo_ropes with the number of ropes we want because keys.hpp can't pass parameters to called functions
+    Wrapper function for calling vn_mf_fnc_deploy_helo_ropes with the number of ropes we want 
+    because keys.hpp can't pass parameters to called functions
 
     Params:
         NONE
@@ -12,7 +13,6 @@
         NONE
 
     Usage:
-
         [] call vn_mf_fnc_deploy_one_ropes;
 
     Locality:
