@@ -19,9 +19,15 @@ class CfgFunctions
 			class save_time_elapsed {};
 			class stats_init {};
 			class addHangarLights {};
-			class bulldozer_trees {};
-			class spawn_tank_dozer {};
 			class eject_and_parachute {};
+		};
+
+		class bulldozer
+		{
+			file = "functions\systems\bulldozer";
+			class bulldozer_trees {};
+			class cleanup_tank_dozer {};
+			class spawn_tank_dozer {};
 		};
 
 		class mobile_respawn

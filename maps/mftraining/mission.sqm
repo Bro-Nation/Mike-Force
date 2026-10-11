@@ -8,7 +8,7 @@ class EditorData
 	toggles=1642;
 	class ItemIDProvider
 	{
-		nextID=26551;
+		nextID=26554;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=36219;
+		nextID=36375;
 	};
 	class Camera
 	{
-		pos[]={17052.506,32.943295,7052.0479};
-		dir[]={-0.96551776,-0.24615204,-0.085470431};
-		up[]={-0.2452665,0.969199,-0.021712096};
-		aside[]={-0.088182315,-1.1849406e-06,0.99616867};
+		pos[]={16123.624,134.56383,6646.7134};
+		dir[]={0.78632677,-0.41530979,0.45757928};
+		up[]={0.35902861,0.90962613,0.20892596};
+		aside[]={0.50300252,-6.0722232e-07,-0.86438727};
 	};
 };
 binarizationWanted=0;
@@ -655,8 +655,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -706,8 +706,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -763,7 +763,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=558;
+		items=561;
 		class Item0
 		{
 			dataType="Marker";
@@ -147875,6 +147875,153 @@ class Mission
 			};
 			id=26454;
 			type="Lantern_01_black_F";
+		};
+		class Item558
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16761.373,23.026089,7508.438};
+				angles[]={0,1.3089969,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[this] call vn_mf_fnc_spawn_tank_dozer;";
+				disableSimulation=1;
+			};
+			id=26551;
+			type="Sign_Arrow_Direction_F";
+			atlOffset=0.84799957;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item559
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16405.383,15.794844,6503.748};
+				angles[]={0,4.712389,-0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[this] call vn_mf_fnc_spawn_tank_dozer;";
+				disableSimulation=1;
+			};
+			id=26552;
+			type="Sign_Arrow_Direction_F";
+			atlOffset=0.75675488;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item560
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16204.068,15.796179,6541.498};
+				angles[]={0,2.0943952,-0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[this] call vn_mf_fnc_spawn_tank_dozer;";
+				disableSimulation=1;
+			};
+			id=26553;
+			type="Sign_Arrow_Direction_F";
+			atlOffset=0.75809002;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 	class Connections

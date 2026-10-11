@@ -1,8 +1,16 @@
 /*
-    File: vn_mf_bulldozer_trees.sqf
+    File: fn_bulldozer_trees.sqf
     Author: Tylervip
-	Public: yes
-    Adds a toggle blade action to a vehicle, slows it when the blade is down, clears trees/bushes ahead, and auto-raises the blade after a set time.
+    Public: yes
+
+    Adds a toggle blade action to a vehicle, slows it when the blade is down,
+    clears trees/bushes ahead, and auto-raises the blade after a set time.
+
+    Parameter(s):
+        0: OBJECT - vehicle
+
+    Example:
+        [_tank] remoteExecCall ["vn_mf_fnc_bulldozer_trees", 0, _tank];
 */
 
 params ["_veh"];
@@ -32,13 +40,18 @@ _veh addAction [
             private _down = !(_target getVariable ["bladeDown", false]);
             _target setVariable ["bladeDown", _down, true];
             _target setVariable ["bladeTimer", 0, true];
-            if (_down) then {
-                hintSilent "Blade lowered";
-            } else {
-                hintSilent "Blade raised";
+
+            if (local _target) then {
+                if (_down) then {
+                    hintSilent "Blade lowered";
+                } else {
+                    hintSilent "Blade raised";
+                };
             };
         } else {
-            hintSilent "Only driver can toggle the blade!";
+            if (local _target) then {
+                hintSilent "Only driver can toggle the blade!";
+            };
         };
     },
     nil, 10, true, true, "", "driver _target == _this"
@@ -90,7 +103,9 @@ _veh addAction [
             if (_time >= _bladeTime) then {
                 if (_veh getVariable ["bladeDown", false]) then {
                     _veh setVariable ["bladeDown", false, true];
-                    driver hintSilent "Blade automatically raised";
+                    if (local _veh) then {
+                        hintSilent "Blade automatically raised";
+                    };
                     _veh setVariable ["bladeTimer", 0, true];
                 };
             };
