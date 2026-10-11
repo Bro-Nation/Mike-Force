@@ -8,6 +8,8 @@
 #define CONDITION_NO_EXISTING_COMS_TOWER_IN_AO { $STR_vn_mf_buildingMenu_condition_noComsTowerInAO, "!((missionNamespace getVariable ['vn_mf_coms_tower_built_in_ao', false]) && !(missionNamespace getVariable ['vn_mf_coms_tower_destroyed_in_ao', false]))"}
 #define CONDITION_COMS_TOWER_NOT_DESTROYED_IN_AO { $STR_vn_mf_buildingMenu_condition_comsTowerNotDestroyedInAO, "!(missionNamespace getVariable ['vn_mf_coms_tower_destroyed_in_ao', false])"}
 #define CONDITION_IS_MILITARY_POLICE { "Military Police", "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'MilitaryPolice'"}
+#define CONDITION_IS_BLACKHORSE { "Black Horse only", "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'QuarterHorse'"}
+#define CONDITION_OUTSIDE_ACTIVE_AO_2000 { "Must be 2000m from active AO center", "private _activeZones = missionNamespace getVariable ['mf_g_dir_activeZoneNames', []]; private _aoMarker = _activeZones param [0, '']; !(_aoMarker in allMapMarkers) || {_pos distance2D markerPos _aoMarker >= 2000}"}
 
 //Icon Classes for Vehicle Spawner
 #define VEHICLE_ICON_BOAT "\vn\ui_f_vietnam\ui\wheelmenu\img\icons\vn_mf_boat_ca.paa"
@@ -5060,6 +5062,51 @@ class vn_flag_arvn
 		class final_state
 		{
 			object_class = "vn_flag_arvn";
+		};
+	};
+};
+
+class Flag_White_F
+{
+	name = "Fire Base Flag";
+	type = "flag";
+	categories[] = {"flags", "qh"};
+	rank = 0;
+	SUPPLY_CAPACITY(500, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_BLACKHORSE,
+		CONDITION_OUTSIDE_ACTIVE_AO_2000
+	};
+	class build_states
+	{
+		class initial_state
+		{
+			object_class = "Flag_White_F";
+		};
+		class middle_state
+		{
+			object_class = "Flag_White_F";
+		};
+		class final_state
+		{
+			object_class = "Flag_White_F";
+		};
+	};
+
+	class features
+	{
+		class base_starter
+		{
+			radius = 50;
+		};
+		class no_harass_zone
+		{
+			radius = 50;
 		};
 	};
 };
