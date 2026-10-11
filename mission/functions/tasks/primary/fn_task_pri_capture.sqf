@@ -117,17 +117,32 @@ _taskDataStore setVariable ["destroy_factory_sites", {
 }];
 
 _taskDataStore setVariable ["build_fob", {
-        params ["_taskDataStore"];
+	params ["_taskDataStore"];
 
-        private _possibleBases = para_g_bases inAreaArray [
-		getMarkerPos (_taskDataStore getVariable "taskMarker"),
-		selectMax ((getMarkerSize "activeZoneCircle") apply {abs _x}),
-		selectMax ((getMarkerSize "activeZoneCircle") apply {abs _x}),
-		0
-	];
+	private _zoneMarker = _taskDataStore getVariable ["taskMarker", ""];
+	private _zonePos = getMarkerPos _zoneMarker;
+	private _zoneRadius = selectMax ((getMarkerSize "activeZoneCircle") apply {abs _x});
+	private _possibleBases = para_g_bases inAreaArray [_zonePos, _zoneRadius, _zoneRadius, 0];
 
-        if !(_possibleBases isEqualTo []) then {
+	if !(_possibleBases isEqualTo []) then {
+		private _trackedFob = _taskDataStore getVariable ["fob", objNull];
+		private _trackedFobIsValid = !isNull _trackedFob && {(_possibleBases findIf {_x isEqualTo _trackedFob} > -1)};
+		private _selectedFob = objNull;
+		if (_trackedFobIsValid) then {
+			_selectedFob = _trackedFob;
+		} else {
+			private _bestBaseId = -1;
+			{
+				private _candidateBaseId = _x getVariable ["para_g_base_id", -1];
+				if (isNull _selectedFob || {_candidateBaseId > _bestBaseId}) then {
+					_selectedFob = _x;
+					_bestBaseId = _candidateBaseId;
+				};
+			} forEach _possibleBases;
+		};
+
 		_taskDataStore setVariable ["fob_built", true];
+		_taskDataStore setVariable ["fob", _selectedFob];
 		/*
 		for some reason the AGL conversion for FOB positions
 		places them 200m AGL.... which is greater than the
@@ -135,20 +150,18 @@ _taskDataStore setVariable ["build_fob", {
 
 		so use 2D positions instead for later nearestObjects
 		*/
-		private _fobPos3DASL = getPos (_possibleBases select 0);
-
-		_taskDataStore setVariable ["fob", _possibleBases select 0];
+		private _fobPos3DASL = getPos _selectedFob;
 		_taskDataStore setVariable ["fob_position_2d", [_fobPos3DASL select 0, _fobPos3DASL select 1]];
 
 		private _nextTasks = [
 			["build_respawn", (_taskDataStore getVariable "fob_position_2d") getPos [50, 0]],
 			["build_flag", (_taskDataStore getVariable "fob_position_2d") getPos [50, 90]],
 			["build_landing_pad", (_taskDataStore getVariable "fob_position_2d") getPos [50, 180]],
-			["build_rearm_resupply", (_taskDataStore getVariable "fob_position_2d") getPos [50, 270]]
+			["build_rearm_repair_refuel", (_taskDataStore getVariable "fob_position_2d") getPos [50, 270]]
 		];
 
-                ["SUCCEEDED", _nextTasks] call _fnc_finishSubtask;
-        };
+		["SUCCEEDED", _nextTasks] call _fnc_finishSubtask;
+	};
 }];
 
 _taskDataStore setVariable ["_fnc_have_built_buildings", {
@@ -236,6 +249,44 @@ _taskDataStore setVariable ["build_flag", {
 
 _taskDataStore setVariable ["AFTER_STATES_RUN", {
 	params ["_taskDataStore"];
+
+	private _zoneMarker = _taskDataStore getVariable ["taskMarker", ""];
+	private _zonePos = getMarkerPos _zoneMarker;
+	private _fob = _taskDataStore getVariable ["fob", objNull];
+	private _fobWasBuilt = _taskDataStore getVariable ["fob_built", false];
+	private _baseBuildSubtasks = [
+		"build_fob",
+		"build_respawn",
+		"build_flag",
+		"build_landing_pad",
+		"build_rearm_repair_refuel"
+	];
+	if (_fobWasBuilt && {isNull _fob || {!alive _fob} || !(para_g_bases findIf {_x isEqualTo _fob} > -1)}) then {
+		private _currentStates = _taskDataStore getVariable ["stateMachineCurrentStates", []];
+		{
+			private _subtaskId = _x # 0;
+			private _subtaskType = _x # 1;
+			if (_subtaskType in _baseBuildSubtasks) then {
+				[_taskDataStore, _subtaskId, "CANCELED"] call vn_mf_fnc_task_subtask_complete;
+				private _stateIndex = _currentStates findIf {(_x # 0) == _subtaskId};
+				if (_stateIndex > -1) then {
+					_currentStates deleteAt _stateIndex;
+				};
+			};
+		} forEach +(_taskDataStore getVariable ["taskSubtasks", []]);
+
+		_taskDataStore setVariable ["stateMachineCurrentStates", _currentStates];
+		_taskDataStore setVariable ["fob_built", false];
+		_taskDataStore setVariable ["fob", objNull];
+	};
+
+	private _hasBuildFobState = ((_taskDataStore getVariable ["stateMachineCurrentStates", []]) findIf {(_x # 1) == "build_fob"} > -1);
+	if (!(_taskDataStore getVariable ["fob_built", false]) && {!_hasBuildFobState}) then {
+		private _currentStates = _taskDataStore getVariable ["stateMachineCurrentStates", []];
+		private _newSubtaskId = [_taskDataStore, "build_fob", _zonePos getPos [100, 180]] call vn_mf_fnc_task_subtask_create;
+		_currentStates pushBack [_newSubtaskId, "build_fob"];
+		_taskDataStore setVariable ["stateMachineCurrentStates", _currentStates];
+	};
 
 	if (
 		_taskDataStore getVariable ["hq_sites_destroyed", false]
