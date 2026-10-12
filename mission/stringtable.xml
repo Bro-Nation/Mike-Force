@@ -1371,6 +1371,10 @@
         <Original>Both Sides</Original>
         <English>Both Sides</English>
       </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_mp">
+        <Original>Military Police</Original>
+        <English>Military Police</English>
+      </Key>
       <Key ID="STR_vn_mf_buildingMenu_category_anyone">
         <Original>Anyone Can Build</Original>
         <English>Anyone Can Build</English>
