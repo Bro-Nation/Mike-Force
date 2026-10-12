@@ -49,12 +49,6 @@ if (!_hasZeusPack) exitWith {
 			_myCurObject setVariable ["BIS_fnc_initModules_activate", true, true];
 			waitUntil { sleep 0.1; _myCurObject getVariable ["BIS_fnc_moduleInit_status", false] };
 
-			// If the module is created via code (rather than in eden) then init won't always be called
-			// i.e. zeus interface will load but not be fully initialised, this is closer to what
-			// placing Game Master in Eden would be since that would call the init
-			_myCurObject setVariable ["BIS_fnc_initModules_activate", true, true];
-			waitUntil { sleep 0.1; _myCurObject getVariable ["BIS_fnc_moduleInit_status", false] };
-
 			// Add all addons to curator
 			private _cfg = configFile >> "CfgPatches";
 			private _newAddons = [];
