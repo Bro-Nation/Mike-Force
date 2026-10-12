@@ -42,7 +42,7 @@ if (!_hasZeusPack) exitWith {
 
 			_myCurObject = MikeFrcCur_group createUnit ["ModuleCurator_F", [0, 90, 90], [], 0.5, "NONE"];
 			_myCurObject setVariable ["showNotification", false];
-			
+
 			// If the module is created via code (rather than in eden) then init won't always be called
 			// i.e. zeus interface will load but not be fully initialised, this is closer to what
 			// placing Game Master in Eden would be since that would call the init
