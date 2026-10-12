@@ -4,7 +4,8 @@
     Author: TernaryOperator
 
     Prints a one-line summary of the Advanced Sling Loading (ASL) ropes and cargo
-    on the vehicle the given player is in, using systemChat on that player's
+    on the vehicle the given player is in (or, if on foot, the nearest ASL
+    helicopter within 20 m), using systemChat on that player's
     machine only.
 
     Params:
@@ -29,7 +30,10 @@
         Length is the actual current rope length, rounded to 1 decimal place.
         Cargo is shown by its config displayName, falling back to its classname.
 
-        Not in a vehicle  -> "Sling summary: not in a vehicle"
+        Not in a vehicle and no ASL helicopter within 20 m
+                          -> "Sling summary: not in a vehicle"
+        On foot within 20 m of an ASL helicopter
+                          -> summary of that helicopter's ropes
         No ropes deployed -> "Sling summary: no ropes deployed"
 
     IMPORTANT:
@@ -63,6 +67,16 @@ if (!local _player) exitWith {
 if (!hasInterface) exitWith {};
 
 private _vehicle = vehicle _player;
+
+// On foot: summarise the nearest ASL helicopter within 20 m, if there is one
+// (silent lookup so we never spam "No ASL Support" messages from a read-only summary)
+if (_vehicle isEqualTo _player) then {
+    private _nearHeli = [_player, true, true] call vn_mf_fnc_valid_state_for_asl;
+
+    if (!isNull _nearHeli) then {
+        _vehicle = _nearHeli;
+    };
+};
 
 // Optional action label placed at the start of the message
 private _prefix = if (_action isEqualTo "") then { "" } else { _action + ": " };

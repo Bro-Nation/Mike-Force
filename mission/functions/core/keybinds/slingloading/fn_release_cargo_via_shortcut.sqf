@@ -23,6 +23,8 @@
         i.e cleanly handles pilot/co-pilot and `take control` interactions via
         vn_mf_fnc_valid_state_for_asl
 
+        Also works when the player is ON FOOT within 20 m of an ASL-supported
+        helicopter (the nearest one is used).
 
         All rope sets with cargo attached are released in the same call. If the user
         wishes to release one specific load, that can be done via the scroll menu as
@@ -45,24 +47,25 @@
         returns.
 */
 
-params [
-	["_player", objNull, [objNull]]
-];
+// Check we conform with expectations (ASL loaded, pilot of a heli OR on foot
+// within 20 m of one) and get the helicopter we are operating
+private _heli = [player, true] call vn_mf_fnc_valid_state_for_asl;
 
-// Check we conform with expectations (ASL loaded, in a heli etc)
-if!([_player] call vn_mf_fnc_valid_state_for_asl) exitWith {
+// Nothing to operate -> nothing to do
+if (isNull _heli) exitWith {
     0
 };
 
-// Not in a vehicle -> nothing to do
-private _heli = vehicle _player;
+if(_heli getVariable ["vn_mf_g_veh_asset_locked", false]) then {
+    [_heli] call vn_mf_fnc_veh_asset_unlock_vehicle;
+};
 
 // [[ropeIndex, label], ...] for every rope set that currently has cargo attached
 private _active = [_heli] call ASL_Get_Active_Ropes_With_Cargo;
 if (_active isEqualTo []) exitWith { 0 };
 
 {
-	[_heli, _player, _x select 0] call ASL_Release_Cargo;
+	[_heli, player, _x select 0] call ASL_Release_Cargo;
 } forEach _active;
 
 count _active

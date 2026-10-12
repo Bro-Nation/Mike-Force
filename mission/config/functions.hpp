@@ -112,18 +112,21 @@ class CfgFunctions
 			class release_cargo {};
 		};
 		
+		class bn_keybinds_slingloading {
+			file = "functions\core\keybinds";
+			
+			class bn_add_generic_keybinds {};
+			class bn_add_slingload_keybinds {};
+		};
+
         class slingloading
         {
             file = "functions\core\keybinds\slingloading";
 
+			class attach_held_ropes {};
+			class pickup_nearest_ropes {};
 			class valid_state_for_asl {};
             class deploy_helo_ropes {};
-			
-			// Utility functions since when called via keys.hpp 'function' can't takea a parameter
-			class deploy_one_ropes {};
-			class deploy_two_ropes {};
-			class deploy_three_ropes {};
-
             class extend_ropes {};
             class shorten_ropes {};
             class sling_summary {};
@@ -132,9 +135,15 @@ class CfgFunctions
         };
 
 		class utility {
-			file = "functions\core\keybinds\utility";
+			file = "functions\core\utility";
+			class distance_to_bounding_box {};
+		}
+
+		class utility_keybinds {
+			file = "functions\core\utility\keybinds";
 			class delete_dead_vehicle_occupants {};
-		};
+			class unlock_vehicle_controls {};
+		}
 
 		class debug {
 			file = "functions\debug";

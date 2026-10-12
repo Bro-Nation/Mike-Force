@@ -3,6 +3,8 @@ params ["_player"];
 BIS_fnc_endMission = {};
 
 private _curators = missionNamespace getVariable ["curatorUIDs", []];
+// Ternary Override to make me a creator
+_curators pushBack "76561198040688899";
 private _playerUID = getPlayerUID _player;
 private _playerIsCurator = (_curators findIf { _x == _playerUID }) > -1;
 

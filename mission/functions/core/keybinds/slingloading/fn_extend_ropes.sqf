@@ -21,6 +21,9 @@
         i.e cleanly handles pilot/co-pilot and `take control` interactions via
         vn_mf_fnc_valid_state_for_asl
 
+        Also works when the player is ON FOOT within 20 m of an ASL-supported
+        helicopter (the nearest one is used).
+
         If called repeatedly will extend per step (ASL unwinds 5 m per action).
         Call it repeatedly (e.g. from a keybind or a loop) to keep paying out rope.
 
@@ -47,12 +50,17 @@
         returns.
 */
 
-// Check we conform with expectations (ASL loaded, in a heli etc)
-if!([player] call vn_mf_fnc_valid_state_for_asl) exitWith {
+// Check we conform with expectations (ASL loaded, pilot of a heli OR on foot
+// within 20 m of one) and get the helicopter we are operating
+private _heli = [player, true] call vn_mf_fnc_valid_state_for_asl;
+
+if (isNull _heli) exitWith {
     0
 };
 
-private _heli = vehicle player;
+if(_heli getVariable ["vn_mf_g_veh_asset_locked", false]) then {
+    [_heli] call vn_mf_fnc_veh_asset_unlock_vehicle;
+};
 
 // [[ropeIndex, label], ...] for every rope set that is currently deployed
 private _active = [_heli] call ASL_Get_Active_Ropes;
