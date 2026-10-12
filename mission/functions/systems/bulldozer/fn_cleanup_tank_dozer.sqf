@@ -19,7 +19,7 @@ private _attached = attachedObjects _tank;
         continue;
     };
 
-    private _crew = crew _x;
+    private _crew = (crew _x) select { !isNull _x };
     private _groups = [];
     {
         _groups pushBackUnique (group _x);

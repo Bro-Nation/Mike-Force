@@ -6,6 +6,9 @@
     Creates the invisible target vehicles attached to a bulldozer tank and keeps
     their crew aligned to whoever is in the vehicle.
 
+    Why: the M113 has no crew of its own, so AI cannot "see" it as a valid target.
+    The invisible armed-side targets give AI something to detect and engage.
+
     Parameter(s):
         0: OBJECT - tank
         1: ARRAY - optional position to spawn targets at; defaults to tank position
@@ -27,19 +30,22 @@ _tank addEventHandler ["GetIn", {
     if (isNull _vehicle || { isNull _unit }) exitWith {};
     if (!alive _vehicle) exitWith {};
 
-    private _cleanupEHSet = _unit getVariable ["vn_mf_bulldozer_last_alive_cleanup_eh", false];
-    if !(_cleanupEHSet) then {
-        _unit addEventHandler ["Killed", {
+    // Store the EH id so it can be removed on GetOut (prevents stacking)
+    private _ehId = _unit getVariable ["vn_mf_bulldozer_last_alive_cleanup_eh", -1];
+    if (_ehId < 0) then {
+        _ehId = _unit addEventHandler ["Killed", {
             params ["_unit"];
             private _vehicle = vehicle _unit;
             if (isNull _vehicle) exitWith {};
             [_vehicle] call vn_mf_fnc_bulldozer_targets_cleanup_if_last_alive;
         }];
-        _unit setVariable ["vn_mf_bulldozer_last_alive_cleanup_eh", true, false];
+        _unit setVariable ["vn_mf_bulldozer_last_alive_cleanup_eh", _ehId, false];
     };
 
     private _side = side group _unit;
     if (_side == sideUnknown) exitWith {};
+
+    if (!alive _vehicle) exitWith {};
 
     private _targets = _vehicle getVariable ["invisTargets", []];
     if (_targets isEqualTo []) then {
@@ -55,6 +61,14 @@ _tank addEventHandler ["GetOut", {
 
     if (!isServer) exitWith {};
     if (isNull _vehicle) exitWith {};
+
+    if (!isNull _unit) then {
+        private _ehId = _unit getVariable ["vn_mf_bulldozer_last_alive_cleanup_eh", -1];
+        if (_ehId >= 0) then {
+            _unit removeEventHandler ["Killed", _ehId];
+            _unit setVariable ["vn_mf_bulldozer_last_alive_cleanup_eh", -1, false];
+        };
+    };
 
     [_vehicle] call vn_mf_fnc_bulldozer_targets_cleanup_if_last_alive;
 }];

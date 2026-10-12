@@ -63,6 +63,9 @@ private _targets = [_tank, _pos] call vn_mf_fnc_bulldozer_targets_init;
 
                 if (!isNull _tankLocal) then { deleteVehicle _tankLocal; };
 
+                // Spawn object gone: nothing to respawn at
+                if (isNull _spawnObjLocal) exitWith {};
+
                 [
                     { [_this] call vn_mf_fnc_spawn_tank_dozer; },
                     _spawnObjLocal,
