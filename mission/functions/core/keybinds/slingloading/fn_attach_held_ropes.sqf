@@ -132,6 +132,7 @@ if !([_vehicle, _cargo] call ASL_Is_Supported_Cargo) exitWith {
 	false
 };
 
+// Handle the actual attachment with some conditional guards
 private _doAttach = {
 	params ["_vehicle", "_cargo"];
 
@@ -182,7 +183,7 @@ private _doAttach = {
 	] call CBA_fnc_waitUntilAndExecute;
 };
 
-// 4. Unlock whichever of the two are asset-locked
+// Unlock whichever of the two are asset-locked
 private _toUnlock = [_vehicle, _cargo] select {
 	_x getVariable ["vn_mf_g_veh_asset_locked", false]
 };
@@ -203,7 +204,6 @@ if (isServer && {
 
 systemChat "Unlocking vehicle(s)...";
 {
-	// enableSimulationGlobal in the unlock function needs to run on the server
 	if (isServer) then {
 		[_x] call vn_mf_fnc_veh_asset_unlock_vehicle;
 	} else {
@@ -212,7 +212,8 @@ systemChat "Unlocking vehicle(s)...";
 } forEach _toUnlock;
 
 // Wait until unlocked objects are *fully* unlocked locally
-// I do like CBA_fnc_waitUntilAndExecute
+// I do like CBA_fnc_waitUntilAndExecute - we wait for 5 seconds and if it
+// still fails we tell the user and just return
 [
 	{
 		params ["_toUnlock"];
