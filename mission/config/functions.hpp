@@ -26,6 +26,11 @@ class CfgFunctions
 		{
 			file = "functions\systems\bulldozer";
 			class bulldozer_trees {};
+			class bulldozer_targets_cleanup {};
+			class bulldozer_targets_cleanup_if_last_alive {};
+			class bulldozer_targets_create {};
+			class bulldozer_targets_init {};
+			class bulldozer_targets_sync {};
 			class cleanup_tank_dozer {};
 			class spawn_tank_dozer {};
 		};

@@ -37,28 +37,8 @@ _dozer attachTo [_tank, [0, 1, -0.8]];
 _dozer setDir 180;
 _dozer enableSimulationGlobal false;
 
-// Invisible targets so AI can see/engage the tank (model space: [x right, y forward, z up])
-private _targetOffsets = [
-    [ 0,    2.8, -0.5],  // front
-    [ 0,   -1.9, -0.5],  // rear
-    [-1.5,  0,   -0.5],  // left
-    [ 1.5,  0,   -0.5],  // right
-    [ 0,    0,    0.3]   // top
-];
-
-private _targets = [];
-{
-    private _target = createVehicle ["CBA_B_InvisibleTargetVehicle", _pos, [], 0, "CAN_COLLIDE"];
-    if (!isNull _target) then {
-        createVehicleCrew _target;
-        _target allowDamage false;
-        _target setVariable ["vn_mf_bulldozer_target", true, true];
-        _target attachTo [_tank, _x];
-        _targets pushBack _target;
-    };
-} forEach _targetOffsets;
-
-_tank setVariable ["invisTargets", _targets, true];
+// Invisible targets so AI can see/engage the tank
+private _targets = [_tank, _pos] call vn_mf_fnc_bulldozer_targets_init;
 
 // Tree clearing on all clients (JIP-tied to the tank)
 [_tank] remoteExecCall ["vn_mf_fnc_bulldozer_trees", 0, _tank];
