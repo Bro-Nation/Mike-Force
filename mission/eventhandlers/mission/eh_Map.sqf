@@ -21,3 +21,22 @@ params
 	"_map_opened",
 	"_map_forced"
 ];
+
+if (!_map_opened) then {
+	if !(missionNamespace getVariable ["vn_mf_soundranging_map_active", false]) exitWith {};
+
+	missionNamespace setVariable ["vn_mf_soundranging_map_active", false];
+	[false] call vn_mf_fnc_soundranging_set_map_click_handler;
+
+	private _playerMarkers = player getVariable ["vn_mf_soundranging_markers", []];
+	{
+		deleteMarkerLocal _x;
+	} forEach _playerMarkers;
+	player setVariable ["vn_mf_soundranging_markers", []];
+
+	private _confirmedMarkers = missionNamespace getVariable ["vn_mf_soundranging_confirmed_markers", []];
+	{
+		deleteMarkerLocal _x;
+	} forEach _confirmedMarkers;
+	missionNamespace setVariable ["vn_mf_soundranging_confirmed_markers", []];
+};

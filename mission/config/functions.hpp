@@ -664,6 +664,32 @@ class CfgFunctions
 			class sysmsg_print_others {};
 		};
 
+		class system_soundranging_server
+		{
+			file = "functions\systems\soundranging\server";
+			class soundranging_init {};
+			class soundranging_attach_local_fired_handler {};
+			class soundranging_cleanup {};
+			class soundranging_on_fired {};
+			class soundranging_request_detections {};
+		};
+
+		class system_soundranging_client
+		{
+			file = "functions\systems\soundranging\client";
+			class soundranging_add_radio_action {};
+			class soundranging_open_net {};
+			class soundranging_receive_detections {};
+			class soundranging_set_map_click_handler {};
+			class soundranging_map_click {};
+		};
+
+		class system_soundranging_shared
+		{
+			file = "functions\systems\soundranging";
+			class soundranging_is_artillery_target {};
+		};
+
 		class mod_support
 		{
 			class init_comms {};

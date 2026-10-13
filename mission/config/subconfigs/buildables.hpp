@@ -5111,6 +5111,60 @@ class Flag_White_F
 	};
 };
 
+class Land_vn_mobileradar_01_radar_f
+{
+	name = "Sound Ranging Tower";
+	type = "tech";
+	categories[] = {"functional", "tech", "qh"};
+	rank = 0;
+	SUPPLY_CAPACITY(750, DAYS_TO_SECONDS(2));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_BLACKHORSE
+	};
+	class build_states
+	{
+		class initial_state { object_class = "Land_vn_mobileradar_01_radar_f"; };
+		class middle_state { object_class = "Land_vn_mobileradar_01_radar_f"; };
+		class final_state { object_class = "Land_vn_mobileradar_01_radar_f"; };
+	};
+	class features
+	{
+		class soundranging_tower {};
+	};
+};
+
+class vn_b_prop_vrc12
+{
+	name = "AN/VRC-12 Sound Ranging Radio";
+	type = "tech";
+	categories[] = {"functional", "tech", "qh"};
+	rank = 0;
+	SUPPLY_CAPACITY(250, DAYS_TO_SECONDS(1));
+	resupply = "BuildingSupplies";
+	conditions[] = {
+		CONDITION_HAS_RANK,
+		CONDITION_IS_ENGINEER,
+		CONDITION_IS_ON_FOOT,
+		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IS_BLACKHORSE
+	};
+	class build_states
+	{
+		class initial_state { object_class = "vn_b_prop_vrc12"; };
+		class middle_state { object_class = "vn_b_prop_vrc12"; };
+		class final_state { object_class = "vn_b_prop_vrc12"; };
+	};
+	class features
+	{
+		class soundranging_radio {};
+	};
+};
+
 class Land_vn_sign_mines_f
 {
 	name = "";
