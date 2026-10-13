@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.08726646;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=554;
+	toggles=1578;
 	class ItemIDProvider
 	{
-		nextID=22076;
+		nextID=22077;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=37815;
+		nextID=37849;
 	};
 	class Camera
 	{
@@ -458,8 +458,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -509,8 +509,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -617,7 +617,7 @@ class Mission
 			};
 			id=264;
 			type="vn_module_whitelistedarsenal";
-			atlOffset=1933983.3;
+			atlOffset=1933983.2;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -2695,27 +2695,28 @@ class Mission
 						class Item65
 						{
 							dataType="Marker";
-							position[]={16211.258,21.257999,7240.5356};
+							position[]={16886.498,21.257999,7126.8291};
 							name="no_sites_3";
 							text="Pleiku Airfield";
 							markerType="RECTANGLE";
 							type="";
-							a=1600;
-							b=1091.7764;
+							a=924.75977;
+							b=1205.4834;
 							id=7394;
-							atlOffset=6.2779999;
+							atlOffset=4.46521;
 						};
 						class Item66
 						{
 							dataType="Marker";
-							position[]={16213.642,14.98,7239.1895};
+							position[]={16213.642,14.98,7475.3491};
 							name="blocked_area1";
 							text="Base Block 1";
 							markerType="RECTANGLE";
 							type="rectangle";
 							a=1600;
-							b=1091.5706;
+							b=855.41089;
 							id=442;
+							atlOffset=-2.3282623;
 						};
 						class Item67
 						{
@@ -2838,7 +2839,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={15680.306,18.752029,7005.7813};
+								position[]={15680.306,18.752029,7005.7812};
 								angles[]={0,5.5999517,0};
 							};
 							side="Empty";
@@ -3169,7 +3170,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16145.03,18.752029,7057.9063};
+								position[]={16145.03,18.752029,7057.9062};
 								angles[]={0,2.4333858,0};
 							};
 							side="Empty";
@@ -4454,15 +4455,15 @@ class Mission
 						class Item124
 						{
 							dataType="Marker";
-							position[]={16680.199,30.393,6104.7749};
+							position[]={17164.762,30.393,6124.0176};
 							name="blocked_area1_1";
 							text="Base Block 1";
 							markerType="RECTANGLE";
 							type="rectangle";
-							a=1000;
-							b=1000;
+							a=634.3916;
+							b=980.75732;
 							id=14148;
-							atlOffset=5.7015305;
+							atlOffset=-5.9827137;
 						};
 						class Item125
 						{
@@ -5551,11 +5552,11 @@ class Mission
 						};
 					};
 					id=18329;
-					atlOffset=1.0426311;
+					atlOffset=0.52131557;
 				};
 			};
 			id=686;
-			atlOffset=5.5012131;
+			atlOffset=57.019318;
 		};
 		class Item6
 		{
@@ -5574,13 +5575,13 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={20746.055,381152.13,3915.53};
+				position[]={20746.055,381152.12,3915.53};
 				angles[]={0,4.541172,0};
 			};
 			name="vn_mf_masterarm";
 			id=823;
 			type="vn_module_masterarm";
-			atlOffset=381242.13;
+			atlOffset=381242.12;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -19569,7 +19570,7 @@ class Mission
 									init="['satansangels_air_jets_carrier_custom', 0] call vn_mf_fnc_veh_asset_3DEN_spawn_point";
 									id=16797;
 									type="Logic";
-									atlOffset=0.00056648254;
+									atlOffset=0.00057220459;
 								};
 								class Item16
 								{
@@ -19585,7 +19586,7 @@ class Mission
 									};
 									id=16798;
 									type="Sign_Arrow_Direction_Green_F";
-									atlOffset=1.4764748;
+									atlOffset=1.4764805;
 								};
 								class Item17
 								{
@@ -19667,7 +19668,7 @@ class Mission
 									};
 									id=17962;
 									type="Land_vn_helipadempty_f";
-									atlOffset=7.4386597e-05;
+									atlOffset=7.8201294e-05;
 								};
 								class Item21
 								{
@@ -19682,7 +19683,7 @@ class Mission
 									};
 									id=17963;
 									type="Land_vn_helipadempty_f";
-									atlOffset=10.572996;
+									atlOffset=10.572994;
 								};
 								class Item22
 								{
@@ -23584,7 +23585,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16453.063,15.694681,7051.4268};
+								position[]={16453.062,15.694681,7051.4268};
 								angles[]={6.2831159,3.141593,0.00029689464};
 							};
 							side="Empty";
@@ -32885,7 +32886,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16412.063,15.121468,6570.2891};
+								position[]={16412.062,15.121468,6570.2891};
 							};
 							side="Empty";
 							flags=5;
@@ -33640,7 +33641,7 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={16450.807,15.971004,6573.2813};
+								position[]={16450.807,15.971004,6573.2812};
 								angles[]={0,5.7482767,0};
 							};
 							init="['acav_grnd_firesupport_heavy', 0] call vn_mf_fnc_veh_asset_3DEN_spawn_point";
@@ -35677,7 +35678,7 @@ class Mission
 									};
 									id=18423;
 									type="Land_HelipadEmpty_F";
-									atlOffset=0.22158813;
+									atlOffset=0.013122559;
 								};
 							};
 							id=18335;
@@ -35892,7 +35893,7 @@ class Mission
 							{
 								position[]={17225.598,30.68,5589.6104};
 							};
-							areaSize[]={0.60351563,0,0.72412109};
+							areaSize[]={0.60351562,0,0.72412109};
 							flags=1;
 							id=20639;
 							type="ModuleHideTerrainObjects_F";
@@ -36026,7 +36027,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={17205.063,34.029949,5581.4414};
+								position[]={17205.062,34.029949,5581.4414};
 								angles[]={0,2.235328,0};
 							};
 							side="Empty";
@@ -36378,7 +36379,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={17203.063,33.046379,5568.3105};
+								position[]={17203.062,33.046379,5568.3105};
 							};
 							side="Empty";
 							class Attributes
@@ -48451,7 +48452,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16358.809,74.510002,8088.9063};
+								position[]={16358.809,74.510002,8088.9062};
 								angles[]={0,0.26180294,0};
 							};
 							side="Empty";
@@ -48632,7 +48633,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={16348.769,74.651474,8144.2813};
+								position[]={16348.769,74.651474,8144.2812};
 								angles[]={0,0.2870892,0};
 							};
 							side="Empty";
@@ -58410,7 +58411,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={277.63199,132.92397,18671.313};
+								position[]={277.63199,132.92397,18671.312};
 								angles[]={0,4.7548356,0};
 							};
 							side="Empty";
@@ -61608,7 +61609,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39833;
+							angle=227.39832;
 							id=4465;
 							atlOffset=6.1035156e-05;
 						};
@@ -62456,7 +62457,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={15679.083,18.357374,7386.5313};
+						position[]={15679.083,18.357374,7386.5312};
 						angles[]={0,3.644387,0};
 					};
 					side="West";
@@ -69025,7 +69026,7 @@ class Mission
 				class Item12
 				{
 					dataType="Marker";
-					position[]={18798.813,25.046,8517.9043};
+					position[]={18798.812,25.046,8517.9043};
 					name="zone_phu_bai";
 					text="PHU BAI";
 					markerType="ELLIPSE";
@@ -69708,7 +69709,7 @@ class Mission
 					type="vn_flag_cam01";
 					alpha=0.50847155;
 					id=19629;
-					atlOffset=8.4039803;
+					atlOffset=7.9033012;
 				};
 				class Item66
 				{
@@ -70457,7 +70458,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={16412.313,14.98,7124.8232};
+				position[]={16412.312,14.98,7124.8232};
 				angles[]={0,5.4977884,0};
 			};
 			side="Empty";
@@ -71044,7 +71045,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={5766.0313,142.7028,20083.391};
+						position[]={5766.0312,142.7028,20083.391};
 					};
 					side="Empty";
 					flags=5;
