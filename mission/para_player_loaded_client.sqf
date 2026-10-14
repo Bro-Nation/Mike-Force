@@ -71,7 +71,13 @@ player addEventHandler ["Respawn", _fnc_respawnEventHandler];
 //This way they can still exit if they want.
 player enableSimulation false;
 
-[player] call vn_mf_fnc_curator_init;
+// We check the mods client side and then only if the player has them do we need to ask the server if they
+// can become a curator (via playerUID white list)
+if([player] call vn_mf_fnc_check_curator_has_mods) then {
+	diag_log format ["[CLIENT] Player %1 (%2) has required mods mods for zeus: checked for CBA", name player, getPlayerUid player];
+
+    [player] remoteExec ["vn_mf_fnc_curator_init", 2];
+};
 
 // Start loading screen, so we wait while server init completes.
 startLoadingScreen ["Welcome to Mike Force!", "MikeForce_loadingScreen"];
