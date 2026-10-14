@@ -4,7 +4,7 @@
     Author: TernaryOperator
 
     Attaches the ASL rope set the player is currently holding to the object they
-    are looking at (cursorTarget), exactly like ASL's own "Attach To Vehicle"
+    are looking at (cursorObject), exactly like ASL's own "Attach To Vehicle"
     action does. If either the helicopter or the cargo is asset-locked, it is
     unlocked first and the attach only happens once the unlock has fully completed.
 
@@ -19,7 +19,7 @@
     Behaviour:
 
         Uses the player's ASL_Ropes_Vehicle variable to find the helicopter and
-        rope set being held, and cursorTarget as the cargo. Rejected up front,
+        rope set being held, and cursorObject as the cargo. Rejected up front,
         with a systemChat message, when:
 
             - not run on a machine with an interface
@@ -69,7 +69,7 @@
 
         Client only. Exits immediately with false on a machine without an
         interface (dedicated server, headless client), as it relies on player,
-        cursorTarget and systemChat.
+        cursorObject and systemChat.
         Locality of the helicopter is handled by ASL: ASL_Attach_Ropes forwards
         itself (remoteExec) to the helicopter's owner when it isn't local here.
         Unlocking is forwarded to the server (remoteExec to 2) unless this machine
@@ -105,7 +105,7 @@ if (isNull _vehicle || {
 	false
 };
 
-private _cargo = cursorTarget;
+private _cargo = cursorObject;
 
 if (isNull _cargo) exitWith {
 	systemChat "You aren't looking at anything.";
