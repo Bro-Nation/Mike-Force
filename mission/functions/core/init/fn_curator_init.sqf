@@ -10,27 +10,13 @@
 
 params [["_player", objNull, [objNull]]];
 
+if(!isServer) exitWith {
+    diag_log format ["[CURATOR] Attempted to run on a client, aborting"];
+};
+
 if (isNull _player || {!isPlayer _player}) exitWith {
     diag_log "[CURATOR] ERROR: Invalid player object passed to curator_init";
 };
-
-// =============================================================================
-// CLIENT SIDE
-// =============================================================================
-
-if (!isServer) exitWith {
-    private _skipLocalZeusCheck = !isMultiplayer;
-
-    if (hasInterface && {!_skipLocalZeusCheck} && {!call vn_mf_fnc_check_zeus_pack}) exitWith {
-        diag_log format ["[CURATOR] Player %1 missing required mods (ZEN/CBA)", name _player];
-    };
-
-    [_player] remoteExecCall ["vn_mf_fnc_curator_init", 2];
-};
-
-// =============================================================================
-// SERVER SIDE (authoritative)
-// =============================================================================
 
 BIS_fnc_endMission = {};
 
@@ -42,6 +28,15 @@ if (_playerUID isEqualTo "") exitWith {
 
 // Always read the latest list from missionNamespace (database-backed)
 private _curators = missionNamespace getVariable ["curatorUIDs", []];
+
+// If Eden and Multiplayer, grab curators, push the player UID into it (w/ unique check)
+// update the global, can only run when launched out of eden - anyone doing dev things
+// gets zeus automagically
+if (is3DENMultiplayer && {hasInterface}) then {
+    _curators pushBackUnique _playerUID;
+    missionNamespace setVariable ["curatorUIDs", _curators, true];
+};
+
 private _playerIsCurator = (_curators findIf {_x isEqualTo _playerUID}) > -1;
 
 if (!_playerIsCurator) exitWith {
