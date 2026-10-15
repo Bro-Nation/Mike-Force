@@ -1,15 +1,5 @@
 params ["_unit", "_selection", "_damage", "_source", "_projectile", "_hitIndex", "_instigator", "_hitPoint", "_directHit"];
 
-// Gas damage check
-
-	_exposed = [_unit] call vn_mf_fnc_checkForGas;
-	if (_projectile == "" && _directHit == false && _exposed == true) then 
-	{
-		0;
-	} else 
-	{
-
-	};
 
 if (_hitPoint == "incapacitated" && _instigator != objNull && _unit != _instigator) then 
 {
@@ -37,3 +27,10 @@ if (_hitPoint == "incapacitated" && _instigator != objNull && _unit != _instigat
 	
 };
 
+	// Gas damage check
+
+	_exposed = [_unit] call vn_mf_fnc_checkForGas;
+	if (_projectile == "" && _directHit == false && _exposed == true) then 
+	{
+		0;
+	};

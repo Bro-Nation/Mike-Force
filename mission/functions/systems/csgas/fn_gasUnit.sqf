@@ -40,18 +40,20 @@ if (isPlayer _unit && _unit == player) then
     };
 } else {
     [_unit] spawn {
+            (_this # 0) setVariable ["AIGassed", true];
+            _sound = (_this # 0) say3D "cough";
 
-        _sound = (_this # 0) say3D "cough";
+            sleep 6.135;
 
-        sleep 6.135;
+            deleteVehicle _sound;
 
-        deleteVehicle _sound;
+            (_this # 0) setVariable ["AIGassed", false];
     };
 };
 
 
 // Force AI to disperse (fleeing)
-if (!isPlayer _unit) then
+if (!isPlayer _unit && ((_this # 0) getVariable "AIGassed") == true) then
 {
     // Force AI to get off static weapons
     if ((vehicle _unit) isKindOf "StaticWeapon") then
@@ -69,10 +71,14 @@ if (!isPlayer _unit) then
 
     waitUntil {[0] call BIS_fnc_countdown < 1};
 
-    // Apply effects to given unit ONLY
-    (_this # 1) ppeffectadjust [0];
-    (_this # 1) ppEffectEnable false;
-    (_this # 1) ppeffectcommit 0;
+    
+    if (isPlayer (_this # 0) && (_this # 0) == player) then
+    {
+        // Apply effects to given unit ONLY
+        (_this # 1) ppeffectadjust [0];
+        (_this # 1) ppEffectEnable false;
+        (_this # 1) ppeffectcommit 0;
+    };
 
 
     (_this # 0) setBehaviour "AWARE";
