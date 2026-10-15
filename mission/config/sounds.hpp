@@ -25,5 +25,10 @@ class CfgSounds
 	{
 		sound[] = { "custom\sounds\whistle.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
 		titles[] = { 0, "*Dac Cong Whistle Blows*" };			// subtitles
+	};
+	class cough
+	{
+		sound[] = { "custom\sounds\Hacking_Cough.ogg", 1, 1, 100 };	// file, volume, pitch, maxDistance
+		titles[] = { 0, "" };			// subtitles
 	}
 };
