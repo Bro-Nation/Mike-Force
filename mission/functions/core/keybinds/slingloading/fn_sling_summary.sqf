@@ -22,12 +22,11 @@
 
         Output example (one single systemChat line):
 
-            shorten: Attached 1: Length 8m Cargo: Huron | Rope 2: Length 15m Cargo: None
+            shorten: Rope 1: Huron | Rope 2: None
 
-        Rope sets with cargo attached are listed as "Attached N".
-        Deployed rope sets with nothing attached are listed as "Rope N ... Cargo: None".
+        Every deployed rope set is listed as "Rope N: <cargo>".
+        Rope sets with nothing attached show "None" as the cargo.
         N is the rope slot (1 = first/front slot).
-        Length is the actual current rope length, rounded to 1 decimal place.
         Cargo is shown by its config displayName, falling back to its classname.
 
         Not in a vehicle and no ASL helicopter within 20 m
@@ -46,8 +45,8 @@
 
     Usage:
 
-        [player, "action] call vn_mf_fnc_sling_summary; // when local
-        [_somePlayer, "extend"] remoteExecCall ["fn_sling_summary", _somePlayer];  // from the server
+        [player, "action"] call vn_mf_fnc_sling_summary; // when local
+        [_somePlayer, "extend"] remoteExecCall ["vn_mf_fnc_sling_summary", _somePlayer];  // from the server
 
     Locality:
 
@@ -95,17 +94,19 @@ private _parts = [];
 
 	// Any deployed rope set is listed, with or without cargo
 	if (count _ropes > 0) then {
-		// Actual current rope length, rounded to 1 decimal place
-		private _length = round ((ropeLength (_ropes select 0)) * 10) / 10;
-
 		if (isNull _cargo) then {
-			_parts pushBack format ["Rope %1: (%2m) None", _forEachIndex + 1, _length];
+			_parts pushBack format ["Rope %1: None", _forEachIndex + 1];
 		} else {
 			// Human readable cargo name from config, falling back to classname
 			private _cargoName = getText (configOf _cargo >> "displayName");
 			if (_cargoName isEqualTo "") then { _cargoName = typeOf _cargo; };
 
-			_parts pushBack format ["Rope %1: (%2m) - %3", _forEachIndex + 1, _length, _cargoName];
+            // Some of the human readable names for objects are stupidly long, cap them at 16 plus ...
+            if (count _cargoName > 16) then {
+                _cargoName = (_cargoName select [0, 16]) + "...";
+            };
+
+			_parts pushBack format ["Rope %1: %2", _forEachIndex + 1, _cargoName];
 		};
 	};
 } forEach _allRopes;

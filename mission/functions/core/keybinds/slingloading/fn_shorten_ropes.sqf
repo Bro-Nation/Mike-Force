@@ -73,9 +73,6 @@ if(_heli getVariable ["vn_mf_g_veh_asset_locked", false]) then {
 // [[ropeIndex, label], ...] for every rope set that is currently deployed
 private _active = [_heli] call ASL_Get_Active_Ropes;
 
-[player] call vn_mf_fnc_sling_summary;
-
-
 // Can exit if no ropes active
 if (_active isEqualTo []) exitWith { 0 };
 
@@ -83,5 +80,5 @@ if (_active isEqualTo []) exitWith { 0 };
     [_heli, player, _x select 0] call ASL_Shorten_Ropes;
 } forEach _active;
 
-[player] remoteExec ["vn_mf_fnc_sling_summary", player];
+[player, "Shortening"] remoteExec ["vn_mf_fnc_sling_summary", player];
 count _active

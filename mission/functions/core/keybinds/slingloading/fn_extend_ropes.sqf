@@ -70,6 +70,6 @@ if (_active isEqualTo []) exitWith { 0 };
     [_heli, player, _x select 0] call ASL_Extend_Ropes;
 } forEach _active;
 
-[player] remoteExec ["vn_mf_fnc_sling_summary", player];
+[player, "Extending"] remoteExec ["vn_mf_fnc_sling_summary", player];
 
 count _active
