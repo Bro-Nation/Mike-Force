@@ -682,6 +682,7 @@ class CfgFunctions
 			class soundranging_receive_detections {};
 			class soundranging_set_map_click_handler {};
 			class soundranging_map_click {};
+			class soundranging_on_map_closed {};
 		};
 
 		class system_soundranging_shared

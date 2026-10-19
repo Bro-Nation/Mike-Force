@@ -74,19 +74,11 @@ private _markerIndex = missionNamespace getVariable ["vn_mf_soundranging_marker_
 			continue;
 		};
 
-		private _towerMarkerName = format ["vn_mf_sr_tower_%1_%2", getPlayerUID player, _markerIndex];
-		_markerIndex = _markerIndex + 1;
 		private _arrowMarkerName = format ["vn_mf_sr_dir_%1_%2", getPlayerUID player, _markerIndex];
 		_markerIndex = _markerIndex + 1;
 
 		private _towerPos = getPosATL _tower;
 		private _arrowPos = _towerPos getPos [40, _bearing];
-
-		createMarkerLocal [_towerMarkerName, _towerPos];
-		_towerMarkerName setMarkerTypeLocal "loc_Transmitter";
-		_towerMarkerName setMarkerColorLocal "ColorOrange";
-		_towerMarkerName setMarkerTextLocal "";
-		_markers pushBack _towerMarkerName;
 
 		createMarkerLocal [_arrowMarkerName, _arrowPos];
 		_arrowMarkerName setMarkerTypeLocal "mil_arrow";
@@ -95,12 +87,6 @@ private _markerIndex = missionNamespace getVariable ["vn_mf_soundranging_marker_
 		_arrowMarkerName setMarkerTextLocal format ["%1", _bearing];
 		_markers pushBack _arrowMarkerName;
 
-		[{
-			params ["_expiredMarker"];
-			deleteMarkerLocal _expiredMarker;
-			private _currentMarkers = vn_mf_soundranging_markers;
-			vn_mf_soundranging_markers = _currentMarkers - [_expiredMarker];
-		}, [_towerMarkerName], _remainingLifetime] call CBA_fnc_waitAndExecute;
 		[{
 			params ["_expiredMarker"];
 			deleteMarkerLocal _expiredMarker;
