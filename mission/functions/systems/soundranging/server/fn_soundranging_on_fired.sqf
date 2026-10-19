@@ -24,7 +24,6 @@ private _shotPos = getPosATL _artillery;
 private _towers = missionNamespace getVariable ["vn_mf_soundranging_towers", []];
 private _activeTowers = [];
 private _bearings = [];
-private _inRangeTowerCount = 0;
 
 {
 	if (isNull _x || {!(_x getVariable ["para_s_building_functional", false])}) then {
@@ -43,7 +42,6 @@ private _inRangeTowerCount = 0;
 		continue;
 	};
 
-	_inRangeTowerCount = _inRangeTowerCount + 1;
 	private _bearing = ((_towerPos getDir _shotPos) + 360) mod 360;
 	_bearings pushBack [_tower, _bearing];
 } forEach _towers;
@@ -52,13 +50,14 @@ missionNamespace setVariable ["vn_mf_soundranging_towers", _activeTowers];
 
 if (_bearings isEqualTo []) exitWith {};
 
+private _now = serverTime;
 private _detections = missionNamespace getVariable ["vn_mf_soundranging_detections", []];
 private _mergeIndex = _detections findIf {
-	serverTime - (_x # 0) <= 4
+	_now - (_x # 0) <= 4
 };
 
 if (_mergeIndex < 0) then {
-	_detections pushBack [serverTime, _bearings];
+	_detections pushBack [_now, _bearings];
 } else {
 	private _detection = _detections # _mergeIndex;
 	private _existingBearings = _detection # 1;

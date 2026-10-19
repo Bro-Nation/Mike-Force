@@ -13,7 +13,7 @@
 	Returns:
 		Nothing
 */
-params [['_entity', objNull, [objNull]]];
+params [["_entity", objNull, [objNull]]];
 
 if (isNull _entity) exitWith {};
 if !(local _entity) exitWith {};

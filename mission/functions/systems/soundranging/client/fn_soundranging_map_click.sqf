@@ -48,29 +48,27 @@ if !(_markerName in vn_mf_soundranging_confirmed_markers) then {
 };
 
 _gun setVariable ["vn_mf_soundranging_confirmed_marker_name", _markerName, false];
-private _existingKilledEh = _gun getVariable ["vn_mf_soundranging_confirmed_killed_eh", -1];
-if (_existingKilledEh < 0) then {
-	_existingKilledEh = _gun addEventHandler ["Killed", {
+private _killedEh = _gun getVariable ["vn_mf_soundranging_confirmed_killed_eh", -1];
+if (_killedEh < 0) then {
+	_killedEh = _gun addEventHandler ["Killed", {
 		params ["_unit"];
-		private _markerName = _unit getVariable ["vn_mf_soundranging_confirmed_marker_name", ""];
-		if (_markerName isEqualTo "") exitWith {};
-		if (_markerName in vn_mf_soundranging_confirmed_markers) then {
-			deleteMarkerLocal _markerName;
-			vn_mf_soundranging_confirmed_markers = vn_mf_soundranging_confirmed_markers - [_markerName];
-		};
-		_unit setVariable ["vn_mf_soundranging_confirmed_marker_name", nil, false];
-		private _ehId = _unit getVariable ["vn_mf_soundranging_confirmed_killed_eh", -1];
-		if (_ehId >= 0) then {
-			_unit removeEventHandler ["Killed", _ehId];
-			_unit setVariable ["vn_mf_soundranging_confirmed_killed_eh", nil, false];
-		};
+		[_unit] call vn_mf_fnc_soundranging_remove_confirmed_marker;
 	}];
-	_gun setVariable ["vn_mf_soundranging_confirmed_killed_eh", _existingKilledEh, false];
+	_gun setVariable ["vn_mf_soundranging_confirmed_killed_eh", _killedEh, false];
+};
+
+private _deletedEh = _gun getVariable ["vn_mf_soundranging_confirmed_deleted_eh", -1];
+if (_deletedEh < 0) then {
+	_deletedEh = _gun addEventHandler ["Deleted", {
+		params ["_unit"];
+		[_unit] call vn_mf_fnc_soundranging_remove_confirmed_marker;
+	}];
+	_gun setVariable ["vn_mf_soundranging_confirmed_deleted_eh", _deletedEh, false];
 };
 
 _markerName setMarkerPosLocal getPosATL _gun;
 _markerName setMarkerTypeLocal "Contact_pencilTask3";
 _markerName setMarkerColorLocal "ColorGreen";
-_markerName setMarkerTextLocal "CONFIRMED GUN";
+_markerName setMarkerTextLocal "CONFIRMED TARGET";
 
 hint format ["Target confirmed at grid %1", mapGridPosition getPosATL _gun];

@@ -4,7 +4,8 @@
 	Public: No
 
 	Description:
-		Removes local sound-ranging bearing and confirmed-gun markers when the map closes.
+		Removes local sound-ranging markers and the guess button when the map closes.
+		Leaves the guess cooldown active.
 
 	Parameter(s):
 		None
@@ -15,17 +16,6 @@
 if (!hasInterface) exitWith {};
 if !(missionNamespace getVariable ["vn_mf_soundranging_map_active", false]) exitWith {};
 
-missionNamespace setVariable ["vn_mf_soundranging_map_active", false];
-[false] call vn_mf_fnc_soundranging_set_map_click_handler;
-
-private _playerMarkers = missionNamespace getVariable ["vn_mf_soundranging_markers", []];
-{
-	deleteMarkerLocal _x;
-} forEach _playerMarkers;
-vn_mf_soundranging_markers = [];
-
-private _confirmedMarkers = missionNamespace getVariable ["vn_mf_soundranging_confirmed_markers", []];
-{
-	deleteMarkerLocal _x;
-} forEach _confirmedMarkers;
-vn_mf_soundranging_confirmed_markers = [];
+// Keep the session active so reopening the map restores the guess button.
+["hide"] call vn_mf_fnc_soundranging_map_button;
+[] call vn_mf_fnc_soundranging_clear_local_markers;

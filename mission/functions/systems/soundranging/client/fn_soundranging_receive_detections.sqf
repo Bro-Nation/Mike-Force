@@ -23,25 +23,12 @@ if (remoteExecutedOwner isNotEqualTo 2) exitWith {};
 
 if (_error isNotEqualTo "") exitWith {
 	missionNamespace setVariable ["vn_mf_soundranging_map_active", false];
-	[false] call vn_mf_fnc_soundranging_set_map_click_handler;
-
-	private _playerMarkers = vn_mf_soundranging_markers;
-	{deleteMarkerLocal _x} forEach _playerMarkers;
-	vn_mf_soundranging_markers = [];
-
-	private _confirmedMarkers = vn_mf_soundranging_confirmed_markers;
-	{deleteMarkerLocal _x} forEach _confirmedMarkers;
-	vn_mf_soundranging_confirmed_markers = [];
+	["hide"] call vn_mf_fnc_soundranging_map_button;
+	[] call vn_mf_fnc_soundranging_clear_local_markers;
 	hint _error;
 };
 
-private _oldMarkers = vn_mf_soundranging_markers;
-{deleteMarkerLocal _x} forEach _oldMarkers;
-vn_mf_soundranging_markers = [];
-
-private _oldConfirmedMarkers = vn_mf_soundranging_confirmed_markers;
-{deleteMarkerLocal _x} forEach _oldConfirmedMarkers;
-vn_mf_soundranging_confirmed_markers = [];
+[] call vn_mf_fnc_soundranging_clear_local_markers;
 
 private _markers = [];
 private _now = serverTime;
@@ -99,8 +86,10 @@ private _markerIndex = missionNamespace getVariable ["vn_mf_soundranging_marker_
 vn_mf_soundranging_markers = _markers;
 missionNamespace setVariable ["vn_mf_soundranging_marker_index", _markerIndex];
 missionNamespace setVariable ["vn_mf_soundranging_map_active", true];
-[true] call vn_mf_fnc_soundranging_set_map_click_handler;
+[false] call vn_mf_fnc_soundranging_set_map_click_handler;
+missionNamespace setVariable ["vn_mf_sr_guess_armed", false];
 openMap true;
+["show"] call vn_mf_fnc_soundranging_map_button;
 
 if (_markers isEqualTo []) then {
 	hint parseText "<t size='1.2'>Sound Ranging Net</t><br/><br/>No recent artillery bearings are available.<br/>Bearings remain available for three minutes after a shot.";

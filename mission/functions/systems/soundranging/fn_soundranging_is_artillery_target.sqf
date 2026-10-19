@@ -42,7 +42,7 @@ private _artilleryClasses = [
 private _isArtillery = (typeOf _object in _artilleryClasses) || {
 	_object isKindOf "vn_howitzer_base" && {(side _object) isEqualTo east}
 } || {
-	_object isKindOf "vn_rocket_h12_launcher" || {typeOf _object == "vn_rocket_h12_launcher"}
+	_object isKindOf "vn_rocket_h12_launcher" || {typeOf _object isEqualTo "vn_rocket_h12_launcher"}
 };
 
 _isArtillery

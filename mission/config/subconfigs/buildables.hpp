@@ -2,6 +2,7 @@
 #define CONDITION_IS_ENGINEER { $STR_vn_mf_buildingMenu_condition_isEngineer, "player getUnitTrait 'engineer'"}
 #define CONDITION_IS_ON_FOOT { $STR_vn_mf_buildingMenu_condition_rnFoot, "isNull objectParent player"}
 #define CONDITION_NOT_IN_RESTRICTED_ZONE { $STR_vn_mf_buildingMenu_condition_inRestrictedZone, "vn_mf_markers_blocked_areas findIf {_pos inArea _x} isEqualTo -1"}
+#define CONDITION_IN_FSB { $STR_vn_mf_buildingMenu_condition_inFSB, "((missionNamespace getVariable ['vn_mf_markers_no_harass', []]) findIf {(_x find 'no_harass_bh_') isEqualTo 0 && {_pos inArea _x}}) >= 0"}
 #define CONDITION_IS_ACAV { $STR_vn_mf_buildingMenu_condition_inACav, "!(player getVariable ['vn_mf_db_player_group', 'MikeForce'] in ['MikeForce', 'GreenHornets', 'SpikeTeam'])"}
 #define CONDITION_IS_DAC_CONG { $STR_vn_mf_buildingMenu_condition_inDacCong, "player getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'DacCong'"}
 #define CONDITION_IN_ACTIVE_AO { $STR_vn_mf_buildingMenu_condition_inActiveAO, "private _activeZones = missionNamespace getVariable ['mf_g_dir_activeZoneNames', []]; private _aoMarker = _activeZones param [0, '']; (_aoMarker in allMapMarkers) && {_pos distance2D markerPos _aoMarker <= (getNumber (missionConfigFile >> 'map_config' >> 'bn_zone_radius') + 100)}"}
@@ -5068,11 +5069,11 @@ class vn_flag_arvn
 
 class Flag_White_F
 {
-	name = "Fire Base Flag";
+	name = "Fire Support Base";
 	type = "flag";
 	categories[] = {"flags", "qh"};
 	rank = 0;
-	SUPPLY_CAPACITY(500, DAYS_TO_SECONDS(1));
+	SUPPLY_CAPACITY(2000, DAYS_TO_SECONDS(1));
 	resupply = "BuildingSupplies";
 	conditions[] = {
 		CONDITION_HAS_RANK,
@@ -5113,11 +5114,11 @@ class Flag_White_F
 
 class Land_vn_mobileradar_01_radar_f
 {
-	name = "Sound Ranging Tower";
+	name = "Scouting Post";
 	type = "tech";
 	categories[] = {"functional", "tech", "qh"};
 	rank = 0;
-	SUPPLY_CAPACITY(750, DAYS_TO_SECONDS(2));
+	SUPPLY_CAPACITY(2000, DAYS_TO_SECONDS(2));
 	resupply = "BuildingSupplies";
 	conditions[] = {
 		CONDITION_HAS_RANK,
@@ -5140,17 +5141,18 @@ class Land_vn_mobileradar_01_radar_f
 
 class vn_b_prop_vrc12
 {
-	name = "AN/VRC-12 Sound Ranging Radio";
+	name = "Recon Radio";
 	type = "tech";
 	categories[] = {"functional", "tech", "qh"};
 	rank = 0;
-	SUPPLY_CAPACITY(250, DAYS_TO_SECONDS(1));
+	SUPPLY_CAPACITY(2000, DAYS_TO_SECONDS(1));
 	resupply = "BuildingSupplies";
 	conditions[] = {
 		CONDITION_HAS_RANK,
 		CONDITION_IS_ENGINEER,
 		CONDITION_IS_ON_FOOT,
 		CONDITION_NOT_IN_RESTRICTED_ZONE,
+		CONDITION_IN_FSB,
 		CONDITION_IS_BLACKHORSE
 	};
 	class build_states
