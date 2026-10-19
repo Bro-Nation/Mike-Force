@@ -695,6 +695,27 @@ class CfgFunctions
 			class soundranging_is_artillery_target {};
 		};
 
+		class system_counterarty_server
+		{
+			file = "functions\systems\counterarty\server";
+			class counterarty_init {};
+			class counterarty_tick {};
+			class counterarty_on_player_fire {};
+			class counterarty_start_session {};
+			class counterarty_spawn_battery {};
+			class counterarty_fire_volley {};
+			class counterarty_on_battery_destroyed {};
+			class counterarty_on_fsb_removed {};
+			class counterarty_end_session {};
+		};
+
+		class system_counterarty_shared
+		{
+			file = "functions\systems\counterarty\shared";
+			class counterarty_get_fsb_for_pos {};
+			class counterarty_get_session {};
+		};
+
 		class mod_support
 		{
 			class init_comms {};

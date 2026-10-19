@@ -436,6 +436,7 @@ init: `para_s_fnc_building_system_init`
 
 diag_log "VN MikeForce: Initialising building system";
 [] call vn_mf_fnc_soundranging_init;
+[] call vn_mf_fnc_counterarty_init;
 call para_s_fnc_building_system_init;
 
 /*
