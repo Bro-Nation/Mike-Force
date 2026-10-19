@@ -71,7 +71,7 @@ if (_spawnPos isEqualTo []) exitWith {
 };
 
 private _gunClass = missionNamespace getVariable ["vn_mf_counterarty_battery_gun_class", "vn_o_nva_static_d44_01"];
-private _gunCount = missionNamespace getVariable ["vn_mf_counterarty_battery_gun_count", 3];
+private _gunCount = missionNamespace getVariable ["vn_mf_counterarty_battery_gun_count", 1];
 private _gunSpacing = missionNamespace getVariable ["vn_mf_counterarty_battery_spacing", 18];
 
 private _group = createGroup [east, true];
@@ -99,6 +99,9 @@ if (_guns isEqualTo []) exitWith {
 };
 
 _group allowFleeing 0;
+
+private _defendObjective = [_spawnPos, 1, 1] call para_s_fnc_ai_obj_request_defend;
+_session set ["aiObjective", _defendObjective];
 
 _session set ["battery", _group];
 _session set ["guns", _guns];

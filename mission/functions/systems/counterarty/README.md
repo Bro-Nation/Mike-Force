@@ -4,10 +4,10 @@ Enemy counter-artillery that answers player mortars and howitzers firing from in
 
 ## Behaviour
 
-1. A player-crewed static mortar/howitzer fires inside an active FSB zone (`no_harass_bh_*` marker).
+1. A player-crewed static mortar/howitzer fires inside an active FSB marker (`fsb_*`, `FSB_bh_*`, or compat `no_harass_bh_*`), which is tracked in `vn_mf_markers_fsb`.
 2. A session is created for that FSB and the gun position is recorded.
 3. If no battery is alive and the respawn cooldown has expired, a three-gun battery spawns 2000-5000 m from the active AO center (marker `activeZoneCircle`), at least 1200 m from the FSB and 500 m from functional recon towers, and never inside `blocked_area*` or `no_sites_*` markers (`vn_mf_markers_blocked_areas`, `vn_mf_markers_no_sites`).
-4. Every interval each gun fires a 2-round burst at the latest recorded gun position if it is in range. With 3 guns, that is 6 shells per volley. Spread starts at 1000 m and tightens by 100 m per volley to a 150 m minimum. Players within 300 m of the FSB get a chat warning.
+4. Every interval the battery fires a 6-round burst at the latest recorded gun position if it is in range. One gun is currently used per battery, so each volley is a single 6-shell burst. Spread starts at 1000 m and tightens by 100 m per volley to a 150 m minimum. Players within 300 m of the FSB get a chat warning.
 5. Battery destroyed: volleys stop and that FSB waits the respawn cooldown before a new battery.
 6. FSB removed (marker gone): battery, crew, session, counters and cooldown are deleted.
 7. No player fire from the FSB for the timeout: the session ends and the battery is removed.
@@ -22,7 +22,7 @@ Each FSB has its own session and battery. Enemy guns are detectable by sound ran
 | Regular volley interval | 180 s |
 | Respawn after destroy | 420-600 s |
 | Quiet timeout | 600 s |
-| Rounds per volley | 2 |
+| Rounds per volley | 6 |
 
 ## Files
 

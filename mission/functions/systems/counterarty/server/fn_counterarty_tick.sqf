@@ -16,7 +16,7 @@
 if (!isServer) exitWith {};
 
 private _sessions = missionNamespace getVariable ["vn_mf_counterarty_sessions", createHashMap];
-private _activeFsbs = missionNamespace getVariable ["vn_mf_markers_no_harass", []];
+private _activeFsbs = missionNamespace getVariable ["vn_mf_markers_fsb", []];
 private _timeout = missionNamespace getVariable ["vn_mf_counterarty_timeout", 600];
 private _now = serverTime;
 

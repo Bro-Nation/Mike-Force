@@ -28,7 +28,7 @@ if (_targets isEqualTo []) exitWith {
 
 private _spread = _session get "spread";
 private _targetPos = (_targets select (count _targets - 1)) select 0;
-private _rounds = missionNamespace getVariable ["vn_mf_counterarty_rounds", 2];
+private _rounds = missionNamespace getVariable ["vn_mf_counterarty_rounds", 6];
 private _fired = false;
 
 {

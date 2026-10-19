@@ -18,3 +18,4 @@ if (!hasInterface) exitWith {};
 missionNamespace setVariable ["vn_mf_soundranging_map_active", false];
 ["hide"] call vn_mf_fnc_soundranging_map_button;
 [] call vn_mf_fnc_soundranging_clear_local_markers;
+hint "";

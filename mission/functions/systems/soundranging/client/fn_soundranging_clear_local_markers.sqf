@@ -16,9 +16,15 @@
 if (!hasInterface) exitWith {};
 
 private _markers = missionNamespace getVariable ["vn_mf_soundranging_markers", []];
+private _confirmedMarkers = missionNamespace getVariable ["vn_mf_soundranging_confirmed_markers", []];
 
 {
 	deleteMarkerLocal _x;
 } forEach _markers;
 
+{
+	deleteMarkerLocal _x;
+} forEach _confirmedMarkers;
+
 missionNamespace setVariable ["vn_mf_soundranging_markers", []];
+missionNamespace setVariable ["vn_mf_soundranging_confirmed_markers", []];

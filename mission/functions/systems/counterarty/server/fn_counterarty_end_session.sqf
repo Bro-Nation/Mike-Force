@@ -21,6 +21,11 @@ private _session = [_fsbId] call vn_mf_fnc_counterarty_get_session;
 if (count _session == 0) exitWith {};
 
 private _group = _session get "battery";
+private _objective = _session getOrDefault ["aiObjective", nil];
+if !(isNil "_objective") then {
+	[_objective] call para_s_fnc_ai_obj_finish_objective;
+};
+
 {
 	deleteVehicle _x;
 } forEach ((_session get "guns") + (if (isNull _group) then {[]} else {units _group}));

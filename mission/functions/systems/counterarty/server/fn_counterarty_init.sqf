@@ -22,7 +22,7 @@ missionNamespace setVariable ["vn_mf_counterarty_timeout", 600];
 missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown", 420];
 missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown_min", 420];
 missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown_random", 180];
-missionNamespace setVariable ["vn_mf_counterarty_rounds", 2];
+missionNamespace setVariable ["vn_mf_counterarty_rounds", 6];
 missionNamespace setVariable ["vn_mf_counterarty_start_delay_min", 60];
 missionNamespace setVariable ["vn_mf_counterarty_start_delay_random", 60];
 
@@ -32,15 +32,15 @@ missionNamespace setVariable ["vn_mf_counterarty_spread_step", 100];
 missionNamespace setVariable ["vn_mf_counterarty_spread_min", 150];
 
 // Spawn ring
-missionNamespace setVariable ["vn_mf_counterarty_spawn_ao_min", 2000];
+missionNamespace setVariable ["vn_mf_counterarty_spawn_ao_min", 750];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_ao_max", 5000];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_fsb_min", 1200];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_tower_min", 500];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_attempts", 40];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_retry_delay", 30];
 
-// Three artillery guns per battery, each firing a 2-round burst per volley.
-missionNamespace setVariable ["vn_mf_counterarty_battery_gun_count", 3];
+// Artillery gun placement
+missionNamespace setVariable ["vn_mf_counterarty_battery_gun_count", 1];
 missionNamespace setVariable ["vn_mf_counterarty_battery_gun_class", "vn_o_nva_static_d44_01"];
 missionNamespace setVariable ["vn_mf_counterarty_battery_spacing", 18];
 

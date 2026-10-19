@@ -38,7 +38,19 @@ if (count _targets > 10) then {
 _session set ["last_fire_time", _now];
 _session set ["active", true];
 
-if (!isNull (_session get "battery")) exitWith {};
-if (_now < (_session get "spawn_ready")) exitWith {};
-
-[_fsbId] call vn_mf_fnc_counterarty_spawn_battery;
+private _hasBattery = !isNull (_session get "battery");
+if (_hasBattery) then {
+	private _nextVolley = _session get "next_volley";
+	if (_nextVolley > _now) then {
+		private _reductionMin = missionNamespace getVariable ["vn_mf_counterarty_fire_reduction_min", 2];
+		private _reductionMax = missionNamespace getVariable ["vn_mf_counterarty_fire_reduction_max", 5];
+		private _reduction = _reductionMin + random (_reductionMax - _reductionMin);
+		private _newNextVolley = (_nextVolley - _reduction) max _now;
+		_session set ["next_volley", _newNextVolley];
+		diag_log format ["VN MikeForce: Counter-battery for %1 reduced next volley by %2s after player fire; due in %3s", _fsbId, round _reduction, round (_newNextVolley - _now)];
+	};
+} else {
+	if (!(_now < (_session get "spawn_ready"))) then {
+		[_fsbId] call vn_mf_fnc_counterarty_spawn_battery;
+	};
+};
