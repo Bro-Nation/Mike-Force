@@ -16,13 +16,15 @@
 */
 if (!isServer) exitWith {};
 
-private _test = missionNamespace getVariable ["vn_mf_counterarty_test_mode", false];
-
-// Timing (live / test)
-missionNamespace setVariable ["vn_mf_counterarty_interval", [180, 25] select _test];
-missionNamespace setVariable ["vn_mf_counterarty_timeout", [600, 120] select _test];
-missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown", [420, 45] select _test];
-missionNamespace setVariable ["vn_mf_counterarty_rounds", [6, 3] select _test];
+// Timing
+missionNamespace setVariable ["vn_mf_counterarty_interval", 180];
+missionNamespace setVariable ["vn_mf_counterarty_timeout", 600];
+missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown", 420];
+missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown_min", 420];
+missionNamespace setVariable ["vn_mf_counterarty_respawn_cooldown_random", 180];
+missionNamespace setVariable ["vn_mf_counterarty_rounds", 2];
+missionNamespace setVariable ["vn_mf_counterarty_start_delay_min", 60];
+missionNamespace setVariable ["vn_mf_counterarty_start_delay_random", 60];
 
 // Spread
 missionNamespace setVariable ["vn_mf_counterarty_spread_start", 1000];
@@ -32,16 +34,15 @@ missionNamespace setVariable ["vn_mf_counterarty_spread_min", 150];
 // Spawn ring
 missionNamespace setVariable ["vn_mf_counterarty_spawn_ao_min", 2000];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_ao_max", 5000];
-missionNamespace setVariable ["vn_mf_counterarty_spawn_fsb_min", 2000];
+missionNamespace setVariable ["vn_mf_counterarty_spawn_fsb_min", 1200];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_tower_min", 500];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_attempts", 40];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_retry_delay", 30];
 
-// Enemy pieces: one howitzer and one mortar
-missionNamespace setVariable ["vn_mf_counterarty_battery_classes", [
-	"vn_o_nva_static_d44",
-	"vn_o_nva_static_mortar_type63"
-]];
+// Three artillery guns per battery, each firing a 2-round burst per volley.
+missionNamespace setVariable ["vn_mf_counterarty_battery_gun_count", 3];
+missionNamespace setVariable ["vn_mf_counterarty_battery_gun_class", "vn_o_nva_static_d44_01"];
+missionNamespace setVariable ["vn_mf_counterarty_battery_spacing", 18];
 
 if (missionNamespace getVariable ["vn_mf_counterarty_initialized", false]) exitWith {};
 missionNamespace setVariable ["vn_mf_counterarty_initialized", true];

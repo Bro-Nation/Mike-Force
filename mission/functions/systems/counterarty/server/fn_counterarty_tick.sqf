@@ -44,6 +44,16 @@ private _now = serverTime;
 		continue;
 	};
 
+	if (_hasBattery) then {
+		private _nextVolley = _session get "next_volley";
+		if (_nextVolley > _now) then {
+			private _secondsToNextVolley = round (_nextVolley - _now);
+			if (_secondsToNextVolley <= 10 || {(_secondsToNextVolley % 30) == 0}) then {
+				diag_log format ["VN MikeForce: Counter-battery %1 next volley in %2s", _fsbId, _secondsToNextVolley];
+			};
+		};
+	};
+
 	if (_hasBattery && {_now >= (_session get "next_volley")}) then {
 		[_fsbId] call vn_mf_fnc_counterarty_fire_volley;
 	};

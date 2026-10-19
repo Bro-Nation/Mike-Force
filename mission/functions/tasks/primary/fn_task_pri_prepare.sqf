@@ -13,7 +13,7 @@ params ["_taskDataStore"];
 /*
 CONSTANTS
 */
-_taskDataStore setVariable ["subtaskDurationSeconds", 3 * 60];
+_taskDataStore setVariable ["subtaskDurationSeconds", 0 * 60];
 _taskDataStore setVariable ["subtaskStartTimeRTB", 0];
 _taskDataStore setVariable ["subtaskStartTimePrepare", 0];
 _taskDataStore setVariable ["warningBufferMeters", 500];

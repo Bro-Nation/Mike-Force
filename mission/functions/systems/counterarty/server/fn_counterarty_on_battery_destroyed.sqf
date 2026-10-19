@@ -31,6 +31,9 @@ if (!isNull _group) then {
 _session set ["battery", grpNull];
 _session set ["guns", []];
 _session set ["next_volley", 0];
-_session set ["spawn_ready", serverTime + (missionNamespace getVariable ["vn_mf_counterarty_respawn_cooldown", 420])];
+
+private _respawnMin = missionNamespace getVariable ["vn_mf_counterarty_respawn_cooldown_min", 420];
+private _respawnRandom = missionNamespace getVariable ["vn_mf_counterarty_respawn_cooldown_random", 180];
+_session set ["spawn_ready", serverTime + _respawnMin + random _respawnRandom];
 
 diag_log format ["VN MikeForce: Counter-battery destroyed for %1", _fsbId];

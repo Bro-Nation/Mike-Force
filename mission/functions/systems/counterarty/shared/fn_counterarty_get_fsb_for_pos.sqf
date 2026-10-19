@@ -18,7 +18,7 @@ if (_pos isEqualTo []) exitWith {""};
 
 private _markers = missionNamespace getVariable ["vn_mf_markers_no_harass", []];
 private _index = _markers findIf {
-	_x select [0, 13] isEqualTo "no_harass_bh_" && {_pos inArea _x}
+	(((_x select [0, 8]) isEqualTo "FSB_bh_") || {(_x select [0, 13]) isEqualTo "no_harass_bh_"}) && {_pos inArea _x}
 };
 
 if (_index < 0) exitWith {""};

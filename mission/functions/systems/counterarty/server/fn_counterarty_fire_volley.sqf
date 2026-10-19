@@ -28,7 +28,7 @@ if (_targets isEqualTo []) exitWith {
 
 private _spread = _session get "spread";
 private _targetPos = (_targets select (count _targets - 1)) select 0;
-private _rounds = missionNamespace getVariable ["vn_mf_counterarty_rounds", 6];
+private _rounds = missionNamespace getVariable ["vn_mf_counterarty_rounds", 2];
 private _fired = false;
 
 {
@@ -55,11 +55,5 @@ if (!_fired) exitWith {
 
 _session set ["volleys_fired", (_session get "volleys_fired") + 1];
 _session set ["spread", (_spread - (missionNamespace getVariable ["vn_mf_counterarty_spread_step", 100])) max (missionNamespace getVariable ["vn_mf_counterarty_spread_min", 150])];
-
-private _fsbPos = _session get "fsb_pos";
-private _nearPlayers = allPlayers select {_x distance2D _fsbPos < 300};
-if (_nearPlayers isNotEqualTo []) then {
-	"Enemy counter-battery fire incoming!" remoteExecCall ["systemChat", _nearPlayers];
-};
 
 diag_log format ["VN MikeForce: Counter-battery volley %1 on %2 (spread %3 m)", _session get "volleys_fired", _fsbId, _spread];

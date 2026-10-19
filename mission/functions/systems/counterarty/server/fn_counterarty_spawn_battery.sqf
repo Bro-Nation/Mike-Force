@@ -46,11 +46,16 @@ private _towerPositions = [];
 	};
 } forEach (missionNamespace getVariable ["vn_mf_soundranging_towers", []]);
 
+// Editor-placed restricted areas: blocked_area* and no_sites_*
+private _restrictedAreas = (missionNamespace getVariable ["vn_mf_markers_blocked_areas", []])
+	+ (missionNamespace getVariable ["vn_mf_markers_no_sites", []]);
+
 private _spawnPos = [];
 for "_i" from 1 to _attempts do {
 	private _pos = _aoCenter getPos [_aoMin + random (_aoMax - _aoMin), random 360];
 
 	if (surfaceIsWater _pos) then {continue};
+	if (_restrictedAreas findIf {_pos inArea _x} >= 0) then {continue};
 	if (_pos distance2D _fsbPos < _fsbMin) then {continue};
 	if (_towerPositions findIf {_x distance2D _pos < _towerMin} >= 0) then {continue};
 	if (count (_pos isFlatEmpty [-1, -1, 0.3, 6, 0, false, objNull]) == 0) then {continue};
@@ -65,11 +70,18 @@ if (_spawnPos isEqualTo []) exitWith {
 	false
 };
 
+private _gunClass = missionNamespace getVariable ["vn_mf_counterarty_battery_gun_class", "vn_o_nva_static_d44_01"];
+private _gunCount = missionNamespace getVariable ["vn_mf_counterarty_battery_gun_count", 3];
+private _gunSpacing = missionNamespace getVariable ["vn_mf_counterarty_battery_spacing", 18];
+
 private _group = createGroup [east, true];
 private _guns = [];
 
-{
-	private _gun = createVehicle [_x, _spawnPos getPos [12 * _forEachIndex, 90], [], 0, "NONE"];
+for "_i" from 0 to (_gunCount - 1) do {
+	private _gunPos = _spawnPos getPos [_gunSpacing * (_i + 1), 120 * _i];
+	if (surfaceIsWater _gunPos) then {continue};
+
+	private _gun = createVehicle [_gunClass, _gunPos, [], 0, "NONE"];
 	_gun setDir (_gun getDir _fsbPos);
 
 	private _crew = createVehicleCrew _gun;
@@ -77,14 +89,25 @@ private _guns = [];
 	deleteGroup _crew;
 
 	_guns pushBack _gun;
-} forEach (missionNamespace getVariable ["vn_mf_counterarty_battery_classes", []]);
+};
+
+if (_guns isEqualTo []) exitWith {
+	deleteGroup _group;
+	_session set ["spawn_ready", serverTime + _retryDelay];
+	diag_log format ["VN MikeForce: Counter-battery spawn produced no guns for %1", _fsbId];
+	false
+};
 
 _group allowFleeing 0;
 
 _session set ["battery", _group];
 _session set ["guns", _guns];
 _session set ["spread", missionNamespace getVariable ["vn_mf_counterarty_spread_start", 1000]];
-_session set ["next_volley", serverTime + (missionNamespace getVariable ["vn_mf_counterarty_interval", 180])];
 
-diag_log format ["VN MikeForce: Counter-battery spawned for %1 at %2", _fsbId, _spawnPos];
+private _startDelayMin = missionNamespace getVariable ["vn_mf_counterarty_start_delay_min", 60];
+private _startDelayRandom = missionNamespace getVariable ["vn_mf_counterarty_start_delay_random", 60];
+private _spawnDelay = _startDelayMin + random _startDelayRandom;
+_session set ["next_volley", serverTime + _spawnDelay];
+
+diag_log format ["VN MikeForce: Counter-battery spawned for %1 at %2 - first volley in %3s", _fsbId, _spawnPos, round _spawnDelay];
 true

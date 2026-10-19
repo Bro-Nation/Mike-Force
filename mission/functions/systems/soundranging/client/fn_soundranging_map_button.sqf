@@ -18,7 +18,7 @@ if (!hasInterface) exitWith {};
 
 private _ctrlId = 884200;
 private _displayId = 12;
-private _cooldownSecs = 10;
+private _cooldownSecs = 60;
 private _display = findDisplay _displayId;
 private _ctrl = controlNull;
 if (!isNull _display) then {
@@ -88,6 +88,7 @@ private _fnc_startTimerLoop = {
 
 switch (toLower _mode) do {
 	case "hide": {
+		missionNamespace setVariable ["vn_mf_soundranging_map_active", false];
 		if (!isNull _ctrl) then {
 			ctrlDelete _ctrl;
 		};
