@@ -38,6 +38,11 @@ missionNamespace setVariable ["vn_mf_counterarty_spawn_fsb_min", 1200];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_tower_min", 500];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_attempts", 40];
 missionNamespace setVariable ["vn_mf_counterarty_spawn_retry_delay", 30];
+missionNamespace setVariable ["vn_mf_counterarty_spawn_target_ranges", [
+	[741, 2167],
+	[1430, 4181],
+	[5720, 16725]
+]];
 
 // Artillery gun placement
 missionNamespace setVariable ["vn_mf_counterarty_battery_gun_count", 1];

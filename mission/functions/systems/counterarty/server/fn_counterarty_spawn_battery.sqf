@@ -30,11 +30,14 @@ if ((markerShape "activeZoneCircle") isEqualTo "") exitWith {
 
 private _aoCenter = getMarkerPos "activeZoneCircle";
 private _fsbPos = _session get "fsb_pos";
+private _targets = _session get "last_targets";
+private _targetPos = if (_targets isEqualTo []) then {_aoCenter} else {((_targets select (count _targets - 1)) select 0)};
 private _aoMin = missionNamespace getVariable ["vn_mf_counterarty_spawn_ao_min", 2000];
 private _aoMax = missionNamespace getVariable ["vn_mf_counterarty_spawn_ao_max", 5000];
 private _fsbMin = missionNamespace getVariable ["vn_mf_counterarty_spawn_fsb_min", 2000];
 private _towerMin = missionNamespace getVariable ["vn_mf_counterarty_spawn_tower_min", 500];
 private _attempts = missionNamespace getVariable ["vn_mf_counterarty_spawn_attempts", 40];
+private _targetRanges = missionNamespace getVariable ["vn_mf_counterarty_spawn_target_ranges", [[741, 2167], [1430, 4181], [5720, 16725]]];
 
 private _towerPositions = [];
 {
@@ -52,8 +55,13 @@ private _restrictedAreas = (missionNamespace getVariable ["vn_mf_markers_blocked
 
 private _spawnPos = [];
 for "_i" from 1 to _attempts do {
-	private _pos = _aoCenter getPos [_aoMin + random (_aoMax - _aoMin), random 360];
+	private _range = selectRandom _targetRanges;
+	private _rangeMin = _range select 0;
+	private _rangeMax = _range select 1;
+	private _distance = _rangeMin + random (_rangeMax - _rangeMin);
+	private _pos = _targetPos getPos [_distance, random 360];
 
+	if (_pos distance2D _targetPos < _rangeMin || {_pos distance2D _targetPos > _rangeMax}) then {continue};
 	if (surfaceIsWater _pos) then {continue};
 	if (_restrictedAreas findIf {_pos inArea _x} >= 0) then {continue};
 	if (_pos distance2D _fsbPos < _fsbMin) then {continue};
@@ -62,6 +70,21 @@ for "_i" from 1 to _attempts do {
 
 	_spawnPos = _pos;
 	break;
+};
+
+if (_spawnPos isEqualTo []) then {
+	for "_i" from 1 to _attempts do {
+		private _pos = _aoCenter getPos [_aoMin + random (_aoMax - _aoMin), random 360];
+
+		if (surfaceIsWater _pos) then {continue};
+		if (_restrictedAreas findIf {_pos inArea _x} >= 0) then {continue};
+		if (_pos distance2D _fsbPos < _fsbMin) then {continue};
+		if (_towerPositions findIf {_x distance2D _pos < _towerMin} >= 0) then {continue};
+		if (count (_pos isFlatEmpty [-1, -1, 0.3, 6, 0, false, objNull]) == 0) then {continue};
+
+		_spawnPos = _pos;
+		break;
+	};
 };
 
 if (_spawnPos isEqualTo []) exitWith {

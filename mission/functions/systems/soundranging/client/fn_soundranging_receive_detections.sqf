@@ -86,6 +86,12 @@ private _markerIndex = missionNamespace getVariable ["vn_mf_soundranging_marker_
 vn_mf_soundranging_markers = _markers;
 missionNamespace setVariable ["vn_mf_soundranging_marker_index", _markerIndex];
 missionNamespace setVariable ["vn_mf_soundranging_map_active", true];
+
+private _confirmedMarkers = missionNamespace getVariable ["vn_mf_soundranging_confirmed_markers", []];
+{
+	_x setMarkerAlphaLocal 1;
+} forEach _confirmedMarkers;
+
 [false] call vn_mf_fnc_soundranging_set_map_click_handler;
 missionNamespace setVariable ["vn_mf_sr_guess_armed", false];
 openMap true;
