@@ -268,7 +268,8 @@
       </Key>
 	    <Key ID="STR_vn_mf_respawn_tunnel_1">
         <Original>POW TUNNEL 1</Original>
-      <Key ID="STR_vn_mf_respawn_daccong_aotunnel">
+	    </Key>
+	    <Key ID="STR_vn_mf_respawn_daccong_aotunnel">
         <Original>AO/POW TUNNEL</Original>
       </Key>
 	    <Key ID="STR_vn_mf_respawn_daccong_powcamp">
@@ -890,6 +891,10 @@
       <Key ID="STR_vn_mf_buildingMenu_condition_inRestrictedZone">
         <Original>Restricted Zone</Original>
       </Key>
+      <Key ID="STR_vn_mf_buildingMenu_condition_inFSB">
+        <Original>Within a Fire Support Base</Original>
+        <English>Within a Fire Support Base</English>
+      </Key>
       <Key ID="STR_vn_mf_buildingMenu_condition_inActiveAO">
         <Original>Within Active AO</Original>
       </Key>
@@ -1307,6 +1312,10 @@
         <Original>Special Buildings</Original>
         <English>Special Buildings</English>
       </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_tech">
+        <Original>Technology</Original>
+        <English>Technology</English>
+      </Key>
       <Key ID="STR_vn_mf_buildingMenu_category_us">
         <Original>U.S</Original>
         <English>U.S</English>
@@ -1374,6 +1383,10 @@
       <Key ID="STR_vn_mf_buildingMenu_category_mp">
         <Original>Military Police</Original>
         <English>Military Police</English>
+      </Key>
+      <Key ID="STR_vn_mf_buildingMenu_category_qh">
+        <Original>Black Horse</Original>
+        <English>Black Horse</English>
       </Key>
       <Key ID="STR_vn_mf_buildingMenu_category_anyone">
         <Original>Anyone Can Build</Original>
@@ -1922,16 +1935,16 @@
       </Key>
 		<Key ID="STR_vn_mf_zone_the_bowl">
         <Original>The Bowl</Original>
-      </Key
+		</Key>
 	  	<Key ID="STR_vn_mf_zone_son_giang">
         <Original>Son Giang</Original>
-      </Key
+		</Key>
 	  	<Key ID="STR_vn_mf_zone_cu_yang">
         <Original>Cu Yang</Original>
-      </Key
+		</Key>
 	  	<Key ID="STR_vn_mf_zone_hill_186">
         <Original>Hill186</Original>
-      </Key
+		</Key>
     </Container>
     <Container name="ZoneName_the_bra">
       <Key ID="STR_vn_mf_zone_ban_dac_maruk">
