@@ -5095,7 +5095,7 @@ class Flag_White_F
 		};
 		class final_state
 		{
-			object_class = "Flag_White_F";
+			object_class = "Flag_black_F";
 		};
 	};
 
