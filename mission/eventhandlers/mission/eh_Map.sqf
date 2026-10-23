@@ -21,3 +21,9 @@ params
 	"_map_opened",
 	"_map_forced"
 ];
+
+if (_map_opened) then {
+	[] call vn_mf_fnc_soundranging_on_map_opened;
+} else {
+	[] call vn_mf_fnc_soundranging_on_map_closed;
+};
