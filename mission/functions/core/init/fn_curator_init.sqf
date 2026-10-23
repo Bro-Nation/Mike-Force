@@ -5,32 +5,18 @@
         Authoritative curator initialization.
         - UID check happens only on the server (source of truth)
         - Module creation + assignment happens only on the server
-        - Safe with dynamically updating curatorUIDs from database
+        - Dedicated servers use the database whitelist; local hosts whitelist their player
 */
 
 params [["_player", objNull, [objNull]]];
 
+if(!isServer) exitWith {
+    diag_log format ["[CURATOR] Attempted to run on a client, aborting"];
+};
+
 if (isNull _player || {!isPlayer _player}) exitWith {
     diag_log "[CURATOR] ERROR: Invalid player object passed to curator_init";
 };
-
-// =============================================================================
-// CLIENT SIDE
-// =============================================================================
-
-if (!isServer) exitWith {
-    private _skipLocalZeusCheck = !isMultiplayer;
-
-    if (hasInterface && {!_skipLocalZeusCheck} && {!call vn_mf_fnc_check_zeus_pack}) exitWith {
-        diag_log format ["[CURATOR] Player %1 missing required mods (ZEN/CBA)", name _player];
-    };
-
-    [_player] remoteExecCall ["vn_mf_fnc_curator_init", 2];
-};
-
-// =============================================================================
-// SERVER SIDE (authoritative)
-// =============================================================================
 
 BIS_fnc_endMission = {};
 
@@ -40,8 +26,14 @@ if (_playerUID isEqualTo "") exitWith {
     diag_log format ["[CURATOR] ERROR: Could not get UID for %1", _player];
 };
 
-// Always read the latest list from missionNamespace (database-backed)
+// Refresh the local development whitelist after the host player is available.
+if (!isDedicated) then {
+    call para_s_fnc_curator_populate;
+};
+
+// Always read the latest list from missionNamespace
 private _curators = missionNamespace getVariable ["curatorUIDs", []];
+
 private _playerIsCurator = (_curators findIf {_x isEqualTo _playerUID}) > -1;
 
 if (!_playerIsCurator) exitWith {
@@ -61,49 +53,72 @@ diag_log format [
 
 // Create the curator module if it doesn't exist yet
 if (isNull _myCurObject) then {
-    if (isNil "MikeFrcCur_group") then {
-        MikeFrcCur_group = createGroup sideLogic;
-        publicVariable "MikeFrcCur_group";
+    private _curatorClass = configFile >> "CfgVehicles" >> "ModuleCurator_F";
+    if (isClass _curatorClass) then {
+        if (isNil "MikeFrcCur_group" || {isNull MikeFrcCur_group}) then {
+            MikeFrcCur_group = createGroup sideLogic;
+        };
+
+        if (isNull MikeFrcCur_group) then {
+            diag_log format ["[CURATOR] ERROR: Could not create a sideLogic group for %1", _playerUID];
+        } else {
+            _myCurObject = MikeFrcCur_group createUnit [
+                "ModuleCurator_F",
+                [0, 90, 90],
+                [],
+                0.5,
+                "NONE"
+            ];
+
+            if (isNull _myCurObject) then {
+                diag_log format [
+                    "[CURATOR] ERROR: createUnit returned <NULL-object> for %1 (group: %2, server: %3, dedicated: %4)",
+                    _playerUID,
+                    MikeFrcCur_group,
+                    isServer,
+                    isDedicated
+                ];
+            } else {
+                _myCurObject setVariable ["showNotification", false];
+                _myCurObject setVariable ["BIS_fnc_initModules_activate", true, true];
+
+                private _moduleInitTimeout = diag_tickTime + 5;
+                waitUntil {
+                    sleep 0.1;
+                    _myCurObject getVariable ["BIS_fnc_moduleInit_status", false]
+                    || diag_tickTime > _moduleInitTimeout
+                };
+
+                if (isNull _myCurObject) then {
+                    diag_log format ["[CURATOR] ERROR: Curator module for %1 became null during initialization.", _playerUID];
+                } else {
+                    if !(_myCurObject getVariable ["BIS_fnc_moduleInit_status", false]) then {
+                        diag_log format ["[CURATOR] WARNING: Module init timed out for %1", _myCurObject];
+                    };
+
+                    private _cfg = configFile >> "CfgPatches";
+                    private _newAddons = [];
+                    for "_i" from 0 to (count _cfg - 1) do {
+                        _newAddons pushBack configName (_cfg select _i);
+                    };
+
+                    if (_newAddons isNotEqualTo []) then {
+                        _myCurObject addCuratorAddons _newAddons;
+                    };
+
+                    missionNamespace setVariable [_curVarName, _myCurObject, true];
+
+                    diag_log format ["[CURATOR] Created curator object %1 for %2", _myCurObject, _playerUID];
+                };
+            };
+        };
+    } else {
+        diag_log "[CURATOR] ERROR: ModuleCurator_F is unavailable in CfgVehicles on the server.";
     };
+};
 
-    _myCurObject = MikeFrcCur_group createUnit [
-        "ModuleCurator_F",
-        [0, 90, 90],
-        [],
-        0.5,
-        "NONE"
-    ];
-
-    _myCurObject setVariable ["showNotification", false];
-    _myCurObject setVariable ["BIS_fnc_initModules_activate", true, true];
-
-    // Wait for module init (with timeout)
-    private _moduleInitTimeout = diag_tickTime + 5;
-    waitUntil {
-        sleep 0.1;
-        _myCurObject getVariable ["BIS_fnc_moduleInit_status", false]
-        || diag_tickTime > _moduleInitTimeout
-    };
-
-    if !(_myCurObject getVariable ["BIS_fnc_moduleInit_status", false]) then {
-        diag_log format ["[CURATOR] WARNING: Module init timed out for %1", _myCurObject];
-    };
-
-    // Add all available addons
-    private _cfg = configFile >> "CfgPatches";
-    private _newAddons = [];
-    for "_i" from 0 to (count _cfg - 1) do {
-        _newAddons pushBack configName (_cfg select _i);
-    };
-
-    if (_newAddons isNotEqualTo []) then {
-        _myCurObject addCuratorAddons _newAddons;
-    };
-
-    // Store globally
-    missionNamespace setVariable [_curVarName, _myCurObject, true];
-
-    diag_log format ["[CURATOR] Created curator object %1 for %2", _myCurObject, _playerUID];
+if (isNull _myCurObject) exitWith {
+    diag_log format ["[CURATOR] ERROR: Aborting curator assignment for %1; no curator module was created.", _playerUID];
 };
 
 // Handle respawn / re-assignment

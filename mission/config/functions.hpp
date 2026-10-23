@@ -62,7 +62,6 @@ class CfgFunctions
 			{
 				postinit = 1;
 			};
-
 			class curator_init {};
 			class chat_init {};
 			class adv_revive_params {};
