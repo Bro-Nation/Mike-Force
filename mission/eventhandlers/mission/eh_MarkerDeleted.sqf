@@ -13,13 +13,15 @@
 
 params ["_marker", "_local"];
 
-if (!(_local)) exitWith {};
-if (!(visibleMap)) exitWith {};
-if (_marker in vn_mf_player_markers) exitWith  {};
-if (_marker in vn_mf_player_markers_vehicle_markers) exitWith { };
+if !(_local) exitWith {};
+if (_marker in vn_mf_soundranging_markers) exitWith {};
+if (_marker in vn_mf_soundranging_confirmed_markers) exitWith {};
+if !(visibleMap) exitWith {};
+if (_marker in vn_mf_player_markers) exitWith {};
+if (_marker in vn_mf_player_markers_vehicle_markers) exitWith {};
 
 private _text = markerText _marker;
-if (_text == "") exitWith { };
+if (_text == "") exitWith {};
 
 {
 	private _inMACV = [_x, "MACV"] call para_g_fnc_db_check_whitelist;

@@ -62,7 +62,6 @@ class CfgFunctions
 			{
 				postinit = 1;
 			};
-
 			class curator_init {};
 			class chat_init {};
 			class adv_revive_params {};
@@ -662,6 +661,65 @@ class CfgFunctions
 			file = "functions\systems\sysmsg";
 			class sysmsg_print_admin {};
 			class sysmsg_print_others {};
+		};
+
+		class system_soundranging_server
+		{
+			file = "functions\systems\soundranging\server";
+			class soundranging_init {};
+			class soundranging_attach_local_fired_handler {};
+			class soundranging_cleanup {};
+			class soundranging_on_fired {};
+			class soundranging_request_detections {};
+		};
+
+		class system_fsb_client
+		{
+			file = "functions\systems\fsb\client";
+			class fsb_update_markers {};
+		};
+
+		class system_soundranging_client
+		{
+			file = "functions\systems\soundranging\client";
+			class soundranging_add_radio_action {};
+			class soundranging_open_net {};
+			class soundranging_receive_detections {};
+			class soundranging_receive_live_detection {};
+			class soundranging_set_map_click_handler {};
+			class soundranging_map_click {};
+			class soundranging_clear_local_markers {};
+			class soundranging_update_bearing_markers {};
+			class soundranging_remove_confirmed_marker {};
+			class soundranging_map_button {};
+			class soundranging_on_map_opened {};
+			class soundranging_on_map_closed {};
+			class soundranging_update_tower_markers {};
+		};
+		class system_soundranging_shared		{
+			file = "functions\systems\soundranging";
+			class soundranging_is_artillery_target {};
+		};
+
+		class system_counterarty_server
+		{
+			file = "functions\systems\counterarty\server";
+			class counterarty_init {};
+			class counterarty_tick {};
+			class counterarty_on_player_fire {};
+			class counterarty_start_session {};
+			class counterarty_spawn_battery {};
+			class counterarty_fire_volley {};
+			class counterarty_on_battery_destroyed {};
+			class counterarty_on_fsb_removed {};
+			class counterarty_end_session {};
+		};
+
+		class system_counterarty_shared
+		{
+			file = "functions\systems\counterarty\shared";
+			class counterarty_get_fsb_for_pos {};
+			class counterarty_get_session {};
 		};
 
 		class mod_support

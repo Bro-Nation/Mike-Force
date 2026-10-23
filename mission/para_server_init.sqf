@@ -71,12 +71,8 @@ call para_s_fnc_init_whitelist;
 =========================================================================================
 job: `update_curators`
 =========================================================================================
-Update the curator whitelist every 5 minutes. Reads from the backend MySQL database via
-extDB3 and loads the player UIDs into a `publicVariable` so we can check whether a player
-can access the zeus interface (TODO: public variables for authN is probably a bad idea!).
-
-Also does a few fancy things like checking if the Zeus player has the correct modspack
-loaded etc.
+Update the curator whitelist every 5 minutes. Dedicated servers read the whitelist from
+the backend database; local and listen servers whitelist the local player when available.
 =========================================================================================
 */
 
@@ -435,6 +431,8 @@ init: `para_s_fnc_building_system_init`
 */
 
 diag_log "VN MikeForce: Initialising building system";
+[] call vn_mf_fnc_soundranging_init;
+[] call vn_mf_fnc_counterarty_init;
 call para_s_fnc_building_system_init;
 
 /*
