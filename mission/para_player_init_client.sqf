@@ -501,3 +501,9 @@ player addEventHandler ["Respawn", {
         //systemChat format ["DEBUG: Applied insignia '%1' to player %2 after respawn.", _insignia, name _unit];
     };
 }];
+
+// One off *or* small sets of binds that don't have/need a specific home
+[] call vn_mf_fnc_bn_add_generic_keybinds;
+
+// Slingloading specifica keybinds
+[] call vn_mf_fnc_bn_add_slingload_keybinds;
