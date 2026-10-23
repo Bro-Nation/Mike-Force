@@ -4,22 +4,41 @@
 	Public: No
 
 	Description:
-		Displays received bearings as local markers and opens the map.
+		Displays received bearings, synchronizes the guess cooldown, and opens the map.
 
 	Parameter(s):
 		_detections - Recent sound-ranging detections [ARRAY]
 		_error - Error message from the server [STRING]
+		_cooldownUntil - Server cooldown deadline [NUMBER]
+		_guessPosition - Accepted map guess position [ARRAY]
+		_stateOnly - True when only applying guess state [BOOL]
+		_acceptedGuess - True when the server accepted this client's guess [BOOL]
 
 	Returns:
 		Nothing
 */
 params [
 	["_detections", [], [[]]],
-	["_error", "", [""]]
+	["_error", "", [""]],
+	["_cooldownUntil", 0, [0]],
+	["_guessPosition", [], [[]]],
+	["_stateOnly", false, [false]],
+	["_acceptedGuess", false, [false]]
 ];
 
 if (!hasInterface) exitWith {};
 if (remoteExecutedOwner isNotEqualTo 2) exitWith {};
+
+["sync_cooldown", _cooldownUntil] call vn_mf_fnc_soundranging_map_button;
+
+if (_stateOnly) exitWith {
+	if (_error isNotEqualTo "") then {
+		hint _error;
+	};
+	if (_acceptedGuess) then {
+		[_guessPosition] call vn_mf_fnc_soundranging_map_click;
+	};
+};
 
 if (_error isNotEqualTo "") exitWith {
 	missionNamespace setVariable ["vn_mf_soundranging_map_active", false];
@@ -30,61 +49,7 @@ if (_error isNotEqualTo "") exitWith {
 
 [] call vn_mf_fnc_soundranging_clear_local_markers;
 
-private _markers = [];
-private _now = serverTime;
-private _markerIndex = missionNamespace getVariable ["vn_mf_soundranging_marker_index", 0];
-
-{
-	if !(_x isEqualType [] && {count _x >= 2}) then {
-		continue;
-	};
-
-	private _detectionTime = _x # 0;
-	private _bearings = _x # 1;
-	if (!(_detectionTime isEqualType 0) || {!(_bearings isEqualType [])}) then {
-		continue;
-	};
-
-	private _remainingLifetime = 180 - (_now - _detectionTime);
-	if (_remainingLifetime <= 0) then {
-		continue;
-	};
-
-	{
-		if !(_x isEqualType [] && {count _x >= 2}) then {
-			continue;
-		};
-
-		private _tower = _x # 0;
-		private _bearing = _x # 1;
-		if (!(_tower isEqualType objNull) || {isNull _tower} || {!(_bearing isEqualType 0)}) then {
-			continue;
-		};
-
-		private _arrowMarkerName = format ["vn_mf_sr_dir_%1_%2", getPlayerUID player, _markerIndex];
-		_markerIndex = _markerIndex + 1;
-
-		private _towerPos = getPosATL _tower;
-		private _arrowPos = _towerPos getPos [40, _bearing];
-
-		createMarkerLocal [_arrowMarkerName, _arrowPos];
-		_arrowMarkerName setMarkerTypeLocal "mil_arrow";
-		_arrowMarkerName setMarkerDirLocal _bearing;
-		_arrowMarkerName setMarkerColorLocal "ColorOrange";
-		_arrowMarkerName setMarkerTextLocal format ["%1", _bearing];
-		_markers pushBack _arrowMarkerName;
-
-		[{
-			params ["_expiredMarker"];
-			deleteMarkerLocal _expiredMarker;
-			private _currentMarkers = vn_mf_soundranging_markers;
-			vn_mf_soundranging_markers = _currentMarkers - [_expiredMarker];
-		}, [_arrowMarkerName], _remainingLifetime] call CBA_fnc_waitAndExecute;
-	} forEach _bearings;
-} forEach _detections;
-
-vn_mf_soundranging_markers = _markers;
-missionNamespace setVariable ["vn_mf_soundranging_marker_index", _markerIndex];
+private _markers = [_detections] call vn_mf_fnc_soundranging_update_bearing_markers;
 missionNamespace setVariable ["vn_mf_soundranging_map_active", true];
 [] call vn_mf_fnc_soundranging_update_tower_markers;
 

@@ -7,18 +7,21 @@
 		Manages the sound-ranging map guess button and its persistent cooldown.
 
 	Parameter(s):
-		_mode - "show" | "hide" | "start_cooldown" [STRING]
+		_mode - "show" | "hide" | "sync_cooldown" [STRING]
+		_cooldownUntil - Server cooldown deadline [NUMBER]
 
 	Returns:
 		Nothing
 */
-params [["_mode", "show", [""]]];
+params [
+	["_mode", "show", [""]],
+	["_cooldownUntil", 0, [0]]
+];
 
 if (!hasInterface) exitWith {};
 
 private _ctrlId = 884200;
 private _displayId = 12;
-private _cooldownSecs = 60;
 private _display = findDisplay _displayId;
 private _ctrl = controlNull;
 if (!isNull _display) then {
@@ -32,9 +35,9 @@ private _fnc_applyState = {
 	private _until = missionNamespace getVariable ["vn_mf_sr_guess_cooldown_until", 0];
 	private _armed = missionNamespace getVariable ["vn_mf_sr_guess_armed", false];
 
-	if (time < _until) then {
+	if (serverTime < _until) then {
 		_ctrl ctrlEnable false;
-		_ctrl ctrlSetText format ["COOLDOWN: %1s", ceil (_until - time)];
+		_ctrl ctrlSetText format ["COOLDOWN: %1s", ceil (_until - serverTime)];
 	} else {
 		if (_armed) then {
 			_ctrl ctrlEnable false;
@@ -57,8 +60,9 @@ private _fnc_startTimerLoop = {
 
 		while {true} do {
 			private _until = missionNamespace getVariable ["vn_mf_sr_guess_cooldown_until", 0];
-			if (time >= _until) exitWith {
+			if (serverTime >= _until) exitWith {
 				missionNamespace setVariable ["vn_mf_sr_guess_timer_running", false];
+				missionNamespace setVariable ["vn_mf_sr_guess_cooldown_until", 0];
 				private _display = findDisplay _displayId;
 				if (!isNull _display) then {
 					private _ctrl = _display displayCtrl _ctrlId;
@@ -77,7 +81,7 @@ private _fnc_startTimerLoop = {
 				private _ctrl = _display displayCtrl _ctrlId;
 				if (!isNull _ctrl) then {
 					_ctrl ctrlEnable false;
-					_ctrl ctrlSetText format ["COOLDOWN: %1s", ceil (_until - time)];
+					_ctrl ctrlSetText format ["COOLDOWN: %1s", ceil (_until - serverTime)];
 				};
 			};
 
@@ -96,14 +100,22 @@ switch (toLower _mode) do {
 		[false] call vn_mf_fnc_soundranging_set_map_click_handler;
 	};
 
-	case "start_cooldown": {
-		private _until = time + _cooldownSecs;
-		missionNamespace setVariable ["vn_mf_sr_guess_cooldown_until", _until];
-		missionNamespace setVariable ["vn_mf_sr_guess_armed", false];
-		[false] call vn_mf_fnc_soundranging_set_map_click_handler;
+	case "sync_cooldown": {
+		private _currentUntil = missionNamespace getVariable ["vn_mf_sr_guess_cooldown_until", 0];
+		if (
+			_cooldownUntil >= _currentUntil
+			|| {serverTime >= _currentUntil}
+		) then {
+			private _until = if (_cooldownUntil > serverTime) then {_cooldownUntil} else {0};
+			missionNamespace setVariable ["vn_mf_sr_guess_cooldown_until", _until];
+			missionNamespace setVariable ["vn_mf_sr_guess_armed", false];
+			[false] call vn_mf_fnc_soundranging_set_map_click_handler;
 
-		[_ctrl] call _fnc_applyState;
-		[_displayId, _ctrlId] call _fnc_startTimerLoop;
+			[_ctrl] call _fnc_applyState;
+			if (serverTime < _until) then {
+				[_displayId, _ctrlId] call _fnc_startTimerLoop;
+			};
+		};
 	};
 
 	case "show": {
@@ -126,9 +138,9 @@ switch (toLower _mode) do {
 				params ["_ctrl"];
 
 				private _until = missionNamespace getVariable ["vn_mf_sr_guess_cooldown_until", 0];
-				if (time < _until) exitWith {
+				if (serverTime < _until) exitWith {
 					_ctrl ctrlEnable false;
-					_ctrl ctrlSetText format ["COOLDOWN: %1s", ceil (_until - time)];
+					_ctrl ctrlSetText format ["COOLDOWN: %1s", ceil (_until - serverTime)];
 				};
 				if (missionNamespace getVariable ["vn_mf_sr_guess_armed", false]) exitWith {};
 
@@ -143,7 +155,7 @@ switch (toLower _mode) do {
 		[_ctrl] call _fnc_applyState;
 
 		private _until = missionNamespace getVariable ["vn_mf_sr_guess_cooldown_until", 0];
-		if (time < _until) then {
+		if (serverTime < _until) then {
 			[_displayId, _ctrlId] call _fnc_startTimerLoop;
 		};
 	};

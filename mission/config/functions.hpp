@@ -686,9 +686,11 @@ class CfgFunctions
 			class soundranging_add_radio_action {};
 			class soundranging_open_net {};
 			class soundranging_receive_detections {};
+			class soundranging_receive_live_detection {};
 			class soundranging_set_map_click_handler {};
 			class soundranging_map_click {};
 			class soundranging_clear_local_markers {};
+			class soundranging_update_bearing_markers {};
 			class soundranging_remove_confirmed_marker {};
 			class soundranging_map_button {};
 			class soundranging_on_map_opened {};

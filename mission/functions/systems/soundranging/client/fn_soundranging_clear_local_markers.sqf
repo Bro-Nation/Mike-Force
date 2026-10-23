@@ -22,3 +22,4 @@ private _markers = missionNamespace getVariable ["vn_mf_soundranging_markers", [
 } forEach _markers;
 
 missionNamespace setVariable ["vn_mf_soundranging_markers", []];
+missionNamespace setVariable ["vn_mf_soundranging_bearing_marker_entries", []];

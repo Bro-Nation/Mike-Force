@@ -4,8 +4,8 @@
 	Public: No
 
 	Description:
-		Installs or removes the one-shot map-click handler and starts cooldown
-		after a guess click is processed.
+		Installs or removes the one-shot map-click handler and submits a selected
+		guess to the server.
 
 	Parameter(s):
 		_enabled - True to listen for one click, false to remove the listener [BOOL]
@@ -28,8 +28,7 @@ if (!_enabled) exitWith {};
 _handlerId = addMissionEventHandler ["MapSingleClick", {
 	params ["_units", "_position", "_alt", "_shift"];
 	[false] call vn_mf_fnc_soundranging_set_map_click_handler;
-	[_position] call vn_mf_fnc_soundranging_map_click;
-	["start_cooldown"] call vn_mf_fnc_soundranging_map_button;
+	[objNull, player, _position, true] remoteExec ["vn_mf_fnc_soundranging_request_detections", 2];
 }];
 
 missionNamespace setVariable ["vn_mf_soundranging_map_click_handler_id", _handlerId];

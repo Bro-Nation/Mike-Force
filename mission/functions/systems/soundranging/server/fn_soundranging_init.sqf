@@ -19,6 +19,7 @@ if (isServer) then {
 	missionNamespace setVariable ["vn_mf_soundranging_initialized", true];
 	missionNamespace setVariable ["vn_mf_soundranging_towers", []];
 	missionNamespace setVariable ["vn_mf_soundranging_detections", []];
+	missionNamespace setVariable ["vn_mf_sr_guess_cooldown_until", 0];
 	["soundranging_cleanup", vn_mf_fnc_soundranging_cleanup, [], 30] call para_g_fnc_scheduler_add_job;
 };
 

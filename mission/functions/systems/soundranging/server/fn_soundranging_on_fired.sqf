@@ -52,18 +52,24 @@ if (_bearings isEqualTo []) exitWith {};
 
 private _now = serverTime;
 private _detections = missionNamespace getVariable ["vn_mf_soundranging_detections", []];
+private _liveDetection = [_now, _bearings, _artillery];
 private _mergeIndex = _detections findIf {
-	_now - (_x # 0) <= 4
+	(_x param [2, objNull]) isEqualTo _artillery
+	&& {_now - (_x # 0) <= 4}
 };
 
+private _detection = _liveDetection;
 if (_mergeIndex < 0) then {
-	_detections pushBack [_now, _bearings];
+	_detections pushBack _detection;
 } else {
-	private _detection = _detections # _mergeIndex;
+	_detection = _detections # _mergeIndex;
 	private _existingBearings = _detection # 1;
 	_existingBearings append _bearings;
+	_detection set [0, _now];
 	_detection set [1, _existingBearings];
+	_detection set [2, _artillery];
 	_detections set [_mergeIndex, _detection];
 };
 
 missionNamespace setVariable ["vn_mf_soundranging_detections", _detections];
+[_liveDetection] remoteExec ["vn_mf_fnc_soundranging_receive_live_detection", 0];

@@ -32,7 +32,7 @@ _entity addEventHandler ["Fired", {
 		[_unit] call vn_mf_fnc_soundranging_on_fired;
 		[_unit] call vn_mf_fnc_counterarty_on_player_fire;
 	} else {
-		[_unit] remoteExecCall ["vn_mf_fnc_soundranging_on_fired", 2];
-		[_unit] remoteExecCall ["vn_mf_fnc_counterarty_on_player_fire", 2];
+		[_unit] remoteExec ["vn_mf_fnc_soundranging_on_fired", 2];
+		[_unit] remoteExec ["vn_mf_fnc_counterarty_on_player_fire", 2];
 	};
 }];
