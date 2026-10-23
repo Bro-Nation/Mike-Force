@@ -150,6 +150,12 @@ _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 [] call vn_mf_fnc_soundranging_init;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
+[] call vn_mf_fnc_soundranging_update_tower_markers;
+_loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+
+[] call vn_mf_fnc_fsb_update_markers;
+_loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+
 // @dijksterhuis: we should only need to call this once? -- when the player joins?
 // only reason to keep adding actions after attach to player would be if the actions
 // are removed from player object.

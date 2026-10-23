@@ -15,4 +15,5 @@
 if (!hasInterface) exitWith {};
 if !(missionNamespace getVariable ["vn_mf_soundranging_map_active", false]) exitWith {};
 
+[] call vn_mf_fnc_soundranging_update_tower_markers;
 ["show"] call vn_mf_fnc_soundranging_map_button;

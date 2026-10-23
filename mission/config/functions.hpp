@@ -674,6 +674,12 @@ class CfgFunctions
 			class soundranging_request_detections {};
 		};
 
+		class system_fsb_client
+		{
+			file = "functions\systems\fsb\client";
+			class fsb_update_markers {};
+		};
+
 		class system_soundranging_client
 		{
 			file = "functions\systems\soundranging\client";
@@ -687,10 +693,9 @@ class CfgFunctions
 			class soundranging_map_button {};
 			class soundranging_on_map_opened {};
 			class soundranging_on_map_closed {};
+			class soundranging_update_tower_markers {};
 		};
-
-		class system_soundranging_shared
-		{
+		class system_soundranging_shared		{
 			file = "functions\systems\soundranging";
 			class soundranging_is_artillery_target {};
 		};
