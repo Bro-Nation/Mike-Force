@@ -18,6 +18,11 @@
 
 params ["_vehicle"];
 
+private _vehicleType = toLower (typeOf _vehicle);
+
+// M577 command/medical bypass, this is so the tent show properly.
+if ((_vehicleType find "_armor_m577_") > -1) exitWith {};
+
 //Prevent locking if a player is within 10 (?) metres
 if (allPlayers inAreaArray [getPos _vehicle, 10, 10] isNotEqualTo [] || _vehicle getVariable ["vn_mf_g_veh_asset_locked", false]) exitWith {};
 

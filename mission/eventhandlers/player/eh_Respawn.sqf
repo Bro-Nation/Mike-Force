@@ -38,7 +38,12 @@ _unit setVariable ["vn_mf_side", side player, true];
 // re-add hold/add actions onto the newly respawned player
 call vn_mf_fnc_action_init;
 
-[player] call vn_mf_fnc_curator_init;
+// Check required mods on the client; the server remains authoritative for curator access.
+if (hasInterface && {[] call vn_mf_fnc_check_zeus_pack}) then {
+	diag_log format ["[CLIENT] Player %1 (%2) has required mods for Zeus", name player, getPlayerUID player];
+
+	[player] remoteExec ["vn_mf_fnc_curator_init", 2];
+};
 
 // reset the emotes menu setup because player object has now changed!
 [player] call vn_mf_fnc_emotes_init;

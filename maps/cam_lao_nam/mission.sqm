@@ -2,13 +2,13 @@ version=54;
 class EditorData
 {
 	moveGridStep=0.5;
-	angleGridStep=0.08726646;
+	angleGridStep=0.2617994;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=1578;
+	toggles=554;
 	class ItemIDProvider
 	{
-		nextID=22077;
+		nextID=22079;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=37849;
+		nextID=37883;
 	};
 	class Camera
 	{
-		pos[]={17319.668,25.984291,7002.856};
-		dir[]={0.89033884,-0.45504317,-0.020551639};
-		up[]={0.4549571,0.8904447,-0.010501917};
-		aside[]={-0.023078738,3.8996859e-08,-0.99982941};
+		pos[]={16421.92,49.973488,6485.0527};
+		dir[]={-0.38256875,-0.752312,0.53635758};
+		up[]={-0.4368619,0.65880591,0.61247635};
+		aside[]={0.81412882,2.3422763e-07,0.58069479};
 	};
 };
 binarizationWanted=0;
@@ -458,8 +458,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -509,8 +509,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -566,7 +566,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=330;
+		items=332;
 		class Item0
 		{
 			dataType="Marker";
@@ -5552,11 +5552,11 @@ class Mission
 						};
 					};
 					id=18329;
-					atlOffset=0.52131557;
+					atlOffset=1.0426311;
 				};
 			};
 			id=686;
-			atlOffset=57.019318;
+			atlOffset=5.5012131;
 		};
 		class Item6
 		{
@@ -61609,7 +61609,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39832;
+							angle=227.39828;
 							id=4465;
 							atlOffset=6.1035156e-05;
 						};
@@ -79810,6 +79810,103 @@ class Mission
 			};
 			id=22067;
 			type="Lantern_01_black_F";
+		};
+		class Item330
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={16402.113,15.510089,6504.8369};
+				angles[]={0,4.712389,-0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[this] call vn_mf_fnc_spawn_tank_dozer;";
+				disableSimulation=1;
+			};
+			id=22077;
+			type="Sign_Arrow_Direction_F";
+			atlOffset=0.47200012;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
+		};
+		class Item331
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={17190.566,31.382814,5568.9141};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[this] call vn_mf_fnc_spawn_tank_dozer;";
+				disableSimulation=1;
+			};
+			id=22078;
+			type="Sign_Arrow_Direction_F";
+			atlOffset=0.60000038;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 	class Connections
