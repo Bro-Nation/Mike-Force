@@ -8,22 +8,22 @@ class EditorData
 	toggles=1642;
 	class ItemIDProvider
 	{
-		nextID=26554;
+		nextID=26581;
 	};
 	class MarkerIDProvider
 	{
-		nextID=165;
+		nextID=190;
 	};
 	class LayerIndexProvider
 	{
-		nextID=36375;
+		nextID=37779;
 	};
 	class Camera
 	{
-		pos[]={16123.624,134.56383,6646.7134};
-		dir[]={0.78632677,-0.41530979,0.45757928};
-		up[]={0.35902861,0.90962613,0.20892596};
-		aside[]={0.50300252,-6.0722232e-07,-0.86438727};
+		pos[]={16030.386,151.83662,8039.4722};
+		dir[]={-0.53622586,-0.7236287,0.43473816};
+		up[]={-0.56217325,0.69010359,0.45577428};
+		aside[]={0.62981802,1.3271347e-07,0.77685267};
 	};
 };
 binarizationWanted=0;
@@ -146,7 +146,8 @@ addons[]=
 	"env_assets_f_vietnam_c",
 	"A3_Structures_F_EPC_Civ_Accessories",
 	"A3_Props_F_Decade_Civilian_Camping",
-	"A3_Props_F_AoW_Civilian_Gallery"
+	"A3_Props_F_AoW_Civilian_Gallery",
+	"A3_Weapons_F_Explosives"
 };
 class AddonsMetaData
 {
@@ -655,8 +656,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -706,8 +707,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -763,7 +764,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=561;
+		items=588;
 		class Item0
 		{
 			dataType="Marker";
@@ -137610,7 +137611,7 @@ class Mission
 		class Item410
 		{
 			dataType="Marker";
-			position[]={15998.395,0,8121.4688};
+			position[]={15998.395,0,8121.4692};
 			name="training_water_supply_0";
 			type="Empty";
 			colorName="ColorOrange";
@@ -137698,8 +137699,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={15944.135,12.44182,7989.0391};
-				angles[]={0,1.7455037,0};
+				position[]={15944.135,12.441377,7989.0391};
+				angles[]={0,1.7455038,0};
 			};
 			side="Empty";
 			flags=5;
@@ -137710,7 +137711,7 @@ class Mission
 			};
 			id=26131;
 			type="Land_vn_infostand_v1_f";
-			atlOffset=-0.2155571;
+			atlOffset=-0.21600056;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -147931,7 +147932,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16405.383,15.794844,6503.748};
-				angles[]={0,4.712389,-0};
+				angles[]={0,4.712389,0};
 			};
 			side="Empty";
 			flags=1;
@@ -147980,7 +147981,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16204.068,15.796179,6541.498};
-				angles[]={0,2.0943952,-0};
+				angles[]={0,2.0943952,0};
 			};
 			side="Empty";
 			flags=1;
@@ -148022,6 +148023,308 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item561
+		{
+			dataType="Marker";
+			position[]={15308.045,0,8006.77};
+			name="training_sea_mines_3";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26554;
+			atlOffset=6.1181397;
+		};
+		class Item562
+		{
+			dataType="Marker";
+			position[]={15321.027,0,7992.542};
+			name="training_sea_mines_2";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26555;
+			atlOffset=6.0023484;
+		};
+		class Item563
+		{
+			dataType="Marker";
+			position[]={15338.901,0,8000.3672};
+			name="training_sea_mines_1";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26556;
+			atlOffset=6.0641699;
+		};
+		class Item564
+		{
+			dataType="Marker";
+			position[]={15333.744,0,8014.5068};
+			name="training_sea_mines_0";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26557;
+			atlOffset=6.4653463;
+		};
+		class Item565
+		{
+			dataType="Marker";
+			position[]={15317.736,0,8019.6641};
+			name="training_sea_mines_4";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26558;
+			atlOffset=6.2990308;
+		};
+		class Item566
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15354.464,3.7196329,7963.019};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="training_sea_mines_0";
+			};
+			id=26559;
+			type="UnderwaterMine";
+		};
+		class Item567
+		{
+			dataType="Marker";
+			position[]={15390.255,0,8176.5762};
+			name="training_sea_mines_9";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26560;
+			atlOffset=6.5095811;
+		};
+		class Item568
+		{
+			dataType="Marker";
+			position[]={15399.576,0,8177.5039};
+			name="training_sea_mines_8";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26561;
+			atlOffset=6.3081894;
+		};
+		class Item569
+		{
+			dataType="Marker";
+			position[]={15399.332,0,8184.0918};
+			name="training_sea_mines_7";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26562;
+			atlOffset=6.7620778;
+		};
+		class Item570
+		{
+			dataType="Marker";
+			position[]={15402.944,0,8189.7051};
+			name="training_sea_mines_6";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26563;
+			atlOffset=6.19134;
+		};
+		class Item571
+		{
+			dataType="Marker";
+			position[]={15393.867,0,8192.0957};
+			name="training_sea_mines_5";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26564;
+			atlOffset=6.2433248;
+		};
+		class Item572
+		{
+			dataType="Marker";
+			position[]={15501.492,0,8343.6826};
+			name="training_sea_mines_10";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26565;
+			atlOffset=6.1507034;
+		};
+		class Item573
+		{
+			dataType="Marker";
+			position[]={15503.94,0,8351.0264};
+			name="training_sea_mines_14";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26566;
+			atlOffset=6.3230472;
+		};
+		class Item574
+		{
+			dataType="Marker";
+			position[]={15510.445,0,8349.0674};
+			name="training_sea_mines_12";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26567;
+			atlOffset=6.2109423;
+		};
+		class Item575
+		{
+			dataType="Marker";
+			position[]={15511.845,0,8355.2939};
+			name="training_sea_mines_15";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26568;
+			atlOffset=5.8384304;
+		};
+		class Item576
+		{
+			dataType="Marker";
+			position[]={15517.44,0,8352.1465};
+			name="training_sea_mines_13";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26569;
+			atlOffset=5.4429917;
+		};
+		class Item577
+		{
+			dataType="Marker";
+			position[]={15506.669,0,8346.5488};
+			name="training_sea_mines_11";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26570;
+			atlOffset=6.2426929;
+		};
+		class Item578
+		{
+			dataType="Marker";
+			position[]={15994.315,0,8114.6411};
+			name="training_sea_mines_20";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26571;
+			atlOffset=6.8473825;
+		};
+		class Item579
+		{
+			dataType="Marker";
+			position[]={16002.455,0,8113.7749};
+			name="training_sea_mines_19";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26572;
+			atlOffset=6.291141;
+		};
+		class Item580
+		{
+			dataType="Marker";
+			position[]={16005.656,0,8119.7061};
+			name="training_sea_mines_18";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26573;
+			atlOffset=5.9638343;
+		};
+		class Item581
+		{
+			dataType="Marker";
+			position[]={15999.813,0,8125.981};
+			name="training_sea_mines_17";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26574;
+			atlOffset=5.6960073;
+		};
+		class Item582
+		{
+			dataType="Marker";
+			position[]={15993.885,0,8123.73};
+			name="training_sea_mines_16";
+			type="Empty";
+			colorName="ColorYellow";
+			id=26575;
+			atlOffset=6.51016;
+		};
+		class Item583
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={15943.886,12.583055,7988.0864};
+				angles[]={0,1.8325957,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				init="this execVM ""training\scripts\sea_mines\setup_training_sea_mines_console.sqf"";";
+				disableSimulation=1;
+			};
+			id=26576;
+			type="Land_InfoStand_V1_F";
+			atlOffset=-0.018000603;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item584
+		{
+			dataType="Marker";
+			position[]={15963.812,0,8059.792};
+			name="training_water_supply_8";
+			type="Empty";
+			colorName="ColorOrange";
+			id=26577;
+			atlOffset=4.8845992;
+		};
+		class Item585
+		{
+			dataType="Marker";
+			position[]={15971.451,0,8059.8862};
+			name="training_water_supply_7";
+			type="Empty";
+			colorName="ColorOrange";
+			id=26578;
+			atlOffset=4.888938;
+		};
+		class Item586
+		{
+			dataType="Marker";
+			position[]={15979.105,0,8059.6611};
+			name="training_water_supply_6";
+			type="Empty";
+			colorName="ColorOrange";
+			id=26579;
+			atlOffset=4.9455104;
+		};
+		class Item587
+		{
+			dataType="Marker";
+			position[]={15986.179,0,8059.4111};
+			name="training_water_supply_5";
+			type="Empty";
+			colorName="ColorOrange";
+			id=26580;
+			atlOffset=5.3821278;
 		};
 	};
 	class Connections
