@@ -24,6 +24,7 @@ params ["_reentryPoints"];
     
     [
         _x,
+        format ["vn_mf_tunnel_reentry_action_%1", netId _x],
         "<t color='#ff8800'>Re-enter Tunnel</t>",
         "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
         "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
@@ -57,5 +58,5 @@ params ["_reentryPoints"];
         100,
         false,
         false
-    ] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipId];
+    ] remoteExecCall ["vn_mf_fnc_action_holdActionAdd", 0, _jipId];
 } forEach _reentryPoints;

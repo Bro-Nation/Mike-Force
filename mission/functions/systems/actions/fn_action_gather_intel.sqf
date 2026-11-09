@@ -70,6 +70,7 @@ private _showWhenUncon = false;
 
 [
 	_object,
+	"vn_mf_action_gather_intel",
 	_title,
 	_iconIdle,
 	_iconProgress,
@@ -84,4 +85,4 @@ private _showWhenUncon = false;
 	_priority,
 	_removeWhenCompleted,
 	_showWhenUncon
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;

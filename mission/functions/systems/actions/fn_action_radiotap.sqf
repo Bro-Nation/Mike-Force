@@ -76,6 +76,7 @@ private _showWhenUncon = false;
 
 [
 	player,
+	"vn_mf_action_radiotap",
 	_actionText,
 	_actionIdleIcon,
 	_actionProgressIcon,
@@ -90,4 +91,4 @@ private _showWhenUncon = false;
 	_actionPriority,
 	_actionRemoveOnComplete,
 	_showWhenUncon
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;

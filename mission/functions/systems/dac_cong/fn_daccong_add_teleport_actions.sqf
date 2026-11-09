@@ -22,6 +22,7 @@ private _powCampMarker = "mf_dc_respawn_daccong_powcamp";
 
 [
     player,
+    "vn_mf_daccong_tunnel_teleport_action",
     "<t color='#ffaa00'>Teleport to Tunnel</t>",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
@@ -47,10 +48,11 @@ private _powCampMarker = "mf_dc_respawn_daccong_powcamp";
     100,
     false,
     false
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;
 
 [
     player,
+    "vn_mf_daccong_powcamp_teleport_action",
     "<t color='#ffaa00'>Teleport to POW Camp</t>",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
@@ -77,4 +79,4 @@ private _powCampMarker = "mf_dc_respawn_daccong_powcamp";
     100,
     false,
     false
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;
