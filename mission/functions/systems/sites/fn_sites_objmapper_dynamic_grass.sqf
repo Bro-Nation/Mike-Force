@@ -21,11 +21,21 @@
 
 params ["_composition_arr", ["_grassBadChance", 0.4]];
 
+if !(_composition_arr isEqualType []) exitWith { [] };
+
 private _grass_arr = _composition_arr select { ((_x select 0) isEqualTo "Land_vn_elephant_grass_01" ) };
 private _non_grass_arr = _composition_arr select { !((_x select 0) isEqualTo "Land_vn_elephant_grass_01" ) };
 
 private _randomAngle = [0,360] call BIS_fnc_randomInt;
-private _grass_objs = [_position, _randomAngle, _grass_arr, _grassBadChance] call BIS_fnc_objectsMapper;
-private _non_grass_objs = [_position, _randomAngle, _non_grass_arr, 0] call BIS_fnc_objectsMapper;
+private _grass_objs = [];
+private _non_grass_objs = [];
+
+if !(_grass_arr isEqualTo []) then {
+    _grass_objs = [_position, _randomAngle, _grass_arr, _grassBadChance] call BIS_fnc_objectsMapper;
+};
+
+if !(_non_grass_arr isEqualTo []) then {
+    _non_grass_objs = [_position, _randomAngle, _non_grass_arr, 0] call BIS_fnc_objectsMapper;
+};
 
 _grass_objs + _non_grass_objs
