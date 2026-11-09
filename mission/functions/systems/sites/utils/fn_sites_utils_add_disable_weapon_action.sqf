@@ -25,14 +25,16 @@ private _actionId = [
     "Disable Weapon",
     "custom\holdactions\holdAction_interact_ca.paa",
     "custom\holdactions\holdAction_interact_ca.paa",
-    "player distance _target < 3 && alive _target",
-    "player distance _target < 3 && alive _target",
+    "player distance _target < 3 && alive _target && {isNull gunner _target || {!alive gunner _target}}",
+    "player distance _target < 3 && alive _target && {isNull gunner _target || {!alive gunner _target}}",
     {},
     {},
     {
         params ["_target", "_caller", "_actionId", "_arguments", "_progress", "_maxProgress"];
         [_target, 1] remoteExec ["setDamage", 2];
         hint "Weapon disabled.";
+        sleep 2;
+        hint "";
     },
     {},
     [],

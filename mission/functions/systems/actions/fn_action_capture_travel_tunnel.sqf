@@ -17,6 +17,7 @@
 
 [
 	player,											// Object the action is attached to
+	"vn_mf_action_capture_travel_tunnel",
 	format ["<t color='#ffee00ff'>%1</t>", localize 'STR_vn_mf_capture_travel_tunnel'],							// Title of the action
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa",	// Idle icon shown on screen
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_secure_ca.paa",	// Progress icon shown on screen
@@ -33,4 +34,4 @@
 	100,												// Priority
 	false,											// Remove on completion
 	false												// Show in unconscious state
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;

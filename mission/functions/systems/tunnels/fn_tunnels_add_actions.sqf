@@ -36,6 +36,7 @@ private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
 // Condition uses trapChecked variable so action auto-hides on all clients once checked
 [
     _tunnelClosed,
+    "vn_mf_tunnel_wires_action",
     "<t color='#ffc444'>Look for Wires</t>",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
     "\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",
@@ -63,11 +64,12 @@ private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
     100,
     true,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipWires];
+] remoteExecCall ["vn_mf_fnc_action_holdActionAdd", 0, _jipWires];
 
 // --- Open Tunnel action ---
 [
     _tunnelClosed,
+    "vn_mf_tunnel_open_action",
     "Open Tunnel",
     "custom\holdactions\holdAction_interact_ca.paa",
     "custom\holdactions\holdAction_interact_ca.paa",
@@ -96,11 +98,12 @@ private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
     100,
     true,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipOpen];
+] remoteExecCall ["vn_mf_fnc_action_holdActionAdd", 0, _jipOpen];
 
 // --- Enter Tunnel action (DacCong team only) ---
 [
     _tunnelClosed,
+    "vn_mf_tunnel_enter_action",
     "(DAC)Enter Tunnel",
     "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
     "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
@@ -127,4 +130,4 @@ private _jipEnter = format ["tunnels_enter_%1", netId _tunnelClosed];
     100,
     false,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipEnter];
+] remoteExecCall ["vn_mf_fnc_action_holdActionAdd", 0, _jipEnter];

@@ -263,6 +263,7 @@ class CfgFunctions
 		class system_actions {
 			file = "functions\systems\actions";
 			class action_init {};
+			class action_holdActionAdd {};
 			class action_can_crew_static {};
 			class action_crew_static {};
 			class action_ai_snap_neck {};
