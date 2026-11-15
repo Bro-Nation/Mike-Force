@@ -188,6 +188,24 @@
       <Key ID="STR_vn_mf_repack">
         <Original>Repack</Original>
       </Key>
+      <Key ID="STR_vn_mf_move_5">
+        <Original>Move 5</Original>
+      </Key>
+      <Key ID="STR_vn_mf_move_10">
+        <Original>Move 10</Original>
+      </Key>
+      <Key ID="STR_vn_mf_move_all">
+        <Original>Move All</Original>
+      </Key>
+      <Key ID="STR_vn_mf_drop_5">
+        <Original>Drop 5</Original>
+      </Key>
+      <Key ID="STR_vn_mf_drop_10">
+        <Original>Drop 10</Original>
+      </Key>
+      <Key ID="STR_vn_mf_drop_all">
+        <Original>Drop All</Original>
+      </Key>
       <Key ID="STR_vn_mf_attach">
         <Original>Attach</Original>
       </Key>

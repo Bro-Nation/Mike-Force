@@ -129,9 +129,14 @@ switch _type do
 		vn_mf_targetContainer = _targetContainer;
 		vn_mf_secondaryContainer = objNull;
 		if !(isNull _secondaryContainer) then
-	{
+		{
 			vn_mf_targetContainer = _secondaryContainer;
 			vn_mf_secondaryContainer = _targetContainer;
+		};
+		if (isNull _targetContainer && isNull _secondaryContainer) then
+		{
+			vn_mf_targetContainer = objNull;
+			vn_mf_secondaryContainer = objNull;
 		};
 
 		waitUntil {(!isNull findDisplay 602)};
@@ -140,11 +145,10 @@ switch _type do
 			disableSerialization;
 			_display = findDisplay 602;
 
-			// init custom sub menu handler
 			{
 				_container = _display displayCtrl _x;
-				_container ctrlAddEventHandler ["LBDblClick",format["[_this,%1] call vn_mf_fnc_ui_sub_menu;",_x]];
-			} forEach [619,633,638];
+				_container ctrlAddEventHandler ["LBDblClick", format ["[_this,%1] call vn_mf_fnc_ui_sub_menu;", _x]];
+			} forEach [619,633,638,632,640];
 			// armor stats init
 			{
 				_remoteContainer = _display displayCtrl _x;
