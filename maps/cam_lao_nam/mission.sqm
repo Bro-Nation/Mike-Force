@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=10;
 	autoGroupingDist=10;
-	toggles=554;
+	toggles=1578;
 	class ItemIDProvider
 	{
-		nextID=22079;
+		nextID=22081;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=37883;
+		nextID=37917;
 	};
 	class Camera
 	{
-		pos[]={16421.92,49.973488,6485.0527};
-		dir[]={-0.38256875,-0.752312,0.53635758};
-		up[]={-0.4368619,0.65880591,0.61247635};
-		aside[]={0.81412882,2.3422763e-07,0.58069479};
+		pos[]={16329.671,110.41824,6388.2583};
+		dir[]={0.35885119,-0.62968004,0.68906641};
+		up[]={0.29085192,0.77684504,0.55849749};
+		aside[]={0.88696879,6.1700121e-07,-0.46191481};
 	};
 };
 binarizationWanted=0;
@@ -458,8 +458,8 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="SharedObjectives";
-			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
+			property="ReviveRequiredItems";
+			expression="false";
 			class Value
 			{
 				class data
@@ -509,8 +509,8 @@ class CustomAttributes
 		};
 		class Attribute4
 		{
-			property="ReviveRequiredItems";
-			expression="false";
+			property="SharedObjectives";
+			expression="if (isMultiplayer) then {[_value] spawn bis_fnc_sharedObjectives;};";
 			class Value
 			{
 				class data
@@ -1028,7 +1028,7 @@ class Mission
 					name="Pleiku";
 					class Entities
 					{
-						items=167;
+						items=169;
 						class Item0
 						{
 							dataType="Marker";
@@ -5550,13 +5550,39 @@ class Mission
 								nAttributes=2;
 							};
 						};
+						class Item167
+						{
+							dataType="Marker";
+							position[]={16879.623,36.331055,7120.6631};
+							name="blocked_area1_2";
+							text="Base Block 1";
+							markerType="RECTANGLE";
+							type="rectangle";
+							a=933.52637;
+							b=1204.6714;
+							id=22079;
+							atlOffset=19.052109;
+						};
+						class Item168
+						{
+							dataType="Marker";
+							position[]={17197.129,33.803955,6123.2578};
+							name="no_sites_12";
+							text="Pleiku Airfield";
+							markerType="RECTANGLE";
+							type="";
+							a=616.00879;
+							b=982.0647;
+							id=22080;
+							atlOffset=-2.3060455;
+						};
 					};
 					id=18329;
-					atlOffset=1.0426311;
+					atlOffset=8.4387531;
 				};
 			};
 			id=686;
-			atlOffset=5.5012131;
+			atlOffset=109.57764;
 		};
 		class Item6
 		{
@@ -61609,7 +61635,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39828;
+							angle=227.39827;
 							id=4465;
 							atlOffset=6.1035156e-05;
 						};
@@ -79817,7 +79843,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={16402.113,15.510089,6504.8369};
-				angles[]={0,4.712389,-0};
+				angles[]={0,4.712389,0};
 			};
 			side="Empty";
 			flags=1;
