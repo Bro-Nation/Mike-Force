@@ -112,43 +112,7 @@ if !(_interactedItem isEqualTo []) then
         _moveSourceCount
     };
 
-    private _dropSourceQty = if (_idc in [619,633,638]) then {
-        _playerInventoryCount
-    } else {
-        _moveSourceCount
-    };
-
     private _allMoveQty = _selectedStackQty max 0;
-
-    if ((_idc in [619,633,638,640]) && {_dropSourceQty > 2}) then {
-        _interactActions pushBack [
-            "STR_vn_mf_drop_all",
-            format ["['%1', %2, %3, 'drop'] call vn_mf_fnc_inventory_move_stack;", _thisItem, _idc, _dropSourceQty],
-            format ["(%1 > 0)", _dropSourceQty],
-            0,
-            ""
-        ];
-    };
-
-    if ((_idc in [619,633,638,640]) && {_dropSourceQty > 5}) then {
-        _interactActions pushBack [
-            "STR_vn_mf_drop_5",
-            format ["['%1', %2, %3, 'drop'] call vn_mf_fnc_inventory_move_stack;", _thisItem, _idc, 5],
-            format ["(%1 > 5)", _dropSourceQty],
-            0,
-            ""
-        ];
-    };
-
-    if ((_idc in [619,633,638,640]) && {_dropSourceQty > 10}) then {
-        _interactActions pushBack [
-            "STR_vn_mf_drop_10",
-            format ["['%1', %2, %3, 'drop'] call vn_mf_fnc_inventory_move_stack;", _thisItem, _idc, 10],
-            format ["(%1 > 10)", _dropSourceQty],
-            0,
-            ""
-        ];
-    };
 
     if (_allMoveQty > 2) then {
         _interactActions pushBack [
