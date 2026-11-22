@@ -107,33 +107,28 @@ _vehicle addAction [
 
         // Wait until the play deploys their chute, just in case.
         waitUntil { "parachute" in typeOf (vehicle _player) };
+
+        sleep 0.1; // Somehow makes the following code much more reliable
         
-        _bagHolder = "WeaponHolderSimulated" createVehicle (vehicle player modelToWorld [0,-0.6,1.7/4]); 
+        _bagHolder = "WeaponHolderSimulated" createVehicle (vehicle _player modelToWorld [0,-0.6,1.7/4]); 
         _bagHolder addBackpackCargoGlobal [_oldBackpackClass, 1]; 
 
-        _bag = firstBackpack _bagHolder;
-        { _bag addItemCargoGlobal [_x, 1] } forEach _oldBackpackItems;
-
-        _bagHolder attachTo [vehicle player, [0,0.75,0]];
+        _bagHolder attachTo [vehicle _player, [0,0.75,0]];
         [_bagHolder, [180, -90, 180]] call BIS_fnc_setObjectRotation;
 
-        /*
+
         // --- Restore original backpack/items ---
         [_player, _oldBackpackClass, _oldBackpackItems, _foundClass, _bagHolder] spawn {
             params ["_p", "_oldClass", "_oldItems", "_parachuteClass", "_bag"];
 
-            waitUntil { (backpack _p != _parachuteClass) || (!alive _p) };
-
-            if (backpack _p == _parachuteClass) then {
-                removeBackpack _p;
-            };
+            waitUntil { !("parachute" in typeOf (vehicle _p)) || !alive _p };
 
             if (!isNil "_oldClass" && {_oldClass != ""}) then {
                 _p addBackpack _oldClass;
                 { _p addItemToBackpack _x } forEach _oldItems;
+                deleteVehicle _bag;
             };
         };
-        */
 
     },
     nil,
