@@ -8,7 +8,7 @@ class EditorData
 	toggles=546;
 	class ItemIDProvider
 	{
-		nextID=3821;
+		nextID=3822;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2952;
+		nextID=2994;
 	};
 	class Camera
 	{
-		pos[]={4981.1782,30384.555,1337.9401};
-		dir[]={-0.78868306,-0.58430374,0.19147219};
-		up[]={-0.56796044,0.81142312,0.13788727};
-		aside[]={0.23593073,7.073977e-07,0.97182024};
+		pos[]={3272.2126,88.524834,4385.4556};
+		dir[]={0.18737985,-0.82894909,0.52701837};
+		up[]={0.27770036,0.55932385,0.78105056};
+		aside[]={0.94222444,-1.0617077e-07,-0.33500457};
 	};
 };
 binarizationWanted=0;
@@ -400,7 +400,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=136;
+		items=137;
 		class Item0
 		{
 			dataType="Layer";
@@ -5905,7 +5905,7 @@ class Mission
 							};
 							id=2109;
 							type="Land_BagFence_Long_F";
-							atlOffset=0.012695313;
+							atlOffset=0.012695312;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -5974,7 +5974,7 @@ class Mission
 							};
 							id=2111;
 							type="Land_BagFence_Long_F";
-							atlOffset=0.012695313;
+							atlOffset=0.012695312;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -15517,7 +15517,7 @@ class Mission
 							{
 								position[]={3414.7944,39.703369,4342.8774};
 							};
-							areaSize[]={6.6914063,0,6.6914063};
+							areaSize[]={6.6914062,0,6.6914062};
 							flags=1;
 							id=1812;
 							type="ModuleHideTerrainObjects_F";
@@ -16747,7 +16747,7 @@ class Mission
 							dataType="Logic";
 							class PositionInfo
 							{
-								position[]={3355.0378,42.990002,4425.4063};
+								position[]={3355.0378,42.990002,4425.4062};
 							};
 							areaSize[]={1,0,1};
 							flags=1;
@@ -21418,7 +21418,7 @@ class Mission
 				class Item30
 				{
 					dataType="Marker";
-					position[]={3261.5579,37.509945,4292.5313};
+					position[]={3261.5579,37.509945,4292.5312};
 					name="arsenal_udt_2";
 					type="mil_dot";
 					colorName="ColorPink";
@@ -23450,7 +23450,7 @@ class Mission
 				class Item29
 				{
 					dataType="Marker";
-					position[]={3388.5042,39.66,4330.4063};
+					position[]={3388.5042,39.66,4330.4062};
 					name="arsenal_arvnr";
 					type="mil_dot";
 					colorName="ColorPink";
@@ -24234,7 +24234,7 @@ class Mission
 			name="ACAV Motorpool";
 			class Entities
 			{
-				items=58;
+				items=57;
 				class Item0
 				{
 					dataType="Object";
@@ -25707,52 +25707,6 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={3285.0691,43.04837,4420.2051};
-						angles[]={0,4.2276936,0};
-					};
-					side="Empty";
-					class Attributes
-					{
-					};
-					id=3180;
-					type="Sign_Arrow_Direction_F";
-					atlOffset=1.5;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="allowDamage";
-							expression="_this allowdamage _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=0;
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="hideObject";
-							expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
-							class Value
-							{
-								class data
-								{
-									singleType="BOOL";
-									value=1;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-				class Item57
-				{
-					dataType="Object";
-					class PositionInfo
-					{
 						position[]={3285.2219,41.492561,4420.3472};
 						angles[]={0,4.1303177,0};
 					};
@@ -26176,7 +26130,7 @@ class Mission
 					name="duty_officer_quarterhorse";
 					type="mil_dot";
 					colorName="ColorWhite";
-					angle=358.76563;
+					angle=358.76562;
 					id=2463;
 				};
 				class Item16
@@ -32133,7 +32087,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={5016.7813,15.774152,300.40698};
+										position[]={5016.7812,15.774152,300.40698};
 										angles[]={0,5.9480133,0};
 									};
 									side="East";
@@ -34313,7 +34267,7 @@ class Mission
 							dataType="Object";
 							class PositionInfo
 							{
-								position[]={5093.7813,31.489634,179.90279};
+								position[]={5093.7812,31.489634,179.90279};
 								angles[]={0,5.8200054,0};
 							};
 							side="East";
@@ -36883,7 +36837,7 @@ class Mission
 							};
 							id=3809;
 							type="Land_vn_us_weapons_stack4";
-							atlOffset=0.25976563;
+							atlOffset=0.25976562;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -36926,7 +36880,7 @@ class Mission
 							name="vn_mf_capture_4";
 							id=3815;
 							type="Logic";
-							atlOffset=0.46289063;
+							atlOffset=0.46289062;
 						};
 					};
 					id=3034;
@@ -39311,7 +39265,7 @@ class Mission
 							b=65.738281;
 							angle=189.29216;
 							id=3678;
-							atlOffset=0.63476563;
+							atlOffset=0.63476562;
 						};
 						class Item9
 						{
@@ -39477,7 +39431,7 @@ class Mission
 							};
 							id=3607;
 							type="Land_InvisibleBarrier_F";
-							atlOffset=3.7226563;
+							atlOffset=3.7226562;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -39805,7 +39759,7 @@ class Mission
 							};
 							id=3584;
 							type="Land_vn_b_trench_wall_01_01";
-							atlOffset=10.164063;
+							atlOffset=10.164062;
 							class CustomAttributes
 							{
 								class Attribute0
@@ -43173,7 +43127,7 @@ class Mission
 					};
 					id=3764;
 					type="Land_vn_infostand_v2_f";
-					atlOffset=0.14257813;
+					atlOffset=0.14257812;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -44481,7 +44435,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39874;
+							angle=227.39873;
 							id=3780;
 							atlOffset=1.4904194;
 						};
@@ -44492,7 +44446,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp_1";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39873;
+							angle=227.39871;
 							id=3792;
 							atlOffset=0.61819458;
 						};
@@ -44503,7 +44457,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp_2";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39873;
+							angle=227.39871;
 							id=3793;
 						};
 						class Item3
@@ -44513,7 +44467,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp_3";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39873;
+							angle=227.39871;
 							id=3794;
 						};
 						class Item4
@@ -44523,7 +44477,7 @@ class Mission
 							name="mf_dc_respawn_daccong_powcamp_4";
 							text="@STR_vn_mf_respawn_daccong_powcamp";
 							type="Empty";
-							angle=227.39873;
+							angle=227.39871;
 							id=3795;
 						};
 					};
@@ -44808,6 +44762,55 @@ class Mission
 			};
 			id=3816;
 			atlOffset=30352.611;
+		};
+		class Item136
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3285.1428,42.617222,4420.3623};
+				angles[]={0,4.1887903,-0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				init="[this] call vn_mf_fnc_spawn_tank_dozer;";
+				disableSimulation=1;
+			};
+			id=3821;
+			type="Sign_Arrow_Direction_F";
+			atlOffset=1.0685577;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="hideObject";
+					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 	class Connections

@@ -147,6 +147,15 @@ _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 call vn_mf_fnc_active_init;
 _loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
 
+[] call vn_mf_fnc_soundranging_init;
+_loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+
+[] call vn_mf_fnc_soundranging_update_tower_markers;
+_loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+
+[] call vn_mf_fnc_fsb_update_markers;
+_loadingTickProgress = [_loadingTickProgress] call _fnc_tick_loading_screen;
+
 // @dijksterhuis: we should only need to call this once? -- when the player joins?
 // only reason to keep adding actions after attach to player would be if the actions
 // are removed from player object.
@@ -492,3 +501,9 @@ player addEventHandler ["Respawn", {
         //systemChat format ["DEBUG: Applied insignia '%1' to player %2 after respawn.", _insignia, name _unit];
     };
 }];
+
+// One off *or* small sets of binds that don't have/need a specific home
+[] call vn_mf_fnc_bn_add_generic_keybinds;
+
+// Slingloading specifica keybinds
+[] call vn_mf_fnc_bn_add_slingload_keybinds;
