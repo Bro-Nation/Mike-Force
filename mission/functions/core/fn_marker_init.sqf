@@ -24,6 +24,7 @@ vn_mf_markers_no_sites = [];
 vn_mf_markers_supply_officer_initial = [];
 vn_mf_markers_wreck_recovery = [];
 vn_mf_markers_no_harass = [];
+vn_mf_markers_fsb = [];
 
 {
 	if (_x find "mf_respawn_" isEqualTo 0) then {
@@ -56,9 +57,9 @@ vn_mf_markers_no_harass = [];
 		vn_mf_markers_no_harass pushBack _x;
 	};
 
-	if (_x find "fsb_" isEqualTo 0) then
-	{
+	if ((_x find "fsb_" isEqualTo 0) || {(_x find "FSB_bh_" isEqualTo 0)} || {(_x find "no_harass_bh_" isEqualTo 0)}) then {
 		_x setMarkerAlpha 0;
+		vn_mf_markers_fsb pushBack _x;
 	};
 
 	if (_x find "connector_" isEqualTo 0) then
@@ -108,4 +109,5 @@ vn_mf_markers_no_harass = [];
 
 publicVariable "vn_mf_markers_blocked_areas";
 publicVariable "vn_mf_markers_no_sites";
+publicVariable "vn_mf_markers_fsb";
 publicVariable "vn_mf_dc_assets";

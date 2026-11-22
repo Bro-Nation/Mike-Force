@@ -149,7 +149,7 @@ class vn_mf_release_cargo
 	shift = "true";
 	ctrl = "false";
 	alt = "false";
-	function = "vn_mf_fnc_release_cargo";
+	function = "vn_mf_fnc_release_cargo_via_shortcut";
 	down = 0;
 	displayName = "Release Cargo (ADVSL)";
 	access = 1;
