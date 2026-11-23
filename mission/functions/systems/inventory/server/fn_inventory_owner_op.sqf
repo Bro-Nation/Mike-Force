@@ -104,5 +104,7 @@ if (_limit <= 0) then {
     _reason = "no matching items available";
 };
 private _success = (_moved > 0) && {!_failed};
-diag_log format ["[vn_mf_fnc_inventory_owner_op] result: id=%1 machine=%2 caller=%3 source=%4 target=%5 item=%6 requested=%7 available=%8 moved=%9 success=%10 reason=%11 action=%12", _operationId, clientOwner, _caller, _source, _target, _item, _qty, _available, _moved, _success, _reason, _buttonType];
+if (!_success || {_reason isNotEqualTo ""}) then {
+    diag_log format ["[vn_mf_fnc_inventory_owner_op] result: id=%1 machine=%2 caller=%3 source=%4 target=%5 item=%6 requested=%7 available=%8 moved=%9 success=%10 reason=%11 action=%12", _operationId, clientOwner, _caller, _source, _target, _item, _qty, _available, _moved, _success, _reason, _buttonType];
+};
 [_success, _moved, _reason] call _reply;

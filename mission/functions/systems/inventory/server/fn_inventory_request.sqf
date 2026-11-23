@@ -88,7 +88,6 @@ if (_worker <= 0) exitWith {
 };
 
 missionNamespace setVariable ["vn_mf_inventory_operation", [_operationId, _caller, _worker]];
-diag_log format ["[vn_mf_fnc_inventory_request] forwarding: id=%1 owner=%2 source=%3 target=%4 item=%5 qty=%6 action=%7 ground=%8", _operationId, _worker, _source, _target, _item, _qty, _buttonType, _groundDestination];
 [_caller, _source, _target, _item, _qty, _mode, _buttonType, _groundDestination, _operationId] remoteExecCall ["vn_mf_fnc_inventory_owner_op", _worker];
 
 [_operationId, _caller, _item, _buttonType] spawn {

@@ -40,11 +40,5 @@ uiNamespace setVariable ["vn_mf_active_inventory_container", _activeContainerInv
 uiNamespace setVariable ["vn_mf_active_ground_inventory", _activeGroundInventory];
 uiNamespace setVariable ["vn_mf_active_container_inventory", _activeContainerInventory];
 
-private _display = findDisplay 602;
-private _groundShown = if (isNull _display) then { false } else { ctrlShown (_display displayCtrl 632) };
-private _containerShown = if (isNull _display) then { false } else { ctrlShown (_display displayCtrl 640) };
-
-diag_log format ["[vn_mf_fnc_inventory_opened] unit=%1 container=%2 type=%3 groundShown=%4 containerShown=%5", name _unit, if (isNull _container) then {"<null>"} else {typeOf _container}, if (isNull _container) then {"<null>"} else {typeOf _container}, _groundShown, _containerShown];
-
 // Initialize armor UI
 ["init", _this] spawn vn_mf_fnc_armor_calc;

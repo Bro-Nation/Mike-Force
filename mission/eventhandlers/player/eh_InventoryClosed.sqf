@@ -25,11 +25,3 @@ uiNamespace setVariable ["vn_mf_active_container_inventory", objNull];
 
 vn_mf_targetContainer = objNull;
 vn_mf_secondaryContainer = objNull;
-
-if (isNil "vn_mf_inventory_move_debug") then {
-    vn_mf_inventory_move_debug = false;
-};
-
-if (vn_mf_inventory_move_debug) then {
-    diag_log format ["[vn_mf_fnc_inventory_closed] unit=%1 container=%2", name _unit, _container];
-};

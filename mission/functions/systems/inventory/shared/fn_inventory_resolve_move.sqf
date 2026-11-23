@@ -174,24 +174,6 @@ if (!isNull _target && {_idc in [632,640]}) then {
     };
 };
 
-diag_log format [
-    "[vn_mf_fnc_inventory_resolve_move] idc=%1 item=%2 display=%3 groundShown=%4 containerShown=%5 groundEnabled=%6 containerEnabled=%7 groundActive=%8 containerActive=%9 source=%10 target=%11 mode=%12 groundInv=%13 containerInv=%14",
-    _idc,
-    _item,
-    !isNull _display,
-    _groundShown,
-    _containerShown,
-    _groundEnabled,
-    _containerEnabled,
-    _groundActive,
-    _containerActive,
-    if (isNull _source) then {"<null>"} else {typeOf _source},
-    if (isNull _target) then {"<null>"} else {typeOf _target},
-    _mode,
-    if (isNull _groundInventory) then {"<null>"} else {typeOf _groundInventory},
-    if (isNull _containerInventory) then {"<null>"} else {typeOf _containerInventory}
-];
-
 if (_buttonType isEqualTo "drop") then {
     // Keep whatever source resolve_move already calculated.
     if (isNull _source) then {
@@ -214,16 +196,6 @@ if (_buttonType isEqualTo "drop") then {
     _mode = "give";
     _activePane = _idc;
 
-    diag_log format [
-        "[vn_mf_fnc_inventory_resolve_move] DROP using ground: idc=%1 source=%2 target=%3",
-        _idc,
-        if (isNull _source) then {"<null>"} else {typeOf _source},
-        if (isNull _target) then {"<null>"} else {typeOf _target}
-    ];
-};
-
-if (_mode isEqualTo "give" && {isNull _target}) then {
-    diag_log format ["[vn_mf_fnc_inventory_resolve_move] no target resolved for idc=%1 item=%2 groundShown=%3 containerShown=%4 groundInventory=%5 containerInventory=%6", _idc, _item, _groundShown, _containerShown, typeOf _groundInventory, typeOf _containerInventory];
 };
 
 [_source, _target, _mode, _activePane]

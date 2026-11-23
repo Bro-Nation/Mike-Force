@@ -29,7 +29,6 @@ if (!_create) exitWith { objNull };
 private _holder = createVehicle ["GroundWeaponHolder_Scripted", getPosATL _unit, [], 0, "CAN_COLLIDE"];
 if !(isNull _holder) then {
     _holder setPosATL (getPosATL _unit);
-    diag_log format ["[vn_mf_fnc_inventory_ground_holder] created holder: unit=%1 holder=%2 type=%3", _unit, _holder, typeOf _holder];
 } else {
     diag_log format ["[vn_mf_fnc_inventory_ground_holder] failed to create holder for %1", _unit];
 };
