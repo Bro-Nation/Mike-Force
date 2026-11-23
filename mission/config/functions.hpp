@@ -359,6 +359,31 @@ class CfgFunctions
 			class attachments_lightsources_chemlight {};
 		};
 
+		class system_inventory_shared {
+			file = "functions\systems\inventory\shared";
+			class inventory_count {};
+			class inventory_display_name {};
+			class inventory_give_local {};
+			class inventory_ground_holder {};
+			class inventory_resolve_move {};
+			class inventory_slots {};
+			class inventory_take_local {};
+		};
+
+		class system_inventory_client {
+			file = "functions\systems\inventory\client";
+			class inventory_drag_shortcut {};
+			class inventory_move_stack {};
+			class inventory_receive {};
+		};
+
+		class system_inventory_server {
+			file = "functions\systems\inventory\server";
+			class inventory_owner_op {};
+			class inventory_owner_reply {};
+			class inventory_request {};
+		};
+
 		class system_awards {
 			file = "functions\systems\awards";
 			class player_award {};

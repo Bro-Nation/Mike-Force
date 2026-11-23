@@ -12,6 +12,15 @@ if (!isClass (configFile >> "CfgPatches" >> "cba_main") || {isNil "CBA_fnc_addKe
 
 private _category = "BN Keybinds - Generic";
 
+[
+    _category,
+    "vn_mf_inventory_move_stack",
+    ["Move Inventory Stack", "Hold while dragging to move matching items"],
+    { false },
+    { false },
+    [DIK_LSHIFT, [true, false, false]]
+] call CBA_fnc_addKeybind;
+
 // CTRL + X
 [
     _category,

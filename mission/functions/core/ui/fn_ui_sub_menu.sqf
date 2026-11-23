@@ -17,7 +17,7 @@
 	_this call vn_mf_fnc_ui_sub_menu;
 */
 
-private ["_activeControl","_bg","_btn_arr","_buffer","_button_gen","_config","_control","_display","_interactActions","_interactedItem","_logicCheck","_magCount","_mainConfig","_mainMissionConfig","_pos","_repack","_repackConfig","_repackMissionConfig","_selectedItemConfig","_selectedItemMissionConfig","_start_idc","_thisItem","_thisItemType","_y2d"];
+private ["_activeControl","_bg","_btn_arr","_buffer","_button_gen","_config","_control","_display","_eventCode","_interactActions","_interactedItem","_logicCheck","_magCount","_mainConfig","_mainMissionConfig","_pos","_repack","_repackConfig","_repackMissionConfig","_selectedItemConfig","_selectedItemMissionConfig","_start_idc","_thisItem","_thisItemType","_y2d"];
 
 
 _interactActions = [];
@@ -78,6 +78,71 @@ if !(_interactedItem isEqualTo []) then
     };
 
     _interactActions = getArray(_selectedItemConfig >> "interactActions");
+
+    private _resolvedMove = [_idc, _thisItem] call vn_mf_fnc_inventory_resolve_move;
+    private _moveSource = _resolvedMove param [0, objNull];
+    if (isNull _moveSource) then {
+        switch (_idc) do {
+            case 619: { _moveSource = backpackContainer player; };
+            case 633: { _moveSource = uniformContainer player; };
+            case 638: { _moveSource = vestContainer player; };
+            case 632: { _moveSource = [player] call vn_mf_fnc_inventory_ground_holder; };
+            case 640: { _moveSource = uiNamespace getVariable ["vn_mf_active_inventory_container", objNull]; };
+            default { _moveSource = objNull; };
+        };
+    };
+    private _moveSourceCount = if (isNull _moveSource) then { 0 } else { [_moveSource, _thisItem] call vn_mf_fnc_inventory_count };
+    private _playerInventoryCount = 0;
+    {
+        private _slotContainer = switch (_x) do {
+            case 619: { backpackContainer player };
+            case 633: { uniformContainer player };
+            case 638: { vestContainer player };
+            default { objNull };
+        };
+
+        if !(isNull _slotContainer) then {
+            _playerInventoryCount = _playerInventoryCount + ([_slotContainer, _thisItem] call vn_mf_fnc_inventory_count);
+        };
+    } forEach [619, 633, 638];
+
+    private _selectedStackQty = if ((_idc in [619,633,638]) || {isNull _moveSource}) then {
+        _playerInventoryCount
+    } else {
+        _moveSourceCount
+    };
+
+    private _allMoveQty = _selectedStackQty max 0;
+
+    if (_allMoveQty > 2) then {
+        _interactActions pushBack [
+            "STR_vn_mf_move_all",
+            format ["['%1', %2, %3, 'move'] call vn_mf_fnc_inventory_move_stack;", _thisItem, _idc, _allMoveQty],
+            format ["(%1 > 0)", _allMoveQty],
+            0,
+            ""
+        ];
+    };
+
+    if (_selectedStackQty > 5) then {
+        _interactActions pushBack [
+            "STR_vn_mf_move_5",
+            format ["['%1', %2, %3, 'move'] call vn_mf_fnc_inventory_move_stack;", _thisItem, _idc, 5],
+            format ["(%1 > 5)", _selectedStackQty],
+            0,
+            ""
+        ];
+    };
+
+    if (_selectedStackQty > 10) then {
+        _interactActions pushBack [
+            "STR_vn_mf_move_10",
+            format ["['%1', %2, %3, 'move'] call vn_mf_fnc_inventory_move_stack;", _thisItem, _idc, 10],
+            format ["(%1 > 10)", _selectedStackQty],
+            0,
+            ""
+        ];
+    };
 
     // ammo repack
     _disallowRepack =  getNumber(_selectedItemConfig >> "disallowRepack");
@@ -163,9 +228,17 @@ if !(_interactedItem isEqualTo []) then
                     _button_gen ctrlCommit 0;
                     if (_logicCheck) then
 		    {
-                        _button_gen ctrlAddEventHandler ["ButtonClick",format["_thisItem = '%1'; _thisItemType = %2;",_thisItem,_thisItemType] + _btn_fail_code];
+                        _eventCode = _btn_fail_code;
+                        if !(_btn_fail_code find "vn_mf_fnc_inventory_move_stack" > -1) then {
+                            _eventCode = format["_thisItem = '%1'; _thisItemType = %2;",_thisItem,_thisItemType] + _btn_fail_code;
+                        };
+                        _button_gen ctrlAddEventHandler ["ButtonClick",_eventCode];
                     } else {
-                        _button_gen ctrlAddEventHandler ["ButtonClick",format["_thisItem = '%1'; _thisItemType = %2;",_thisItem,_thisItemType] + _btn_code];
+                        _eventCode = _btn_code;
+                        if !(_btn_code find "vn_mf_fnc_inventory_move_stack" > -1) then {
+                            _eventCode = format["_thisItem = '%1'; _thisItemType = %2;",_thisItem,_thisItemType] + _btn_code;
+                        };
+                        _button_gen ctrlAddEventHandler ["ButtonClick",_eventCode];
                     };
                     _button_gen ctrlAddEventHandler ["ButtonClick","(uiNamespace getVariable ['vn_mf_active_button_control', controlNull]) ctrlShow false;"];
                     _y2d = _y2d + 0.0625;
@@ -180,7 +253,11 @@ if !(_interactedItem isEqualTo []) then
 				_button_gen ctrlSetPosition [0.06,_y2d,0.20,0.06];
 				_button_gen ctrlSetText localize _btn_text;
 				_button_gen ctrlCommit 0;
-				_button_gen ctrlAddEventHandler ["ButtonClick",format["_thisItem = '%1'; _thisItemType = %2;",_thisItem,_thisItemType] + _btn_code];
+				_eventCode = _btn_code;
+				if !(_btn_code find "vn_mf_fnc_inventory_move_stack" > -1) then {
+					_eventCode = format["_thisItem = '%1'; _thisItemType = %2;",_thisItem,_thisItemType] + _btn_code;
+				};
+				_button_gen ctrlAddEventHandler ["ButtonClick",_eventCode];
 				_button_gen ctrlAddEventHandler ["ButtonClick","(uiNamespace getVariable ['vn_mf_active_button_control', controlNull]) ctrlShow false;"];
 				_y2d = _y2d + 0.0625;
 				_btn_arr pushBack _button_gen;
