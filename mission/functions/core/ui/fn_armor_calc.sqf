@@ -148,7 +148,22 @@ switch _type do
 			{
 				_container = _display displayCtrl _x;
 				_container ctrlAddEventHandler ["LBDblClick", format ["[_this,%1] call vn_mf_fnc_ui_sub_menu;", _x]];
+				if (!isNil "CBA_fnc_getKeybind") then {
+					_container ctrlAddEventHandler ["LBDrag", format ["['drag', %1, _this] call vn_mf_fnc_inventory_drag_shortcut; false", _x]];
+				};
 			} forEach [619,633,638,632,640];
+			if (!isNil "CBA_fnc_getKeybind") then {
+				uiNamespace setVariable ["vn_mf_inventory_shortcut_key", -1];
+				uiNamespace setVariable ["vn_mf_inventory_shortcut_drag", []];
+				_display displayAddEventHandler ["KeyDown", {
+					["keyDown", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
+					false
+				}];
+				_display displayAddEventHandler ["KeyUp", {
+					["keyUp", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
+					false
+				}];
+			};
 			// armor stats init
 			{
 				_remoteContainer = _display displayCtrl _x;

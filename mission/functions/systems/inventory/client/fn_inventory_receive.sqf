@@ -30,6 +30,8 @@ if (remoteExecutedOwner isNotEqualTo 2) exitWith {
     diag_log format ["[vn_mf_fnc_inventory_receive] rejected non-server sender: %1", remoteExecutedOwner];
 };
 
+private _itemName = [_item] call vn_mf_fnc_inventory_display_name;
+
 _buttonType = toLower _buttonType;
 if (_buttonType isEqualTo "") then {
     _buttonType = "move";
@@ -59,16 +61,26 @@ if (_refresh || {_success}) then {
 
 if (_success) then {
     private _verb = if (_buttonType isEqualTo "drop") then { "Dropped" } else { "Moved" };
+    if (_buttonType isEqualTo "drag") then {
+        _qty = _qty + 1;
+    };
     if (_reason isEqualTo "") then {
-        hint format ["%1 %2 x%3.", _verb, _item, _qty];
+        hint format ["%1 %2 x%3.", _verb, _itemName, _qty];
     } else {
-        hint format ["%1 %2 x%3. %4.", _verb, _item, _qty, _reason];
+        hint format ["%1 %2 x%3. %4.", _verb, _itemName, _qty, _reason];
     };
 } else {
     private _verb = if (_buttonType isEqualTo "drop") then { "Could not drop" } else { "Could not move" };
     if (_qty > 0) then {
-        hint format ["%1 %2 completely. Moved %3. %4.", _verb, _item, _qty, _reason];
+        if (_buttonType isEqualTo "drag") then {
+            _qty = _qty + 1;
+        };
+        hint format ["%1 %2 completely. Moved %3. %4.", _verb, _itemName, _qty, _reason];
     } else {
-        hint format ["%1 %2. %3.", _verb, _item, _reason];
+        if (_buttonType isEqualTo "drag") then {
+            hint format ["Moved one %1, but could not move the rest. %2.", _itemName, _reason];
+        } else {
+            hint format ["%1 %2. %3.", _verb, _itemName, _reason];
+        };
     };
 };

@@ -22,6 +22,8 @@ params [
 uiNamespace setVariable ["vn_mf_active_inventory_container", objNull];
 uiNamespace setVariable ["vn_mf_active_ground_inventory", objNull];
 uiNamespace setVariable ["vn_mf_active_container_inventory", objNull];
+uiNamespace setVariable ["vn_mf_inventory_shortcut_key", -1];
+uiNamespace setVariable ["vn_mf_inventory_shortcut_drag", []];
 
 vn_mf_targetContainer = objNull;
 vn_mf_secondaryContainer = objNull;
