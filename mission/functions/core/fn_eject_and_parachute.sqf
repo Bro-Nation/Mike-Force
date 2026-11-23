@@ -103,20 +103,52 @@ _vehicle addAction [
             _player action ["EJECT", _vehicle];
         };
 
-        waitUntil { vehicle _player != _vehicle };
-        sleep 0.5;
+        // Wait until fully out of the vehicle
+        waitUntil { vehicle _player != _vehicle || !alive _player };
+        if (!alive _player) exitWith {};
 
-        // --- Restore original backpack/items ---
-        [_player, _oldBackpackClass, _oldBackpackItems, _foundClass] spawn {
-            params ["_p", "_oldClass", "_oldItems", "_parachuteClass"];
+        // Wait for parachute deployment (altitude safety)
+        waitUntil {
+            "parachute" in toLower typeOf (vehicle _player) ||
+            !alive _player ||
+            (getPosASL _player select 2) < 10
+        };
 
-            waitUntil { (backpack _p != _parachuteClass) || {!alive _p} };
+        if (!alive _player || !("parachute" in toLower typeOf (vehicle _player))) exitWith {
+            // Failed to open chute – restore original backpack if possible
+            if (_oldBackpackClass != "") then {
+                removeBackpack _player;
+                _player addBackpack _oldBackpackClass;
+                { _player addItemToBackpack _x } forEach _oldBackpackItems;
+            };
+        };
 
-            if (backpack _p == _parachuteClass) then {
-                removeBackpack _p;
+        sleep 0.1; // Improves reliability of the bag attachment
+
+        // Create temporary bag holder only if player had a backpack
+        private _bagHolder = objNull;
+        if (_oldBackpackClass != "") then {
+            _bagHolder = "WeaponHolderSimulated" createVehicle (vehicle _player modelToWorld [0, -0.6, 0.425]);
+            _bagHolder addBackpackCargoGlobal [_oldBackpackClass, 1];
+            _bagHolder attachTo [vehicle _player, [0, 0.75, 0]];
+            [_bagHolder, [180, -90, 180]] call BIS_fnc_setObjectRotation;
+        };
+
+        // Restore original backpack once the parachute is gone (or player dies)
+        [_player, _oldBackpackClass, _oldBackpackItems, _bagHolder] spawn {
+            params ["_p", "_oldClass", "_oldItems", "_bag"];
+
+            waitUntil {
+                !("parachute" in toLower typeOf (vehicle _p)) ||
+                !alive _p
             };
 
-            if (!isNil "_oldClass" && {_oldClass != ""}) then {
+            if (!isNull _bag) then {
+                deleteVehicle _bag;
+            };
+
+            if (alive _p && {_oldClass != ""}) then {
+                removeBackpack _p;
                 _p addBackpack _oldClass;
                 { _p addItemToBackpack _x } forEach _oldItems;
             };
@@ -128,5 +160,23 @@ _vehicle addAction [
     false,
     true,
     "",
-    "_this in crew _target && ((getPosASL player select 2) - (getTerrainHeightASL (getPosASL player))) > 100"
+    "_parachutes = [
+            'vn_i_pack_parachute_01','vn_o_pack_parachute_01','vn_b_parachute_01','vn_b_parachute_01_02',
+            'vn_b_parachute_02','vn_i_parachute_01','vn_o_parachute_01','vn_1_parachute_01',
+            'vn_b_pack_ba18_01','vn_b_pack_ba22_01','vn_b_pack_t10_01','B_Parachute'
+        ]; _this in crew _target && ((getPosASL player select 2) - (getTerrainHeightASL (getPosASL player))) > 100 && !((backpack _this) in _parachutes) && {
+        // Check vehicle cargo for at least one parachute
+        private _cargo = getBackpackCargo _target;
+        if !(_cargo isEqualType [] && {count _cargo == 2}) exitWith {false};
+
+        private _classes = _cargo select 0;
+        private _counts  = _cargo select 1;
+        private _hasPara = false;
+
+        {
+            if (_x in _parachutes && {(_counts select _forEachIndex) > 0}) then {_hasPara = true};
+        } forEach _classes;
+
+        _hasPara
+    }"
 ];
