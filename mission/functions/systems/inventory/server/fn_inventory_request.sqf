@@ -37,12 +37,8 @@ private _reject = {
 if (isNull _source || {_item isEqualTo ""} || {_qty <= 0} || {_qty isNotEqualTo (floor _qty)}) exitWith {
     ["invalid request"] call _reject;
 };
-if !(_buttonType in ["move", "drop", "drag"] && {_mode in ["give", "take"]}) exitWith {
+if !(_buttonType in ["move", "drag"] && {_mode in ["give", "take"]}) exitWith {
     ["invalid action"] call _reject;
-};
-if (_buttonType isEqualTo "drop") then {
-    _groundDestination = true;
-    _mode = "give";
 };
 if (_groundDestination && {_mode isNotEqualTo "give"}) exitWith {
     ["invalid ground destination"] call _reject;

@@ -37,4 +37,4 @@ if (isNull _caller) exitWith {
     diag_log format ["[vn_mf_fnc_inventory_owner_reply] caller unavailable: id=%1 item=%2", _operationId, _item];
 };
 
-[_success, _target, _item, _qty, _buttonType, _reason, true] remoteExecCall ["vn_mf_fnc_inventory_receive", owner _caller];
+[_success, _target, _item, _qty, _buttonType, _reason] remoteExecCall ["vn_mf_fnc_inventory_receive", owner _caller];

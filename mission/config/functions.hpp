@@ -372,7 +372,6 @@ class CfgFunctions
 
 		class system_inventory_client {
 			file = "functions\systems\inventory\client";
-			class inventory_drag_drop {};
 			class inventory_drag_shortcut {};
 			class inventory_move_stack {};
 			class inventory_receive {};

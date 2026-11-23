@@ -18,7 +18,6 @@
 
     Example(s):
         ["vn_mx991", 632, 5, "move"] call vn_mf_fnc_inventory_move_stack;      // Move 5
-        ["vn_mx991", 619, 10, "drop"] call vn_mf_fnc_inventory_move_stack;     // Drop 10
         ["vn_mx991", 632, -1, "move"] call vn_mf_fnc_inventory_move_stack;      // Move all available
 */
 
@@ -35,7 +34,12 @@ private _mode = "";
 private _sourceType = "<null>";
 private _targetType = "<null>";
 
-private _resolved = [_idc, _item, _buttonType] call vn_mf_fnc_inventory_resolve_move;
+if (_buttonType isNotEqualTo "move") exitWith {
+    diag_log format ["[vn_mf_fnc_inventory_move_stack] invalid action: %1", _buttonType];
+    hint "Invalid inventory action.";
+};
+
+private _resolved = [_idc, _item] call vn_mf_fnc_inventory_resolve_move;
 _source = _resolved param [0, objNull];
 _target = _resolved param [1, objNull];
 _mode = _resolved param [2, ""];
@@ -48,28 +52,11 @@ private _containerEnabled = if (isNull _display) then { false } else { ctrlEnabl
 
 private _groundPaneActive = _groundVisible && { !(_containerVisible && {_containerEnabled}) };
 private _containerPaneActive = _containerVisible && { !(_groundVisible && {_groundEnabled}) };
-private _groundDestination = (_buttonType isEqualTo "drop") || {
-    (_mode isEqualTo "give") && {_groundPaneActive}
-};
+private _groundDestination = (_mode isEqualTo "give") && {_groundPaneActive};
 
-if (_buttonType isEqualTo "drop") then {
-    _mode = "give";
-
-    // Always use the player as source when dropping from his own containers.
-    if (_idc in [619, 633, 638]) then {
-        _source = player;
-    };
-
-    if (isNull _target || {!(_target isKindOf "GroundWeaponHolder" || _target isKindOf "WeaponHolder")}) then {
-        _target = [player] call vn_mf_fnc_inventory_ground_holder;
-    };
-
+if ((_mode isEqualTo "give") && {isNull _target} && {_groundPaneActive || {_groundVisible}}) then {
+    _target = [player] call vn_mf_fnc_inventory_ground_holder;
     uiNamespace setVariable ["vn_mf_active_ground_inventory", _target];
-} else {
-    if ((_mode isEqualTo "give") && {isNull _target} && {_groundPaneActive || {_groundVisible}}) then {
-        _target = [player] call vn_mf_fnc_inventory_ground_holder;
-        uiNamespace setVariable ["vn_mf_active_ground_inventory", _target];
-    };
 };
 
 if ((_mode isEqualTo "take") && {isNull _source} && {_groundPaneActive || {_groundVisible}}) then {
@@ -80,10 +67,10 @@ if ((_mode isEqualTo "take") && {isNull _source} && {_groundPaneActive || {_grou
 _sourceType = if (isNull _source) then {"<null>"} else {typeOf _source};
 _targetType = if (isNull _target) then {"<null>"} else {typeOf _target};
 
-if (_groundPaneActive && { _buttonType isNotEqualTo "drop" }) then {
+if (_groundPaneActive) then {
     uiNamespace setVariable ["vn_mf_active_container_inventory", objNull];
 };
-if (_containerPaneActive && { _buttonType isNotEqualTo "drop" }) then {
+if (_containerPaneActive) then {
     uiNamespace setVariable ["vn_mf_active_ground_inventory", objNull];
 };
 

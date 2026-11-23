@@ -9,7 +9,6 @@
     Parameter(s):
         _idc - Inventory list IDC [NUMBER]
         _item - Item class to resolve [STRING]
-        _buttonType - Explicit inventory action type [STRING, default "move"]
 
     Returns:
         Source, target, mode, and active pane [ARRAY]
@@ -17,14 +16,8 @@
 
 params [
     ["_idc", -1, [0]],
-    ["_item", "", [""]],
-    ["_buttonType", "move", [""]]
+    ["_item", "", [""]]
 ];
-
-_buttonType = toLower _buttonType;
-if (_buttonType isEqualTo "") then {
-    _buttonType = "move";
-};
 
 private _source = objNull;
 private _target = objNull;
@@ -172,30 +165,6 @@ if (!isNull _target && {_idc in [632,640]}) then {
             _mode = "take";
         };
     };
-};
-
-if (_buttonType isEqualTo "drop") then {
-    // Keep whatever source resolve_move already calculated.
-    if (isNull _source) then {
-        switch (_idc) do {
-            case 619: { _source = backpackContainer player; };
-            case 633: { _source = uniformContainer player; };
-            case 638: { _source = vestContainer player; };
-            case 632: { _source = uiNamespace getVariable ["vn_mf_active_ground_inventory", objNull]; };
-            case 640: { _source = uiNamespace getVariable ["vn_mf_active_inventory_container", objNull]; };
-            default   { _source = objNull; };
-        };
-    };
-
-    // Prefer existing ground holder (same as MOVE does).
-    _target = uiNamespace getVariable ["vn_mf_active_ground_inventory", objNull];
-    if (isNull _target) then {
-        _target = [player] call vn_mf_fnc_inventory_ground_holder;
-    };
-
-    _mode = "give";
-    _activePane = _idc;
-
 };
 
 [_source, _target, _mode, _activePane]

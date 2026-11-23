@@ -155,6 +155,12 @@ switch _type do
 			if (!isNil "CBA_fnc_getKeybind") then {
 				uiNamespace setVariable ["vn_mf_inventory_shortcut_key", -1];
 				uiNamespace setVariable ["vn_mf_inventory_shortcut_drag", []];
+				_display displayAddEventHandler ["MouseButtonDown", {
+					if ((_this select 1) isEqualTo 0) then {
+						uiNamespace setVariable ["vn_mf_inventory_shortcut_drag", []];
+					};
+					false
+				}];
 				_display displayAddEventHandler ["KeyDown", {
 					["keyDown", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
 					false
