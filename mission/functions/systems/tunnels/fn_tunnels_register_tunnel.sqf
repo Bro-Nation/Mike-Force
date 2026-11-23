@@ -46,8 +46,10 @@ _exitTeleport setVariable ["linkedTunnel", _tunnel, true];
 _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
 
 // --- Enter Tunnel action ---
+private _enterActionKey = "vn_mf_tunnel_enter_action";
 [
     _tunnel,
+    _enterActionKey,
     "Enter Tunnel",
     "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
     "\a3\ui_f\data\igui\cfg\actions\ladderdown_ca.paa",
@@ -72,12 +74,14 @@ _exitTeleport setVariable ["exitPosition", getPosATL _tunnel, true];
     100,
     false,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _tunnel];
+] remoteExecCall ["vn_mf_fnc_action_holdActionAdd", 0, _tunnel];
 
 // --- Exit Tunnel action (on the teleport point inside) ---
 private _jipExit = format ["tunnels_exit_%1", netId _exitTeleport];
+private _exitActionKey = "vn_mf_tunnel_exit_action";
 [
     _exitTeleport,
+    _exitActionKey,
     "Exit Tunnel",
     "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
     "\a3\ui_f\data\igui\cfg\actions\ladderup_ca.paa",
@@ -109,7 +113,7 @@ private _jipExit = format ["tunnels_exit_%1", netId _exitTeleport];
     100,
     false,
     false
-] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipExit];
+] remoteExecCall ["vn_mf_fnc_action_holdActionAdd", 0, _jipExit];
 
 // Store the JIP ID so it can be cleared on cleanup
 _exitTeleport setVariable ["exitJipId", _jipExit, true];

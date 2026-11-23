@@ -2,10 +2,14 @@ class GetInMan {};
 class GetOutMan {};
 class InventoryOpened			// Inventory Opened EH
 {
-	// optional: - files[] = {"eventhandlers\player\eh_KeyDown.sqf"};
+	files[] = {"eventhandlers\player\eh_InventoryOpened.sqf"};
 };
-class Put {};			// Put EH
-class Take {};			// Take EH
+class InventoryClosed			// Inventory Closed EH
+{
+	files[] = {"eventhandlers\player\eh_InventoryClosed.sqf"};
+};
+class Put {}; 			// Put EH
+class Take {}; 			// Take EH
 class HandleRating {};
 class HandleDamage {};
 class Respawn {};

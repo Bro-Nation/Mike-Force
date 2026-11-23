@@ -56,6 +56,7 @@ private _codeOnInterrupted = {
 
 [
 	player,
+	"vn_mf_action_search_weapon",
 	_actionText,
 	_actionIdleIcon,
 	_actionProgressIcon,
@@ -70,4 +71,4 @@ private _codeOnInterrupted = {
 	100,
 	false,
 	false
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;

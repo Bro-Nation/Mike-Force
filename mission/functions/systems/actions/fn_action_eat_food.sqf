@@ -19,6 +19,7 @@ vn_mf_foodeaten = 0;
 
 [
 	player,									// Object the action is attached to
+	"vn_mf_action_eat_food",
 	localize "STR_vn_mf_eat_food",						// Title of the action
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",		// Idle icon shown on screen
 	"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_search_ca.paa",		// Progress icon shown on screen
@@ -42,4 +43,4 @@ vn_mf_foodeaten = 0;
 	100,									// Priority
 	false,									// Remove on completion
 	false									// Show in unconscious state
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;

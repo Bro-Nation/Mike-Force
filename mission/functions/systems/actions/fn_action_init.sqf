@@ -24,6 +24,17 @@ if (!hasInterface) exitWith {}; // only run on clients fix for dup actions maybe
 
 if (isNil "vn_mf_actions_initialized" || vn_mf_actions_player != player) then //arma's  variable system is asinine
 {
+	private _trackedHoldActionKeys = player getVariable ["vn_mf_holdActionKeys", []];
+	{
+		private _actionId = player getVariable [_x, -1];
+		if (_actionId isEqualType 0 && {_actionId > -1}) then
+		{
+			[player, _actionId] call BIS_fnc_holdActionRemove;
+		};
+		player setVariable [_x, nil];
+	} forEach +_trackedHoldActionKeys;
+	player setVariable ["vn_mf_holdActionKeys", [], false];
+
 	vn_mf_actions_player = player;
 	vn_mf_actions_initialized = 1;
 	call vn_mf_fnc_action_capture_player;

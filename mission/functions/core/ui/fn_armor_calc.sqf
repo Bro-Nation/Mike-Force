@@ -129,9 +129,14 @@ switch _type do
 		vn_mf_targetContainer = _targetContainer;
 		vn_mf_secondaryContainer = objNull;
 		if !(isNull _secondaryContainer) then
-	{
+		{
 			vn_mf_targetContainer = _secondaryContainer;
 			vn_mf_secondaryContainer = _targetContainer;
+		};
+		if (isNull _targetContainer && isNull _secondaryContainer) then
+		{
+			vn_mf_targetContainer = objNull;
+			vn_mf_secondaryContainer = objNull;
 		};
 
 		waitUntil {(!isNull findDisplay 602)};
@@ -140,11 +145,31 @@ switch _type do
 			disableSerialization;
 			_display = findDisplay 602;
 
-			// init custom sub menu handler
 			{
 				_container = _display displayCtrl _x;
-				_container ctrlAddEventHandler ["LBDblClick",format["[_this,%1] call vn_mf_fnc_ui_sub_menu;",_x]];
-			} forEach [619,633,638];
+				_container ctrlAddEventHandler ["LBDblClick", format ["[_this,%1] call vn_mf_fnc_ui_sub_menu;", _x]];
+				if (!isNil "CBA_fnc_getKeybind") then {
+					_container ctrlAddEventHandler ["LBDrag", format ["['drag', %1, _this] call vn_mf_fnc_inventory_drag_shortcut; false", _x]];
+				};
+			} forEach [619,633,638,632,640];
+			if (!isNil "CBA_fnc_getKeybind") then {
+				uiNamespace setVariable ["vn_mf_inventory_shortcut_key", -1];
+				uiNamespace setVariable ["vn_mf_inventory_shortcut_drag", []];
+				_display displayAddEventHandler ["MouseButtonDown", {
+					if ((_this select 1) isEqualTo 0) then {
+						uiNamespace setVariable ["vn_mf_inventory_shortcut_drag", []];
+					};
+					false
+				}];
+				_display displayAddEventHandler ["KeyDown", {
+					["keyDown", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
+					false
+				}];
+				_display displayAddEventHandler ["KeyUp", {
+					["keyUp", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
+					false
+				}];
+			};
 			// armor stats init
 			{
 				_remoteContainer = _display displayCtrl _x;
