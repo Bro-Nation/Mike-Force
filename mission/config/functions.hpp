@@ -154,6 +154,14 @@ class CfgFunctions
 			class unlock_vehicle_controls {};
 		}
 
+		class csgas
+		{
+			file = "functions\systems\csgas"
+			class csInit {};
+			class checkForGas {};
+			class gasUnit {};
+		}
+
 		class debug {
 			file = "functions\debug";
 			class debug_monitor {};
