@@ -271,6 +271,7 @@ class CfgFunctions
 		class system_actions {
 			file = "functions\systems\actions";
 			class action_init {};
+			class action_holdActionAdd {};
 			class action_can_crew_static {};
 			class action_crew_static {};
 			class action_ai_snap_neck {};
@@ -365,6 +366,31 @@ class CfgFunctions
 			file = "functions\systems\attachments\lightsources";
 			class attachments_lightsources_flashlight {};
 			class attachments_lightsources_chemlight {};
+		};
+
+		class system_inventory_shared {
+			file = "functions\systems\inventory\shared";
+			class inventory_count {};
+			class inventory_display_name {};
+			class inventory_give_local {};
+			class inventory_ground_holder {};
+			class inventory_resolve_move {};
+			class inventory_slots {};
+			class inventory_take_local {};
+		};
+
+		class system_inventory_client {
+			file = "functions\systems\inventory\client";
+			class inventory_drag_shortcut {};
+			class inventory_move_stack {};
+			class inventory_receive {};
+		};
+
+		class system_inventory_server {
+			file = "functions\systems\inventory\server";
+			class inventory_owner_op {};
+			class inventory_owner_reply {};
+			class inventory_request {};
 		};
 
 		class system_awards {

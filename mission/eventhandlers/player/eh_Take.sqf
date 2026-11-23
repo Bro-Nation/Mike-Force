@@ -24,5 +24,9 @@ params
 	"_item"
 ];
 
+if (!isNull findDisplay 602 && {!isNil "CBA_fnc_getKeybind"}) then {
+	["take", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
+};
+
 // refresh armor calculation for Inventory UI.
 ["refresh"] call vn_mf_fnc_armor_calc;

@@ -21,15 +21,30 @@ params ["_tunnel"];
 
 if (isNull _tunnel) exitWith { false };
 
-// Remove enter action from tunnel (though it will be deleted anyway)
-private _enterActionId = _tunnel getVariable ["enterActionId", -1];
-if (_enterActionId > -1) then {
-    _tunnel removeAction _enterActionId;
-};
+// Remove hold-actions created for this tunnel.
+private _tunnelHoldActionKeys = _tunnel getVariable ["vn_mf_holdActionKeys", []];
+{
+    private _actionId = _tunnel getVariable [_x, -1];
+    if (_actionId isEqualType 0 && {_actionId > -1}) then {
+        [_tunnel, _actionId] call BIS_fnc_holdActionRemove;
+    };
+    _tunnel setVariable [_x, nil, false];
+} forEach +_tunnelHoldActionKeys;
+_tunnel setVariable ["vn_mf_holdActionKeys", [], false];
 
 // Remove exit action from teleport
 private _exitTeleport = _tunnel getVariable ["exitTeleport", objNull];
 if (!isNull _exitTeleport) then {
+    private _exitHoldActionKeys = _exitTeleport getVariable ["vn_mf_holdActionKeys", []];
+    {
+        private _actionId = _exitTeleport getVariable [_x, -1];
+        if (_actionId isEqualType 0 && {_actionId > -1}) then {
+            [_exitTeleport, _actionId] call BIS_fnc_holdActionRemove;
+        };
+        _exitTeleport setVariable [_x, nil, false];
+    } forEach +_exitHoldActionKeys;
+    _exitTeleport setVariable ["vn_mf_holdActionKeys", [], false];
+
     // Hide exit action on all connected clients via show condition
     _exitTeleport setVariable ["tunnelActive", false, true];
 

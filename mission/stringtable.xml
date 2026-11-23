@@ -188,6 +188,15 @@
       <Key ID="STR_vn_mf_repack">
         <Original>Repack</Original>
       </Key>
+      <Key ID="STR_vn_mf_move_5">
+        <Original>Move 5</Original>
+      </Key>
+      <Key ID="STR_vn_mf_move_10">
+        <Original>Move 10</Original>
+      </Key>
+      <Key ID="STR_vn_mf_move_all">
+        <Original>Move All</Original>
+      </Key>
       <Key ID="STR_vn_mf_attach">
         <Original>Attach</Original>
       </Key>
@@ -427,6 +436,9 @@
       </Key>
       <Key ID="STR_vn_mf_loading17">
         <Original>Welcome to the jungle.</Original>
+      </Key>
+      <Key ID="STR_vn_mf_howtobuild">
+        <Original>How to Build</Original>
       </Key>
       <Key ID="STR_vn_mf_howtobuild_long">
         <Original>Note: Engineer training required!&lt;br&gt;&lt;/br&gt;Press 'N' to enable/disable building.&lt;br&gt;&lt;/br&gt;Use mouse scroll wheel for adjustments, press Alt to cycle between height adjustment or rotation.&lt;br&gt;&lt;/br&gt;Press and hold 'Space' to finalize Build.</Original>
@@ -1815,9 +1827,6 @@
     <Container name="ZoneName_khe_sanh">
       <Key ID="STR_vn_mf_zone_khe_sanh">
         <Original>Khe Sanh</Original>
-      </Key>
-      <Key ID="STR_vn_mf_zone_kok">
-        <Original>Near Kok</Original>
       </Key>
       <Key ID="STR_vn_mf_zone_french_fort">
         <Original>French Fort</Original>

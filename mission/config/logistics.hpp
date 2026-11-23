@@ -24,8 +24,8 @@ class vn_logistics
 	};
 	class bn_bh_large
 	{
-		inventory_max_weight = 1200
-		inventory_max_size = 10
+		inventory_max_weight = 1200;
+		inventory_max_size = 10;
 	};
 	//Jeeps + Small Cars
 	class vn_b_wheeled_m151_01 : vn_defaults_small {};
