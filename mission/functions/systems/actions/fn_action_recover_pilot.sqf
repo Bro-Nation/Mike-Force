@@ -63,6 +63,7 @@ private _showWhenunconscious = false;
 
 [
 	_objAttachTo,
+	"vn_mf_action_recover_pilot",
 	_title,
 	_idleIcon,
 	_idleProgress,
@@ -77,4 +78,4 @@ private _showWhenunconscious = false;
 	_priority,
 	_removeWhenCompleted,
 	_showWhenunconscious
-] call BIS_fnc_holdActionAdd;
+] call vn_mf_fnc_action_holdActionAdd;
