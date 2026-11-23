@@ -28,6 +28,7 @@ if (player getUnitTrait "Engineer") then {_playerMarkerType = "b_maint"};
 if (player getUnitTrait "ExplosiveSpecialist") then {_playerMarkerType = "b_Ordnance"};
 if (player getUnitTrait "vn_artillery") then {_playerMarkerType = "b_support"};
 _playerMarker setMarkerTypeLocal _playerMarkerType;
+_playerMarker setMarkerAlphaLocal (if (isObjectHidden player) then {0} else {1});
 
 //Vehicles which have players in.
 vn_mf_player_markers_manned_vehicles = [];
@@ -39,6 +40,7 @@ vn_mf_player_markers_manned_vehicles = [];
 
 	private _unitMarker = format ["player_marker_%1", getPlayerUID _unit];
 	private _unitGroup = _unit getVariable ["vn_mf_db_player_group", "FAILED"];
+	private _unitMarkerHidden = isObjectHidden _unit;
 	private _playerColor = "ColorBLUFOR";
 	if (_unitGroup != "FAILED") then {
 		private _groupConfig = (missionConfigFile >> "gamemode" >> "teams" >> _unitGroup);
@@ -75,9 +77,11 @@ vn_mf_player_markers_manned_vehicles = [];
 		_unitMarker setMarkerColorLocal "ColorGrey";
 	};
 
-	//Special case if player is in vehicle.
-	if (vehicle _unit != _unit) then {
-		vn_mf_player_markers_manned_vehicles pushBackUnique vehicle _unit;
+	// Special case if player is in vehicle. Zeus hidden units/vehicles should also hide their player markers.
+	if ((_unitMarkerHidden) || {vehicle _unit != _unit}) then {
+		if (vehicle _unit != _unit) then {
+			vn_mf_player_markers_manned_vehicles pushBackUnique vehicle _unit;
+		};
 		_unitMarker setMarkerAlphaLocal 0;
 	} else {
 		_unitMarker setMarkerAlphaLocal 1;
@@ -101,6 +105,7 @@ vn_mf_player_markers_manned_vehicles = [];
 	if (!(_vehicle in vn_mf_dc_assets) && side player == east) then { continue };
 
 	private _vehicleMarker = format ["player_marker_vehicle_%1", netId _vehicle];
+	private _vehicleMarkerHidden = isObjectHidden _vehicle || {(_crew findIf {isObjectHidden _x} > -1)};
 	_activeVehicleMarkers pushBack _vehicleMarker;
 
 	private _vehicleColor = "ColorBLUFOR";
@@ -140,6 +145,9 @@ vn_mf_player_markers_manned_vehicles = [];
 
 		_vehicleMarker setMarkerTypeLocal _markerType;
 	};
+
+	private _vehicleMarkerAlpha = if (_vehicleMarkerHidden) then {0} else {1};
+	_vehicleMarker setMarkerAlphaLocal _vehicleMarkerAlpha;
 
 	private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
 	if(_vehicleName == "MH-9 Hummingbird" || _vehicleName == "AH-9 Pawnee") then 
