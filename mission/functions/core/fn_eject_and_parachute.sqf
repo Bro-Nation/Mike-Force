@@ -165,7 +165,6 @@ _vehicle addAction [
             'vn_b_parachute_02','vn_i_parachute_01','vn_o_parachute_01','vn_1_parachute_01',
             'vn_b_pack_ba18_01','vn_b_pack_ba22_01','vn_b_pack_t10_01','B_Parachute'
         ]; _this in crew _target && ((getPosASL player select 2) - (getTerrainHeightASL (getPosASL player))) > 100 && !((backpack _this) in _parachutes) && {
-        // Check vehicle cargo for at least one parachute
         private _cargo = getBackpackCargo _target;
         if !(_cargo isEqualType [] && {count _cargo == 2}) exitWith {false};
 
