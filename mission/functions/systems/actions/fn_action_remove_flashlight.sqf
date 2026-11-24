@@ -18,8 +18,9 @@ if (!isNil "vn_mf_flashlight_remove_action") then {
 
 private _conditionToShow = "count (attachedObjects player select { typeOf _x == 'vn_b_item_mx991_01'}) > 0";
 
-vn_mf_flashlight_remove_action = player addAction
 [
+    player,
+    "vn_mf_action_remove_flashlight",
     "<t color='#FF9900'>Remove Attached Flashlight</t>",
     {
 		private _flashlightClass = player getVariable ["vn_mf_attached_flashlight_class", "vn_mx991"];
@@ -29,7 +30,6 @@ vn_mf_flashlight_remove_action = player addAction
         player setVariable ["vn_mf_bn_attch_battery_starttime", -1];
 
         ["LightsourceAttachRemoved", []] call para_c_fnc_show_notification;
-		
 
 		if (player canAdd _flashlightClass) then {
 			player addItem _flashlightClass; // Give back their flashlight (inventory)
@@ -50,5 +50,7 @@ vn_mf_flashlight_remove_action = player addAction
     "",
     _conditionToShow,
     2
-];
+] call vn_mf_fnc_action_addAction;
+
+vn_mf_flashlight_remove_action = player getVariable ["vn_mf_action_remove_flashlight", -1];
 

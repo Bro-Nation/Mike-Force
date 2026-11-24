@@ -22,8 +22,12 @@ private _target = _this;
 
 if (isNull _target) exitWith {};
 
-_target addAction ["CLEAN ENGINEER RANGE", {
+[
+    _target,
+    "vn_mf_training_action_clean_engineer_range",
+    "CLEAN ENGINEER RANGE", {
     params ["_target"];
 
     [_target] execVM "training\scripts\engineer_range\cleanup_engineer_range.sqf";
-}, 0, 5, true, true, "", "(player distance _target < 5) && ([player, 'Instructors'] call vn_mf_fnc_player_on_team)"];
+}, 0, 5, true, true, "", "(player distance _target < 5) && ([player, 'Instructors'] call vn_mf_fnc_player_on_team)"
+] call vn_mf_fnc_action_addAction;

@@ -74,7 +74,10 @@ private _actionDefs = [
 private _newIds = [];
 {
     _x params ["_label", "_code", "_priority"];
-    private _id = _target addAction [
+    private _actionKey = format ["vn_mf_training_action_flag_visibility_%1", _forEachIndex];
+    private _id = [
+        _target,
+        _actionKey,
         _label,
         _code,
         [_altPoles, _sucPoles],
@@ -83,7 +86,7 @@ private _newIds = [];
         true,
         "",
         _condition
-    ];
+    ] call vn_mf_fnc_action_addAction;
     _newIds pushBack _id;
 } forEach _actionDefs;
 

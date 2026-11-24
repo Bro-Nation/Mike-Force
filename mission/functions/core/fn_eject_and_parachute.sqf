@@ -15,7 +15,9 @@ params ["_vehicle"];
 if (isNull _vehicle) exitWith {};
 
 // Add the action to the vehicle
-_vehicle addAction [
+[
+    _vehicle,
+    "vn_mf_action_eject_parachute",
     "<t color='#ffffffff'>Eject with Parachute</t>",
     {
         params ["_target", "_caller"];
@@ -179,4 +181,4 @@ _vehicle addAction [
 
         _hasPara
     }"
-];
+] call vn_mf_fnc_action_addAction;

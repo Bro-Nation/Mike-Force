@@ -26,8 +26,9 @@ private _conditionToShow = [
 	"(vn_mf_veh_asset_spawn_points_client get (cursorTarget getVariable 'veh_asset_spawnPointId') get 'status' get 'state' == 'IDLE')"
 ] joinString " && ";
 
-player addAction
 [
+	player,
+	"vn_mf_action_curator_reset_idle_vehicle",
 	format [
 		"<t color='#A04406'>%1</t>",
 		"[ADMIN] Reset Idle Vehicle"
@@ -46,4 +47,4 @@ player addAction
 	false,  // unconscious
 	"",  // selection
 	""  // memoryPoint
-];
+] call vn_mf_fnc_action_addAction;

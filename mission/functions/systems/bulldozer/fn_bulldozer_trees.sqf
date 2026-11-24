@@ -32,7 +32,9 @@ if (isServer) then {
 };
 
 // --- ADD TOGGLE ACTION ---
-_veh addAction [
+[
+    _veh,
+    "vn_mf_action_bulldozer_blade",
     "<t color='#FFA500'>Toggle Blade</t>",  // orange text
     {
         params ["_target", "_caller", "_id"];
@@ -56,7 +58,7 @@ _veh addAction [
         };
     },
     nil, 10, true, true, "", "driver _target == _this"
-];
+] call vn_mf_fnc_action_addAction;
 
 // --- MAIN LOOP ---
 [_veh, _radius, _delay, _frontOffset, _interval, _slowSpeed, _bladeTime] spawn {

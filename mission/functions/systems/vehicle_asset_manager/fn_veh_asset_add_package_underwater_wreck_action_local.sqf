@@ -18,12 +18,9 @@
 params ["_id", "_target"];
 
 private _actionVariable = format ["veh_asset_package_underwater_wreck_action_%1", _id];
-private _existingActionId = player getVariable _actionVariable;
-
-if (!isNil "_existingActionId") exitWith {};
-
-
-private _actionId = player addAction [
+private _actionId = [
+	player,
+	_actionVariable,
 	"Package underwater wreck",
 	{
 		params ["_target", "_caller", "_actionId", "_args"];
@@ -37,6 +34,6 @@ private _actionId = player addAction [
 	"vehicle player isKindOf 'Ship'",
 	-1,
 	false
-];
+] call vn_mf_fnc_action_addAction;
 
 player setVariable [_actionVariable, _actionId];

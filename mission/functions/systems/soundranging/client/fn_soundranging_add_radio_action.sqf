@@ -17,10 +17,9 @@ params [["_radio", objNull, [objNull]]];
 if (!hasInterface) exitWith {};
 if (isNull _radio) exitWith {};
 
-private _existingAction = _radio getVariable ["vn_mf_soundranging_action_id", -1];
-if (_existingAction >= 0) exitWith {};
-
-private _actionId = _radio addAction [
+private _actionId = [
+	_radio,
+	"vn_mf_soundranging_action_id",
 	"<t color='#00FF00'>Access Sound Ranging Net</t>",
 	{
 		params ["_target", "_caller"];
@@ -33,6 +32,6 @@ private _actionId = _radio addAction [
 	"",
 	"alive _target && {alive _this} && {_this getVariable ['vn_mf_db_player_group', 'MikeForce'] isEqualTo 'QuarterHorse'}",
 	3
-];
+] call vn_mf_fnc_action_addAction;
 
 _radio setVariable ["vn_mf_soundranging_action_id", _actionId];

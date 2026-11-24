@@ -21,8 +21,9 @@ private _conditionToShow = [
 	"((player distance2D (getMarkerPos 'mf_respawn_presscorp')) < 25)"
 ] joinString "&&";
 
-player addAction
 [
+	player,
+	"vn_mf_action_press_toggle_spectator",
 	format [
 		"<t color='#0663A1' size='0.85' font='tt2020base_vn_bold'>%1</t>",
 		"[PRESSCORP] Spectate"
@@ -92,4 +93,4 @@ player addAction
 	false,  // unconscious
 	"",  // selection
 	""  // memoryPoint
-];
+] call vn_mf_fnc_action_addAction;

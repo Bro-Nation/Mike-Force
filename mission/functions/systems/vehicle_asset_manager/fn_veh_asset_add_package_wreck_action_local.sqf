@@ -20,7 +20,9 @@ params ["_id", "_target"];
 
 ["AddPackageWreck", [player, []]] call para_g_fnc_event_dispatch;
 
-_target addAction [
+[
+	_target,
+	format ["vn_mf_action_package_wreck_%1", _id],
 	"Package wreck for transport",
 	{
 		params ["_target", "_caller", "_actionId", "_args"];
@@ -34,4 +36,4 @@ _target addAction [
 	"true",
 	10,
 	false
-];
+] call vn_mf_fnc_action_addAction;

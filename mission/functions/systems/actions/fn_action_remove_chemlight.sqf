@@ -17,8 +17,9 @@ if (!isNil "vn_mf_chemlight_remove_action") then {
 
 private _conditionToShow = "count (attachedObjects player select { toLower typeOf _x find 'chemlight' > -1 }) > 0";
 
-vn_mf_chemlight_remove_action = player addAction
 [
+    player,
+    "vn_mf_action_remove_chemlight",
     "<t color='#FF9900'>Remove Attached Chemlight</t>",
     {
         private _chemlightClass = player getVariable ["vn_mf_attached_chemlight_class", "Chemlight_green"];
@@ -46,4 +47,6 @@ vn_mf_chemlight_remove_action = player addAction
     "",
     _conditionToShow,
     2
-];
+] call vn_mf_fnc_action_addAction;
+
+vn_mf_chemlight_remove_action = player getVariable ["vn_mf_action_remove_chemlight", -1];

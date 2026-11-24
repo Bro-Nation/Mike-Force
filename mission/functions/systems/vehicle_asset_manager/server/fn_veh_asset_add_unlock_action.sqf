@@ -16,7 +16,14 @@
 
 params ["_vehicle"];
 
-[
+if (isNull _vehicle) exitWith { "" };
+
+private _existingActionId = _vehicle getVariable ["vn_mf_veh_asset_unlock_network_action_id", ""];
+if (_existingActionId isNotEqualTo "") then {
+	[_existingActionId] call para_s_fnc_net_action_remove;
+};
+
+private _actionId = [
 	_vehicle,
 	"Unlock vehicle",
 	{
@@ -32,3 +39,7 @@ params ["_vehicle"];
 	10,
 	false
 ] call para_s_fnc_net_action_add;
+
+_vehicle setVariable ["vn_mf_veh_asset_unlock_network_action_id", _actionId];
+
+_actionId

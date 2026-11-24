@@ -30,7 +30,9 @@ params [
 
 private _name = format [localize "STR_Action_PutBomb", getText (configFile >> "CfgMagazines" >> _magazine >> "displayName"), '%1'];
 
-_id = _unit addAction [
+[
+    _unit,
+    VAR_ACTION_ID,
     _name,
     {
         if (vn_explosive_actionInProgress) exitWith {};
@@ -68,7 +70,4 @@ _id = _unit addAction [
         }
     }, _magazine, _name],
     0.001
-];
-_unit setVariable [VAR_ACTION_ID, _id];
-
-nil // return
+] call vn_mf_fnc_action_addAction

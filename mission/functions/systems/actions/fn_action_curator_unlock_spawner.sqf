@@ -27,8 +27,9 @@ private _conditionToShow = [
 	"(isNull (vn_mf_veh_asset_spawn_points_client get (cursorTarget getVariable 'veh_asset_spawnPointId') get 'currentVehicle'))"
 ] joinString " && ";
 
-player addAction
 [
+	player,
+	"vn_mf_action_curator_unlock_spawner",
 	format [
 		"<t color='#A04406'>%1</t>",
 		"[ADMIN] Unlock Spawner"
@@ -47,4 +48,4 @@ player addAction
 	false,  // unconscious
 	"",  // selection
 	""  // memoryPoint
-];
+] call vn_mf_fnc_action_addAction;

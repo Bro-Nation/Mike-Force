@@ -15,7 +15,9 @@
 
 private _conditionToShow = "[player, cursorTarget] call vn_mf_fnc_action_can_crew_static";
 
-player addAction [
+[
+    player,
+    "vn_mf_action_crew_static",
     "<t color='#A04406'>Crew Static</t>",
     {
         params ["_actionTarget", "_caller", "_actionId", "_arguments"];
@@ -53,4 +55,4 @@ player addAction [
     false,
     "",
     ""
-];
+] call vn_mf_fnc_action_addAction;
