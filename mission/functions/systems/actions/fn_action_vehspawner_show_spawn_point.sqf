@@ -32,8 +32,9 @@ private _conditionToShow = [
 	"((player getVariable ['veh_asset_spawnPoint_draw3d_active', false]) isEqualTo false)"
 ] joinString " && ";
 
-player addAction
 [
+	player,
+	"vn_mf_action_locate_spawn_point",
 	"Locate Vehicle's Spawn Point",  // title
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
@@ -49,4 +50,4 @@ player addAction
 	false,  // unconscious
 	"",  	// selection
 	""  	// memoryPoint
-];
+] call vn_mf_fnc_action_addAction;

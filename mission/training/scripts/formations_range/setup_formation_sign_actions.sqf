@@ -72,7 +72,9 @@ missionNamespace setVariable ["vn_formationSignActions_jip", _jipId, true];
         private _name = _x select 0;
         private _poles = _x select 1;
         private _texture = _x select 2;
-        _sign addAction [
+        [
+            _sign,
+            format ["vn_mf_training_action_formation_%1", _forEachIndex],
             format ["<t color='#00FF00'>Show %1</t>", _name],
             {
                 params ["_target", "_caller", "_actionId", "_args"];
@@ -92,6 +94,6 @@ missionNamespace setVariable ["vn_formationSignActions_jip", _jipId, true];
             },
             [_poles, _texture],
             1.5, true, true, "", "true"
-        ];
+        ] call vn_mf_fnc_action_addAction;
     } forEach _formationSets;
 }] remoteExecCall ["BIS_fnc_call", 0, _jipId];

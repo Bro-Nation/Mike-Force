@@ -45,7 +45,9 @@ _object setVariable ["vn_mf_hasTextureToggle", true, true];
 	};
 	private _label    = _fileName;
 
-	_object addAction [
+	[
+		_object,
+		format ["vn_mf_action_texture_toggle_%1", _texIndex],
 		_label,
 		{
 			params ["_target", "_caller", "_actionId", "_args"];
@@ -59,5 +61,5 @@ _object setVariable ["vn_mf_hasTextureToggle", true, true];
 		"",            // shortcut
 		"([_this, 'MACV'] call vn_mf_fnc_player_on_team)",
 		5              // max distance
-	];
+	] call vn_mf_fnc_action_addAction;
 } forEach _textures;

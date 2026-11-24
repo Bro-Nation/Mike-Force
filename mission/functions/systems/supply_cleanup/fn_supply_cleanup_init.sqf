@@ -16,7 +16,9 @@ private _dumpsters = allVariables missionNamespace select {_x find "supply_clean
 // Add Clean Up action to each supply box
 {
     if (!isNull _x) then {
-        _x addAction [
+        [
+            _x,
+            "vn_mf_action_supply_cleanup",
             "Clean Up Supply Boxes",
             {
                 params ["_target","_caller","_actionId","_arguments"];
@@ -32,6 +34,6 @@ private _dumpsters = allVariables missionNamespace select {_x find "supply_clean
             false,
             "",
             ""
-        ];
+        ] call vn_mf_fnc_action_addAction;
     };
 } forEach _dumpsters;

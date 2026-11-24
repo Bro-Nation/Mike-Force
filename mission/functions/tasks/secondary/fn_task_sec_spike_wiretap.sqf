@@ -133,6 +133,12 @@ _dataStore setVariable ["RTB", {
 _dataStore setVariable ["FINISH", {
 	params ["_taskDataStore"];
 
+	private _wiretapActionId = _taskDataStore getVariable ["wiretapActionId", ""];
+	if (_wiretapActionId != "") then {
+		[_wiretapActionId] call para_s_fnc_net_action_hold_remove;
+		_taskDataStore setVariable ["wiretapActionId", ""];
+	};
+
 	private _aaTask = _taskDataStore getVariable ["aaTask", locationNull];
 	if !([_aaTask] call vn_mf_fnc_task_is_completed) then {
 		[_aaTask, "CANCELED"] call vn_mf_fnc_task_complete;

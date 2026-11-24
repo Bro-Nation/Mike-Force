@@ -25,7 +25,9 @@ private _trashCans = allVariables missionNamespace select {_x find "arsenal_clea
 // Add Clean Up action to each trashcan
 {
     if (!isNull _x) then {
-        _x addAction [
+        [
+            _x,
+            "vn_mf_action_arsenal_cleanup",
             "Clean Up",
             {
                 params ["_target","_caller","_actionId","_arguments"];
@@ -41,6 +43,6 @@ private _trashCans = allVariables missionNamespace select {_x find "arsenal_clea
             false,
             "",
             ""
-        ];
+        ] call vn_mf_fnc_action_addAction;
     };
 } forEach _trashCans;

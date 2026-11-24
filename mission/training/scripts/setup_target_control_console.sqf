@@ -22,16 +22,24 @@ if (_this isEqualType []) then {
 
 if (isNull _target) exitWith {};
 
-_target addAction ["RESET POP-UP TARGETS", {
+[
+    _target,
+    "vn_mf_training_action_reset_targets",
+    "RESET POP-UP TARGETS", {
     0 = [1200, iCenter] execVM "training\scripts\reset_targets.sqf";
-}];
+}
+] call vn_mf_fnc_action_addAction;
 
 _target allowDamage false;
 _target enableSimulation false;
 
-_target addAction ["CLEAR HIT MARKERS", {
+[
+    _target,
+    "vn_mf_training_action_clear_hit_markers",
+    "CLEAR HIT MARKERS", {
 	params ["_target", "_caller"];
     {
         deleteVehicle _x;
     } forEach (_caller getVariable ["hitMarkers", []]);
-}, 0, 0, true, true, "", "_target distance _this < 3"];
+}, 0, 0, true, true, "", "_target distance _this < 3"
+] call vn_mf_fnc_action_addAction;

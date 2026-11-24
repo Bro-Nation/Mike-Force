@@ -20,7 +20,11 @@ if !(_this isEqualType objNull) exitWith {};
 private _target = _this;
 if (isNull _target) exitWith {};
 
-_target addAction ["SETUP FORMATION SIGN", {
+[
+    _target,
+    "vn_mf_training_action_setup_formation_sign",
+    "SETUP FORMATION SIGN", {
     params ["_target"];
     [_target] execVM "training\scripts\formations_range\setup_formation_sign_actions.sqf";
-}, 0, 5, true, true, "", "(player distance _target < 5) && ([player, 'Instructors'] call vn_mf_fnc_player_on_team)"];
+}, 0, 5, true, true, "", "(player distance _target < 5) && ([player, 'Instructors'] call vn_mf_fnc_player_on_team)"
+] call vn_mf_fnc_action_addAction;

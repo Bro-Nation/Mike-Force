@@ -396,7 +396,10 @@ if hasInterface then
 
     if (player getVariable ["vn_mf_masterarm_action_id", -1] <= -1) then
     {
-        private _action_id = player addAction _action;
+        private _action_id = ([
+            player,
+            "vn_mf_masterarm_action_id"
+        ] + _action) call vn_mf_fnc_action_addAction;
         player setVariable ["vn_mf_masterarm_action_id",_action_id];
     };
 
