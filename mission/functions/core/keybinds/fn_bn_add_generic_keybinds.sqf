@@ -16,8 +16,12 @@ private _category = "BN Keybinds - Generic";
     _category,
     "vn_mf_inventory_move_stack",
     ["Move Inventory Stack", "Hold while dragging to move matching items"],
-    { false },
-    { false },
+    {
+        uiNamespace setVariable ["vn_mf_inventory_shortcut_key", 1];
+    },
+    {
+        uiNamespace setVariable ["vn_mf_inventory_shortcut_key", -1];
+    },
     [DIK_LSHIFT, [true, false, false]]
 ] call CBA_fnc_addKeybind;
 

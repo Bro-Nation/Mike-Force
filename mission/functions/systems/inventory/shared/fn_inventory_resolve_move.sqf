@@ -167,4 +167,21 @@ if (!isNull _target && {_idc in [632,640]}) then {
     };
 };
 
+if (_idc in [632, 640]) then {
+    private _openedContainer = uiNamespace getVariable ["vn_mf_active_inventory_container", objNull];
+    private _openedGround = missionNamespace getVariable ["vn_mf_targetContainer", objNull];
+    private _secondaryContainer = missionNamespace getVariable ["vn_mf_secondaryContainer", objNull];
+    if (!isNull _openedContainer && {_openedContainer isEqualTo _secondaryContainer} &&
+        {!isNull _openedGround} &&
+        {_openedGround isKindOf "GroundWeaponHolder" || {_openedGround isKindOf "WeaponHolder"} || {_openedGround isKindOf "WeaponHolderSimulated"}}) then {
+        private _ownerIndex = (nearestObjects [player, ["CAManBase"], 8]) findIf {
+            _x isNotEqualTo player && {alive _x} &&
+            {_openedContainer in [uniformContainer _x, vestContainer _x, backpackContainer _x]}
+        };
+        if (_ownerIndex >= 0) then {
+            _source = if (_idc isEqualTo 632) then { _openedContainer } else { _openedGround };
+        };
+    };
+};
+
 [_source, _target, _mode, _activePane]
