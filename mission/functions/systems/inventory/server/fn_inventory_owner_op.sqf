@@ -34,9 +34,6 @@ if (isNull _caller || {isNull _source} || {_item isEqualTo ""} || {_qty <= 0}) e
 };
 
 private _playerSlots = [_caller, uniformContainer _caller, vestContainer _caller, backpackContainer _caller];
-if (((_source in _playerSlots) || {!isNull _target && {_target in _playerSlots}}) && {!local _caller}) exitWith {
-    [false, 0, "player inventory is not local"] call _reply;
-};
 
 if (_groundDestination) then {
     if (isNull _target || {!(_target isKindOf "GroundWeaponHolder" || {_target isKindOf "WeaponHolder"})}) then {
@@ -57,7 +54,10 @@ private _reason = "";
 private _failed = false;
 
 for "_index" from 1 to _limit do {
-    if (isNull _target || {!(_target canAdd _item)}) exitWith {
+    if (isNull _target) exitWith {
+        _reason = "destination unavailable or full";
+    };
+    if (!(_target isKindOf "Man") && {!(_target canAdd _item)}) exitWith {
         _reason = "destination unavailable or full";
     };
 
@@ -104,7 +104,4 @@ if (_limit <= 0) then {
     _reason = "no matching items available";
 };
 private _success = (_moved > 0) && {!_failed};
-if (!_success || {_reason isNotEqualTo ""}) then {
-    diag_log format ["[vn_mf_fnc_inventory_owner_op] result: id=%1 machine=%2 caller=%3 source=%4 target=%5 item=%6 requested=%7 available=%8 moved=%9 success=%10 reason=%11 action=%12", _operationId, clientOwner, _caller, _source, _target, _item, _qty, _available, _moved, _success, _reason, _buttonType];
-};
 [_success, _moved, _reason] call _reply;

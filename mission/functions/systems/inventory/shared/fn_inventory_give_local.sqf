@@ -6,6 +6,11 @@
     Description:
         Adds one item or magazine, preserving its ammo count.
 
+    Parameter(s):
+        _container - Unit or cargo object [OBJECT]
+        _class - Item or magazine class [STRING]
+        _ammo - Magazine ammo count, or -1 for an item [NUMBER]
+
     Returns:
         1 if added, 0 if not added, -1 if the observed change is unexpected [NUMBER]
 */
@@ -17,7 +22,11 @@ params [
 ];
 
 if (isNull _container || {_class isEqualTo ""}) exitWith { 0 };
-if !(_container canAdd _class) exitWith { 0 };
+private _units = allUnits + allPlayers + allDeadMen;
+private _ownedSlot = _units findIf {
+    _container in [uniformContainer _x, vestContainer _x, backpackContainer _x]
+};
+if (!(_container isKindOf "Man") && {_ownedSlot < 0} && {!(_container canAdd _class)}) exitWith { 0 };
 
 private _isMagazine = isClass (configFile >> "CfgMagazines" >> _class);
 if (_isMagazine && {_ammo < 0}) exitWith {
@@ -40,12 +49,8 @@ if (_container isKindOf "Man") then {
     };
 } else {
     if (_isMagazine) then {
-        private _players = allPlayers;
-        private _ownerIndex = _players findIf {
-            _container in [uniformContainer _x, vestContainer _x, backpackContainer _x]
-        };
-        if (_ownerIndex >= 0 && {_class call BIS_fnc_isThrowable}) then {
-            private _unit = _players select _ownerIndex;
+        if (_ownedSlot >= 0 && {_class call BIS_fnc_isThrowable}) then {
+            private _unit = _units select _ownedSlot;
             if (_container isEqualTo (uniformContainer _unit)) then {
                 _unit addItemToUniform _class;
             } else {
