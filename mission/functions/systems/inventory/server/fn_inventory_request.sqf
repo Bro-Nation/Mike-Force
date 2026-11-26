@@ -44,17 +44,75 @@ if (_groundDestination && {_mode isNotEqualTo "give"}) exitWith {
     ["invalid ground destination"] call _reject;
 };
 
-private _isMagazine = isClass (configFile >> "CfgMagazines" >> _item);
-private _itemType = _item call BIS_fnc_itemType;
-if (!_isMagazine && {(_itemType param [0, ""]) isNotEqualTo "Item"}) exitWith {
+private _isKnownInventoryItem =
+    isClass (configFile >> "CfgMagazines" >> _item) ||
+    {isClass (configFile >> "CfgWeapons" >> _item)} ||
+    {isClass (configFile >> "CfgVehicles" >> _item)} ||
+    {isClass (configFile >> "CfgGlasses" >> _item)};
+if (!_isKnownInventoryItem) exitWith {
     ["unsupported item type"] call _reject;
 };
 
 private _playerSlots = [_caller, uniformContainer _caller, vestContainer _caller, backpackContainer _caller];
 private _sourceIsPlayer = _source in _playerSlots;
 private _targetIsPlayer = !isNull _target && {_target in _playerSlots};
-if ((!_sourceIsPlayer && {_source isKindOf "Man" || {_caller distance _source > 8}}) ||
-    {!isNull _target && {!_targetIsPlayer} && {_target isKindOf "Man" || {_caller distance _target > 8}}}) exitWith {
+private _sourceManOwner = objNull;
+private _targetManOwner = objNull;
+if (!isNull _source && {!(_source isKindOf "Man")}) then {
+    private _sourceUnits = allUnits + allPlayers + allDeadMen;
+    _sourceUnits = _sourceUnits arrayIntersect _sourceUnits;
+    private _sourceOwnerIndex = _sourceUnits findIf {
+        _source in [uniformContainer _x, vestContainer _x, backpackContainer _x]
+    };
+    if (_sourceOwnerIndex >= 0) then {
+        _sourceManOwner = _sourceUnits select _sourceOwnerIndex;
+    };
+};
+if (!isNull _target && {!(_target isKindOf "Man")}) then {
+    private _targetUnits = allUnits + allPlayers;
+    private _targetOwnerIndex = _targetUnits findIf {
+        _target isEqualTo (uniformContainer _x) ||
+        {_target isEqualTo (vestContainer _x)} ||
+        {_target isEqualTo (backpackContainer _x)}
+    };
+    if (_targetOwnerIndex >= 0) then {
+        _targetManOwner = _targetUnits select _targetOwnerIndex;
+    } else {
+        private _nearby = nearestObjects [_caller, ["CAManBase"], 8];
+        private _nearbyIndex = _nearby findIf {
+            _target isEqualTo (uniformContainer _x) ||
+            {_target isEqualTo (vestContainer _x)} ||
+            {_target isEqualTo (backpackContainer _x)}
+        };
+        if (_nearbyIndex >= 0) then {
+            _targetManOwner = _nearby select _nearbyIndex;
+        };
+    };
+};
+private _sourceAccessible = _sourceIsPlayer || {
+    if (_source isKindOf "Man") then {
+        (_caller distance _source <= 8)
+    } else {
+        if (!isNull _sourceManOwner) then {
+            (_caller distance _sourceManOwner <= 8)
+        } else {
+            (_caller distance _source <= 8)
+        };
+    };
+};
+private _targetAccessible = isNull _target || {_targetIsPlayer} || {
+    if (_target isKindOf "Man") then {
+        (_caller distance _target <= 8)
+    } else {
+        if (!isNull _targetManOwner) then {
+            (_caller distance _targetManOwner <= 8)
+        } else {
+            (_caller distance _target <= 8)
+        };
+    };
+};
+if (!_sourceAccessible || {!_targetAccessible}) exitWith {
+    diag_log format ["[vn_mf_fnc_inventory_request] accessibility: caller=%1 source=%2 sourceOwner=%3 sourceAccessible=%4 target=%5 targetOwner=%6 targetAccessible=%7", name _caller, typeOf _source, typeOf _sourceManOwner, _sourceAccessible, typeOf _target, typeOf _targetManOwner, _targetAccessible];
     ["container is not accessible"] call _reject;
 };
 if (isNull _target && {!_groundDestination}) exitWith {
@@ -74,10 +132,17 @@ if !(_busy isEqualTo []) exitWith {
 
 private _operationId = (missionNamespace getVariable ["vn_mf_inventory_operation_id", 0]) + 1;
 missionNamespace setVariable ["vn_mf_inventory_operation_id", _operationId];
-private _worker = if (_sourceIsPlayer || {_targetIsPlayer} || {_groundDestination}) then {
-    owner _caller
+private _worker = if (!isNull _sourceManOwner && {alive _sourceManOwner}) then {
+    owner _sourceManOwner
 } else {
-    owner _source
+    if (_sourceIsPlayer || {_targetIsPlayer} || {!isNull _targetManOwner} || {_groundDestination}) then {
+        owner _caller
+    } else {
+        owner _source
+    };
+};
+if (_worker <= 0) then {
+    _worker = 2;
 };
 if (_worker <= 0) exitWith {
     ["inventory owner unavailable"] call _reject;

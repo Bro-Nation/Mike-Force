@@ -161,14 +161,6 @@ switch _type do
 					};
 					false
 				}];
-				_display displayAddEventHandler ["KeyDown", {
-					["keyDown", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
-					false
-				}];
-				_display displayAddEventHandler ["KeyUp", {
-					["keyUp", -1, _this] call vn_mf_fnc_inventory_drag_shortcut;
-					false
-				}];
 			};
 			// armor stats init
 			{
