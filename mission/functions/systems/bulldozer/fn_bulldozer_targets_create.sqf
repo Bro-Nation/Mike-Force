@@ -24,16 +24,16 @@ if !(_existingTargets isEqualTo []) exitWith { _existingTargets };
 
 private _pos = if (_targetPos isEqualTo []) then { getPosATL _vehicle } else { _targetPos };
 private _targetOffsets = [
-    [ 0,   2.8,  -0.8],  // front
-    [ 0,  -1.9,  -0.8],  // rear
-    [-1.5,   0,   -0.8],  // left
-    [ 1.5,   0,   -0.8],  // right
+    [ 0,   2.8,  -0.1],  // front
+    [ 0,  -1.9,  -0.1],  // rear
+    [-1.5,   0,   -0.1],  // left
+    [ 1.5,   0,   -0.1],  // right
     [ 0,   0.4,   -0.2]   // top
 ];
 
 private _targets = [];
 {
-    private _target = createVehicle ["CBA_B_InvisibleTargetVehicle", _pos, [], 0, "CAN_COLLIDE"];
+    private _target = createVehicle ["B_TargetSoldier", _pos, [], 0, "CAN_COLLIDE"];
     if (!isNull _target) then {
         createVehicleCrew _target;
         _target allowDamage false;
