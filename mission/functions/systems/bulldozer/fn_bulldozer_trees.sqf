@@ -23,7 +23,7 @@ private _delay = 5;          // seconds before hiding/deleting trees
 private _frontOffset = 2;    // meters ahead of vehicle
 private _interval = 0.5;     // loop interval
 private _slowSpeed = 10;     // max speed when blade is lowered (m/s)
-private _bladeTime = 60;     // seconds blade stays down automatically
+private _bladeTime = [3*60]; // seconds blade stays down automatically
 
 // --- INITIALIZATION ---
 // Server only, so JIP clients running this function don't reset the blade state
@@ -110,7 +110,7 @@ if (isServer) then {
             } forEach _objs;
 
             // Auto-raise blade
-            if (time - _downSince >= _bladeTime) then {
+            if (time - _downSince >= (_bladeTime select 0)) then {
                 _veh setVariable ["bladeDown", false, true];
                 _downSince = -1;
                 private _drv = driver _veh;

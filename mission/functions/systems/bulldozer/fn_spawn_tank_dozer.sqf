@@ -31,11 +31,12 @@ _tank enableSimulationGlobal true;
 _tank setVariable ["spawnObj", _spawnObj, true];
 
 // Indestructible dozer blade
-private _dozer = createSimpleObject ["Land_vn_bulldozer_01_wreck_f", _pos];
-_dozer allowDamage false;
+private _modelPath = getText (configFile >> "CfgVehicles" >> "Land_vn_bulldozer_01_wreck_f" >> "model");
+_modelPath = _modelPath trim ["\", 1];
+
+private _dozer = createSimpleObject [_modelPath, _pos, true];
 _dozer attachTo [_tank, [0, 1, -0.8]];
 _dozer setDir 180;
-_dozer enableSimulationGlobal false;
 
 // Invisible targets so AI can see/engage the tank
 private _targets = [_tank, _pos] call vn_mf_fnc_bulldozer_targets_init;
